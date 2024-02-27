@@ -1,0 +1,11 @@
+@startuml
+autonumber
+
+' Description: Guest views news about refugees on homepage
+Guest -> Homepage: Accesses Homepage
+Homepage -> NewsController: Request News Updates
+NewsController -> NewsDatabase: Retrieve News Articles
+NewsDatabase --> NewsController: News Articles
+NewsController --> Homepage: Display News Updates
+
+@enduml

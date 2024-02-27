@@ -1,8 +1,9 @@
 @startuml
 autonumber
 
-Guest -> RegistrationRefugeePage: Accesses Registration Page
-RegistrationRefugeePage -> RegistrationController: Submits Registration Form
+' Description: This diagram registers a guest as a mentor
+Guest -> RegistrationMentorPage: Accesses Registration Page
+RegistrationMentorPage -> RegistrationController: Submits Registration Form
 RegistrationController -> Database: Store Registration Data
 Database --> RegistrationController: Confirmation
 RegistrationController --> Guest: Confirmation Message
