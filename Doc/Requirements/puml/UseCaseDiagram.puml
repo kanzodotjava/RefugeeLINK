@@ -1,0 +1,28 @@
+@startuml
+
+left to right direction
+
+actor "Guest" as Guest
+actor "Refugee" as Refugee
+actor "Mentor" as Mentor
+actor "Formation Organization" as Org
+
+usecase "UC010 - Register as refugee" as UC010
+usecase "UC011 - Register as mentor" as UC011
+usecase "UC012 - View news" as UC012
+usecase "UC013 - View available formations" as UC013
+usecase "UC014 - View available mentors" as UC014
+usecase "UC015 - View available jobs" as UC015
+usecase "UC016 - Create formations" as UC016
+usecase "UC017 - See available refugees for mentorship" as UC017
+
+Guest --> UC010
+Guest --> UC011
+Guest --> UC012
+Refugee --> UC013
+Refugee --> UC014
+Refugee --> UC015
+Mentor --> UC017
+Org --> UC016
+
+@enduml
