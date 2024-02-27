@@ -1,0 +1,11 @@
+@startuml
+
+autonumber
+
+Refugee -> RegistrationPage: Accesses Registration Page
+RegistrationPage -> RegistrationController: Submits Registration Form
+RegistrationController -> Database: Store Registration Data
+Database --> RegistrationController: Confirmation
+RegistrationController --> Refugee: Confirmation Message
+
+@enduml
