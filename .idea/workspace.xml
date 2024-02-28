@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a95ddd18-ddfa-4e65-80e8-f055aee436bd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Doc/use-Cases/uc013/UseCase013.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doc/use-Cases/uc013/UserStory013.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/1.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/2.drawio" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +64,11 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/GROWTH/CURSO/SPRINT2e3/RefugeeLINK/RefugeeLINK&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\GROWTH\CURSO\SPRINT2e3\RefugeeLINK\RefugeeLINK\Doc" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
