@@ -6,6 +6,7 @@ actor "Guest" as Guest
 actor "Refugee" as Refugee
 actor "Mentor" as Mentor
 actor "Formation Organization" as Org
+actor "System administrator" as Admin
 
 usecase "UC010 - Register as refugee" as UC010
 usecase "UC011 - Register as mentor" as UC011
@@ -22,23 +23,34 @@ usecase "UC026 - Do a formation" as UC026
 usecase "UC027 - Apply to a job" as UC027
 
 
+usecase "UC030 - Review Mentor" as UC030
+usecase "UC031 - Create formations" as UC031
+usecase "UC032 - Create class" as UC032
+usecase "UC033 - Accept refugees to class's" as UC033
 
-usecase "UC030 - Create formations" as UC030
-usecase "UC031 - Review Mentor" as UC031
-usecase "UC040 - See available refugees for mentorship" as UC040
+usecase "UC040 - See refugees that need mentorship" as UC040
 usecase "UC041 - Accept refugees has apprentice" as UC041
 usecase "UC042 - Chat with apprentice" as UC042
+
+usecase "UC050 - Create organizations" as UC050
 
 
 Guest --> UC010
 Guest --> UC011
 Guest --> UC012
+
 Refugee --> UC020
 Refugee --> UC021
 Refugee --> UC022
-Mentor --> UC040
+
 Org --> UC030
 Org --> UC031
+
+Mentor --> UC040
+
+Admin --> UC050
+
+
 UC021 --> UC023
 UC023 --> UC024
 UC020 --> UC025
@@ -46,6 +58,8 @@ UC025 --> UC026
 UC040 --> UC041
 UC041 --> UC042
 UC022 --> UC027
+UC031 --> UC032
+UC032 --> UC033
 
 
 
