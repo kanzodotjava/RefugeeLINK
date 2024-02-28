@@ -13,8 +13,12 @@ usecase "UC012 - View news" as UC012
 usecase "UC020 - View available formations" as UC020
 usecase "UC021 - View available mentors" as UC021
 usecase "UC022 - View available jobs" as UC022
+usecase "UC023 - Chat with mentors" as UC023
 usecase "UC030 - Create formations" as UC030
+usecase "UC031 - Review Mentor" as UC031
 usecase "UC040 - See available refugees for mentorship" as UC040
+usecase "UC041 - Chat with Apprentices" as UC041
+
 
 Guest --> UC010
 Guest --> UC011
@@ -22,7 +26,11 @@ Guest --> UC012
 Refugee --> UC020
 Refugee --> UC021
 Refugee --> UC022
+Refugee --> UC023
 Mentor --> UC040
+Mentor --> UC041
 Org --> UC030
+Org --> UC031
+
 
 @enduml
