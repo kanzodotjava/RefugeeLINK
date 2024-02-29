@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a95ddd18-ddfa-4e65-80e8-f055aee436bd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Doc/use-Cases/uc013/UseCase013.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Doc/use-Cases/uc013/UserStory013.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/1.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/2.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/use-Cases/uc013/UseCase013.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/use-Cases/uc013/UserStory013.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +36,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="UML Sequence" />
       </list>
     </option>
   </component>
@@ -52,16 +50,20 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2cxJeNHeunyASISsmSnBR9ufVaU" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Sequence&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/GROWTH/CURSO/SPRINT2e3/RefugeeLINK/RefugeeLINK&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Francisco/Desktop/RefugeeLINK/Doc/Requirements/png/UseCaseDiagram.png&quot;
   }
 }</component>
   <component name="RecentsManager">
