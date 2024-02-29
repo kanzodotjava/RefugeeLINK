@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a95ddd18-ddfa-4e65-80e8-f055aee436bd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Doc/use-Cases/uc025/sequenceDiagram/sequenceDiagram025.puml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doc/use-Cases/uc013/UseCase013.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doc/use-Cases/uc013/UserStory013.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/use-Cases/uc012/sequenceDiagram/sequenceDiagram012.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/use-Cases/uc012/sequenceDiagram/sequenceDiagram012.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/use-Cases/uc020/UserCase020.md" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/use-Cases/uc025/UserCase025.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/use-Cases/uc020/UserStory020.md" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/use-Cases/uc025/UserStory025.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/use-Cases/uc020/sequenceDiagram/sequenceDiagram020.puml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,15 +59,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Sequence&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Francisco/Desktop/RefugeeLINK/Doc/Requirements/png/UseCaseDiagram.png&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultPlantUmlFileTemplate": "UML Sequence",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Francisco/Desktop/RefugeeLINK/Doc/use-Cases/uc020/sequenceDiagram"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\GROWTH\CURSO\SPRINT2e3\RefugeeLINK\RefugeeLINK\Doc" />

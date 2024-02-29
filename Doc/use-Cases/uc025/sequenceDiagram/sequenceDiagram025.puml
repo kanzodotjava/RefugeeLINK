@@ -1,0 +1,25 @@
+@startuml
+autonumber
+
+' Description: Registered Refugee applies for a training program
+Refugee -> App: Navigate to Training Programs Section
+App -> TrainingProgramController: Request Available Programs
+TrainingProgramController -> TrainingProgramDatabase: Retrieve Program List
+TrainingProgramDatabase --> TrainingProgramController: List of Programs
+TrainingProgramController --> App: Display Programs
+
+Refugee -> App: Select Program
+App -> TrainingProgramController: Request Program Details
+TrainingProgramController -> TrainingProgramDatabase: Retrieve Program Details
+TrainingProgramDatabase --> TrainingProgramController: Program Details
+TrainingProgramController --> App: Display Program Details
+
+Refugee -> App: Apply for Program
+App -> TrainingProgramController: Display Application Form
+Refugee -> App: Submit Application Form
+App -> TrainingProgramController: Process Application
+TrainingProgramController -> TrainingProgramDatabase: Store Application Details
+TrainingProgramDatabase --> TrainingProgramController: Confirmation
+TrainingProgramController --> App: Display Confirmation Message
+
+@enduml

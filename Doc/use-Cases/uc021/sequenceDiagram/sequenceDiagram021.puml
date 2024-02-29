@@ -1,0 +1,17 @@
+@startuml
+autonumber
+
+' Description: Registered Refugee views available mentors
+Refugee -> App: Navigate to Mentors Section
+App -> MentorController: Request Available Mentors
+MentorController -> MentorDatabase: Retrieve Mentors List
+MentorDatabase --> MentorController: List of Mentors
+MentorController --> App: Display Mentors
+
+Refugee -> App: Apply Filters/Search (Optional)
+App -> MentorController: Filter/Search Request
+MentorController -> MentorDatabase: Apply Filters/Search
+MentorDatabase --> MentorController: Filtered/Search Results
+MentorController --> App: Display Filtered/Search Results
+
+@enduml
