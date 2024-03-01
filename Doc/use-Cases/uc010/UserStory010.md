@@ -15,5 +15,5 @@ As a refugee seeking support and assistance for reintegration into a new communi
 9. I should be able to access my account later to update my information if necessary.
 
 ## Notes
-- This registration process should be secure and protected to ensure the privacy and security of refugee data.
+- This regis1tration process should be secure and protected to ensure the privacy and security of refugee data.
 - The registration process should be intuitive and easy to understand, considering potential language and cultural barriers of users.
