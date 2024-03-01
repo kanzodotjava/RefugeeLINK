@@ -9,5 +9,10 @@
         </processorPath>
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="pt.upskill.RefugeeLINK" target="21" />
+      <module name="pt.upskill.RefugeeLINK.main" target="21" />
+      <module name="pt.upskill.RefugeeLINK.test" target="21" />
+    </bytecodeTargetLevel>
   </component>
 </project>
