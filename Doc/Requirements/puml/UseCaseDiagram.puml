@@ -20,8 +20,8 @@ usecase "UC022 - View available jobs" as UC022
 usecase "UC023 - Apply to mentorship" as UC023
 usecase "UC024 - Chat with mentor" as UC024
 usecase "UC025 - Apply to formation" as UC025
-usecase "UC027 - Apply to a job" as UC027
-usecase "UC028 - View formations that is registered" as UC028
+usecase "UC026 - Apply to a job" as UC026
+usecase "UC027 - View formations that is registered" as UC027
 
 
 usecase "UC030 - Review Mentor" as UC030
@@ -57,10 +57,10 @@ UC023 --> UC024
 UC020 --> UC025
 UC040 --> UC041
 UC041 --> UC042
-UC022 --> UC027
+UC022 --> UC026
 UC031 --> UC032
 UC032 --> UC033
-UC020 --> UC028
+UC020 --> UC027
 
 
 

@@ -1,0 +1,32 @@
+@startuml
+
+actor Refugee
+actor Mentor
+
+Refugee -> RefugeeLink: Log in
+Refugee -> RefugeeLink: Navigate to chat feature
+RefugeeLink --> Refugee: Display list of connected mentors
+
+Mentor -> RefugeeLink: Log in
+RefugeeLink --> Mentor: Notify mentor of incoming chat request
+Mentor --> RefugeeLink: Accept chat request
+
+RefugeeLink -> Refugee: Initiate chat session with mentor
+RefugeeLink -> Mentor: Initiate chat session with refugee
+
+activate RefugeeLink
+RefugeeLink -> Mentor: Send initial message
+activate Mentor
+Mentor --> RefugeeLink: Receive initial message
+deactivate Mentor
+RefugeeLink --> Refugee: Display initial message
+Refugee -> RefugeeLink: Send message to mentor
+RefugeeLink -> Mentor: Receive message from refugee
+activate Mentor
+Mentor --> RefugeeLink: Send response to refugee
+deactivate Mentor
+RefugeeLink --> Refugee: Display mentor's response
+
+...
+
+@enduml
