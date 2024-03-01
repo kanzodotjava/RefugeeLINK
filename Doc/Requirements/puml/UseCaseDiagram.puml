@@ -11,6 +11,7 @@ actor "System administrator" as Admin
 usecase "UC010 - Register as refugee" as UC010
 usecase "UC011 - Register as mentor" as UC011
 usecase "UC012 - View news" as UC012
+usecase "UC013 - Donate" as UC013
 
 
 usecase "UC020 - View available formations" as UC020
@@ -38,6 +39,7 @@ usecase "UC050 - Create organizations" as UC050
 Guest --> UC010
 Guest --> UC011
 Guest --> UC012
+Guest --> UC013
 
 Refugee --> UC020
 Refugee --> UC021
