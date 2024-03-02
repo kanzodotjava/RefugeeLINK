@@ -1,0 +1,13 @@
+@startuml
+
+actor Mentor
+participant RefugeeLink as "RefugeeLink App"
+participant Database as "Database"
+
+Mentor -> RefugeeLink: Log in
+Mentor -> RefugeeLink: Navigate to "View Refugees Needing Mentorship"
+RefugeeLink --> Mentor: List of refugees needing mentorship
+Mentor -> RefugeeLink: Select a refugee to view details
+RefugeeLink --> Mentor: Detailed information about selected refugee
+
+@enduml

@@ -1,0 +1,25 @@
+@startuml
+
+actor Organization
+participant RefugeeLink as "RefugeeLink App"
+participant Database as "Database"
+
+Organization -> RefugeeLink: Log in
+Organization -> RefugeeLink: Navigate to "Review Mentor"
+RefugeeLink -> Database: Retrieve list of mentors
+Database --> RefugeeLink: List of mentors
+RefugeeLink --> Organization: Display list of mentors
+
+Organization -> RefugeeLink: Select a mentor to review
+RefugeeLink -> Database: Retrieve mentor details
+Database --> RefugeeLink: Mentor details
+RefugeeLink --> Organization: Display mentor details
+
+Organization -> RefugeeLink: Provide mentor review
+RefugeeLink -> Organization: Display review form
+Organization -> RefugeeLink: Fill out review form
+RefugeeLink -> Database: Submit mentor review
+Database --> RefugeeLink: Confirmation of review submission
+RefugeeLink --> Organization: Confirmation message
+
+@enduml

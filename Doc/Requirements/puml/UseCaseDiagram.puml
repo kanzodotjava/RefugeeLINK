@@ -26,8 +26,7 @@ usecase "UC027 - View formations that is registered" as UC027
 
 usecase "UC030 - Review Mentor" as UC030
 usecase "UC031 - Create formations" as UC031
-usecase "UC032 - Create class" as UC032
-usecase "UC033 - Accept refugees to class's" as UC033
+usecase "UC032 - Accept refugees to a formation" as UC032
 
 usecase "UC040 - See refugees that need mentorship" as UC040
 usecase "UC041 - Accept refugees has apprentice" as UC041
@@ -59,7 +58,6 @@ UC040 --> UC041
 UC041 --> UC042
 UC022 --> UC026
 UC031 --> UC032
-UC032 --> UC033
 UC020 --> UC027
 
 

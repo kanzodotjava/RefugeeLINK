@@ -1,0 +1,20 @@
+@startuml
+
+actor Organization
+participant RefugeeLink as "RefugeeLink App"
+participant Database as "Database"
+participant Administrator as "RefugeeLink Administrator"
+
+Organization -> RefugeeLink: Log in
+Organization -> RefugeeLink: Navigate to "Create Formation"
+RefugeeLink --> Organization: Formation creation form
+Organization -> RefugeeLink: Fill out formation details
+Organization -> RefugeeLink: Upload additional materials/resources
+Organization -> RefugeeLink: Submit formation for review
+RefugeeLink -> Database: Save submitted formation details
+Database --> RefugeeLink: Confirmation of formation submission
+RefugeeLink -> Administrator: Notify administrator of new formation submission
+Administrator --> RefugeeLink: Review submitted formation
+RefugeeLink --> Organization: Confirmation message of formation submission review
+
+@enduml
