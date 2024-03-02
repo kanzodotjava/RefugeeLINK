@@ -24,7 +24,7 @@ usecase "UC026 - Apply to a job" as UC026
 usecase "UC027 - View formations that is registered" as UC027
 
 
-usecase "UC030 - Review Mentor" as UC030
+usecase "UC030 - Approve or Reject students in Formation based on Grades" as UC030
 usecase "UC031 - Create formations" as UC031
 usecase "UC032 - Accept refugees to a formation" as UC032
 
