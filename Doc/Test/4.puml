@@ -1,0 +1,52 @@
+@startuml RefugeeLinkDatabaseModel
+
+entity Refugee {
+    *RefugeeID: int
+    --
+    CitizenCard: varchar
+    RefugeeNumber: varchar
+    Name: varchar
+    EmailAddress: varchar
+    PhoneNumber: varchar
+    CountryOfOrigin: varchar
+    CurrentCountry: varchar
+    LanguagesSpoken: varchar
+    BirthDate: date
+    ProfessionalExperience: varchar
+}
+
+entity Mentor {
+    *MentorID: int
+    --
+    Name: varchar
+    EmailAddress: varchar
+    PhoneNumber: varchar
+    CountryOfOrigin: varchar
+    CurrentCountry: varchar
+    LanguagesSpoken: varchar
+    BirthDate: date
+    ProfessionalExperience: varchar
+}
+
+entity Course {
+    *CourseID: int
+    --
+    Title: varchar
+    Description: text
+    OrganizationID: int
+}
+
+entity Organization {
+    *OrganizationID: int
+    --
+    Name: varchar
+    ContactInfo: varchar
+}
+
+Refugee ||--o{ Mentorship : requests
+Mentor ||--o{ Mentorship : offers
+Refugee ||--o{ CourseApplication : applies
+Course ||--o{ CourseApplication : includes
+Course }|--|| Organization : provided by
+
+@enduml

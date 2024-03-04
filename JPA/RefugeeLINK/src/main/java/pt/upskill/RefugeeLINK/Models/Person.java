@@ -1,9 +1,6 @@
 package pt.upskill.RefugeeLINK.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import pt.upskill.RefugeeLINK.Enums.Country;
@@ -14,7 +11,8 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-public class Person {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

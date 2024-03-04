@@ -1,0 +1,68 @@
+@startuml RefugeeLinkClassDiagram
+
+class Refugee {
+-CitizenCard: String
+-RefugeeNumber: String
+-Name: String
+-EmailAddress: String
+-PhoneNumber: String
+-CountryOfOrigin: String
+-CurrentCountry: String
+-LanguagesSpoken: String
+-BirthDate: Date
+-ProfessionalExperience: String
++register()
++applyForMentorship()
++browseCourses()
++applyForCourse()
+}
+
+class Mentor {
+-Name: String
+-EmailAddress: String
+-PhoneNumber: String
+-CountryOfOrigin: String
+-CurrentCountry: String
+-LanguagesSpoken: String
+-BirthDate: Date
+-ProfessionalExperience: String
++register()
++offerMentorship()
+}
+
+class Course {
+-CourseID: String
+-Title: String
+-Description: String
+-OrganizationID: String
++publishCourse()
+}
+
+class Organization {
+-OrganizationID: String
+-Name: String
+-ContactInfo: String
++registerCourse(course: Course)
+}
+
+class Mentorship {
+-MentorshipID: String
+-RefugeeID: String
+-MentorID: String
++createMentorship()
+}
+
+class CourseApplication {
+-ApplicationID: String
+-RefugeeID: String
+-CourseID: String
++applyForCourse()
+}
+
+Refugee "1" -- "n" Mentorship : "requests"
+Mentorship "n" -- "1" Mentor : "offers"
+Refugee "1" -- "n" CourseApplication : "applies for"
+CourseApplication "n" -- "1" Course : "includes"
+Course "n" -- "1" Organization : "provided by"
+
+@enduml

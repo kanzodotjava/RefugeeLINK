@@ -1,0 +1,9 @@
+@startuml
+actor Refugee
+participant "System" as S
+
+Refugee -> S: selectCourse(courseId)
+S -> S: validateCourseAvailability(courseId)
+S -> S: createCourseApplication(refugeeId, courseId)
+S --> Refugee: confirmApplication(applicationId)
+@enduml

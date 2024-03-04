@@ -1,0 +1,11 @@
+@startuml
+actor Refugee
+participant "Registration System" as RS
+participant "Database" as DB
+
+Refugee -> RS: submitRegistrationForm(formData)
+RS -> RS: validateFormData(formData)
+RS -> DB: createRefugeeProfile(formData)
+DB --> RS: confirmProfileCreation(refugeeId)
+RS --> Refugee: registrationSuccess(refugeeId)
+@enduml
