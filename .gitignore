@@ -2,6 +2,7 @@
 # Compiled class file
 *.class
 
+<<<<<<< HEAD
 # Log files
 *.log
 
@@ -66,3 +67,10 @@ target/generated-sources/
 # Entity Framework
 # Entity Framework migration files
 /Migrations/
+=======
+.idea/.name
+.idea/workspace.xml
+.idea/misc.xml
+.idea/gradle.xml
+*.xml
+>>>>>>> 000f3e54318ef45985ae8063bfa6fd90e807dad3
