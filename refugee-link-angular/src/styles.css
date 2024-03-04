@@ -1,0 +1,9 @@
+/* Set Montserrat font for the entire project */
+* {
+  font-family: "Montserrat", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+}
