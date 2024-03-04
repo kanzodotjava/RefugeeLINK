@@ -1,0 +1,21 @@
+@startuml
+
+actor Mentor
+participant RefugeeLink as "RefugeeLink App"
+participant Database as "Database"
+participant Apprentice as "Apprentice"
+
+Mentor -> RefugeeLink: Log in
+Mentor -> RefugeeLink: Navigate to chat feature
+RefugeeLink --> Mentor: List of current apprentices
+Mentor -> RefugeeLink: Select apprentice to chat with
+RefugeeLink -> Database: Retrieve chat history
+Database --> RefugeeLink: Chat history for selected apprentice
+Mentor <-> Apprentice: Chat messages
+Mentor -> RefugeeLink: Send message
+RefugeeLink -> Apprentice: Deliver message notification
+Apprentice -> RefugeeLink: Receive message
+RefugeeLink -> Mentor: Deliver message confirmation
+Note right of Mentor: Chat continues...\n(Real-time communication)
+
+@enduml

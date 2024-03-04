@@ -1,0 +1,41 @@
+@startuml
+
+actor Refugee
+Refugee -> RefugeeLink: Log in
+Refugee -> RefugeeLink: Navigate to "View Available Mentors"
+
+activate RefugeeLink
+
+RefugeeLink -> Database: Retrieve available mentors
+Database --> RefugeeLink: List of mentors
+
+RefugeeLink --> Refugee: Display list of available mentors
+
+Refugee -> RefugeeLink: Select a mentor to view details
+activate RefugeeLink
+
+RefugeeLink -> Database: Retrieve mentor details
+Database --> RefugeeLink: Mentor details
+
+RefugeeLink --> Refugee: Display mentor details
+
+Refugee -> RefugeeLink: Initiate mentorship application
+RefugeeLink --> Refugee: Display mentorship application form
+
+Refugee -> RefugeeLink: Fill out application form
+RefugeeLink --> Refugee: Submit application
+
+RefugeeLink --> Database: Save mentorship application
+Database --> RefugeeLink: Confirmation of application submission
+
+RefugeeLink --> Mentor: Notify mentor of new application
+activate Mentor
+Mentor --> RefugeeLink: Review mentorship application
+RefugeeLink --> Mentor: Accept or decline mentorship application
+deactivate Mentor
+
+RefugeeLink --> Refugee: Confirmation message of application submission
+
+deactivate RefugeeLink
+
+@enduml

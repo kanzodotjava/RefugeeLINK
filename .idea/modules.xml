@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/RefugeeLINK.iml" filepath="$PROJECT_DIR$/.idea/RefugeeLINK.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pt.upskill.RefugeeLINK.iml" filepath="$PROJECT_DIR$/.idea/modules/pt.upskill.RefugeeLINK.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pt.upskill.RefugeeLINK.main.iml" filepath="$PROJECT_DIR$/.idea/modules/pt.upskill.RefugeeLINK.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pt.upskill.RefugeeLINK.test.iml" filepath="$PROJECT_DIR$/.idea/modules/pt.upskill.RefugeeLINK.test.iml" />
     </modules>
   </component>
 </project>

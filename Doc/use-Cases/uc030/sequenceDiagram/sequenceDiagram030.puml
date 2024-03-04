@@ -1,0 +1,17 @@
+@startuml
+
+actor Organization
+participant "RefugeeLink App" as App
+participant "Formation Student List" as List
+participant Database
+
+Organization -> App: Log in
+Organization -> App: Navigate to formation
+App -> Database: Retrieve student list for formation
+Database --> App: Student list
+Organization -> App: Toggle approval status of student
+App -> Database: Update student approval status
+Database --> App: Confirmation of update
+App --> Organization: Confirmation message
+
+@enduml

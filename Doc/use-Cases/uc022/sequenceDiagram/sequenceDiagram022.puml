@@ -1,0 +1,30 @@
+@startuml
+
+actor Refugee
+Refugee -> RefugeeLink: Log in
+Refugee -> RefugeeLink: Navigate to "View Available Jobs"
+
+activate RefugeeLink
+
+RefugeeLink -> Database: Retrieve available jobs
+Database --> RefugeeLink: List of jobs
+
+RefugeeLink --> Refugee: Display list of available jobs
+
+Refugee -> RefugeeLink: Select a job to view details
+activate RefugeeLink
+
+RefugeeLink -> Database: Retrieve job details
+Database --> RefugeeLink: Job details
+
+RefugeeLink --> Refugee: Display job details
+
+Refugee -> RefugeeLink: Decide to apply for the job
+RefugeeLink -> Refugee: Initiate application process
+RefugeeLink --> Database: Submit application
+Database --> RefugeeLink: Confirmation of application submission
+RefugeeLink --> Refugee: Confirmation message
+
+deactivate RefugeeLink
+
+@enduml

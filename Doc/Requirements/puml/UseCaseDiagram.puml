@@ -6,23 +6,61 @@ actor "Guest" as Guest
 actor "Refugee" as Refugee
 actor "Mentor" as Mentor
 actor "Formation Organization" as Org
+actor "System administrator" as Admin
 
 usecase "UC010 - Register as refugee" as UC010
 usecase "UC011 - Register as mentor" as UC011
 usecase "UC012 - View news" as UC012
+usecase "UC013 - Donate" as UC013
+
+
 usecase "UC020 - View available formations" as UC020
 usecase "UC021 - View available mentors" as UC021
 usecase "UC022 - View available jobs" as UC022
-usecase "UC030 - Create formations" as UC030
-usecase "UC040 - See available refugees for mentorship" as UC040
+usecase "UC023 - Apply to mentorship" as UC023
+usecase "UC024 - Chat with mentor" as UC024
+usecase "UC025 - Apply to formation" as UC025
+usecase "UC026 - Apply to a job" as UC026
+usecase "UC027 - View formations that is registered" as UC027
+
+
+usecase "UC030 - Approve or Reject students in Formation based on Grades" as UC030
+usecase "UC031 - Create formations" as UC031
+usecase "UC032 - Accept refugees to a formation" as UC032
+
+usecase "UC040 - See refugees that need mentorship" as UC040
+usecase "UC041 - Accept refugees has apprentice" as UC041
+usecase "UC042 - Chat with apprentice" as UC042
+
+usecase "UC050 - Create organizations" as UC050
+
 
 Guest --> UC010
 Guest --> UC011
 Guest --> UC012
+Guest --> UC013
+
 Refugee --> UC020
 Refugee --> UC021
 Refugee --> UC022
-Mentor --> UC040
+
 Org --> UC030
+Org --> UC031
+
+Mentor --> UC040
+
+Admin --> UC050
+
+UC021 --> UC023
+UC023 --> UC024
+UC020 --> UC025
+UC040 --> UC041
+UC041 --> UC042
+UC022 --> UC026
+UC031 --> UC032
+UC020 --> UC027
+
+
+
 
 @enduml

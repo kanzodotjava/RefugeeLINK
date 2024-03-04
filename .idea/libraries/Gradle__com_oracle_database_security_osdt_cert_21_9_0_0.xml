@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.oracle.database.security:osdt_cert:21.9.0.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.oracle.database.security" artifactId="osdt_cert" version="21.9.0.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.oracle.database.security/osdt_cert/21.9.0.0/87cdebefc515119488e7130aae13b0cf28e0ff40/osdt_cert-21.9.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.oracle.database.security/osdt_cert/21.9.0.0/bc15f00ebacbeb0669f0ed925917c177912db7af/osdt_cert-21.9.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

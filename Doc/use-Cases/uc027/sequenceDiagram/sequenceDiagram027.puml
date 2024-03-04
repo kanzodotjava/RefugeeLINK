@@ -1,0 +1,30 @@
+@startuml
+
+actor Refugee
+participant RefugeeLink as "RefugeeLink App"
+participant Database as "Database"
+participant Employer as "Employer's Application System"
+
+Refugee -> RefugeeLink: Log in
+Refugee -> RefugeeLink: Navigate to job listings
+RefugeeLink -> Database: Retrieve job listings
+Database --> RefugeeLink: List of job listings
+Refugee -> RefugeeLink: Select a job listing
+RefugeeLink -> Refugee: Display job details
+
+Refugee -> RefugeeLink: Initiate job application
+RefugeeLink -> Database: Retrieve application instructions
+Database --> RefugeeLink: Application instructions
+RefugeeLink -> Refugee: Display application instructions
+
+Refugee -> RefugeeLink: Follow application instructions
+RefugeeLink -> Refugee: Application process
+Refugee -> RefugeeLink: Complete application
+RefugeeLink -> Database: Submit job application
+Database --> RefugeeLink: Confirmation of application submission
+RefugeeLink -> Refugee: Confirmation message
+
+RefugeeLink -> Employer: Forward job application
+Employer --> RefugeeLink: Acknowledgment of application
+
+@enduml

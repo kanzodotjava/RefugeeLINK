@@ -1,0 +1,18 @@
+@startuml
+
+actor Admin
+participant "RefugeeLink Admin Panel" as Panel
+participant "RefugeeLink Database" as Database
+participant "Organization" as Org
+
+Admin -> Panel: Log in
+Admin -> Panel: Navigate to create organization
+Panel --> Admin: Organization creation form
+Admin -> Panel: Fill out organization details
+Admin -> Panel: Submit organization details
+Panel -> Database: Save organization details
+Database --> Panel: Confirmation of organization creation
+Panel --> Admin: Confirmation message
+Admin -> Org: Notification of successful creation
+
+@enduml
