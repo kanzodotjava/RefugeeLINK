@@ -1,0 +1,30 @@
+/* services.component.css */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
+  gap: 20px; /* Gap between grid items */
+  margin-top: 100px;
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.service img {
+  max-width: 50%;
+  height: auto;
+}
+
+.service h3 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.service p {
+  font-size: 14px;
+  color: #666;
+}
