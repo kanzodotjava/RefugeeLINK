@@ -135,7 +135,8 @@ public enum Profession {
     VIROLOGIST("Virologist"),
     VOLCANOLOGIST("Volcanologist"),
     WILDLIFE_BIOLOGIST("Wildlife Biologist"),
-    WIND_TURBINE_TECHNICIAN("Wind Turbine Technician");
+    WIND_TURBINE_TECHNICIAN("Wind Turbine Technician"),
+    OTHER("Other");
 
     private final String name;
 

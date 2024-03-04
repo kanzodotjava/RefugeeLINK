@@ -22,247 +22,238 @@ public class Date implements Comparable<Date>{
         private int day;
 
         /**
-         * O ano por omissão.
+         * The default year.
          */
-        private static final int ANO_POR_OMISSAO = 1;
+        private static final int YEAR_BY_OMISSION = 1;
 
         /**
-         * O mês por omissão.
+         * The default month.
          */
-        private static final Mes MES_POR_OMISSAO = Mes.JANEIRO;
+        private static final Month MONTH_BY_OMISSION = Month.JANUARY;
 
         /**
-         * O dia por omissão.
+         * The default day.
          */
         private static final int DIA_POR_OMISSAO = 1;
 
         /**
-         * Representa os dias da semana.
+         * Constructs an instance of Date receiving the year, the month and the day.
          */
-        private static enum DiaDaSemana {
+        private static enum DayOfTheWeek {
 
             /**
-             * Os dias da semana.
+             * The days of the week.
              */
-            DOMINGO { @Override public String toString() { return "Domingo"; } },
-            SEGUNDA { @Override public String toString() { return "Segunda-Feira"; } },
-            TERCA {   @Override public String toString() { return "Terça-Feira"; } },
-            QUARTA {  @Override public String toString() { return "Quarta-Feira"; } },
-            QUINTA {  @Override public String toString() { return "Quinta-Feira"; } },
-            SEXTA {   @Override public String toString() { return "Sexta-Feira"; } },
-            SABADO {  @Override public String toString() { return "Sábado"; } };
+            SUNDAY { @Override public String toString() { return "Sunday"; } },
+            MONDAY { @Override public String toString() { return "Monday"; } },
+            TUESDAY {   @Override public String toString() { return "Tuesday"; } },
+            WEDNESDAY {  @Override public String toString() { return "Wednesday"; } },
+            THURSDAY {  @Override public String toString() { return "Thursday"; } },
+            FRIDAY {   @Override public String toString() { return "Friday"; } },
+            SATURDAY {  @Override public String toString() { return "Saturday"; } };
 
             /**
-             * Devolve a designação do dia da semana cuja ordem é recebida por
-             * parâmetro.
-             *
-             * @param ordemDiaDaSemana a ordem do dia da semana entre zero e seis,
-             *                         inclusivé. A menor ordem corresponde ao
-             *                         Domingo.
-             * @return a designação do dia da semana.
+             * Returns the designation of the day of the week.
+             * @param orderDayOfTheWeek the order of the day of the week.
              */
-            public static String designacaoDiaDaSemana(int ordemDiaDaSemana) {
-                return DiaDaSemana.values()[ordemDiaDaSemana].toString();
+            public static String dayOfTheWeeksDesignation(int orderDayOfTheWeek) {
+                return DayOfTheWeek.values()[orderDayOfTheWeek].toString();
             }
         }
 
         /**
-         * Representa os meses do ano.
+         * Constructs an instance of Date receiving the year, the month and the day.
          */
-        private static enum Mes {
+        private static enum Month {
 
             /**
              * Os meses do ano.
              */
-            JANEIRO(31) {   @Override public String toString() { return "Janeiro"; } },
-            FEVEREIRO(28) { @Override public String toString() { return "Fevereiro"; } },
-            MARCO(31) {     @Override public String toString() { return "Março"; } },
-            ABRIL(30) {     @Override public String toString() { return "Abril"; } },
-            MAIO(31) {      @Override public String toString() { return "Maio"; } },
-            JUNHO(30) {     @Override public String toString() { return "Junho"; } },
-            JULHO(31) {     @Override public String toString() { return "Julho"; } },
-            AGOSTO(31) {    @Override public String toString() { return "Agosto"; } },
-            SETEMBRO(30) {  @Override public String toString() { return "Setembro"; } },
-            OUTUBRO(31) {   @Override public String toString() { return "Outubro"; } },
-            NOVEMBRO(30) {  @Override public String toString() { return "Novembro"; } },
-            DEZEMBRO(31) {  @Override public String toString() { return "Dezembro"; } };
+            JANUARY(31) {   @Override public String toString() { return "January"; } },
+            FEBRUARY(28) { @Override public String toString() { return "February"; } },
+            MARCH(31) {     @Override public String toString() { return "March"; } },
+            APRIL(30) {     @Override public String toString() { return "April"; } },
+            MAY(31) {      @Override public String toString() { return "May"; } },
+            JUNE(30) {     @Override public String toString() { return "June"; } },
+            JULY(31) {     @Override public String toString() { return "July"; } },
+            AUGUST(31) {    @Override public String toString() { return "August"; } },
+            SEPTEMBER(30) {  @Override public String toString() { return "September"; } },
+            OCTOBER(31) {   @Override public String toString() { return "October"; } },
+            NOVEMBER(30) {  @Override public String toString() { return "November"; } },
+            DECEMBER(31) {  @Override public String toString() { return "December"; } };
 
             /**
-             * O número de dias de um mês.
+             * The number of days of the month.
              */
-            private int numeroDeDias;
+            private int numberOfDays;
 
             /**
-             * Constrói um mês com o número de dias recebido por parâmetro.
+             * Constructs an instance of Month receiving the number of days of the month.
              *
-             * @param numeroDeDias o número de dias do mês.
+             * @param numberOfDays the number of days of the month.
              */
-            private Mes(int numeroDeDias) {
-                this.numeroDeDias = numeroDeDias;
+            private Month(int numberOfDays) {
+                this.numberOfDays = numberOfDays;
             }
 
             /**
-             * Devolve o número de dias do mês do ano recebido por parâmetro.
+             * Returns the number of days of the month of the year.
              *
-             * @param ano o ano do mês.
-             * @return o número de dias do mês do ano.
+             * @param year the year.
+             * @return the number of days of the month of the year.
              */
-            public int numeroDeDias(int ano) {
-                if (ordinal() == 1 && Date.isAnoBissexto(ano)) {
-                    return numeroDeDias + 1;
+            public int numberOfDays(int year) {
+                if (ordinal() == 1 && Date.isYear366(year)) {
+                    return numberOfDays + 1;
                 }
-                return numeroDeDias;
+                return numberOfDays;
             }
 
             /**
-             * Devolve o mês cuja ordem é recebida por parâmetro.
+             * Returns the designation of the month.
              *
-             * @param ordemDoMes a ordem do mês.
-             * @return o mês cuja ordem é recebida por parâmetro.
+             * @param orderMonth the order of the month.
+             * @return the designation of the month.
              */
-            public static Mes obterMes(int ordemDoMes) {
-                return Mes.values()[ordemDoMes - 1];
+            public static Month getTheMonth(int orderMonth) {
+                return Month.values()[orderMonth - 1];
             }
 
         }
 
+
         /**
-         * Constrói uma instância de Data recebendo o ano, o mês e o dia.
+         * Constructs an instance of Date receiving the year, the month and the day.
          *
-         * @param ano o ano da data.
-         * @param mes o mês da data.
-         * @param dia o dia da data.
+         * @param year the year of the date.
+         * @param month the month of the date.
+         * @param day the day of the date.
          */
-        public Data(int ano, int mes, int dia) {
-            this.ano = ano;
-            this.mes = Mes.obterMes(mes);
-            this.dia = dia;
+        public Date(int year, int month, int day) {
+            this.year = year;
+            this.month = Month.getTheMonth(month);
+            this.day = day;
         }
 
         /**
-         * Constrói uma instância de Data com a data por omissão.
+         * Constructs an instance of Date receiving the year, the month and the day.
          */
-        public Data() {
-            ano = ANO_POR_OMISSAO;
-            mes = MES_POR_OMISSAO;
-            dia = DIA_POR_OMISSAO;
+        public Date() {
+            year = YEAR_BY_OMISSION;
+            month = MONTH_BY_OMISSION;
+            day = DIA_POR_OMISSAO;
+
         }
 
         /**
-         * Constrói uma instância de Data com as mesmas caraterísticas da data
-         * recebida por parâmetro.
-         *
-         * @param outraData a data com as características a copiar.
+         * Constructs an instance of Date receiving the year, the month and the day.
          */
-        public Data(Date outraData) {
-            ano = outraData.ano;
-            mes = outraData.mes;
-            dia = outraData.dia;
+        public Date(Date anotherDate) {
+            year = anotherDate.year;
+            month = anotherDate.month;
+            day = anotherDate.day;
         }
 
         /**
-         * Devolve o ano da data.
+         * Returns the year of the date.
          *
-         * @return ano da data
+         * @return the year of the date.
          */
-        public int getAno() {
-            return ano;
+        public int getYear() {
+            return year;
         }
 
         /**
-         * Devolve o mês da data.
+         * Returns the month of the date.
          *
-         * @return mês da data.
+         * @return the month of the date.
          */
-        public int getMes() {
-            return mes.ordinal()+1;
+        public int getMonth() {
+            return month.ordinal()+1;
         }
 
         /**
-         * Devolve o dia da data.
+         * Returns the day of the date.
          *
-         * @return dia da data.
+         * @return the day of the date.
          */
-        public int getDia() {
-            return dia;
+        public int getDay() {
+            return day;
         }
 
         /**
-         * Modifica o ano, o mês e o dia da data.
+         * Returns the date in the format: day of the week, day of the month of month of year.
          *
-         * @param ano o novo ano da data.
-         * @param mes o novo mês da data.
-         * @param dia o novo dia da data.
+         * @param year the year of the date.
+         * @param month the month of the date.
+         * @param day the day of the date.
          */
-        public final void setData(int ano, int mes, int dia) {
-            this.ano = ano;
-            this.mes = Mes.obterMes(mes);
-            this.dia = dia;
+        public final void setData(int year, int month, int day) {
+            this.year = year;
+            this.month = Month.getTheMonth(month);
+            this.day = day;
         }
 
         /**
-         * Devolve a descrição textual da data no formato: diaDaSemana, dia de mês
-         * de ano.
+         * Returns the date in the format: day of the week, day of the month of month of year.
          *
-         * @return caraterísticas da data.
+         *
+         * @return the date in the format: day of the week, day of the month of month of year.
          */
         @Override
         public String toString() {
-            return String.format("%s, %d de %s de %d", diaDaSemana(), dia, mes, ano);
+            return String.format("%s, %d de %s de %d", dayOfTheWeek(), day, month, year);
         }
 
         /**
-         * Devolve a data no formato:%04d/%02d/%02d.
+         * Returns the date in the format: year/month/day.
          *
-         * @return caraterísticas da data.
          */
-        public String toAnoMesDiaString() {
-            return String.format("%04d/%02d/%02d", ano, mes.ordinal()+1, dia);
+        public String toYearMonthDay() {
+            return String.format("%04d/%02d/%02d", year, month.ordinal()+1, day);
         }
 
         /**
          * Compara a data com o objeto recebido.
          *
-         * @param outroObjeto o objeto a comparar com a data.
+         * @param anotherObject o objeto a comparar com a data.
          * @return true se o objeto recebido representar uma data equivalente à
          *         data. Caso contrário, retorna false.
          */
         @Override
-        public boolean equals(Object outroObjeto) {
-            if (this == outroObjeto) {
+        public boolean equals(Object anotherObject) {
+            if (this == anotherObject) {
                 return true;
             }
-            if (outroObjeto == null || getClass() != outroObjeto.getClass()) {
+            if (anotherObject == null || getClass() != anotherObject.getClass()) {
                 return false;
             }
-            Data outraData = (Data) outroObjeto;
-            return ano == outraData.ano && mes.equals(outraData.mes)
-                    && dia == outraData.dia;
+            Date anotherDate = (Date) anotherObject;
+            return year == anotherDate.year && month.equals(anotherDate.month)
+                    && day == anotherDate.day;
+        }
+
+
+    /**
+     * Compares the date with the object received.
+     * @param otherDate the object to be compared.
+     * @return
+     */
+    @Override
+    public int compareTo(Date otherDate) {
+            return (otherDate.isBigger(this)) ? -1 : (isBigger(otherDate)) ? 1 : 0;
         }
 
         /**
-         * Compara a data com a outra data recebida por parâmetro.
          *
-         * @param outraData a data a ser comparada.
-         * @return o valor 0 se a outraData recebida é igual à data; o valor -1 se
-         *         a outraData for posterior à data; o valor 1 se a outraData for
-         *         anterior à data.
-         */
-        @Override
-        public int compareTo(Date outraData) {
-            return (outraData.isMaior(this)) ? -1 : (isMaior(outraData)) ? 1 : 0;
-        }
-
-        /**
-         * Devolve o dia da semana da data.
          *
-         * @return dia da semana da data.
+         * @return the day of the week of the date.
          */
-        public String diaDaSemana() {
-            int totalDias = contaDias();
-            totalDias = totalDias % 7;
+        public String dayOfTheWeek() {
+            int totalDays = countDays();
+            totalDays = totalDays % 7;
 
-            return DiaDaSemana.designacaoDiaDaSemana(totalDias);
+            return DayOfTheWeek.dayOfTheWeeksDesignation(totalDays);
         }
 
 
@@ -270,96 +261,97 @@ public class Date implements Comparable<Date>{
          * Devolve true se a data for maior do que a data recebida por parâmetro. Se
          * a data for menor ou igual à data recebida por parâmetro, devolve false.
          *
-         * @param outraData a outra data com a qual se compara a data.
+         * @param anotherDate a outra data com a qual se compara a data.
          * @return true se a data for maior do que a data recebida por parâmetro,
          *         caso contrário devolve false.
          */
-        public boolean isMaior(Data outraData) {
-            int totalDias = contaDias();
-            int totalDias1 = outraData.contaDias();
+        public boolean isBigger(Date anotherDate) {
+            int totalDays = countDays();
+            int totalDays1 = anotherDate.countDays();
 
-            return totalDias > totalDias1;
+            return totalDays > totalDays1;
+        }
+
+    /**
+     * Returns the difference in number of days between the date and the date received as
+     * parameter.
+     *
+     * @param anotherDate the other date with which to compare the date to calculate
+     *                    the difference in number of days.
+     * @return difference in number of days between the date and the date received as
+     *         parameter.
+     */
+
+    public int diferenca(Date anotherDate) {
+            int totalDays = countDays();
+            int totalDays1 = anotherDate.countDays();
+
+            return Math.abs(totalDays - totalDays1);
+        }
+
+    /**
+     * Returns the difference in number of days between the date and the date received as parameter.
+     *
+     * @param year the year of the date with which to compare the date to calculate the
+     *             difference in number of days.
+     * @param month the month of the date with which to compare the date to calculate the
+     *              difference in number of days.
+     * @param day the day of the date with which to compare the date to calculate the
+     *            difference in number of days.
+     * @return difference in number of days between the date and the date received as
+     *         parameter with year, month, and day.
+     */
+
+    public int dif(int year, int month, int day) {
+            int totalDays = countDays();
+            Date anotherDate = new Date(year, month, day);
+            int totalDays1 = anotherDate.countDays();
+
+            return Math.abs(totalDays - totalDays1);
         }
 
         /**
-         * Devolve a diferença em número de dias entre a data e a data recebida por
-         * parâmetro.
+         * Returns true if the year passed by parameter is a leap year, otherwise
          *
-         * @param outraData a outra data com a qual se compara a data para calcular
-         *                  a diferença do número de dias.
-         * @return diferença em número de dias entre a data e a data recebida por
-         *         parâmetro.
+         *
+         * @param year the year to be checked.
+         * @return true if the year passed by parameter is a leap year, otherwise
+         *
          */
-        public int diferenca(Data outraData) {
-            int totalDias = contaDias();
-            int totalDias1 = outraData.contaDias();
-
-            return Math.abs(totalDias - totalDias1);
+        public static boolean isYear366(int year) {
+            return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
         }
 
         /**
-         * Devolve a diferença em número de dias entre a data e a data recebida por
-         * parâmetro com ano, mês e dia.
+         * Returns the current date of the system.
          *
-         * @param ano o ano da data com a qual se compara a data para calcular a
-         *            diferença do número de dias.
-         * @param mes o mês da data com a qual se compara a data para calcular a
-         *            diferença do número de dias.
-         * @param dia o dia da data com a qual se compara a data para calcular a
-         *            diferença do número de dias.
-         * @return diferença em número de dias entre a data e a data recebida por
-         *         parâmetro com ano, mês e dia.
+         * @return the current date of the system.
          */
-        public int diferenca(int ano, int mes, int dia) {
-            int totalDias = contaDias();
-            Data outraData = new Data(ano, mes, dia);
-            int totalDias1 = outraData.contaDias();
-
-            return Math.abs(totalDias - totalDias1);
+        public static Date actualDate() {
+            Calendar today = Calendar.getInstance();
+            int year = today.get(Calendar.YEAR);
+            int month = today.get(Calendar.MONTH) + 1;
+            int day = today.get(Calendar.DAY_OF_MONTH);
+            return new Date(year, month, day);
         }
 
         /**
-         * Devolve true se o ano passado por parâmetro for bissexto. Se o ano
-         * passado por parâmetro não for bissexto, devolve false.
+         * Returns the number of days of the date.
          *
-         * @param ano o ano a validar.
-         * @return true se o ano passado por parâmetro for bissexto, caso contrário
-         *         devolve false.
+         * @return the number of days of the date.
          */
-        public static boolean isAnoBissexto(int ano) {
-            return ano % 4 == 0 && ano % 100 != 0 || ano % 400 == 0;
-        }
+        private int countDays() {
+            int totalDays = 0;
 
-        /**
-         * Devolve a data atual do sistema.
-         *
-         * @return a data atual do sistema.
-         */
-        public static Data dataAtual() {
-            Calendar hoje = Calendar.getInstance();
-            int ano = hoje.get(Calendar.YEAR);
-            int mes = hoje.get(Calendar.MONTH) + 1;    // janeiro é representado por 0.
-            int dia = hoje.get(Calendar.DAY_OF_MONTH);
-            return new Data(ano, mes, dia);
-        }
-
-        /**
-         * Devolve o número de dias desde o dia 1/1/1 até à data.
-         *
-         * @return número de dias desde o dia 1/1/1 até à data.
-         */
-        private int contaDias() {
-            int totalDias = 0;
-
-            for (int i = 1; i < ano; i++) {
-                totalDias += isAnoBissexto(i) ? 366 : 365;
+            for (int i = 1; i < year; i++) {
+                totalDays += isYear366(i) ? 366 : 365;
             }
-            for (int i = 1; i < mes.ordinal()+1; i++) {
-                totalDias += Mes.obterMes(i).numeroDeDias(ano);
+            for (int i = 1; i < month.ordinal()+1; i++) {
+                totalDays += Month.getTheMonth(i).numberOfDays(year);
             }
-            totalDias += dia;
+            totalDays += day;
 
-            return totalDias;
+            return totalDays;
         }
     }
-}
+
