@@ -1,8 +1,7 @@
 package pt.upskill.RefugeeLINK.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.annotation.Nullable;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -11,10 +10,19 @@ public class Refugee extends Person {
     private String refugeeNumber;
 
     @ManyToOne
-    Formation formation;
-    List<Formation> completedFormations;
+    @JoinColumn(name = "current_formation_id")
+    private Formation formation;
+    @ManyToMany
+    @JoinTable(
+            name = "refugee_completed_formations", // The join table name
+            joinColumns = @JoinColumn(name = "refugee_id"), // The column for the refugee
+            inverseJoinColumns = @JoinColumn(name = "formation_id") // The column for the formation
+    )
+    private List<Formation> completedFormations;
+
     @ManyToOne
     @JoinColumn(name = "mentor_id")
+    @Nullable
     private Mentor mentor;
 
     public String getRefugeeNumber() {

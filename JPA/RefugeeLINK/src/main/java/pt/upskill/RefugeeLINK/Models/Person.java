@@ -9,8 +9,7 @@ import pt.upskill.RefugeeLINK.Enums.Language;
 import java.util.Date;
 
 
-@Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@MappedSuperclass
 public abstract class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
