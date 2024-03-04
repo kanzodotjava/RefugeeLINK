@@ -1,10 +1,10 @@
 # Use Case: Register as a Refugee (UC010)
 
 ## Brief Description
-This use case describes the process by which a refugee registers in the system to access available resources and opportunities.
+This use case describes the process by which a Guest registers as refugee in the system to access available resources and opportunities.
 
 ## Actors
-- Refugee
+- Guest
 
 ## Preconditions
 The system is accessible and the registration functionality is available.
@@ -16,12 +16,11 @@ The system is accessible and the registration functionality is available.
 4. Refugee provides contact information, including email address and phone number.
 5. Refugee provides information about their refugee status, including any relevant documentation.
 6. Refugee indicates their skills, educational background, and professional experience, if applicable.
-7. Refugee chooses their location preferences and areas of interest, if any.
-8. Refugee reviews the information provided.
-9. Refugee confirms the registration.
-10. System validates the provided information.
-11. System sends a confirmation email or system message to the refugee.
-12. Use case ends.
+7. Refugee reviews the information provided.
+8. Refugee confirms the registration. 
+9. System validates the provided information. 
+10. System sends a system message to the refugee . 
+11. Use case ends.
 
 ## Alternative Flows
 - **Invalid Information (Step 10):** If the provided information is invalid, the system prompts the refugee to correct the errors and resubmit.

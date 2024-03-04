@@ -21,7 +21,9 @@ public class MentorService {
         return mentorRepository.save(mentor);
     }
 
-    
+    public Mentor getMentorById(Long id){
+        return null;
+    }
 
 
 }

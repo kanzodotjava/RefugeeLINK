@@ -1,9 +1,6 @@
 package pt.upskill.RefugeeLINK.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 import java.util.List;
@@ -19,7 +16,12 @@ public class Formation {
     int numberOfLessons;
     Date startDate;
     Date endDate;
-
+    @ManyToMany
+    @JoinTable(
+            name = "formation_refugee", // The join table name
+            joinColumns = @JoinColumn(name = "formation_id"), // The column for the formation
+            inverseJoinColumns = @JoinColumn(name = "refugee_id") // The column for the refugee
+    )
     List<Refugee> students;
-    Map<Refugee,Boolean> isApproved;
+//    Map<Refugee,Boolean> isApproved;
 }

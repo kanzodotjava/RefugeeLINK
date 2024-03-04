@@ -14,12 +14,10 @@ The system is accessible, and the registration functionality for mentors is avai
 2. System presents the registration form for mentors.
 3. Guest enters basic personal information such as name, email address, and professional background.
 4. Guest indicates areas of expertise and the type of mentorship they can offer.
-5. Guest provides additional information about availability and preferred communication methods.
-6. Guest reviews the information provided.
-7. Guest confirms the registration.
-8. System validates the provided information.
-9. System sends a confirmation email or system message to the guest.
-10. Use case ends.
+5. Guest provides additional information about availability and preferred communication methods. 
+6. System validates the provided information. 
+7. System sends a system message to the guest. 
+8. Use case ends.
 
 ## Alternative Flows
 - **Invalid Information (Step 8):** If the provided information is invalid, the system prompts the guest to correct the errors and resubmit.

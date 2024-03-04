@@ -6,13 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="a95ddd18-ddfa-4e65-80e8-f055aee436bd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doc/use-Cases/uc012/useCase012.md" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/use-Cases/uc012/useCase012.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doc/use-Cases/uc023/userCase023.md" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/use-Cases/uc023/userCase023.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EntityFramework/RefugeeLINK/.vs/RefugeeLINK/FileContentIndex/ae88826f-24fa-4595-bf7d-2367613faa14.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EntityFramework/RefugeeLINK/RefugeeLINK/obj/Debug/net8.0/RefugeeLINK.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EntityFramework/RefugeeLINK/RefugeeLINK/obj/Debug/net8.0/RefugeeLINK.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EntityFramework/RefugeeLINK/RefugeeLINK/obj/Debug/net8.0/RefugeeLINK.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/EntityFramework/RefugeeLINK/RefugeeLINK/obj/Debug/net8.0/RefugeeLINK.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EntityFramework/RefugeeLINK/RefugeeLINK/obj/Debug/net8.0/RefugeeLINK.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/EntityFramework/RefugeeLINK/RefugeeLINK/obj/Debug/net8.0/RefugeeLINK.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EntityFramework/RefugeeLINK/RefugeeLINK/obj/Debug/net8.0/RefugeeLINK.csproj.AssemblyReference.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/use-Cases/uc010/useCase010.md" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/use-Cases/uc010/useCase010.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/use-Cases/uc010/userStory010.md" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/use-Cases/uc010/userStory010.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/use-Cases/uc011/systemSequenceDiagram/ssd.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/use-Cases/uc011/systemSequenceDiagram/ssd.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/use-Cases/uc011/useCase011.md" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/use-Cases/uc011/useCase011.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/use-Cases/uc011/useStory011.md" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/use-Cases/uc011/useStory011.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +66,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/RafaelFigueiredo_Ginasio/RafaelFigueiredo/Sprint1_Ginasio",
+    "last_opened_file_path": "C:/Users/Pedro/Desktop/JPA_Test",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
