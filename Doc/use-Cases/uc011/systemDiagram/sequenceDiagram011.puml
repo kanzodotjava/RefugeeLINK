@@ -1,11 +1,34 @@
 @startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title Mentor Registration Process
+
 autonumber
 
-' Description: This diagram registers a guest as a mentor
-Guest -> RegistrationMentorPage: Accesses Registration Page
-RegistrationMentorPage -> RegistrationController: Submits Registration Form
-RegistrationController -> Database: Store Registration Data
-Database --> RegistrationController: Confirmation
-RegistrationController --> Guest: Confirmation Message
+actor Guest
+participant "RegistrationMentorPage" as MentorPage
+participant "RegistrationController" as RegCtrl
+participant Database
+
+activate Guest
+
+Guest -> MentorPage : Accesses Registration Page
+activate MentorPage
+
+MentorPage -> RegCtrl : Submits Registration Form
+activate RegCtrl
+
+RegCtrl -> Database : Store Registration Data
+activate Database
+Database --> RegCtrl : Confirmation
+deactivate Database
+
+RegCtrl --> Guest : Confirmation Message
+deactivate RegCtrl
+deactivate MentorPage
+
+deactivate Guest
 
 @enduml

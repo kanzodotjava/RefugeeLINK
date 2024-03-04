@@ -1,17 +1,48 @@
 @startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title Registered Refugee Views Available Mentors and Applies Filters/Search
+
 autonumber
 
-' Description: Registered Refugee views available mentors
-Refugee -> App: Navigate to Mentors Section
-App -> MentorController: Request Available Mentors
-MentorController -> MentorDatabase: Retrieve Mentors List
-MentorDatabase --> MentorController: List of Mentors
-MentorController --> App: Display Mentors
+actor Refugee
+participant "App" as App
+participant "MentorController" as MentorCtrl
+participant "MentorDatabase" as MentorDB
 
-Refugee -> App: Apply Filters/Search (Optional)
-App -> MentorController: Filter/Search Request
-MentorController -> MentorDatabase: Apply Filters/Search
-MentorDatabase --> MentorController: Filtered/Search Results
-MentorController --> App: Display Filtered/Search Results
+activate Refugee
+
+Refugee -> App : Navigate to Mentors Section
+activate App
+
+App -> MentorCtrl : Request Available Mentors
+activate MentorCtrl
+
+MentorCtrl -> MentorDB : Retrieve Mentors List
+activate MentorDB
+MentorDB --> MentorCtrl : List of Mentors
+deactivate MentorDB
+
+MentorCtrl --> App : Display Mentors
+deactivate MentorCtrl
+
+Refugee -> App : Apply Filters/Search (Optional)
+activate App
+
+App -> MentorCtrl : Filter/Search Request
+activate MentorCtrl
+
+MentorCtrl -> MentorDB : Apply Filters/Search
+activate MentorDB
+MentorDB --> MentorCtrl : Filtered/Search Results
+deactivate MentorDB
+
+MentorCtrl --> App : Display Filtered/Search Results
+deactivate MentorCtrl
+deactivate App
+
+deactivate Refugee
 
 @enduml

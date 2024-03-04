@@ -1,11 +1,34 @@
 @startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title Guest Views News About Refugees via News API
+
 autonumber
 
-' Description: Guest views news about refugees on homepage
-Guest -> Homepage: Accesses Homepage
-Homepage -> NewsController: Request News Updates
-NewsController -> NewsDatabase: Retrieve News Articles
-NewsDatabase --> NewsController: News Articles
-NewsController --> Homepage: Display News Updates
+actor Guest
+participant "Homepage" as HP
+participant "NewsController" as NewsCtrl
+participant "NewsAPI" as NewsAPI
+
+activate Guest
+
+Guest -> HP : Accesses Homepage
+activate HP
+
+HP -> NewsCtrl : Request News Updates
+activate NewsCtrl
+
+NewsCtrl -> NewsAPI : Request News Articles
+activate NewsAPI
+NewsAPI --> NewsCtrl : News Articles
+deactivate NewsAPI
+
+NewsCtrl --> HP : Display News Updates
+deactivate NewsCtrl
+deactivate HP
+
+deactivate Guest
 
 @enduml

@@ -1,41 +1,57 @@
 @startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title Refugee Applies for Mentorship
 
 actor Refugee
-Refugee -> RefugeeLink: Log in
-Refugee -> RefugeeLink: Navigate to "View Available Mentors"
+participant "RefugeeLink" as RL
+participant "Database" as DB
+participant "Mentor"
 
-activate RefugeeLink
+activate Refugee
 
-RefugeeLink -> Database: Retrieve available mentors
-Database --> RefugeeLink: List of mentors
+Refugee -> RL : Log in
+Refugee -> RL : Navigate to "View Available Mentors"
+activate RL
 
-RefugeeLink --> Refugee: Display list of available mentors
+RL -> DB : Retrieve available mentors
+activate DB
+DB --> RL : List of mentors
+deactivate DB
 
-Refugee -> RefugeeLink: Select a mentor to view details
-activate RefugeeLink
+RL --> Refugee : Display list of available mentors
 
-RefugeeLink -> Database: Retrieve mentor details
-Database --> RefugeeLink: Mentor details
+Refugee -> RL : Select a mentor to view details
 
-RefugeeLink --> Refugee: Display mentor details
+RL -> DB : Retrieve mentor details
+activate DB
+DB --> RL : Mentor details
+deactivate DB
 
-Refugee -> RefugeeLink: Initiate mentorship application
-RefugeeLink --> Refugee: Display mentorship application form
+RL --> Refugee : Display mentor details
 
-Refugee -> RefugeeLink: Fill out application form
-RefugeeLink --> Refugee: Submit application
+Refugee -> RL : Initiate mentorship application
+RL --> Refugee : Display mentorship application form
 
-RefugeeLink --> Database: Save mentorship application
-Database --> RefugeeLink: Confirmation of application submission
+Refugee -> RL : Fill out application form
+RL --> Refugee : Submit application
 
-RefugeeLink --> Mentor: Notify mentor of new application
+RL --> DB : Save mentorship application
+activate DB
+DB --> RL : Confirmation of application submission
+deactivate DB
+
+RL --> Mentor : Notify mentor of new application
 activate Mentor
-Mentor --> RefugeeLink: Review mentorship application
-RefugeeLink --> Mentor: Accept or decline mentorship application
+Mentor --> RL : Review mentorship application
+RL --> Mentor : Accept or decline mentorship application
 deactivate Mentor
 
-RefugeeLink --> Refugee: Confirmation message of application submission
+RL --> Refugee : Confirmation message of application submission
 
-deactivate RefugeeLink
+deactivate RL
+deactivate Refugee
 
 @enduml
