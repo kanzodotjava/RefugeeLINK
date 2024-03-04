@@ -1,0 +1,42 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) for Registering as a Mentor
+
+autonumber
+
+actor Guest
+participant ":System" as System
+
+activate Guest
+    Guest -> System : navigates to the registration page for mentors
+activate System
+    System -> Guest : presents the registration form for mentors
+deactivate System
+
+    Guest -> System : enters basic personal information
+activate System
+deactivate System
+
+    Guest -> System : indicates areas of expertise and type of mentorship
+activate System
+deactivate System
+
+    Guest -> System : provides information about availability and preferred communication methods
+activate System
+deactivate System
+
+    Guest -> System : reviews the information provided
+activate System
+deactivate System
+
+    Guest -> System : confirms the registration
+activate System
+    System -> Guest : validates the provided information
+
+deactivate System
+deactivate Guest
+
+@enduml

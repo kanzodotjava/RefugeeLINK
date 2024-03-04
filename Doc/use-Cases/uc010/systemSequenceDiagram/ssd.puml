@@ -1,0 +1,50 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) for Registering as a Refugee
+
+autonumber
+
+actor Refugee
+participant ":System" as System
+
+activate Refugee
+    Refugee -> System : navigates to the registration page
+activate System
+    System -> Refugee : presents the registration form
+deactivate System
+
+    Refugee -> System : enters basic personal information
+activate System
+deactivate System
+
+    Refugee -> System : provides contact information
+activate System
+deactivate System
+
+    Refugee -> System : provides information about their refugee status
+activate System
+deactivate System
+
+    Refugee -> System : indicates skills, educational background, and professional experience
+activate System
+deactivate System
+
+    Refugee -> System : chooses location preferences and areas of interest
+activate System
+deactivate System
+
+    Refugee -> System : reviews the information provided
+activate System
+deactivate System
+
+    Refugee -> System : confirms the registration
+activate System
+    System -> Refugee : validates the provided information
+
+deactivate System
+deactivate Refugee
+
+@enduml

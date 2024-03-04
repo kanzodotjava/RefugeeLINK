@@ -1,0 +1,45 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) for Viewing Available Jobs
+
+autonumber
+
+actor Refugee
+participant ":RefugeeLink App" as App
+
+activate Refugee
+    Refugee -> App : navigates to "View Available Jobs" section
+activate App
+    App -> Refugee : displays list of available job openings
+deactivate App
+
+activate Refugee
+    Refugee -> App : browses through job listings
+deactivate Refugee
+
+
+    Refugee -> App : filters or searches job listings based on criteria
+activate App
+    App -> Refugee : displays filtered job listings
+deactivate App
+
+activate Refugee
+    Refugee -> App : selects a job listing for more details
+activate App
+    App -> Refugee : presents detailed information about the job
+deactivate App
+
+activate Refugee
+    Refugee -> App : decides to apply for the job and initiates application process
+activate App
+    App -> Refugee : confirms submission and provides confirmation message
+deactivate App
+
+alt No Available Job Listings
+    App -> Refugee : displays message indicating lack of available jobs
+end
+
+@enduml

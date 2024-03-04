@@ -13,7 +13,6 @@ The system is accessible, and the guest user is on the homepage.
 1. The guest user accesses the homepage of the system.
 2. The system displays news articles and updates related to refugees on the homepage.
 3. The guest user views the headlines and summaries of the news items.
-4. The guest user clicks on a news item to read the full article and access additional details.
 
 ## Alternative Flows
 - **No News Available (Step 2):** If there are no news articles related to refugees available, the system displays a message indicating that there are no updates at the moment.

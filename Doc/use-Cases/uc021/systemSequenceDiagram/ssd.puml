@@ -1,0 +1,35 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) for Viewing Available Mentors
+
+autonumber
+
+actor "Registered Refugee" as Refugee
+participant ":System" as System
+
+activate Refugee
+    Refugee -> System : navigates to the mentor section of the app
+activate System
+    System -> Refugee : displays list of available mentors with details
+deactivate System
+
+activate Refugee
+    Refugee -> System : uses filters or search to narrow down mentors
+activate System
+    System -> Refugee : displays filtered list of mentors
+deactivate System
+
+activate Refugee
+    Refugee -> System : selects a mentor for more details
+activate System
+    System -> Refugee : shows detailed information about the mentor's profile
+deactivate System
+
+alt No Mentors Available
+    System -> Refugee : displays message of no available mentors and suggests alternatives
+end
+
+@enduml

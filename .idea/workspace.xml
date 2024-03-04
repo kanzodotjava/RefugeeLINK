@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="a95ddd18-ddfa-4e65-80e8-f055aee436bd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/use-Cases/uc012/useCase012.md" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/use-Cases/uc012/useCase012.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Doc/use-Cases/uc023/userCase023.md" beforeDir="false" afterPath="$PROJECT_DIR$/Doc/use-Cases/uc023/userCase023.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EntityFramework/RefugeeLINK/.vs/RefugeeLINK/FileContentIndex/ae88826f-24fa-4595-bf7d-2367613faa14.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EntityFramework/RefugeeLINK/RefugeeLINK/obj/Debug/net8.0/RefugeeLINK.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EntityFramework/RefugeeLINK/RefugeeLINK/obj/Debug/net8.0/RefugeeLINK.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EntityFramework/RefugeeLINK/RefugeeLINK/obj/Debug/net8.0/RefugeeLINK.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/EntityFramework/RefugeeLINK/RefugeeLINK/obj/Debug/net8.0/RefugeeLINK.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EntityFramework/RefugeeLINK/RefugeeLINK/obj/Debug/net8.0/RefugeeLINK.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/EntityFramework/RefugeeLINK/RefugeeLINK/obj/Debug/net8.0/RefugeeLINK.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EntityFramework/RefugeeLINK/RefugeeLINK/obj/Debug/net8.0/RefugeeLINK.csproj.AssemblyReference.cache" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,19 +61,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Sequence&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/Desktop/RefugeeLINK/Doc/use-Cases/uc050/sequenceDiagram&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultPlantUmlFileTemplate": "UML Sequence",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/RafaelFigueiredo_Ginasio/RafaelFigueiredo/Sprint1_Ginasio",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\SPRINT_FINAL\RefugeeLINK\Doc\use-Cases\uc010\systemSequenceDiagram" />
       <recent name="C:\Users\GROWTH\CURSO\SPRINT2e3\RefugeeLINK\RefugeeLINK\Doc" />
     </key>
   </component>

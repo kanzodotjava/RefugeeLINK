@@ -1,0 +1,31 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) for Selecting a Mentor
+
+autonumber
+
+actor Refugee
+participant ":RefugeeLink App" as App
+
+activate Refugee
+    Refugee -> App : navigates to "View Available Mentors" section
+activate App
+    App -> Refugee : displays list of mentors with basic details
+deactivate App
+
+activate Refugee
+    Refugee -> App : applies filters/searches based on criteria
+activate App
+    App -> Refugee : displays filtered list of mentors
+deactivate App
+
+activate Refugee
+    Refugee -> App : selects a mentor for more details
+activate App
+    App -> Refugee : displays detailed mentor profile
+deactivate App
+
+@enduml
