@@ -1,0 +1,59 @@
+/* home.component.css */
+
+/* Default styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px; /* Adjust padding as needed */
+}
+
+.logo {
+  margin-left: 100px;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-links a {
+  margin-left: 30px; /* Adjust spacing between links */
+  text-decoration: none;
+  color: #333; /* Example text color */
+}
+
+.nav-links a:hover {
+  color: #666; /* Example hover color */
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .logo {
+    margin-left: 20px; /* Adjust margin for smaller screens */
+  }
+
+  .nav-links {
+    display: none; /* Hide nav links by default on smaller screens */
+  }
+
+  .nav-toggle {
+    display: block; /* Show nav toggle button */
+    margin-right: 20px; /* Adjust margin as needed */
+  }
+
+  .nav-links.show {
+    display: flex; /* Show nav links when navbar is toggled */
+    flex-direction: column; /* Stack links vertically */
+    position: absolute;
+    top: 60px; /* Adjust top position as needed */
+    right: 20px; /* Adjust right position as needed */
+    background-color: #f9f9f9; /* Example background color */
+    padding: 10px; /* Example padding */
+    border-radius: 5px; /* Example border-radius */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Example box-shadow */
+  }
+
+  .nav-links.show a {
+    margin: 10px 0; /* Adjust spacing between links */
+  }
+}

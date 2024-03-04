@@ -28,9 +28,6 @@ deactivate System
 activate System
 deactivate System
 
-    Guest -> System : reviews the information provided
-activate System
-deactivate System
 
     Guest -> System : confirms the registration
 activate System

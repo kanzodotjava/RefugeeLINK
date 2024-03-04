@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<button *ngIf="showNavToggle" class="nav-toggle" (click)="toggleNav()">
+  ☰
+</button>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text-container">
+      <div class="hero-text">
+        <h2>Discover a World of Opportunity</h2>
+        <h1>
+          Welcome to RefugeeLink: Empowering Connections, Transforming Futures
+        </h1>
+        <p>
+          At RefugeeLink, we believe in the power of community and education to
+          transform lives. Our platform is more than just a meeting point; it's
+          a beacon of hope and a bridge to a brighter future for refugees around
+          the globe. Whether you're seeking guidance, looking to share your
+          knowledge, or hoping to gain new skills, you've come to the right
+          place.
+        </p>
+        <button routerLink="/action">Take Action</button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="assets/images/hero.png" alt="Hero Image" />
+    </div>
+  </div>
+</section>
