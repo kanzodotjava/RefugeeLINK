@@ -1,5 +1,76 @@
+# Java/Spring Boot
+# Compiled class file
+*.class
 
+<<<<<<< HEAD
+# Log files
+*.log
+
+# IntelliJ IDEA
+.idea/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Gradle
+build/
+.gradle/
+
+# Maven
+target/
+*.iml
+*.ipr
+*.iws
+
+# Spring Boot
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Spring Tool Suite
+.springBeans
+
+# Thymeleaf
+target/generated-sources/
+
+# Angular
+# Compiled output
+/dist/
+/tmp/
+/out-tsc/
+
+# Node modules
+/node_modules/
+
+# Package files
+*.tar
+*.tgz
+*.map
+
+# TypeScript compilation output
+*.js
+*.js.map
+*.d.ts
+
+# Angular CLI configuration file
+.angular-cli.json
+
+# Angular Universal
+/dist-server/
+/server/
+!/server/package.json
+
+# System Files
+.DS_Store
+
+# Entity Framework
+# Entity Framework migration files
+/Migrations/
+=======
 .idea/.name
 .idea/workspace.xml
 .idea/misc.xml
 .idea/gradle.xml
+*.xml
+>>>>>>> 000f3e54318ef45985ae8063bfa6fd90e807dad3
