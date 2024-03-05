@@ -18,11 +18,6 @@ public class RefugeeController {
     @Autowired
     RefugeeService refugeeService;
 
-    @CrossOrigin(origins = "http://localhost:4200")
-    @PostMapping("/register")
-    public ResponseEntity<Refugee> registerRefugee(@RequestBody Refugee refugee) {
-        Refugee registeredRefugee = refugeeService.addRefugee(refugee);
-        return new ResponseEntity<>(registeredRefugee, HttpStatus.CREATED);
 
     @GetMapping
     public ResponseEntity<List<RefugeeDTO>> getAllRefugees() {
@@ -34,6 +29,7 @@ public class RefugeeController {
     }
 
     @PostMapping
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<RefugeeDTO> createRefugee(@RequestBody Refugee refugee) {
         Refugee createdRefugee = refugeeService.addRefugee(refugee);
         RefugeeDTO refugeeDTO = createdRefugee.toDTO();
