@@ -1,6 +1,8 @@
 package pt.upskill.RefugeeLINK.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pt.upskill.RefugeeLINK.Exceptions.FormationIdNotFound;
 import pt.upskill.RefugeeLINK.Exceptions.RefugeeIdNotFound;
@@ -18,40 +20,34 @@ public class FormationController {
     private FormationService formationService;
 
     @GetMapping("/all")
-    public List<Formation> getAllFormations() {
-        return formationService.getAllFormations();
+    public ResponseEntity<List<Formation>> getAllFormations() {
+        List<Formation> formations = formationService.getAllFormations();
+        return new ResponseEntity<>(formations, HttpStatus.OK);
     }
 
-    @GetMapping("{id}")
-    public Formation getFormationById(Long id) throws FormationIdNotFound {
-        return formationService.getFormationById(id);
+    @GetMapping("/{id}")
+    public ResponseEntity<Formation> getFormationById(@PathVariable Long id) throws FormationIdNotFound {
+        Formation formation = formationService.getFormationById(id);
+        return new ResponseEntity<>(formation, HttpStatus.OK);
     }
 
     @PostMapping("/register")
-    public Formation registerFormation(Formation formation) {
-        return formationService.registerFormation(formation);
+    public ResponseEntity<Formation> registerFormation(@RequestBody Formation formation) {
+        Formation registeredFormation = formationService.registerFormation(formation);
+        return new ResponseEntity<>(registeredFormation, HttpStatus.CREATED);
     }
 
     @PutMapping("/update")
-    public Formation updateFormation(Formation formation) throws FormationIdNotFound {
-        return formationService.updateFormation(formation);
+    public ResponseEntity<Formation> updateFormation(@RequestBody Formation formation) throws FormationIdNotFound {
+        Formation updatedFormation = formationService.updateFormation(formation);
+        return new ResponseEntity<>(updatedFormation, HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete")
-    public void deleteFormation(Long id) throws FormationIdNotFound {
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteFormation(@PathVariable Long id) throws FormationIdNotFound {
         formationService.deleteFormation(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
-
-//    @PutMapping("/approveRefugee/{formationId}/{refugeeId}")
-//    public void approveRefugeeInFormation(@PathVariable Long formationId, @PathVariable Long refugeeId) throws FormationIdNotFound, RefugeeIdNotFound {
-//        formationService.approveRefugeeInFormation(formationId, refugeeId);
-//    }
-//
-
-
-
-
 
 
 }

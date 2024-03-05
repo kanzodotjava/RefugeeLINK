@@ -46,8 +46,7 @@ public class FormationService {
             updatedFormation.setNumberOfLessons(formation.getNumberOfLessons());
             updatedFormation.setStartDate(formation.getStartDate());
             updatedFormation.setEndDate(formation.getEndDate());
-//            updatedFormation.setStudents(formation.getStudents());
-//            updatedFormation.setIsApproved(formation.getIsApproved());
+
 
             // Save the updated Formation back to the database
             return formationRepository.save(updatedFormation);
@@ -62,37 +61,4 @@ public class FormationService {
         }
         formationRepository.deleteById(id);
     }
-
-
-
-
-//    public void approveRefugeeInFormation(Long formationId, Long refugeeId) throws FormationIdNotFound, RefugeeIdNotFound {
-//        Optional<Formation> formation = formationRepository.findById(formationId);
-//        if (formation.isPresent()) {
-//            Formation updatedFormation = formation.get();
-//            Map<Refugee, Boolean> approvals = updatedFormation.getIsApproved();
-//
-//            // Find the refugee in the map
-//            Refugee refugeeToApprove = null;
-//            for (Refugee refugee : approvals.keySet()) {
-//                if (refugee.getId().equals(refugeeId)) {
-//                    refugeeToApprove = refugee;
-//                    break;
-//                }
-//            }
-//
-//            if (refugeeToApprove == null) {
-//                throw new RefugeeIdNotFound("Refugee with ID " + refugeeId + " not found in formation.");
-//            }
-//
-//            // Approve the refugee
-//            approvals.put(refugeeToApprove, true);
-//            updatedFormation.setIsApproved(approvals);
-//
-//            // Save the updated Formation back to the database
-//            formationRepository.save(updatedFormation);
-//        } else {
-//            throw new FormationIdNotFound("Formation with ID " + formationId + " not found.");
-//        }
-//    }
 }
