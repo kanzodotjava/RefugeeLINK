@@ -4,8 +4,8 @@ import pt.upskill.RefugeeLINK.Enums.Country;
 import pt.upskill.RefugeeLINK.Enums.Language;
 import pt.upskill.RefugeeLINK.Enums.Profession;
 import pt.upskill.RefugeeLINK.Enums.Status;
+import pt.upskill.RefugeeLINK.Utils.Date;
 
-import java.util.Date;
 import java.util.List;
 
 public class MentorDTO {

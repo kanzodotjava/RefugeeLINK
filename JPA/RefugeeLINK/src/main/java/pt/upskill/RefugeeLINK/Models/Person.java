@@ -5,8 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import pt.upskill.RefugeeLINK.Enums.Country;
 import pt.upskill.RefugeeLINK.Enums.Language;
+import pt.upskill.RefugeeLINK.Utils.Date;
 
-import java.util.Date;
 
 
 @MappedSuperclass

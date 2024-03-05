@@ -2,6 +2,7 @@ package pt.upskill.RefugeeLINK.Models;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
+import pt.upskill.RefugeeLINK.DTO.RefugeeDTO;
 
 import java.util.List;
 
@@ -41,5 +42,22 @@ public class Refugee extends Person {
 
     public void setMentor(Mentor mentor) {
         this.mentor = mentor;
+    }
+
+
+    public RefugeeDTO toDTO() {
+        RefugeeDTO refugeeDTO = new RefugeeDTO();
+        refugeeDTO.setId(this.getId());
+        refugeeDTO.setName(this.getName());
+        refugeeDTO.setEmailAddress(this.getEmailAddress());
+        refugeeDTO.setBirthdayDate(this.getBirthdayDate());
+        refugeeDTO.setPhoneNumber(this.getPhoneNumber());
+        refugeeDTO.setCountry(this.getCountry());
+        refugeeDTO.setNationality(this.getNationality());
+        refugeeDTO.setPrimaryLanguage(this.getPrimaryLanguage());
+        refugeeDTO.setSecondaryLanguage(this.getSecondaryLanguage());
+        refugeeDTO.setRefugeeId(this.getRefugeeNumber());
+
+        return refugeeDTO;
     }
 }
