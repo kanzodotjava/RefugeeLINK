@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a95ddd18-ddfa-4e65-80e8-f055aee436bd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JPA/RefugeeLINK/src/main/java/pt/upskill/RefugeeLINK/Services/MentorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPA/RefugeeLINK/src/main/java/pt/upskill/RefugeeLINK/Services/MentorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JPA/RefugeeLINK/src/main/java/pt/upskill/RefugeeLINK/Controllers/RefugeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPA/RefugeeLINK/src/main/java/pt/upskill/RefugeeLINK/Controllers/RefugeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JPA/RefugeeLINK/src/main/java/pt/upskill/RefugeeLINK/Services/RefugeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPA/RefugeeLINK/src/main/java/pt/upskill/RefugeeLINK/Services/RefugeeService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
