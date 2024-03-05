@@ -1,0 +1,86 @@
+.register-container {
+  display: flex;
+  justify-content: center; /* Vertically center the content */
+}
+
+.content {
+  text-align: center; /* Center the content horizontally */
+}
+
+.register-heading {
+  margin-bottom: 20px; /* Optional: Add some bottom margin to separate it from the buttons */
+}
+
+.left-section {
+  flex-basis: 50%;
+  margin-left: 100px;
+}
+
+.right-section {
+  flex-basis: 50%;
+  padding: 20px;
+}
+
+.register-image {
+  max-width: 100%; /* Set the maximum width of the image to 50% of its container */
+  height: 1000px; /* Ensure the image keeps its aspect ratio */
+  object-fit: cover; /* Ensure the image covers the entire container */
+  border-radius: 15px; /* Optional: Add rounded corners */
+}
+
+.mini-logo {
+  max-width: 100px; /* Set the maximum width of the logo */
+  height: auto; /* Maintain the aspect ratio of the logo */
+}
+
+.register-heading {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 41px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-container button {
+  width: 70%;
+  padding: 10px;
+  border: none;
+  background: #72c6e8;
+  border-radius: 25px;
+  padding: 20px;
+  text-align: center;
+  margin: 20px;
+}
+
+.line {
+  width: 250px;
+  height: 0;
+  border: 1px solid #c4c4c4;
+  margin: 3px;
+  display: inline-block;
+}
+
+.white-text {
+  color: white; /* Set text color to white */
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 20px; /* Adjust as needed */
+}
+
+.login-link a {
+  color: #72c6e8;
+  text-decoration: underline; /* Add underline to the link */
+}
+
+.login-link a:hover {
+  color: lightgray; /* Change link color on hover */
+}

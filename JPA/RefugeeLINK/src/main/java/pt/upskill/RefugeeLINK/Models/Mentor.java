@@ -11,7 +11,6 @@ import java.util.List;
 @Entity
 public class Mentor extends Person{
     Profession profession;
-
     String description;
     @OneToMany(mappedBy = "mentor")
     List<Refugee> refugee;
