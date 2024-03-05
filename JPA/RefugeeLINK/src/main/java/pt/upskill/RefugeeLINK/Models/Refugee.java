@@ -13,14 +13,6 @@ public class Refugee extends Person {
     @JoinColumn(name = "current_formation_id")
     @Nullable
     private Formation formation;
-    @ManyToMany
-    @JoinTable(
-            name = "refugee_completed_formations", // The join table name
-            joinColumns = @JoinColumn(name = "refugee_id"), // The column for the refugee
-            inverseJoinColumns = @JoinColumn(name = "formation_id") // The column for the formation
-    )
-    @Nullable
-    private List<Formation> completedFormations;
 
     @ManyToOne
     @JoinColumn(name = "mentor_id")
@@ -35,10 +27,6 @@ public class Refugee extends Person {
         return formation;
     }
 
-    public List<Formation> getCompletedFormations() {
-        return completedFormations;
-    }
-
     public Mentor getMentor() {
         return mentor;
     }
@@ -49,10 +37,6 @@ public class Refugee extends Person {
 
     public void setFormation(Formation formation) {
         this.formation = formation;
-    }
-
-    public void setCompletedFormations(List<Formation> completedFormations) {
-        this.completedFormations = completedFormations;
     }
 
     public void setMentor(Mentor mentor) {
