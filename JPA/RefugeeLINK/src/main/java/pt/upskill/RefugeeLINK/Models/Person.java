@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import pt.upskill.RefugeeLINK.Enums.Country;
+import pt.upskill.RefugeeLINK.Enums.Gender;
 import pt.upskill.RefugeeLINK.Enums.Language;
 
 import java.util.Date;
@@ -18,17 +19,16 @@ public abstract class Person {
     private String emailAddress;
     private Date BirthdayDate;
     private String phoneNumber;
-
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
     @Enumerated(EnumType.STRING)
     private Country country;
     private String userName;
     private String password;
     @Enumerated(EnumType.STRING)
     private Country nationality;
-
     @Enumerated(EnumType.STRING)
     private Language primaryLanguage;
-
     @Enumerated(EnumType.STRING)
     private Language secondaryLanguage;
     private int citizenCard;
@@ -81,6 +81,11 @@ public abstract class Person {
         return citizenCard;
     }
 
+    public Gender getGender() {
+        return gender;
+    }
+
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -127,5 +132,9 @@ public abstract class Person {
 
     public void setCitizenCard(int citizenCard) {
         this.citizenCard = citizenCard;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 }
