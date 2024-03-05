@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a95ddd18-ddfa-4e65-80e8-f055aee436bd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/JPA/RefugeeLINK/src/main/java/pt/upskill/RefugeeLINK/Controllers/RefugeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPA/RefugeeLINK/src/main/java/pt/upskill/RefugeeLINK/Controllers/RefugeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JPA/RefugeeLINK/src/main/java/pt/upskill/RefugeeLINK/Services/RefugeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPA/RefugeeLINK/src/main/java/pt/upskill/RefugeeLINK/Services/RefugeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/pt.upskill.RefugeeLINK.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/pt.upskill.RefugeeLINK.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JPA/RefugeeLINK/src/main/java/pt/upskill/RefugeeLINK/Controllers/MentorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPA/RefugeeLINK/src/main/java/pt/upskill/RefugeeLINK/Controllers/MentorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JPA/RefugeeLINK/src/main/java/pt/upskill/RefugeeLINK/Models/Mentor.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +35,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="UML Sequence" />
+        <option value="Class" />
       </list>
     </option>
   </component>
