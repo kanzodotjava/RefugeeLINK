@@ -13,4 +13,8 @@ export class RegisterPageComponent {
   navigateToRegisterAsMentor() {
     this.router.navigate(['/register-as-mentor']);
   }
+
+  navigateToRegisterAsRefugee() {
+    this.router.navigate(['/register-as-refugee']);
+  }
 }

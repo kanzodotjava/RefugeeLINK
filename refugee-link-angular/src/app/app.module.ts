@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,10 +11,25 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { RegisterAsMentorComponent } from './components/register-as-mentor/register-as-mentor.component';
+import { RegisterAsRefugeeComponent } from './components/register-as-refugee/register-as-refugee.component';
 
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, ServicesDisplayComponent, AboutUsComponent, HomePageComponent, RegisterPageComponent, RegisterAsMentorComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [
+    AppComponent,
+    NavBarComponent,
+    ServicesDisplayComponent,
+    AboutUsComponent,
+    HomePageComponent,
+    RegisterPageComponent,
+    RegisterAsMentorComponent,
+    RegisterAsRefugeeComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
