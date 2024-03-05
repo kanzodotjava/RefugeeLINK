@@ -14,6 +14,10 @@ public class Refugee extends Person {
     @Nullable
     private Formation formation;
 
+    @OneToMany(mappedBy = "refugee")
+    @Nullable
+    private List<RefugeeFormation> completedFormations;
+
     @ManyToOne
     @JoinColumn(name = "mentor_id")
     @Nullable
@@ -23,10 +27,19 @@ public class Refugee extends Person {
         return refugeeNumber;
     }
 
+    @Nullable
     public Formation getFormation() {
         return formation;
     }
 
+    @Nullable
+    public List<RefugeeFormation> getCompletedFormations() {
+        return completedFormations;
+    }
+
+
+
+    @Nullable
     public Mentor getMentor() {
         return mentor;
     }
@@ -35,11 +48,15 @@ public class Refugee extends Person {
         this.refugeeNumber = refugeeNumber;
     }
 
-    public void setFormation(Formation formation) {
+    public void setFormation(@Nullable Formation formation) {
         this.formation = formation;
     }
 
-    public void setMentor(Mentor mentor) {
+    public void setCompletedFormations(@Nullable List<RefugeeFormation> completedFormations) {
+        this.completedFormations = completedFormations;
+    }
+
+    public void setMentor(@Nullable Mentor mentor) {
         this.mentor = mentor;
     }
 }
