@@ -12,4 +12,9 @@ export class ApiService {
     const endpointUrl = 'http://localhost:8080/refugee';
     return this.http.post(endpointUrl, data);
   }
+
+  checkRefugeeNumberExists(id: string): Observable<boolean> {
+    const url = `http://localhost:8081/ids/exists/${id}`;
+    return this.http.get<boolean>(url);
+  }
 }

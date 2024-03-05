@@ -10,6 +10,7 @@ import { ApiService } from '../../services/ApiService/api.service';
 })
 export class RegisterAsRefugeeComponent implements OnInit {
   refugeeForm!: FormGroup;
+  isRefugeeNumberValid: boolean = true;
 
   constructor(private fb: FormBuilder, private apiService: ApiService) {}
 
@@ -35,20 +36,33 @@ export class RegisterAsRefugeeComponent implements OnInit {
   onSubmit() {
     // Check form validity
     if (this.refugeeForm.valid) {
-      // Perform the submission logic here, e.g., sending data to your API
-      this.apiService.sendFormData(this.refugeeForm.value).subscribe(
-        (response) => {
-          console.log('Form submission successful', response);
-          // Handle successful form submission
+      const refugeeNumber = this.refugeeForm.get('refugeeNumber')?.value || '';
+
+      // First, check if the refugee number is valid
+      this.apiService.checkRefugeeNumberExists(refugeeNumber).subscribe(
+        (isValid) => {
+          if (isValid) {
+            this.apiService.sendFormData(this.refugeeForm.value).subscribe(
+              (response) => {
+                console.log('Form submission successful', response);
+                // Handle successful form submission here
+              },
+              (error) => {
+                console.error('Form submission error', error);
+                // Handle form submission error here
+              }
+            );
+          } else {
+            // Set the flag to false to show the error message
+            this.isRefugeeNumberValid = false;
+          }
         },
         (error) => {
-          console.error('Form submission error', error);
-          // Handle form submission error
+          console.error('Error checking refugee number', error);
         }
       );
     } else {
       console.log('Form is not valid');
-      // Handle invalid form case
     }
   }
 }
