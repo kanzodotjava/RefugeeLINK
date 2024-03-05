@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -18,6 +19,11 @@ public class RefugeeIdController{
         public RefugeeIdController(RefugeeIdService refugeeIdService) {
             this.refugeeIdService = refugeeIdService;
         }
+
+         @GetMapping("/all")
+         public List<RefugeeId> getAllIDs() {
+            return refugeeIdService.getAllIDs();
+    }
 
         @GetMapping("/{id}")
         public RefugeeId getID(@PathVariable int id) {
@@ -33,4 +39,10 @@ public class RefugeeIdController{
         public void deleteID(@PathVariable int id) {
             refugeeIdService.deleteID(id);
         }
+
+        @GetMapping("/exists/{id}")
+        public boolean idExists(@PathVariable int id) {
+        return refugeeIdService.idExists(id);
+    }
+
     }

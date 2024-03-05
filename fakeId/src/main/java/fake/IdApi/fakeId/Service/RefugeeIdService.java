@@ -5,6 +5,8 @@ import fake.IdApi.fakeId.Repository.RefugeeIdRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RefugeeIdService {
 
@@ -13,6 +15,10 @@ public class RefugeeIdService {
     @Autowired
     public RefugeeIdService(RefugeeIdRepository idRepository) {
         this.refugeeIdRepository = idRepository;
+    }
+
+    public List<RefugeeId> getAllIDs() {
+        return refugeeIdRepository.findAll();
     }
 
     public RefugeeId getID(int id) {
@@ -25,5 +31,9 @@ public class RefugeeIdService {
 
     public void deleteID(int id) {
         refugeeIdRepository.deleteById(id);
+    }
+
+    public boolean idExists(int id) {
+        return refugeeIdRepository.existsById(id);
     }
 }
