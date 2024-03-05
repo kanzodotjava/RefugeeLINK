@@ -1,78 +1,69 @@
 <form [formGroup]="refugeeForm" (ngSubmit)="onSubmit()">
-    <div>
-      <label for="name">Name:</label>
-      <input type="text" id="name" formControlName="name">
-    </div>
-  
-    <div>
-      <label for="emailAddress">Email Address:</label>
-      <input type="email" id="emailAddress" formControlName="emailAddress">
-    </div>
-  
-    <div>
-      <label for="phoneNumber">Phone Number:</label>
-      <input type="text" id="phoneNumber" formControlName="phoneNumber">
-    </div>
-  
-    <div>
-      <label for="country">Country:</label>
-      <input type="text" id="country" formControlName="country">
-    </div>
-  
-    <div>
-      <label for="userName">Username:</label>
-      <input type="text" id="userName" formControlName="userName">
-    </div>
-  
-    <div>
-      <label for="password">Password:</label>
-      <input type="password" id="password" formControlName="password">
-    </div>
-  
-    <div>
-      <label for="nationality">Nationality:</label>
-      <input type="text" id="nationality" formControlName="nationality">
-    </div>
-  
-    <div>
-      <label for="primaryLanguage">Primary Language:</label>
-      <select id="primaryLanguage" formControlName="primaryLanguage">
-        <option value="ENGLISH">English</option>
-        <!-- Add other languages as options here -->
-      </select>
-    </div>
-  
-    <div>
-      <label for="secondaryLanguage">Secondary Language:</label>
-      <select id="secondaryLanguage" formControlName="secondaryLanguage">
-        <option value="ENGLISH">English</option>
-        <!-- Add other languages as options here -->
-      </select>
-    </div>
-  
-    <div>
-      <label for="citizenCard">Citizen Card Number:</label>
-      <input type="number" id="citizenCard" formControlName="citizenCard">
-    </div>
-  
-    <div>
-      <label for="refugeeNumber">Refugee Number:</label>
-      <input type="text" id="refugeeNumber" formControlName="refugeeNumber">
-    </div>
-  
-    <div>
-      <label for="status">Status:</label>
-      <select id="status" formControlName="status">
-        <option value="AWAITING">Awaiting</option>
-        <!-- Add other status options as needed -->
-      </select>
-    </div>
-  
-    <div>
-      <label for="birthdayDate">Birthday Date:</label>
-      <input type="date" id="birthdayDate" formControlName="birthdayDate">
-    </div>
-  
-    <button type="submit">Submit</button>
-  </form>
-  
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" formControlName="name" />
+  </div>
+
+  <div>
+    <label for="emailAddress">Email Address:</label>
+    <input type="email" id="emailAddress" formControlName="emailAddress" />
+  </div>
+
+  <div>
+    <label for="phoneNumber">Phone Number:</label>
+    <input type="text" id="phoneNumber" formControlName="phoneNumber" />
+  </div>
+
+  <div>
+    <label for="country">Country:</label>
+    <input type="text" id="country" formControlName="country" />
+  </div>
+
+  <div>
+    <label for="userName">Username:</label>
+    <input type="text" id="userName" formControlName="userName" />
+  </div>
+
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password" />
+  </div>
+
+  <div>
+    <label for="nationality">Nationality:</label>
+    <input type="text" id="nationality" formControlName="nationality" />
+  </div>
+
+  <div>
+    <label for="primaryLanguage">Primary Language:</label>
+    <select id="primaryLanguage" formControlName="primaryLanguage">
+      <option value="ENGLISH">English</option>
+      <!-- Add other languages as options here -->
+    </select>
+  </div>
+
+  <div>
+    <label for="secondaryLanguage">Secondary Language:</label>
+    <select id="secondaryLanguage" formControlName="secondaryLanguage">
+      <option value="ENGLISH">English</option>
+      <!-- Add other languages as options here -->
+    </select>
+  </div>
+
+  <div>
+    <label for="citizenCard">Citizen Card Number:</label>
+    <input type="number" id="citizenCard" formControlName="citizenCard" />
+  </div>
+
+  <div>
+    <label for="refugeeNumber">Refugee Number:</label>
+    <input type="text" id="refugeeNumber" formControlName="refugeeNumber" />
+  </div>
+
+  <div>
+    <label for="birthdayDate">Birthday Date:</label>
+    <input type="date" id="birthdayDate" formControlName="birthdayDate" />
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
