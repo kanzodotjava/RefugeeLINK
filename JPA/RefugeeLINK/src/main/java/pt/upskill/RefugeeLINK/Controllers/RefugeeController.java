@@ -20,7 +20,7 @@ public class RefugeeController {
 
     @PostMapping("/register")
     public ResponseEntity<Refugee> registerRefugee(@RequestBody Refugee refugee) {
-        Refugee registeredRefugee = refugeeService.registerRefugee(refugee);
+        Refugee registeredRefugee = refugeeService.addRefugee(refugee);
         return new ResponseEntity<>(registeredRefugee, HttpStatus.CREATED);
     }
 }

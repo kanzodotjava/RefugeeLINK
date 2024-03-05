@@ -18,11 +18,18 @@ public abstract class Person {
     private String emailAddress;
     private Date BirthdayDate;
     private String phoneNumber;
+
+    @Enumerated(EnumType.STRING)
     private Country country;
     private String userName;
     private String password;
+    @Enumerated(EnumType.STRING)
     private Country nationality;
+
+    @Enumerated(EnumType.STRING)
     private Language primaryLanguage;
+
+    @Enumerated(EnumType.STRING)
     private Language secondaryLanguage;
     private int citizenCard;
 
