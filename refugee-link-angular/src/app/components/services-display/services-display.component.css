@@ -1,0 +1,51 @@
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
+  gap: 20px; /* Gap between grid items */
+  margin-top: 100px;
+}
+
+/* Adjust grid for smaller screens */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(1, 1fr); /* One column for smaller screens */
+  }
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.service-img {
+  width: 100%; /* Ensures both divs take full width of their parent */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers content */
+  height: 200px; /* Set a fixed height for the images */
+}
+
+.service-img img {
+  max-width: 100%; /* Ensures image is responsive within its container */
+  height: 100%; /* Ensures all images have the same height */
+}
+
+.service-text {
+  width: 100%; /* Ensures both divs take full width of their parent */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers content */
+}
+
+.service-text h3 {
+  font-size: 18px; /* Adjust as needed */
+  margin: 10px 0;
+}
+
+.service-text p {
+  font-size: 14px; /* Adjust as needed */
+  color: #666;
+}
