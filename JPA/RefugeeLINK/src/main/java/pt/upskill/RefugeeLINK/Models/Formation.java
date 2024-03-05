@@ -17,7 +17,7 @@ public class Formation {
     Date endDate;
     @OneToMany(mappedBy = "formation")
     private List<RefugeeFormation> refugees;
-
+    @ManyToOne
     private Organization organization;
 
     public Long getId() {
