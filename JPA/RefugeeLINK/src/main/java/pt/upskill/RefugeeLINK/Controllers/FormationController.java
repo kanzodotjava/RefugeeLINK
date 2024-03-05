@@ -43,11 +43,11 @@ public class FormationController {
     }
 
 
-    @PutMapping("/approveRefugee/{formationId}/{refugeeId}")
-    public void approveRefugeeInFormation(@PathVariable Long formationId, @PathVariable Long refugeeId) throws FormationIdNotFound, RefugeeIdNotFound {
-        formationService.approveRefugeeInFormation(formationId, refugeeId);
-    }
-
+//    @PutMapping("/approveRefugee/{formationId}/{refugeeId}")
+//    public void approveRefugeeInFormation(@PathVariable Long formationId, @PathVariable Long refugeeId) throws FormationIdNotFound, RefugeeIdNotFound {
+//        formationService.approveRefugeeInFormation(formationId, refugeeId);
+//    }
+//
 
 
 
