@@ -11,6 +11,7 @@ public class Refugee extends Person {
 
     @ManyToOne
     @JoinColumn(name = "current_formation_id")
+    @Nullable
     private Formation formation;
     @ManyToMany
     @JoinTable(
@@ -18,6 +19,7 @@ public class Refugee extends Person {
             joinColumns = @JoinColumn(name = "refugee_id"), // The column for the refugee
             inverseJoinColumns = @JoinColumn(name = "formation_id") // The column for the formation
     )
+    @Nullable
     private List<Formation> completedFormations;
 
     @ManyToOne
