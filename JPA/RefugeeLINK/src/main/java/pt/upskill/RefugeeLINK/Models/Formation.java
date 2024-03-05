@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 @Entity
 public class Formation {
@@ -16,12 +15,64 @@ public class Formation {
     int numberOfLessons;
     Date startDate;
     Date endDate;
-    @ManyToMany
-    @JoinTable(
-            name = "formation_refugee", // The join table name
-            joinColumns = @JoinColumn(name = "formation_id"), // The column for the formation
-            inverseJoinColumns = @JoinColumn(name = "refugee_id") // The column for the refugee
-    )
-    List<Refugee> students;
-//    Map<Refugee,Boolean> isApproved;
+    @OneToMany(mappedBy = "formation")
+    private List<RefugeeFormation> refugees;
+    @ManyToOne
+    private Organization organization;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getNumberOfLessons() {
+        return numberOfLessons;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public List<RefugeeFormation> getRefugees() {
+        return refugees;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setNumberOfLessons(int numberOfLessons) {
+        this.numberOfLessons = numberOfLessons;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public void setRefugees(List<RefugeeFormation> refugees) {
+        this.refugees = refugees;
+    }
 }
