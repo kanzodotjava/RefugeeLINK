@@ -36,4 +36,35 @@ public class MentorController {
         MentorDTO mentorDTO = createdMentor.toDTO();
         return new ResponseEntity<>(mentorDTO, HttpStatus.CREATED);
     }
+
+    @GetMapping("{id}")
+    public ResponseEntity<MentorDTO> getMentorById(@PathVariable long id){
+        Mentor mentor = mentorService.getMentorById(id);
+        MentorDTO mentorDTO = mentor.toDTO();
+        return new ResponseEntity<>(mentorDTO,HttpStatus.OK);
+    }
+
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> deleteMentorById(@PathVariable long id) {
+        boolean deleted = mentorService.deleteMentorById(id);
+        if (deleted) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
+    @PutMapping("{id}")
+    public ResponseEntity<MentorDTO> updateMentor(@PathVariable long id, @RequestBody Mentor mentor) {
+        Mentor existingMentor = mentorService.getMentorById(id);
+        if (existingMentor != null) {
+            Mentor updatedMentor = mentorService.updateMentor(id, mentor);
+            MentorDTO updatedMentorDTO = updatedMentor.toDTO();
+            return ResponseEntity.ok(updatedMentorDTO);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
