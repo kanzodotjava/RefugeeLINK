@@ -49,5 +49,4 @@ public class FormationController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-
 }
