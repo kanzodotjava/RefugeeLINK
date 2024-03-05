@@ -6,8 +6,8 @@ import lombok.Setter;
 import pt.upskill.RefugeeLINK.Enums.Country;
 import pt.upskill.RefugeeLINK.Enums.Gender;
 import pt.upskill.RefugeeLINK.Enums.Language;
-import pt.upskill.RefugeeLINK.Utils.Date;
 
+import java.time.LocalDate;
 
 
 @MappedSuperclass
@@ -17,7 +17,7 @@ public abstract class Person {
     private Long id;
     private String name;
     private String emailAddress;
-    private Date BirthdayDate;
+    private LocalDate BirthdayDate;
     private String phoneNumber;
     @Enumerated(EnumType.STRING)
     private Gender gender;
@@ -45,7 +45,7 @@ public abstract class Person {
         return emailAddress;
     }
 
-    public Date getBirthdayDate() {
+    public LocalDate getBirthdayDate() {
         return BirthdayDate;
     }
 
@@ -98,7 +98,7 @@ public abstract class Person {
         this.emailAddress = emailAddress;
     }
 
-    public void setBirthdayDate(Date birthdayDate) {
+    public void setBirthdayDate(LocalDate birthdayDate) {
         BirthdayDate = birthdayDate;
     }
 
@@ -137,4 +137,5 @@ public abstract class Person {
     public void setGender(Gender gender) {
         this.gender = gender;
     }
+
 }

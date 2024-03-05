@@ -2,13 +2,14 @@ package pt.upskill.RefugeeLINK.DTO;
 
 import pt.upskill.RefugeeLINK.Enums.Country;
 import pt.upskill.RefugeeLINK.Enums.Language;
-import pt.upskill.RefugeeLINK.Utils.Date;
+
+import java.time.LocalDate;
 
 public class RefugeeDTO {
     private Long id;
     private String name;
     private String emailAddress;
-    private Date birthdayDate;
+    private LocalDate birthdayDate;
     private String phoneNumber;
     private Country country;
     private String userName;
@@ -44,11 +45,11 @@ public class RefugeeDTO {
         this.emailAddress = emailAddress;
     }
 
-    public Date getBirthdayDate() {
+    public LocalDate getBirthdayDate() {
         return birthdayDate;
     }
 
-    public void setBirthdayDate(Date birthdayDate) {
+    public void setBirthdayDate(LocalDate birthdayDate) {
         this.birthdayDate = birthdayDate;
     }
 

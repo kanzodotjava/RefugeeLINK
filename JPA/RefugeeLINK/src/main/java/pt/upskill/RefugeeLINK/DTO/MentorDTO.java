@@ -4,15 +4,15 @@ import pt.upskill.RefugeeLINK.Enums.Country;
 import pt.upskill.RefugeeLINK.Enums.Language;
 import pt.upskill.RefugeeLINK.Enums.Profession;
 import pt.upskill.RefugeeLINK.Enums.Status;
-import pt.upskill.RefugeeLINK.Utils.Date;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class MentorDTO {
     private Long id;
     private String name;
     private String emailAddress;
-    private Date birthdayDate;
+    private LocalDate birthdayDate;
     private String phoneNumber;
     private Country country;
     private String userName;
@@ -37,7 +37,7 @@ public class MentorDTO {
         return emailAddress;
     }
 
-    public Date getBirthdayDate() {
+    public LocalDate getBirthdayDate() {
         return birthdayDate;
     }
 
@@ -97,7 +97,7 @@ public class MentorDTO {
         this.emailAddress = emailAddress;
     }
 
-    public void setBirthdayDate(Date birthdayDate) {
+    public void setBirthdayDate(LocalDate birthdayDate) {
         this.birthdayDate = birthdayDate;
     }
 
