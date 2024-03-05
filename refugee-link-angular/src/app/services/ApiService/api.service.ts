@@ -9,7 +9,7 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   sendFormData(data: any): Observable<any> {
-    const endpointUrl = 'http://localhost:8080/refugee/register';
+    const endpointUrl = 'http://localhost:8080/refugee';
     return this.http.post(endpointUrl, data);
   }
 }
