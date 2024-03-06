@@ -3,6 +3,7 @@ package pt.upskill.RefugeeLINK.Models;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import pt.upskill.RefugeeLINK.DTO.MentorLoginDTO;
 import pt.upskill.RefugeeLINK.Enums.Country;
 import pt.upskill.RefugeeLINK.Enums.Gender;
 import pt.upskill.RefugeeLINK.Enums.Language;
@@ -137,5 +138,6 @@ public abstract class Person {
     public void setGender(Gender gender) {
         this.gender = gender;
     }
+
 
 }
