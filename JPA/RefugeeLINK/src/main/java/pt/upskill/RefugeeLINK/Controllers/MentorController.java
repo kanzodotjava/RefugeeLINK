@@ -11,6 +11,7 @@ import pt.upskill.RefugeeLINK.Models.Mentor;
 import pt.upskill.RefugeeLINK.Services.MentorService;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Stack;
 import java.util.stream.Collectors;
 
@@ -68,12 +69,12 @@ public class MentorController {
             return ResponseEntity.notFound().build();
         }
     }
-
-
-    @GetMapping("{id}/login")
-    public ResponseEntity<MentorLoginDTO> getMentorLoginById(@PathVariable long id){
-        Mentor mentor = mentorService.getMentorById(id);
-        MentorLoginDTO mentorLoginDTO = mentor.toLoginDTO();
-        return new ResponseEntity<>(mentorLoginDTO,HttpStatus.OK);
+    @PostMapping("/login")
+    public ResponseEntity<Boolean> validateMentorLogin(@RequestBody MentorLoginDTO mentorLoginDTO) {
+        Optional<Mentor> mentor = mentorService.findMentorByUsername(mentorLoginDTO.getUserName());
+        if (mentor.isPresent() && mentor.get().getPassword().equals(mentorLoginDTO.getPassword())) {
+            return ResponseEntity.ok(true);
+        }
+        return ResponseEntity.ok(false);
     }
 }
