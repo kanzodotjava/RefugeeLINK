@@ -31,6 +31,10 @@ public class RefugeeService {
         if (username.length() < 6 || username.length() > 12 || !username.matches("^[a-zA-Z0-9]+$")) {
             throw new IllegalArgumentException("Username must be between 6 and 12 characters long and contain only letters and numbers.");
         }
+        String email = refugee.getEmailAddress();
+        if (refugeeRepository.existsByEmailAddress(email)) {
+            throw new DataIntegrityViolationException("Email address " + email + " is already registered.");
+        }
 
         String password = refugee.getPassword();
         if (password.length() < 8 || password.length() > 50 || !password.matches(".*[A-Z].*")) {

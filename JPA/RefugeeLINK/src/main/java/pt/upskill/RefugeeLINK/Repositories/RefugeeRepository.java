@@ -6,4 +6,5 @@ import pt.upskill.RefugeeLINK.Models.Refugee;
 
 @Repository
 public interface RefugeeRepository extends JpaRepository<Refugee, Long> {
+    boolean existsByEmailAddress(String email);
 }
