@@ -75,8 +75,8 @@ public class MentorService {
         throw new EntityNotFoundException();
     }
 
-    public Optional<Mentor> findMentorByUsername(String username) {
-        return mentorRepository.findByUsername(username);
+    public Optional<Mentor> findMentorByUsername(String userName) {
+        return mentorRepository.findByUserName(userName);
     }
 }
 

@@ -15,6 +15,7 @@
     <orderEntry type="library" name="Gradle: org.springframework.session:spring-session-core:3.2.1" level="project" />
     <orderEntry type="library" name="Gradle: com.oracle.database.jdbc:ojdbc8:19.3.0.0" level="project" />
     <orderEntry type="library" name="Gradle: org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework.security:spring-security-crypto:6.2.2" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-test:3.2.3" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-aop:3.2.3" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-jdbc:3.2.3" level="project" />
