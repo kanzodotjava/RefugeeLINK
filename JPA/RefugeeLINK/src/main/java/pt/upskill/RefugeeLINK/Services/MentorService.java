@@ -4,6 +4,7 @@ import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import pt.upskill.RefugeeLINK.Models.Mentor;
@@ -76,6 +77,14 @@ public class MentorService {
     public Optional<Mentor> findMentorByUsername(String userName) {
         return mentorRepository.findByUserName(userName);
     }
+
+//    public String hashPassword(String plainTextPassword) {
+//        return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
+//    }
+//
+//    public boolean checkPass(String plainPassword, String hashedPassword) {
+//        return BCrypt.checkpw(plainPassword, hashedPassword);
+//    }
 }
 
 

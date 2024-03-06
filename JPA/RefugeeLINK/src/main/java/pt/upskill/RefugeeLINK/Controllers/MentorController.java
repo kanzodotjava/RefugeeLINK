@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import pt.upskill.RefugeeLINK.DTO.MentorDTO;
 import pt.upskill.RefugeeLINK.DTO.MentorLoginDTO;
 import pt.upskill.RefugeeLINK.Models.Mentor;
+import pt.upskill.RefugeeLINK.Models.Person;
 import pt.upskill.RefugeeLINK.Services.MentorService;
 
 import java.util.List;
@@ -70,6 +71,7 @@ public class MentorController {
             return ResponseEntity.notFound().build();
         }
     }
+
     @PostMapping("/login")
     public ResponseEntity<Boolean> validateMentorLogin(@RequestBody MentorLoginDTO mentorLoginDTO) {
         Optional<Mentor> mentor = mentorService.findMentorByUsername(mentorLoginDTO.getUserName());
@@ -78,4 +80,18 @@ public class MentorController {
         }
         return ResponseEntity.ok(false);
     }
+
+//    @PostMapping("/login")
+//    public ResponseEntity<Boolean> validateLogin(@RequestBody MentorLoginDTO mentorLoginDTO) {
+//        Optional<Mentor> mentor = mentorService.findMentorByUsername(mentorLoginDTO.getUserName());
+//        if (mentor.isPresent()) {
+//
+//            String hashedInputPassword = mentorService.hashPassword(mentorLoginDTO.getPassword());
+//
+//            if (hashedInputPassword.equals(mentor.get().getPassword())) {
+//                return ResponseEntity.ok(true);
+//            }
+//        }
+//        return ResponseEntity.ok(false);
+//    }
 }
