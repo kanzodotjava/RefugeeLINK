@@ -3,6 +3,7 @@ package pt.upskill.RefugeeLINK.Models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import pt.upskill.RefugeeLINK.DTO.MentorDTO;
+import pt.upskill.RefugeeLINK.DTO.MentorLoginDTO;
 import pt.upskill.RefugeeLINK.Enums.Profession;
 import pt.upskill.RefugeeLINK.Enums.Status;
 
@@ -67,4 +68,10 @@ public class Mentor extends Person{
         return mentorDTO;
     }
 
+    public MentorLoginDTO toLoginDTO() {
+        MentorLoginDTO mentorLoginDTO = new MentorLoginDTO();
+        mentorLoginDTO.setUserName(this.getUserName());
+        mentorLoginDTO.setPassword(this.getPassword());
+        return mentorLoginDTO;
+    }
 }

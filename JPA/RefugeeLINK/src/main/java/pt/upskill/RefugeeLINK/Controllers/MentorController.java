@@ -6,10 +6,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pt.upskill.RefugeeLINK.DTO.MentorDTO;
+import pt.upskill.RefugeeLINK.DTO.MentorLoginDTO;
 import pt.upskill.RefugeeLINK.Models.Mentor;
 import pt.upskill.RefugeeLINK.Services.MentorService;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Stack;
 import java.util.stream.Collectors;
 
@@ -67,5 +69,13 @@ public class MentorController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+    @PostMapping("/login")
+    public ResponseEntity<Boolean> validateMentorLogin(@RequestBody MentorLoginDTO mentorLoginDTO) {
+        Optional<Mentor> mentor = mentorService.findMentorByUsername(mentorLoginDTO.getUserName());
+        if (mentor.isPresent() && mentor.get().getPassword().equals(mentorLoginDTO.getPassword())) {
+            return ResponseEntity.ok(true);
+        }
+        return ResponseEntity.ok(false);
     }
 }
