@@ -14,7 +14,7 @@ export class ApiService {
   }
 
   checkRefugeeNumberExists(id: string): Observable<boolean> {
-    const url = `http://localhost:8081/ids/exists/${id}`;
+    const url = `http://localhost:9090/ids/exists/${id}`;
     return this.http.get<boolean>(url);
   }
 }

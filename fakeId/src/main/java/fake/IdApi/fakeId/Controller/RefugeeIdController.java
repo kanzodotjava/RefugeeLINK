@@ -41,6 +41,7 @@ public class RefugeeIdController{
         }
 
         @GetMapping("/exists/{id}")
+        @CrossOrigin(origins = "http://localhost:4200")
         public boolean idExists(@PathVariable int id) {
         return refugeeIdService.idExists(id);
     }
