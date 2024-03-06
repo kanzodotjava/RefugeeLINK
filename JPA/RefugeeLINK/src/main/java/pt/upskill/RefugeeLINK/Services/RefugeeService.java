@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import pt.upskill.RefugeeLINK.Models.Refugee;
 import pt.upskill.RefugeeLINK.Repositories.RefugeeRepository;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.List;
 
@@ -16,8 +17,12 @@ public class RefugeeService {
 
     @Autowired
     RefugeeRepository refugeeRepository;
+    private  BCryptPasswordEncoder passwordEncoder;
 
-
+    public RefugeeService(RefugeeRepository refugeeRepository, BCryptPasswordEncoder passwordEncoder) {
+        this.refugeeRepository = refugeeRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
     public Refugee addRefugee(Refugee refugee) {
         if (refugeeRepository.existsById(refugee.getId())) {
             throw new DataIntegrityViolationException("Refugee with ID " + refugee.getId() + " already exists.");
@@ -31,6 +36,9 @@ public class RefugeeService {
         if (password.length() < 8 || password.length() > 50 || !password.matches(".*[A-Z].*")) {
             throw new IllegalArgumentException("Password must be between 8 and 50 characters long and contain at least one uppercase character.");
         }
+        String hashedPassword = passwordEncoder.encode(password);
+        refugee.setPassword(hashedPassword);
+
         return refugeeRepository.save(refugee);
     }
 

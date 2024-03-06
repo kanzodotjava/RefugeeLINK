@@ -4,9 +4,11 @@ import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import pt.upskill.RefugeeLINK.Models.Mentor;
 import pt.upskill.RefugeeLINK.Repositories.MentorRepository;
+import pt.upskill.RefugeeLINK.Config.SecurityConfig;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,6 +19,12 @@ public class MentorService {
 
     @Autowired
     MentorRepository mentorRepository;
+    private BCryptPasswordEncoder passwordEncoder;
+
+    public  MentorService(MentorRepository mentorRepository,BCryptPasswordEncoder passwordEncoder){
+        this.mentorRepository = mentorRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     public Mentor addMentor(Mentor mentor){
         if(mentorRepository.existsById(mentor.getId())){
@@ -31,6 +39,9 @@ public class MentorService {
         if (password.length() < 8 || password.length() > 50 || !password.matches(".*[A-Z].*")) {
             throw new IllegalArgumentException("Password must be between 8 and 50 characters long and contain at least one uppercase character.");
         }
+        String hashedPassword = passwordEncoder.encode(password);
+        mentor.setPassword(hashedPassword);
+
         return mentorRepository.save(mentor);
     }
 
