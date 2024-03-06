@@ -1,5 +1,5 @@
 
-namespace RefugeeLINK
+namespace RefugeeLink
 {
     public class Program
     {
