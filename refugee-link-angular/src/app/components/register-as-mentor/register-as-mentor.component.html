@@ -1,1 +1,112 @@
-<p>register-as-mentor works!</p>
+<div class="form-container">
+  <div class="text-right">
+    <a href="/login" class="link">Already have an account? Login</a>
+  </div>
+
+  <h2>Registering as Mentor</h2>
+
+  <form [formGroup]="mentorForm" (ngSubmit)="onSubmit()" class="mentor-form">
+    <!-- Personal Information Section -->
+    <div class="form-field">
+      <label for="name">Full name:</label>
+      <input
+        type="text"
+        id="name"
+        formControlName="name"
+        placeholder="Full name"
+      />
+    </div>
+
+    <div class="form-field">
+      <label for="emailAddress">Email:</label>
+      <input
+        type="email"
+        id="emailAddress"
+        formControlName="emailAddress"
+        placeholder="Email"
+      />
+    </div>
+
+    <div class="form-field">
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="text" id="phoneNumber" formControlName="phoneNumber" />
+    </div>
+
+    <div class="form-field">
+      <label for="country">Country:</label>
+      <select id="country" formControlName="country">
+        <option value="USA">United States of America</option>
+        <!-- Add more options for countries here -->
+      </select>
+    </div>
+
+    <div class="form-field">
+      <label for="userName">Username:</label>
+      <input type="text" id="userName" formControlName="userName" />
+    </div>
+
+    <div class="form-field">
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName="password" />
+    </div>
+
+    <div class="form-field">
+      <label for="nationality">Nationality:</label>
+      <select id="nationality" formControlName="nationality">
+        <option value="USA">United States of America</option>
+        <!-- Add more options for nationalities here -->
+      </select>
+    </div>
+
+    <div class="form-field">
+      <label for="primaryLanguage">Primary Language:</label>
+      <select id="primaryLanguage" formControlName="primaryLanguage">
+        <option value="ENGLISH">English</option>
+        <!-- Add more options for languages here -->
+      </select>
+    </div>
+
+    <div class="form-field">
+      <label for="secondaryLanguage">Secondary Language:</label>
+      <select id="secondaryLanguage" formControlName="secondaryLanguage">
+        <option value="ENGLISH">English</option>
+        <!-- Add more options for languages here -->
+      </select>
+    </div>
+
+    <div class="form-field">
+      <label for="citizenCard">Citizen Card Number:</label>
+      <input type="number" id="citizenCard" formControlName="citizenCard" />
+    </div>
+
+    <div class="form-group">
+      <label for="profession">Profession</label>
+      <select
+        class="form-control"
+        id="profession"
+        name="profession"
+        formControlName="profession"
+      >
+        <option *ngFor="let profession of professions" [value]="profession">
+          {{ profession }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-field">
+      <label for="description">Description:</label>
+      <textarea id="description" formControlName="description"></textarea>
+    </div>
+
+    <div class="form-field">
+      <label for="birthdayDate">Birthday Date:</label>
+      <input type="date" id="birthdayDate" formControlName="birthdayDate" />
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <button type="submit" class="submit-button">Submit</button>
+  </form>
+</div>
