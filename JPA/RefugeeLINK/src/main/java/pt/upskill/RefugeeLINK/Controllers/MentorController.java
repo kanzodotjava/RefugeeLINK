@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pt.upskill.RefugeeLINK.DTO.MentorDTO;
+import pt.upskill.RefugeeLINK.DTO.MentorLoginDTO;
 import pt.upskill.RefugeeLINK.Models.Mentor;
 import pt.upskill.RefugeeLINK.Services.MentorService;
 
@@ -66,5 +67,13 @@ public class MentorController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+
+    @GetMapping("{id}/login")
+    public ResponseEntity<MentorLoginDTO> getMentorLoginById(@PathVariable long id){
+        Mentor mentor = mentorService.getMentorById(id);
+        MentorLoginDTO mentorLoginDTO = mentor.toLoginDTO();
+        return new ResponseEntity<>(mentorLoginDTO,HttpStatus.OK);
     }
 }
