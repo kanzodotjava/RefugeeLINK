@@ -13,6 +13,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { RegisterAsMentorComponent } from './components/register-as-mentor/register-as-mentor.component';
 import { RegisterAsRefugeeComponent } from './components/register-as-refugee/register-as-refugee.component';
+import { NewsComponent } from './components/news/news.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { RegisterAsRefugeeComponent } from './components/register-as-refugee/reg
     RegisterPageComponent,
     RegisterAsMentorComponent,
     RegisterAsRefugeeComponent,
+    NewsComponent,
   ],
   imports: [
     BrowserModule,

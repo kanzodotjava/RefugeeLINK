@@ -1,0 +1,17 @@
+<h2>News About Refugees</h2>
+
+<div class="news-grid">
+  <div class="news-item" *ngFor="let news of newsData">
+    <div class="news-container">
+      <img
+        class="news-image"
+        [src]="news.urlToImage || 'https://via.placeholder.com/150'"
+        alt="{{ news.title }}"
+      />
+      <div class="news-details">
+        <h3 class="news-title">{{ news.title }}</h3>
+        <p class="news-description">{{ news.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>

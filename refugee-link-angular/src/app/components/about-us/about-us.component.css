@@ -1,0 +1,75 @@
+.container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  height: 80vh; /* Set height to viewport height */
+  margin-top: 50px;
+}
+
+.left,
+.right {
+  flex: 1; /* Equal width for both divs */
+}
+
+.left {
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+}
+
+.right {
+  display: flex;
+  justify-content: center; /* Center image horizontally */
+  align-items: center; /* Center image vertically */
+}
+
+.content {
+  text-align: center;
+  width: 50%;
+}
+
+h2 {
+  text-align: center;
+  font-family: "Volkhov", serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 89px;
+  letter-spacing: -0.04em;
+  color: #181e4b;
+}
+
+p,
+ul,
+li {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 30px;
+  color: #5e6282;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li::before {
+  content: "\2022"; /* Bullet character */
+  color: #5e6282; /* Same color as the text */
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+/* Media query for smaller displays */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack divs vertically */
+    align-items: center; /* Center horizontally */
+  }
+
+  .left,
+  .right {
+    width: 100%; /* Full width for smaller displays */
+  }
+}
