@@ -6,11 +6,13 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
+import pt.upskill.RefugeeLINK.Models.Mentor;
 import pt.upskill.RefugeeLINK.Models.Refugee;
 import pt.upskill.RefugeeLINK.Repositories.RefugeeRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RefugeeService {
@@ -71,4 +73,10 @@ public class RefugeeService {
         }
         throw new EntityNotFoundException("Refugee with id: " + id + " was not found!");
     }
+
+    public Optional<Refugee> findRefugeeByUsername(String userName) {
+        return refugeeRepository.findByUserName(userName);
+    }
+
+
 }

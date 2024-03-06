@@ -4,11 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pt.upskill.RefugeeLINK.DTO.MentorLoginDTO;
 import pt.upskill.RefugeeLINK.DTO.RefugeeDTO;
+import pt.upskill.RefugeeLINK.DTO.RefugeeLoginDto;
+import pt.upskill.RefugeeLINK.Models.Mentor;
 import pt.upskill.RefugeeLINK.Models.Refugee;
 import pt.upskill.RefugeeLINK.Services.RefugeeService;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -64,4 +68,15 @@ public class RefugeeController {
             return ResponseEntity.notFound().build();
         }
     }
+
+
+    @PostMapping("/login")
+    public ResponseEntity<Boolean> validateRefugeeLogin(@RequestBody RefugeeLoginDto refugeeLoginDto) {
+        Optional<Refugee> refugee = refugeeService.findRefugeeByUsername(refugeeLoginDto.getUserName());
+        if (refugee.isPresent() && refugee.get().getPassword().equals(refugeeLoginDto.getPassword())) {
+            return ResponseEntity.ok(true);
+        }
+        return ResponseEntity.ok(false);
+    }
+
 }

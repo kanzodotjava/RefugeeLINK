@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RefugeeLink")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2636f3e66ee4617b7fecea3b42e0901e5017b2bc")]
 [assembly: System.Reflection.AssemblyProductAttribute("RefugeeLink")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RefugeeLink")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
