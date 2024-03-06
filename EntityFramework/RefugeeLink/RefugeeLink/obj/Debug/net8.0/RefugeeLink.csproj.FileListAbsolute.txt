@@ -1,0 +1,246 @@
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\appsettings.Development.json
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\appsettings.json
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\RefugeeLink.exe
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\RefugeeLink.deps.json
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\RefugeeLink.runtimeconfig.json
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\RefugeeLink.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\RefugeeLink.pdb
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Humanizer.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Oracle.EntityFrameworkCore.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Oracle.ManagedDataAccess.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.CodeDom.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.Composition.Convention.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.Composition.Hosting.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.Composition.Runtime.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.Composition.TypedParts.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.Diagnostics.PerformanceCounter.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.DirectoryServices.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.DirectoryServices.Protocols.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Diagnostics.PerformanceCounter.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.DirectoryServices.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\runtimes\linux\lib\net6.0\System.DirectoryServices.Protocols.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\runtimes\osx\lib\net6.0\System.DirectoryServices.Protocols.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.DirectoryServices.Protocols.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\obj\Debug\net8.0\RefugeeLink.csproj.AssemblyReference.cache
+D:\Framework RL\RefugeeLink\RefugeeLink\obj\Debug\net8.0\RefugeeLink.GeneratedMSBuildEditorConfig.editorconfig
+D:\Framework RL\RefugeeLink\RefugeeLink\obj\Debug\net8.0\RefugeeLink.AssemblyInfoInputs.cache
+D:\Framework RL\RefugeeLink\RefugeeLink\obj\Debug\net8.0\RefugeeLink.AssemblyInfo.cs
+D:\Framework RL\RefugeeLink\RefugeeLink\obj\Debug\net8.0\RefugeeLink.csproj.CoreCompileInputs.cache
+D:\Framework RL\RefugeeLink\RefugeeLink\obj\Debug\net8.0\RefugeeLink.MvcApplicationPartsAssemblyInfo.cs
+D:\Framework RL\RefugeeLink\RefugeeLink\obj\Debug\net8.0\RefugeeLink.MvcApplicationPartsAssemblyInfo.cache
+D:\Framework RL\RefugeeLink\RefugeeLink\obj\Debug\net8.0\staticwebassets.build.json
+D:\Framework RL\RefugeeLink\RefugeeLink\obj\Debug\net8.0\staticwebassets.development.json
+D:\Framework RL\RefugeeLink\RefugeeLink\obj\Debug\net8.0\staticwebassets\msbuild.RefugeeLink.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Framework RL\RefugeeLink\RefugeeLink\obj\Debug\net8.0\staticwebassets\msbuild.build.RefugeeLink.props
+D:\Framework RL\RefugeeLink\RefugeeLink\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.RefugeeLink.props
+D:\Framework RL\RefugeeLink\RefugeeLink\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.RefugeeLink.props
+D:\Framework RL\RefugeeLink\RefugeeLink\obj\Debug\net8.0\staticwebassets.pack.json
+D:\Framework RL\RefugeeLink\RefugeeLink\obj\Debug\net8.0\scopedcss\bundle\RefugeeLink.styles.css
+D:\Framework RL\RefugeeLink\RefugeeLink\obj\Debug\net8.0\RefugeeL.EDC148AC.Up2Date
+D:\Framework RL\RefugeeLink\RefugeeLink\obj\Debug\net8.0\RefugeeLink.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\obj\Debug\net8.0\refint\RefugeeLink.dll
+D:\Framework RL\RefugeeLink\RefugeeLink\obj\Debug\net8.0\RefugeeLink.pdb
+D:\Framework RL\RefugeeLink\RefugeeLink\obj\Debug\net8.0\RefugeeLink.genruntimeconfig.cache
+D:\Framework RL\RefugeeLink\RefugeeLink\obj\Debug\net8.0\ref\RefugeeLink.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\appsettings.json
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\RefugeeLink.exe
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\RefugeeLink.deps.json
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\RefugeeLink.runtimeconfig.json
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\RefugeeLink.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\RefugeeLink.pdb
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Humanizer.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Mono.TextTemplating.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Oracle.EntityFrameworkCore.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Oracle.ManagedDataAccess.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.CodeDom.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.Composition.Convention.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.Composition.Hosting.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.Composition.Runtime.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.Composition.TypedParts.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.Diagnostics.PerformanceCounter.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.DirectoryServices.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.DirectoryServices.Protocols.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.Drawing.Common.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.Security.Permissions.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\System.Windows.Extensions.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Diagnostics.PerformanceCounter.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.DirectoryServices.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\runtimes\linux\lib\net6.0\System.DirectoryServices.Protocols.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\runtimes\osx\lib\net6.0\System.DirectoryServices.Protocols.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.DirectoryServices.Protocols.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\obj\Debug\net8.0\RefugeeLink.csproj.AssemblyReference.cache
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\obj\Debug\net8.0\RefugeeLink.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\obj\Debug\net8.0\RefugeeLink.AssemblyInfoInputs.cache
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\obj\Debug\net8.0\RefugeeLink.AssemblyInfo.cs
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\obj\Debug\net8.0\RefugeeLink.csproj.CoreCompileInputs.cache
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\obj\Debug\net8.0\RefugeeLink.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\obj\Debug\net8.0\RefugeeLink.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\obj\Debug\net8.0\staticwebassets\msbuild.RefugeeLink.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\obj\Debug\net8.0\staticwebassets\msbuild.build.RefugeeLink.props
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.RefugeeLink.props
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.RefugeeLink.props
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\obj\Debug\net8.0\scopedcss\bundle\RefugeeLink.styles.css
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\obj\Debug\net8.0\RefugeeLink.csproj.CopyComplete
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\obj\Debug\net8.0\RefugeeLink.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\obj\Debug\net8.0\refint\RefugeeLink.dll
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\obj\Debug\net8.0\RefugeeLink.pdb
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\obj\Debug\net8.0\RefugeeLink.genruntimeconfig.cache
+C:\Users\Pedro\Desktop\RefugeeLink\RefugeeLink\obj\Debug\net8.0\ref\RefugeeLink.dll
