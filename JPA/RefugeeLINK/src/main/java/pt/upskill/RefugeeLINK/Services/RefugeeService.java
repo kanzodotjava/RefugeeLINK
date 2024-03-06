@@ -22,6 +22,15 @@ public class RefugeeService {
         if (refugeeRepository.existsById(refugee.getId())) {
             throw new DataIntegrityViolationException("Refugee with ID " + refugee.getId() + " already exists.");
         }
+        String username = refugee.getUserName();
+        if (username.length() < 6 || username.length() > 12 || !username.matches("^[a-zA-Z0-9]+$")) {
+            throw new IllegalArgumentException("Username must be between 6 and 12 characters long and contain only letters and numbers.");
+        }
+
+        String password = refugee.getPassword();
+        if (password.length() < 8 || password.length() > 50 || !password.matches(".*[A-Z].*")) {
+            throw new IllegalArgumentException("Password must be between 8 and 50 characters long and contain at least one uppercase character.");
+        }
         return refugeeRepository.save(refugee);
     }
 
