@@ -117,6 +117,9 @@ public class RefugeeService {
     }
 
 
+    public Refugee getRefugeeByUsername(String userName) {
 
+        return refugeeRepository.findByUserName(userName).orElseThrow(() -> new RuntimeException("Refugee not found with username: " + userName));
+    }
 
 }

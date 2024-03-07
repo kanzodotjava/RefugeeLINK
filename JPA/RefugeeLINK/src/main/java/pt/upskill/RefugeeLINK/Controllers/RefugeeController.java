@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pt.upskill.RefugeeLINK.DTO.MentorDTO;
 import pt.upskill.RefugeeLINK.DTO.MentorLoginDTO;
 import pt.upskill.RefugeeLINK.DTO.RefugeeDTO;
 import pt.upskill.RefugeeLINK.DTO.RefugeeLoginDto;
@@ -121,6 +122,17 @@ public class RefugeeController {
             return ResponseEntity.ok("Mentor removed from refugee");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred: " + e.getMessage());
+        }
+    }
+
+    @GetMapping("/by-username/{username}")
+    public ResponseEntity<RefugeeDTO> getRefugeeByUsername(@PathVariable String username) {
+        try {
+            Refugee refugee = refugeeService.getRefugeeByUsername(username);
+            RefugeeDTO refugeeDTO = refugee.toDTO();
+            return new ResponseEntity<>(refugeeDTO, HttpStatus.OK);
+        } catch (RuntimeException ex) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 }
