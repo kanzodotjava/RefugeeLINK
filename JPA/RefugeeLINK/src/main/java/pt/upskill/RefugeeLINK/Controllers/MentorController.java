@@ -126,7 +126,7 @@ public class MentorController {
     }
 
 
-    @GetMapping("/by-user/{username}")
+    @GetMapping("/by-username/{username}")
     public ResponseEntity<MentorDTO> getMentorByUsername(@PathVariable String username) {
         try {
             Mentor mentor = mentorService.getMentorByUsername(username);
