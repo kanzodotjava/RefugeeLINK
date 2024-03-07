@@ -1,0 +1,45 @@
+<div class="register-container">
+  <div class="left-section">
+    <img
+      src="assets/images/loginPage.png"
+      alt="Register Page Image"
+      class="register-image"
+    />
+  </div>
+  <div class="right-section">
+    <div class="content">
+      <img
+        src="assets/images/miniLogo.png"
+        alt="Logo Image"
+        class="mini-logo"
+      />
+      <h2 class="register-heading">Login</h2>
+      <form class="login-form" [formGroup]="loginForm" (submit)="onSubmit()">
+        <div class="form-field">
+          <label for="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            formControlName="username"
+            placeholder="Username"
+          />
+        </div>
+        <div class="form-field">
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            formControlName="password"
+            placeholder="Password"
+          />
+        </div>
+        <div class="button-container">
+          <button type="submit" class="login-button">Login</button>
+        </div>
+      </form>
+      <div class="login-link">
+        Already have an account? <a href="/register">Register</a>
+      </div>
+    </div>
+  </div>
+</div>

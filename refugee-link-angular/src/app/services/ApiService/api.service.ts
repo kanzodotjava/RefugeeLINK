@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
+  private loginUrl = 'https://localhost:7165/login';
+
   constructor(private http: HttpClient) {}
 
   sendFormData(data: any): Observable<any> {
@@ -16,5 +18,9 @@ export class ApiService {
   checkRefugeeNumberExists(id: string): Observable<boolean> {
     const url = `http://localhost:9090/ids/exists/${id}`;
     return this.http.get<boolean>(url);
+  }
+
+  login(credentials: any): Observable<any> {
+    return this.http.post<any>(this.loginUrl, credentials);
   }
 }
