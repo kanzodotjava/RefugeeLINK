@@ -1,4 +1,4 @@
-package pt.upskill.RefugeeLINK.Services;
+package pt.upskill.RefugeeLINK.FileStorage;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

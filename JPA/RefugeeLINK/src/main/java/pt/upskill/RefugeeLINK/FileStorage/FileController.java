@@ -1,4 +1,4 @@
-package pt.upskill.RefugeeLINK.Controllers;
+package pt.upskill.RefugeeLINK.FileStorage;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import pt.upskill.RefugeeLINK.Exceptions.FileResponse;
-import pt.upskill.RefugeeLINK.Services.FileService;
+import pt.upskill.RefugeeLINK.FileStorage.FileResponse;
+import pt.upskill.RefugeeLINK.FileStorage.FileService;
 
 import java.io.IOException;
 

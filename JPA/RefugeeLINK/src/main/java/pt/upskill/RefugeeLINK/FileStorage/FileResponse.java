@@ -1,4 +1,4 @@
-package pt.upskill.RefugeeLINK.Exceptions;
+package pt.upskill.RefugeeLINK.FileStorage;
 
 public class FileResponse {
 
