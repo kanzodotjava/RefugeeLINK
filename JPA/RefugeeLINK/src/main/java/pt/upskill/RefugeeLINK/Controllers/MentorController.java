@@ -125,6 +125,18 @@ public class MentorController {
         }
     }
 
+
+    @GetMapping("/by-user/{username}")
+    public ResponseEntity<MentorDTO> getMentorByUsername(@PathVariable String username) {
+        try {
+            Mentor mentor = mentorService.getMentorByUsername(username);
+            MentorDTO mentorDTO = mentor.toDTO();
+            return new ResponseEntity<>(mentorDTO, HttpStatus.OK);
+        } catch (RuntimeException ex) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
 //    @PostMapping("/login")
 //    public ResponseEntity<Boolean> validateLogin(@RequestBody MentorLoginDTO mentorLoginDTO) {
 //        Optional<Mentor> mentor = mentorService.findMentorByUsername(mentorLoginDTO.getUserName());
