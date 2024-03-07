@@ -3,6 +3,8 @@ package pt.upskill.RefugeeLINK.Models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.OneToMany;
 import pt.upskill.RefugeeLINK.DTO.MentorDTO;
 import pt.upskill.RefugeeLINK.DTO.MentorLoginDTO;
@@ -18,6 +20,8 @@ public class Mentor extends Person{
     @OneToMany(mappedBy = "mentor")
     @JsonIgnoreProperties("mentor")
     List<Refugee> refugee;
+
+//    @Enumerated(EnumType.STRING)
     Status status;
 
     public Profession getProfession() {
@@ -60,8 +64,6 @@ public class Mentor extends Person{
         mentorDTO.setBirthdayDate(this.getBirthdayDate());
         mentorDTO.setPhoneNumber(this.getPhoneNumber());
         mentorDTO.setCountry(this.getCountry());
-        mentorDTO.setUserName(this.getUserName());
-        mentorDTO.setPassword(this.getPassword());
         mentorDTO.setNationality(this.getNationality());
         mentorDTO.setPrimaryLanguage(this.getPrimaryLanguage());
         mentorDTO.setSecondaryLanguage(this.getSecondaryLanguage());

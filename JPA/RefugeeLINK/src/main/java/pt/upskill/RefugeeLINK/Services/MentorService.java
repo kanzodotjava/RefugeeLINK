@@ -7,6 +7,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import pt.upskill.RefugeeLINK.Enums.Status;
 import pt.upskill.RefugeeLINK.Models.Mentor;
 import pt.upskill.RefugeeLINK.Repositories.MentorRepository;
 import pt.upskill.RefugeeLINK.Config.SecurityConfig;
@@ -74,10 +75,27 @@ public class MentorService {
         throw new EntityNotFoundException();
     }
 
+    public List<Mentor> getMentorByStatusCertified(){
+        return mentorRepository.getMentorByStatus(Status.CERTIFIED);
+    }
+
+    public List<Mentor> getMentorByStatusAwaiting(){
+        return mentorRepository.getMentorByStatus(Status.AWAITING);
+    }
+
     public Optional<Mentor> findMentorByUsername(String userName) {
         return mentorRepository.findByUserName(userName);
     }
 
+
+    public Mentor updateStatus(Long mentorId, Status newStatus) {
+        Mentor mentor = mentorRepository.findById(mentorId).orElse(null);
+        if (mentor != null) {
+            mentor.setStatus(newStatus);
+            return mentorRepository.save(mentor);
+        }
+        return null;
+    }
 
 }
 

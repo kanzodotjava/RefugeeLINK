@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pt.upskill.RefugeeLINK.DTO.MentorDTO;
 import pt.upskill.RefugeeLINK.DTO.MentorLoginDTO;
+import pt.upskill.RefugeeLINK.Enums.Status;
 import pt.upskill.RefugeeLINK.Models.Mentor;
 import pt.upskill.RefugeeLINK.Models.Person;
 import pt.upskill.RefugeeLINK.Services.MentorService;
@@ -79,6 +80,49 @@ public class MentorController {
             return ResponseEntity.ok(true);
         }
         return ResponseEntity.ok(false);
+    }
+
+
+    @GetMapping("/certified")
+    public ResponseEntity<List<MentorDTO>> getMentorByStatusCertified() {
+        List<Mentor> mentors = mentorService.getMentorByStatusCertified();
+        List<MentorDTO> mentorDTOs = mentors.stream()
+                .map(Mentor::toDTO)
+                .collect(Collectors.toList());
+        return new ResponseEntity<>(mentorDTOs, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/awaiting")
+    public ResponseEntity<List<MentorDTO>> getMentorByStatusAwaiting() {
+        List<Mentor> mentors = mentorService.getMentorByStatusAwaiting();
+        List<MentorDTO> mentorDTOs = mentors.stream()
+                .map(Mentor::toDTO)
+                .collect(Collectors.toList());
+        return new ResponseEntity<>(mentorDTOs, HttpStatus.OK);
+    }
+
+
+    @PutMapping("/{mentorId}/certify")
+    public ResponseEntity<MentorDTO> certifyMentor(@PathVariable Long mentorId) {
+        Mentor mentor = mentorService.updateStatus(mentorId, Status.CERTIFIED);
+        if (mentor != null) {
+            MentorDTO mentorDTO = mentor.toDTO();
+            return new ResponseEntity<>(mentorDTO, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping("/{mentorId}/reject")
+    public ResponseEntity<MentorDTO> rejectMentor(@PathVariable Long mentorId) {
+        Mentor mentor = mentorService.updateStatus(mentorId, Status.REJECTED);
+        if (mentor != null) {
+            MentorDTO mentorDTO = mentor.toDTO();
+            return new ResponseEntity<>(mentorDTO, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
 //    @PostMapping("/login")

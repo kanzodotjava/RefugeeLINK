@@ -79,7 +79,6 @@ public class Refugee extends Person {
         refugeeDTO.setPrimaryLanguage(this.getPrimaryLanguage());
         refugeeDTO.setSecondaryLanguage(this.getSecondaryLanguage());
         refugeeDTO.setRefugeeId(this.getRefugeeNumber());
-
         return refugeeDTO;
     }
 
