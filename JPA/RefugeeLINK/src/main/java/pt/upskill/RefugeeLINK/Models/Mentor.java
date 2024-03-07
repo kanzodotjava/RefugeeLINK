@@ -1,5 +1,7 @@
 package pt.upskill.RefugeeLINK.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import pt.upskill.RefugeeLINK.DTO.MentorDTO;
@@ -14,6 +16,7 @@ public class Mentor extends Person{
     Profession profession;
     String description;
     @OneToMany(mappedBy = "mentor")
+    @JsonIgnoreProperties("mentor")
     List<Refugee> refugee;
     Status status;
 

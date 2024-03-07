@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import pt.upskill.RefugeeLINK.DTO.MentorLoginDTO;
 import pt.upskill.RefugeeLINK.DTO.RefugeeDTO;
 import pt.upskill.RefugeeLINK.DTO.RefugeeLoginDto;
+import pt.upskill.RefugeeLINK.Exceptions.MentorIdNotFound;
 import pt.upskill.RefugeeLINK.Models.Mentor;
 import pt.upskill.RefugeeLINK.Models.Refugee;
 import pt.upskill.RefugeeLINK.Services.RefugeeService;
@@ -23,6 +24,22 @@ public class RefugeeController {
     RefugeeService refugeeService;
 
 
+    //Basic CRUD for Refugee no DTO
+
+    @GetMapping("/noDto")
+    public ResponseEntity<List<Refugee>> getAllRefugeesNoDto() {
+        List<Refugee> refugees = refugeeService.getAllRefugees();
+        return ResponseEntity.ok(refugees);
+    }
+
+    @GetMapping("/noDto/{id}")
+    public ResponseEntity<Refugee> getRefugeeByIdNoDto(@PathVariable long id) {
+        Refugee refugee = refugeeService.getRefugeeById(id);
+        return new ResponseEntity<>(refugee, HttpStatus.OK);
+    }
+
+
+    //Basic CRUD
     @GetMapping
     public ResponseEntity<List<RefugeeDTO>> getAllRefugees() {
         List<Refugee> refugees = refugeeService.getAllRefugees();
@@ -70,6 +87,8 @@ public class RefugeeController {
     }
 
 
+
+    //Login
     @PostMapping("/login")
     public ResponseEntity<Boolean> validateRefugeeLogin(@RequestBody RefugeeLoginDto refugeeLoginDto) {
         Optional<Refugee> refugee = refugeeService.findRefugeeByUsername(refugeeLoginDto.getUserName());
@@ -79,4 +98,29 @@ public class RefugeeController {
         return ResponseEntity.ok(false);
     }
 
+
+
+
+    //Mentor selection and Removal
+    @PutMapping("{refugeeId}/mentor")
+    public ResponseEntity<String> selectMentorForRefugee(@PathVariable Long refugeeId, @RequestParam Long mentorId) {
+        try {
+            refugeeService.selectMentorForRefugee(refugeeId, mentorId);
+            return ResponseEntity.ok("Mentor selected for refugee");
+        } catch (MentorIdNotFound e) {
+            return ResponseEntity.badRequest().body("Error selecting mentor: " + e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred: " + e.getMessage());
+        }
+    }
+
+    @DeleteMapping("/{id}/mentor")
+    public ResponseEntity<String> removeMentorFromRefugee(@PathVariable Long refugeeId) {
+        try {
+            refugeeService.removeMentorFromRefugee(refugeeId);
+            return ResponseEntity.ok("Mentor removed from refugee");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred: " + e.getMessage());
+        }
+    }
 }

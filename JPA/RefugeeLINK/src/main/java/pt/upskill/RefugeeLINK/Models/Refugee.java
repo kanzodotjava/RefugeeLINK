@@ -1,5 +1,7 @@
 package pt.upskill.RefugeeLINK.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import pt.upskill.RefugeeLINK.DTO.MentorLoginDTO;
@@ -24,6 +26,7 @@ public class Refugee extends Person {
     @ManyToOne
     @JoinColumn(name = "mentor_id")
     @Nullable
+    @JsonIgnoreProperties("refugees") // to avoid infinite recursion
     private Mentor mentor;
 
     public String getRefugeeNumber() {

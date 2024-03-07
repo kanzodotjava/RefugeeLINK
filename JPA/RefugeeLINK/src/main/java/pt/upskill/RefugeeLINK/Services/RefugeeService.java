@@ -1,13 +1,16 @@
 package pt.upskill.RefugeeLINK.Services;
 
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
+import pt.upskill.RefugeeLINK.Exceptions.MentorIdNotFound;
 import pt.upskill.RefugeeLINK.Models.Mentor;
 import pt.upskill.RefugeeLINK.Models.Refugee;
+import pt.upskill.RefugeeLINK.Repositories.MentorRepository;
 import pt.upskill.RefugeeLINK.Repositories.RefugeeRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -19,6 +22,11 @@ public class RefugeeService {
 
     @Autowired
     RefugeeRepository refugeeRepository;
+
+    @Autowired
+    MentorRepository mentorRepository;
+
+
     private  BCryptPasswordEncoder passwordEncoder;
 
     public RefugeeService(RefugeeRepository refugeeRepository, BCryptPasswordEncoder passwordEncoder) {
@@ -77,6 +85,38 @@ public class RefugeeService {
     public Optional<Refugee> findRefugeeByUsername(String userName) {
         return refugeeRepository.findByUserName(userName);
     }
+
+    @Transactional
+    public void selectMentorForRefugee(Long refugeeId, Long mentorId) throws MentorIdNotFound {
+
+        // Retrieve the refugee object
+        Refugee refugee = getRefugeeById(refugeeId);
+
+        // Retrieve the mentor object
+        Mentor mentor = mentorRepository.findById(mentorId)
+                .orElseThrow(() -> new MentorIdNotFound("Mentor with id " + mentorId + " not found"));
+
+        // Update the mentor association for the refugee
+        refugee.setMentor(mentor);
+
+        // Save the updated refugee
+        refugeeRepository.save(refugee);
+    }
+
+    @Transactional
+    public void removeMentorFromRefugee(Long refugeeId) {
+
+        // Retrieve the refugee object
+        Refugee refugee = getRefugeeById(refugeeId);
+
+        // Remove the mentor association from the refugee
+        refugee.setMentor(null);
+
+        // Save the updated refugee
+        refugeeRepository.save(refugee);
+    }
+
+
 
 
 }
