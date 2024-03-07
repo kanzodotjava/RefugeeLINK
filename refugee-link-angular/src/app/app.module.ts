@@ -15,6 +15,7 @@ import { RegisterAsMentorComponent } from './components/register-as-mentor/regis
 import { RegisterAsRefugeeComponent } from './components/register-as-refugee/register-as-refugee.component';
 import { NewsComponent } from './components/news/news.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
+import { MentorSelectComponent } from './components/mentor-select/mentor-select.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
     RegisterAsRefugeeComponent,
     NewsComponent,
     LoginPageComponent,
+    MentorSelectComponent,
   ],
   imports: [
     BrowserModule,

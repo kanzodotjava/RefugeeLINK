@@ -1,0 +1,50 @@
+.mentors-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.mentor-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.mentor-info {
+  display: flex;
+  align-items: center;
+}
+
+.mentor-name h3 {
+  margin: 0;
+  color: #333;
+  font-weight: normal;
+}
+
+.mentor-name p {
+  margin: 5px 0 0 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.mentor-details p {
+  margin: 0;
+  padding: 0 10px;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.details-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+  .details-button:hover {
+    background-color: #0056b3;
+  }

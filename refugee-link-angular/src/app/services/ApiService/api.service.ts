@@ -23,4 +23,9 @@ export class ApiService {
   login(credentials: any): Observable<any> {
     return this.http.post<any>(this.loginUrl, credentials);
   }
+
+  getMentors(): Observable<any> {
+    const url = 'http://localhost:8080/mentor'
+    return this.http.get(url);
+  }
 }
