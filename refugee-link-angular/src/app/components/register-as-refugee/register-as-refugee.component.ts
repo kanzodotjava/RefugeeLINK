@@ -1,7 +1,25 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../services/ApiService/api.service';
+
+enum Language {
+  MANDARIN = 'Mandarin',
+  BENGALI = 'Bengali',
+  TURKISH = 'Turkish',
+  GERMAN = 'German',
+  ARABIC = 'Arabic',
+  ENGLISH = 'ENGLISH',
+  JAPANESE = 'Japanese',
+  HINDI = 'Hindi',
+  RUSSIAN = 'Russian',
+  SPANISH = 'Spanish',
+  PORTUGUESE = 'Portuguese',
+  FRENCH = 'French',
+  ITALIAN = 'Italian',
+  KOREAN = 'Korean',
+  UKRAINIAN = 'Ukrainian',
+}
 
 @Component({
   selector: 'app-register-as-refugee',
@@ -9,6 +27,7 @@ import { ApiService } from '../../services/ApiService/api.service';
   styleUrls: ['./register-as-refugee.component.css'],
 })
 export class RegisterAsRefugeeComponent implements OnInit {
+  languages = Object.values(Language);
   refugeeForm!: FormGroup;
   isRefugeeNumberValid: boolean = true;
 
@@ -24,7 +43,7 @@ export class RegisterAsRefugeeComponent implements OnInit {
       userName: ['123'],
       password: ['123'],
       nationality: ['USA'],
-      primaryLanguage: ['ENGLISH'],
+      primaryLanguage: ['ENGLISH', Validators.required], // Set as required
       secondaryLanguage: ['ENGLISH'],
       citizenCard: [123],
       refugeeNumber: ['111111'],
