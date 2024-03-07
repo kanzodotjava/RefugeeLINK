@@ -20,7 +20,7 @@ import java.io.IOException;
 public class FileController {
     @Autowired
     private FileService fileService;
-@Value("${project.image }")
+@Value("${project.image}")
     private String path;
 
     @PostMapping("/upload")
