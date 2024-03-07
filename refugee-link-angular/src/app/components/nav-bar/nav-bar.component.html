@@ -8,6 +8,7 @@
     <a routerLink="/courses">Courses</a>
     <a routerLink="/mentorship">Mentorship</a>
     <a routerLink="/about-us">About Us</a>
+
     <a routerLink="/login">Login</a>
     <a routerLink="/register">Sign Up</a>
     <a routerLink="/mentor-select">Mentor Select</a>
@@ -15,6 +16,23 @@
     <img src="assets/images/english.png"
          alt="English Flag"
          style="width: 20px; height: 15px; margin-left: 5px" />
+
+    <ng-container *ngIf="!isLoggedIn(); else loggedInTemplate">
+      <!-- Display login button -->
+      <a routerLink="/login">Login</a>
+    </ng-container>
+    <ng-template #loggedInTemplate>
+      <!-- Display logout link -->
+      <a routerLink="/logout">Logout</a>
+    </ng-template>
+    <!-- Conditionally display Sign Up link based on user login status -->
+    <a routerLink="/register" *ngIf="!isLoggedIn()">Sign Up</a>
+    <img
+      src="assets/images/english.png"
+      alt="English Flag"
+      style="width: 20px; height: 15px; margin-left: 5px"
+    />
+
     <!-- English flag icon -->
   </div>
 </nav>

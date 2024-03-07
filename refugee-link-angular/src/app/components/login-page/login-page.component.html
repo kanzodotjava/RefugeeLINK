@@ -33,6 +33,7 @@
             placeholder="Password"
           />
         </div>
+        <div *ngIf="loginFailed" class="error-message">{{ errorMessage }}</div>
         <div class="button-container">
           <button type="submit" class="login-button">Login</button>
         </div>

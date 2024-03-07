@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "RefugeeLink\\Program.cs",
               "ToolTip": "C:\\Users\\Francisco\\Desktop\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Program.cs",
               "RelativeToolTip": "RefugeeLink\\Program.cs",
-              "ViewState": "AQIAABcAAAAAAAAAAAAIwDMAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-07T11:42:29.288Z",
               "EditorCaption": ""
@@ -79,8 +79,7 @@
               "RelativeToolTip": "RefugeeLink\\Controllers\\LoginController.cs",
               "ViewState": "AQIAACoAAAAAAAAAAAAowEAAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-06T14:32:36.125Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-06T14:32:36.125Z"
             },
             {
               "$type": "Document",
@@ -92,8 +91,7 @@
               "RelativeToolTip": "RefugeeLink\\Models\\LoginRequest.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-06T14:31:56.663Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-06T14:31:56.663Z"
             }
           ]
         }

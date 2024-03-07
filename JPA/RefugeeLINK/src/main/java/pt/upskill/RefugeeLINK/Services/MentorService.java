@@ -97,6 +97,10 @@ public class MentorService {
         return null;
     }
 
+    public Mentor getMentorByUsername(String userName) {
+
+        return mentorRepository.findByUserName(userName).orElseThrow(() -> new RuntimeException("Mentor not found with username: " + userName));
+    }
 }
 
 

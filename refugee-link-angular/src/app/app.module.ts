@@ -15,7 +15,13 @@ import { RegisterAsMentorComponent } from './components/register-as-mentor/regis
 import { RegisterAsRefugeeComponent } from './components/register-as-refugee/register-as-refugee.component';
 import { NewsComponent } from './components/news/news.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
+
 import { MentorSelectComponent } from './components/mentor-select/mentor-select.component';
+
+import { AuthGuard } from './guards/auth/auth.guard';
+import { PersonalPageComponent } from './components/personal-page/personal-page.component';
+import { LogoutComponent } from './components/logout/logout.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +35,12 @@ import { MentorSelectComponent } from './components/mentor-select/mentor-select.
     RegisterAsRefugeeComponent,
     NewsComponent,
     LoginPageComponent,
+
     MentorSelectComponent,
+
+    PersonalPageComponent,
+    LogoutComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -38,7 +49,7 @@ import { MentorSelectComponent } from './components/mentor-select/mentor-select.
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
