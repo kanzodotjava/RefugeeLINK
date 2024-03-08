@@ -9,30 +9,27 @@
     <a routerLink="/mentorship">Mentorship</a>
     <a routerLink="/about-us">About Us</a>
 
-    <a routerLink="/login">Login</a>
-    <a routerLink="/register">Sign Up</a>
-    <a routerLink="/mentor-select">Mentor Select</a>
-
-    <img src="assets/images/english.png"
-         alt="English Flag"
-         style="width: 20px; height: 15px; margin-left: 5px" />
-
+    <!-- Display login link only when the user is not logged in -->
     <ng-container *ngIf="!isLoggedIn(); else loggedInTemplate">
-      <!-- Display login button -->
       <a routerLink="/login">Login</a>
     </ng-container>
     <ng-template #loggedInTemplate>
+      <!-- Display mentor select link only when the user is logged in -->
+      <a routerLink="/mentor-select">Mentor Select</a>
+      <!-- Display link to personal page when user is logged in -->
+      <a routerLink="/personal-page">Personal Page</a>
       <!-- Display logout link -->
       <a routerLink="/logout">Logout</a>
     </ng-template>
+
     <!-- Conditionally display Sign Up link based on user login status -->
     <a routerLink="/register" *ngIf="!isLoggedIn()">Sign Up</a>
+
     <img
       src="assets/images/english.png"
       alt="English Flag"
       style="width: 20px; height: 15px; margin-left: 5px"
     />
-
     <!-- English flag icon -->
   </div>
 </nav>

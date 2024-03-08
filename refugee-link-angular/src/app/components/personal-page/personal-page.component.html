@@ -1,1 +1,25 @@
-<p>personal-page works!</p>
+<div class="max-w-lg mx-auto mt-8 bg-white p-6 rounded-lg shadow-md">
+  <div *ngIf="userDetails">
+    <h2 class="text-2xl font-bold mb-4">User Details</h2>
+    <div class="grid grid-cols-2 gap-4">
+      <p><strong>Name:</strong> {{ userDetails.name }}</p>
+      <p><strong>Email Address:</strong> {{ userDetails.emailAddress }}</p>
+      <p><strong>Birthday Date:</strong> {{ userDetails.birthdayDate }}</p>
+      <p><strong>Phone Number:</strong> {{ userDetails.phoneNumber }}</p>
+      <p><strong>Country:</strong> {{ userDetails.country }}</p>
+      <p><strong>Nationality:</strong> {{ userDetails.nationality }}</p>
+      <p>
+        <strong>Primary Language:</strong> {{ userDetails.primaryLanguage }}
+      </p>
+      <p>
+        <strong>Secondary Language:</strong> {{ userDetails.secondaryLanguage }}
+      </p>
+      <p><strong>Citizen Card:</strong> {{ userDetails.citizenCard }}</p>
+      <p><strong>Profession:</strong> {{ userDetails.profession }}</p>
+      <p><strong>Status:</strong> {{ userDetails.status }}</p>
+    </div>
+  </div>
+  <div *ngIf="!userDetails" class="text-center mt-4">
+    Loading user details...
+  </div>
+</div>

@@ -33,14 +33,18 @@ export class LoginPageComponent implements OnInit {
   onSubmit(): void {
     if (this.loginForm.valid) {
       const credentials = this.loginForm.value;
+      const username = credentials.username; // Retrieve the username from the form data
       this.apiService.login(credentials).subscribe(
         (response) => {
           console.log('Login successful:', response);
           if (response.userType) {
             this.authService.setUserType(response.userType);
+            console.log('User type:', response.userType);
           }
-          if (response.username) {
-            this.authService.setUsername(response.username); // Save username to local storage
+          // Save the username to local storage
+          if (username) {
+            this.authService.setUsername(username);
+            console.log('Username:', username); // Log the username to the console
           }
           this.router.navigate(['/']); // Redirect to homepage
         },

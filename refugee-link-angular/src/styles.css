@@ -1,4 +1,8 @@
 /* Set Montserrat font for the entire project */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   font-family: "Montserrat", sans-serif;
   font-size: 17px;

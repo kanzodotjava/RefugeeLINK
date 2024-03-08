@@ -13,11 +13,11 @@ export class AuthService {
   }
 
   setUsername(username: string): void {
-    localStorage.setItem(this.usernameKey, username);
+    localStorage.setItem('username', username);
   }
 
   getUsername(): string | null {
-    return localStorage.getItem(this.usernameKey);
+    return localStorage.getItem('username');
   }
 
   clearUsername(): void {

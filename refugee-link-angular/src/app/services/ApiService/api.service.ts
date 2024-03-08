@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
+  private baseUrl = 'http://localhost:8080';
   private loginUrl = 'https://localhost:7165/login';
 
   constructor(private http: HttpClient) {}
@@ -25,7 +26,17 @@ export class ApiService {
   }
 
   getMentors(): Observable<any> {
-    const url = 'http://localhost:8080/mentor'
+    const url = 'http://localhost:8080/mentor';
     return this.http.get(url);
+  }
+
+  getDetailsByUsername(username: string, userType: string): Observable<any> {
+    let endpoint = '';
+    if (userType === 'Mentor') {
+      endpoint = `${this.baseUrl}/mentor/by-username/${username}`;
+    } else if (userType === 'Refugee') {
+      endpoint = `${this.baseUrl}/refugee/by-username/${username}`;
+    }
+    return this.http.get(endpoint);
   }
 }
