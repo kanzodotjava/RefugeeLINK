@@ -200,3 +200,4 @@ README.html
 .idea
 .exercism
 *.xml
+/EntityFramework/RefugeeLink/.vs/RefugeeLink/FileContentIndex
