@@ -6,21 +6,23 @@ import { ApiService } from '../../services/ApiService/api.service';
   styleUrls: ['./connected-refugees.component.css'],
 })
 export class ConnectedRefugeesComponent implements OnInit{
-  refugeeInfo: any;
+  refugeeInfoList: any[] = [];
+
 
   constructor(private apiService: ApiService) {}
 
+  
   ngOnInit(): void {
     // Get username from local storage
     const username = localStorage.getItem('username');
     if (username) {
-      // Make API call to fetch refugee info
-      this.apiService.getRefugeeByUsername(username).subscribe(
-        (response: any) => {
-          this.refugeeInfo = response;
+      // Make API call to fetch list of refugees
+      this.apiService.getRefugeesByMentorUsername(username).subscribe(
+        (response: any[]) => {
+          this.refugeeInfoList = response;
         },
         (error) => {
-          console.error('Error fetching refugee info:', error);
+          console.error('Error fetching refugees:', error);
         }
       );
     } else {

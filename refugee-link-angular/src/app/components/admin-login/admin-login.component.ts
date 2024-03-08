@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-admin-login',
@@ -11,7 +12,11 @@ export class AdminLoginComponent implements OnInit {
   loginForm: FormGroup;
   message!: string;
 
-  constructor(private http: HttpClient, private formBuilder: FormBuilder) {
+  constructor(
+    private http: HttpClient,
+    private formBuilder: FormBuilder,
+    private authService: AuthService
+  ) {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
@@ -34,6 +39,10 @@ export class AdminLoginComponent implements OnInit {
           if (response && response.message) {
             // Display the success message
             this.message = response.message;
+            // Save user type in local storage
+            this.authService.setUserType('admin');
+            // Redirect to admin dashboard
+            window.location.href = '/admin-dashboard'; // You may want to use Angular Router for better navigation
           } else {
             // If no message property found, display a generic success message
             this.message = 'Login successful';

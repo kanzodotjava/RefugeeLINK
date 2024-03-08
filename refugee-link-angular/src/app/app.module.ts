@@ -25,6 +25,7 @@ import { ChatComponent } from './components/chat/chat.component';
 import { ConnectedMentorComponent } from './components/connected-mentor/connected-mentor.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { ConnectedRefugeesComponent } from './components/connected-refugees/connected-refugees.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { ConnectedRefugeesComponent } from './components/connected-refugees/conn
     ConnectedMentorComponent,
     AdminLoginComponent,
     ConnectedRefugeesComponent,
+    AdminDashboardComponent,
 
   ],
   imports: [

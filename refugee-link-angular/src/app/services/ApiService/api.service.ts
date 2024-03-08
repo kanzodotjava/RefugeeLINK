@@ -54,8 +54,8 @@ export class ApiService {
     return this.http.get<any>(url);
   }
 
-  getRefugeeByUsername(username: string): Observable<any> {
-    const url = `http://localhost:8080/mentor/by-username/${username}`;
-    return this.http.get<any>(url);
+  getRefugeesByMentorUsername(username: string): Observable<any[]> {
+    const url = `http://localhost:8080/mentor/${username}/refugees`;
+    return this.http.get<any[]>(url);
   }
 }
