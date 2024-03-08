@@ -9,17 +9,13 @@
 
       <div class="p-4">
         <h3 class="text-xl font-semibold mb-2">{{ mentor.name }}</h3>
-        <p class="text-gray-600 mb-2">{{ mentor.profession }}</p>
         <ul class="mb-4">
           <li>
             <span class="font-semibold">Email:</span> {{ mentor.emailAddress }}
           </li>
           <li>
-            <span class="font-semibold">Birthday:</span>
-            {{ mentor.birthdayDate }}
-          </li>
-          <li>
-            <span class="font-semibold">Phone:</span> {{ mentor.phoneNumber }}
+            <span class="font-semibold">Profession:</span>
+            {{ mentor.profession }}
           </li>
           <li>
             <span class="font-semibold">Country:</span> {{ mentor.country }}
@@ -36,10 +32,7 @@
             <span class="font-semibold">Secondary Language:</span>
             {{ mentor.secondaryLanguage }}
           </li>
-          <li>
-            <span class="font-semibold">Citizen Card:</span>
-            {{ mentor.citizenCard }}
-          </li>
+
           <li>
             <span class="font-semibold">Status:</span> {{ mentor.status }}
           </li>
@@ -47,8 +40,9 @@
         <div class="text-right">
           <button
             class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+            (click)="applyToMentorship(mentor.id)"
           >
-            View Details
+            Apply to mentorship
           </button>
         </div>
       </div>

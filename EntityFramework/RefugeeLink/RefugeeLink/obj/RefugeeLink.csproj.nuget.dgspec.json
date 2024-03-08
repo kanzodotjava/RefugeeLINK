@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\RefugeeLink.csproj": {}
+    "C:\\Users\\Francisco\\Desktop\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\RefugeeLink.csproj": {}
   },
   "projects": {
-    "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\RefugeeLink.csproj": {
+    "C:\\Users\\Francisco\\Desktop\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\RefugeeLink.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\RefugeeLink.csproj",
+        "projectUniqueName": "C:\\Users\\Francisco\\Desktop\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\RefugeeLink.csproj",
         "projectName": "RefugeeLink",
-        "projectPath": "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\RefugeeLink.csproj",
-        "packagesPath": "C:\\Users\\rafaf\\.nuget\\packages\\",
-        "outputPath": "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\obj\\",
+        "projectPath": "C:\\Users\\Francisco\\Desktop\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\RefugeeLink.csproj",
+        "packagesPath": "C:\\Users\\Francisco\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Francisco\\Desktop\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\rafaf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Francisco\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
