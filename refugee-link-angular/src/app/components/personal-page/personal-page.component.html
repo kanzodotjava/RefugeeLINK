@@ -1,5 +1,9 @@
 <div class="max-w-lg mx-auto mt-8 bg-white p-6 rounded-lg shadow-md">
   <div *ngIf="userDetails">
+    <!-- Profile Picture -->
+    <div class="profile-picture-container">
+      <img [src]="profilePictureUrl" alt="Profile Picture" class="profile-picture" onError="this.src='./assets/images/pfp/default.jpg';">
+    </div>
     <h2 class="text-2xl font-bold mb-4">User Details</h2>
     <div class="grid grid-cols-2 gap-4">
       <p><strong>Name:</strong> {{ userDetails.name }}</p>
@@ -17,6 +21,13 @@
       <p><strong>Citizen Card:</strong> {{ userDetails.citizenCard }}</p>
       <p><strong>Profession:</strong> {{ userDetails.profession }}</p>
       <p><strong>Status:</strong> {{ userDetails.status }}</p>
+
+    </div>
+    <br />
+    <div>
+      <p>Upload Profile Picture</p>
+      <input type="file" (change)="onFileSelected($event)">
+      <button (click)="upload()">Upload</button>
     </div>
   </div>
   <div *ngIf="!userDetails" class="text-center mt-4">
