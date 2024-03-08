@@ -44,6 +44,10 @@ public class Formation {
         return endDate;
     }
 
+    public Organization getOrganization() {
+        return organization;
+    }
+
     public List<RefugeeFormation> getRefugees() {
         return refugees;
     }
@@ -75,4 +79,10 @@ public class Formation {
     public void setRefugees(List<RefugeeFormation> refugees) {
         this.refugees = refugees;
     }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
+    }
+
+
 }

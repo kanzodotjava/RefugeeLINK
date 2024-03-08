@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RefugeeLink.Core;
+using RefugeeLink.Data;
 using RefugeeLink.Models;
 
 namespace RefugeeLink.Controllers
@@ -10,9 +11,9 @@ namespace RefugeeLink.Controllers
     {
         private readonly AdminCore _adminCore;
 
-        public AdminController(AdminCore adminCore)
+       public AdminController(AdminContext context)
         {
-            _adminCore = adminCore;
+            this._adminCore = new AdminCore(context);
         }
 
 

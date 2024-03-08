@@ -137,7 +137,7 @@ public class RefugeeController {
     }
 
 
-    
+
     @GetMapping("/by-username/{username}/mentor")
     public ResponseEntity<MentorDTO> getMentorOfRefugee(@PathVariable String username) {
         try {
