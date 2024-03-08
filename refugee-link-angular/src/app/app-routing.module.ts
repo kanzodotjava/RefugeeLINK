@@ -14,6 +14,8 @@ import { AuthGuard } from './guards/auth/auth.guard';
 import { LogoutComponent } from './components/logout/logout.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { ConnectedMentorComponent } from './components/connected-mentor/connected-mentor.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { ConnectedRefugeesComponent } from './components/connected-refugees/connected-refugees.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -24,6 +26,9 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'mentor-select', component: MentorSelectComponent },
   { path: 'logout', component: LogoutComponent },
+  { path: 'admin-login', component: AdminLoginComponent },
+  { path: 'connected-refugees', component: ConnectedRefugeesComponent },
+
   {
     path: 'personal-page',
     component: PersonalPageComponent,

@@ -1,0 +1,27 @@
+<div class="flex justify-center items-center h-screen">
+  <div *ngIf="refugeeInfo" class="bg-white rounded-lg shadow-md p-6 mb-4">
+    <h2 class="text-xl font-semibold mb-4">Refugee Information</h2>
+    <div class="mb-4">
+      <p><strong>Name:</strong> {{ refugeeInfo.name }}</p>
+      <p><strong>Email:</strong> {{ refugeeInfo.emailAddress }}</p>
+      <p><strong>Birthday Date:</strong> {{ refugeeInfo.birthdayDate }}</p>
+      <p><strong>Phone Number:</strong> {{ refugeeInfo.phoneNumber }}</p>
+      <p><strong>Country:</strong> {{ refugeeInfo.country }}</p>
+      <p><strong>Nationality:</strong> {{ refugeeInfo.nationality }}</p>
+      <p>
+        <strong>Primary Language:</strong> {{ refugeeInfo.primaryLanguage }}
+      </p>
+      <p>
+        <strong>Secondary Language:</strong> {{ refugeeInfo.secondaryLanguage }}
+      </p>
+      <p><strong>Citizen Card:</strong> {{ refugeeInfo.citizenCard }}</p>
+      <p><strong>Profession:</strong> {{ refugeeInfo.profession }}</p>
+      <p><strong>Status:</strong> {{ refugeeInfo.status }}</p>
+    </div>
+    <button
+      class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+    >
+      Chat Now
+    </button>
+  </div>
+</div>
