@@ -12,6 +12,7 @@ import { MentorSelectComponent } from './components/mentor-select/mentor-select.
 import { PersonalPageComponent } from './components/personal-page/personal-page.component';
 import { AuthGuard } from './guards/auth/auth.guard';
 import { LogoutComponent } from './components/logout/logout.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'mentor-select', component: MentorSelectComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'personal-page', component: PersonalPageComponent, canActivate: [AuthGuard] },
+  { path: 'chat/:userId', component: ChatComponent },
 
 ];
 

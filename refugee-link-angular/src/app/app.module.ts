@@ -21,6 +21,7 @@ import { MentorSelectComponent } from './components/mentor-select/mentor-select.
 import { AuthGuard } from './guards/auth/auth.guard';
 import { PersonalPageComponent } from './components/personal-page/personal-page.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 
     PersonalPageComponent,
     LogoutComponent,
+    ChatComponent,
 
   ],
   imports: [
