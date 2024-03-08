@@ -1,17 +1,57 @@
 <div class="mentors-container">
-  <h2>Mentors List</h2>
-  <div class="mentor-card" *ngFor="let mentor of mentors">
-    
-    <div class="mentor-info">
-      <div class="mentor-name">
-        <h3>{{ mentor.name }}</h3>
-        <p>{{ mentor.profession }}</p>
+  <h2 class="text-2xl font-bold mb-4">Mentors List</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div
+      *ngFor="let mentor of mentors"
+      class="bg-white shadow-md rounded-lg overflow-hidden"
+    >
+      <img src="https://api.dicebear.com/7.x/adventurer/svg" alt="avatar" />
+
+      <div class="p-4">
+        <h3 class="text-xl font-semibold mb-2">{{ mentor.name }}</h3>
+        <p class="text-gray-600 mb-2">{{ mentor.profession }}</p>
+        <ul class="mb-4">
+          <li>
+            <span class="font-semibold">Email:</span> {{ mentor.emailAddress }}
+          </li>
+          <li>
+            <span class="font-semibold">Birthday:</span>
+            {{ mentor.birthdayDate }}
+          </li>
+          <li>
+            <span class="font-semibold">Phone:</span> {{ mentor.phoneNumber }}
+          </li>
+          <li>
+            <span class="font-semibold">Country:</span> {{ mentor.country }}
+          </li>
+          <li>
+            <span class="font-semibold">Nationality:</span>
+            {{ mentor.nationality }}
+          </li>
+          <li>
+            <span class="font-semibold">Primary Language:</span>
+            {{ mentor.primaryLanguage }}
+          </li>
+          <li>
+            <span class="font-semibold">Secondary Language:</span>
+            {{ mentor.secondaryLanguage }}
+          </li>
+          <li>
+            <span class="font-semibold">Citizen Card:</span>
+            {{ mentor.citizenCard }}
+          </li>
+          <li>
+            <span class="font-semibold">Status:</span> {{ mentor.status }}
+          </li>
+        </ul>
+        <div class="text-right">
+          <button
+            class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+          >
+            View Details
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="mentor-actions">
-      <button class="details-button">View Details</button>
-      >
     </div>
   </div>
 </div>
-
