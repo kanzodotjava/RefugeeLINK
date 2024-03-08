@@ -37,6 +37,22 @@ public class OrganizationService {
             }
         throw new OrganizationNotFound("Formation with ID " + updateOrg.getId() + " not found.");
         }
+
+
+    public Organization getOrganizationById(Long id) throws OrganizationNotFound {
+        return organizationRepository.findById(id).orElseThrow(() -> new OrganizationNotFound("Organization with ID " + id + " not found."));
+    }
+
+    public void deleteOrganization(Long id) throws OrganizationNotFound {
+        if (organizationRepository.existsById(id)) {
+            organizationRepository.deleteById(id);
+        } else {
+            throw new OrganizationNotFound("Organization with ID " + id + " not found.");
+        }
+    }
+
+
+
 }
 
 
