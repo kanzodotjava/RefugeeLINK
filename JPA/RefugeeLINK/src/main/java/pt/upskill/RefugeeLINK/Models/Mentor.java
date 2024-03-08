@@ -70,6 +70,7 @@ public class Mentor extends Person{
         mentorDTO.setCitizenCard(this.getCitizenCard());
         mentorDTO.setProfession(this.profession);
         mentorDTO.setStatus(this.status);
+        mentorDTO.setDescription(this.description);
         return mentorDTO;
     }
 

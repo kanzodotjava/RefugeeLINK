@@ -3,6 +3,7 @@ using RefugeeLink.Models;
 
 namespace RefugeeLink.Controllers
 {
+    [ApiController]
     public class LoginController : ControllerBase
     {
         private readonly HttpClient _httpClient;

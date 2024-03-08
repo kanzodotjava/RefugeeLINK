@@ -45,6 +45,13 @@ public class RefugeeService {
         if (password.length() < 8 || password.length() > 50 || !password.matches(".*[A-Z].*")) {
             throw new IllegalArgumentException("Password must be between 8 and 50 characters long and contain at least one uppercase character.");
         }
+
+        int citCard = refugee.getCitizenCard();
+        if(citCard < 100000000 || citCard > 999999999){
+            throw new IllegalArgumentException("Citizen card number must be a 9-digit number");
+        }
+
+
         return refugeeRepository.save(refugee);
     }
 
@@ -82,10 +89,10 @@ public class RefugeeService {
     }
 
     @Transactional
-    public void selectMentorForRefugee(Long refugeeId, Long mentorId) throws MentorIdNotFound {
+    public void selectMentorForRefugee(String username, Long mentorId) throws MentorIdNotFound {
 
         // Retrieve the refugee object
-        Refugee refugee = getRefugeeById(refugeeId);
+        Refugee refugee = getRefugeeByUsername(username);
 
         // Retrieve the mentor object
         Mentor mentor = mentorRepository.findById(mentorId)

@@ -103,10 +103,10 @@ public class RefugeeController {
 
 
     //Mentor selection and Removal
-    @PutMapping("{refugeeId}/mentor")
-    public ResponseEntity<String> selectMentorForRefugee(@PathVariable Long refugeeId, @RequestParam Long mentorId) {
+    @PutMapping("{username}/mentor")
+    public ResponseEntity<String> selectMentorForRefugee(@PathVariable String username, @RequestParam Long mentorId) {
         try {
-            refugeeService.selectMentorForRefugee(refugeeId, mentorId);
+            refugeeService.selectMentorForRefugee(username, mentorId);
             return ResponseEntity.ok("Mentor selected for refugee");
         } catch (MentorIdNotFound e) {
             return ResponseEntity.badRequest().body("Error selecting mentor: " + e.getMessage());
