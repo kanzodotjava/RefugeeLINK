@@ -4,15 +4,12 @@ import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 import pt.upskill.RefugeeLINK.Exceptions.MentorIdNotFound;
 import pt.upskill.RefugeeLINK.Models.Mentor;
 import pt.upskill.RefugeeLINK.Models.Refugee;
 import pt.upskill.RefugeeLINK.Repositories.MentorRepository;
 import pt.upskill.RefugeeLINK.Repositories.RefugeeRepository;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.List;
 import java.util.Optional;
@@ -27,11 +24,9 @@ public class RefugeeService {
     MentorRepository mentorRepository;
 
 
-    private  BCryptPasswordEncoder passwordEncoder;
 
-    public RefugeeService(RefugeeRepository refugeeRepository, BCryptPasswordEncoder passwordEncoder) {
+    public RefugeeService(RefugeeRepository refugeeRepository) {
         this.refugeeRepository = refugeeRepository;
-        this.passwordEncoder = passwordEncoder;
     }
     public Refugee addRefugee(Refugee refugee) {
         if (refugeeRepository.existsById(refugee.getId())) {

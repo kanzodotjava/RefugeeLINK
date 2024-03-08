@@ -1,45 +1,57 @@
-<div class="register-container">
-  <div class="left-section">
+<div class="flex justify-center">
+  <div class="w-1/2 ml-8">
     <img
       src="assets/images/loginPage.png"
       alt="Register Page Image"
-      class="register-image"
+      class="w-full rounded-lg"
     />
   </div>
-  <div class="right-section">
-    <div class="content">
+  <div class="w-1/2 p-8">
+    <div class="text-center">
       <img
         src="assets/images/miniLogo.png"
         alt="Logo Image"
-        class="mini-logo"
+        class="mx-auto mb-2 w-24"
       />
-      <h2 class="register-heading">Login</h2>
-      <form class="login-form" [formGroup]="loginForm" (submit)="onSubmit()">
-        <div class="form-field">
+      <h2 class="text-3xl font-semibold mb-6">Login</h2>
+      <form class="text-left" [formGroup]="loginForm" (submit)="onSubmit()">
+        <div class="mb-4">
           <label for="username">Username:</label>
           <input
             type="text"
             id="username"
             formControlName="username"
             placeholder="Username"
+            class="block w-full border border-gray-300 rounded-md p-2"
           />
         </div>
-        <div class="form-field">
+        <div class="mb-4">
           <label for="password">Password:</label>
           <input
             type="password"
             id="password"
             formControlName="password"
             placeholder="Password"
+            class="block w-full border border-gray-300 rounded-md p-2"
           />
         </div>
-        <div *ngIf="loginFailed" class="error-message">{{ errorMessage }}</div>
-        <div class="button-container">
-          <button type="submit" class="login-button">Login</button>
+        <div *ngIf="loginFailed" class="text-red-500 mb-4">
+          {{ errorMessage }}
+        </div>
+        <div class="flex justify-center">
+          <button
+            type="submit"
+            class="bg-blue-500 text-white py-2 px-4 rounded-lg"
+          >
+            Login
+          </button>
         </div>
       </form>
-      <div class="login-link">
-        Already have an account? <a href="/register">Register</a>
+      <div class="text-center mt-4">
+        Already have an account?
+        <a href="/register" class="text-blue-500 hover:text-gray-500"
+          >Register</a
+        >
       </div>
     </div>
   </div>

@@ -1,34 +1,39 @@
-<div class="register-container">
-  <div class="left-section">
+<div class="flex justify-center flex-col-reverse lg:flex-row">
+  <div class="w-full lg:w-1/2 lg:mr-8 mb-8 lg:mb-0">
     <img
       src="assets/images/registerPage.jpg"
       alt="Register Page Image"
-      class="register-image"
+      class="w-full rounded-lg ml-12 mr-12"
     />
   </div>
-  <div class="right-section">
-    <div class="content">
+  <div class="w-full lg:w-1/2 p-8">
+    <div class="text-center">
       <img
         src="assets/images/miniLogo.png"
         alt="Logo Image"
-        class="mini-logo"
+        class="mx-auto mb-4 w-24"
       />
-      <h2 class="register-heading">Register Account</h2>
-      <div class="button-container">
-        <button class="white-text" (click)="navigateToRegisterAsMentor()">
+      <h2 class="text-3xl font-semibold mb-6 text-center">Register Account</h2>
+      <div class="flex flex-col items-center mb-6">
+        <button
+          class="bg-blue-500 text-white py-3 px-16 rounded-lg mb-4 text-lg font-semibold"
+          (click)="navigateToRegisterAsMentor()"
+        >
           As Mentor
         </button>
+        <div class="h-px w-40 bg-gray-400 mb-2"></div>
+        <div class="mb-2">OR</div>
+        <div class="h-px w-40 bg-gray-400 mb-2"></div>
+        <button
+          class="bg-blue-500 text-white py-3 px-16 rounded-lg text-lg font-semibold"
+          (click)="navigateToRegisterAsRefugee()"
+        >
+          As Refugee
+        </button>
       </div>
-      <div class="line"></div>
-      <div style="display: inline-block">OR</div>
-      <div class="line"></div>
-      <div class="button-container">
-        <button class="white-text" (click)="navigateToRegisterAsRefugee()">
-            As Refugee
-          </button>
-      </div>
-      <div class="login-link">
-        Already have an account? <a href="/login">Login</a>
+      <div class="text-center">
+        Already have an account?
+        <a href="/login" class="text-blue-500 hover:text-gray-500">Login</a>
       </div>
     </div>
   </div>
