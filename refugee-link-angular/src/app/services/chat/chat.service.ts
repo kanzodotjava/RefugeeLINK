@@ -32,15 +32,19 @@ export class ChatService {
 
     this.stompClient.activate();
   }
+  createRoomId(userId: string, mentorId: string): string {
+    return `chat_${userId}_${mentorId}`;
+  }
 
   joinRoom(roomId: string) {
-    this.stompClient.onConnect = () => {
-      this.stompClient.subscribe(`/topic/${roomId}`, (message) => {
-        const messageContent: ChatMessage = JSON.parse(message.body);
-        const currentMessages = this.messageSubject.getValue();
-        currentMessages.push(messageContent);
+    if (!this.stompClient.active) {
+      this.stompClient.activate();
+    }
 
-        this.messageSubject.next(currentMessages);
+    this.stompClient.onConnect = () => {
+      this.stompClient.subscribe(`/topic/${roomId}`, (message: any) => {
+        const messageContent: ChatMessage = JSON.parse(message.body);
+        this.messageSubject.next([...this.messageSubject.getValue(), messageContent]);
       });
     };
   }
@@ -54,5 +58,11 @@ export class ChatService {
 
   getMessageSubject() {
     return this.messageSubject.asObservable();
+  }
+
+  disconnect() {
+    if (this.stompClient.active) {
+      this.stompClient.deactivate();
+    }
   }
 }
