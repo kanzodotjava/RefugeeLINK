@@ -14,8 +14,10 @@
       <a routerLink="/login">Login</a>
     </ng-container>
     <ng-template #loggedInTemplate>
-      <!-- Display mentor select link only when the user is logged in -->
-      <a routerLink="/mentor-select">Mentor Select</a>
+      <!-- Display mentor select link only when the user is logged in and is a refugee -->
+      <ng-container *ngIf="getUserType() === 'Refugee'">
+        <a routerLink="/mentor-select">Mentor Select</a>
+      </ng-container>
       <!-- Display link to personal page when user is logged in -->
       <a routerLink="/personal-page">Personal Page</a>
       <!-- Display logout link -->

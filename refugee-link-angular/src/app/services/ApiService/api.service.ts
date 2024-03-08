@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -26,7 +26,7 @@ export class ApiService {
   }
 
   getMentors(): Observable<any> {
-    const url = 'http://localhost:8080/mentor';
+    const url = 'http://localhost:8080/mentor/certified';
     return this.http.get(url);
   }
 
@@ -38,5 +38,11 @@ export class ApiService {
       endpoint = `${this.baseUrl}/refugee/by-username/${username}`;
     }
     return this.http.get(endpoint);
+  }
+
+  applyToMentorship(username: string, mentorId: number): Observable<any> {
+    const url = `${this.baseUrl}/refugee/${username}/mentor`;
+    const queryParams = new HttpParams().set('mentorId', mentorId.toString());
+    return this.http.put(url, null, { params: queryParams });
   }
 }

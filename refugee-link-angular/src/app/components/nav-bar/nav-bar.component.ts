@@ -18,4 +18,7 @@ export class NavBarComponent implements OnInit {
   logout(): void {
     this.authService.logout(); // Implement logout() method in AuthService
   }
+  getUserType(): string | null {
+    return this.authService.getUserType();
+  }
 }
