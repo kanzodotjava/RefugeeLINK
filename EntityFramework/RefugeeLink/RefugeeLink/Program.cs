@@ -1,3 +1,7 @@
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.EntityFrameworkCore;
+using RefugeeLink.Data;
+
 namespace RefugeeLink
 {
     public class Program
@@ -20,6 +24,10 @@ namespace RefugeeLink
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddDbContext<AdminContext>(options =>
+            options.UseOracle(
+                builder.Configuration.GetConnectionString("AdminDb")));
 
 
             var app = builder.Build();

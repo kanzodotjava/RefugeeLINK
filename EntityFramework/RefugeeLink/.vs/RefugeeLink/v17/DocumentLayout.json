@@ -1,26 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Francisco\\Desktop\\RefugeeLINK\\EntityFramework\\RefugeeLink\\",
+  "WorkspaceRootPath": "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|c:\\users\\francisco\\desktop\\refugeelink\\entityframework\\refugeelink\\refugeelink\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|solutionrelative:refugeelink\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|d:\\sprint_final\\refugeelink\\entityframework\\refugeelink\\refugeelink\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|solutionrelative:refugeelink\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|c:\\users\\francisco\\desktop\\refugeelink\\entityframework\\refugeelink\\refugeelink\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|solutionrelative:refugeelink\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|d:\\sprint_final\\refugeelink\\entityframework\\refugeelink\\refugeelink\\core\\admincore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|solutionrelative:refugeelink\\core\\admincore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|c:\\users\\francisco\\desktop\\refugeelink\\entityframework\\refugeelink\\refugeelink\\models\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|d:\\sprint_final\\refugeelink\\entityframework\\refugeelink\\refugeelink\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|solutionrelative:refugeelink\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|d:\\sprint_final\\refugeelink\\entityframework\\refugeelink\\refugeelink\\models\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|solutionrelative:refugeelink\\models\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|c:\\users\\francisco\\desktop\\refugeelink\\entityframework\\refugeelink\\refugeelink\\models\\mentorlogindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|solutionrelative:refugeelink\\models\\mentorlogindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|d:\\sprint_final\\refugeelink\\entityframework\\refugeelink\\refugeelink\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|solutionrelative:refugeelink\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|c:\\users\\francisco\\desktop\\refugeelink\\entityframework\\refugeelink\\refugeelink\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|d:\\sprint_final\\refugeelink\\entityframework\\refugeelink\\refugeelink\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|solutionrelative:refugeelink\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|d:\\sprint_final\\refugeelink\\entityframework\\refugeelink\\refugeelink\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|solutionrelative:refugeelink\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|d:\\sprint_final\\refugeelink\\entityframework\\refugeelink\\refugeelink\\refugeelink.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|solutionrelative:refugeelink\\refugeelink.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|d:\\sprint_final\\refugeelink\\entityframework\\refugeelink\\refugeelink\\data\\admincontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64061CE2-6B2E-4599-B561-0BC96EDCFCE4}|RefugeeLink\\RefugeeLink.csproj|solutionrelative:refugeelink\\data\\admincontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,68 +46,138 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1a46fd64-28d5-434c-8eb3-17a02d419b53}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "RefugeeLink\\Controllers\\AdminController.cs",
+              "ToolTip": "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "RefugeeLink\\Controllers\\AdminController.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAwwFwAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-08T11:25:33.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Models\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "RefugeeLink\\Models\\LoginRequest.cs",
+              "ToolTip": "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Models\\LoginRequest.cs",
+              "RelativeToolTip": "RefugeeLink\\Models\\LoginRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-06T14:31:56.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Models\\Admin.cs",
+              "RelativeDocumentMoniker": "RefugeeLink\\Models\\Admin.cs",
+              "ToolTip": "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Models\\Admin.cs",
+              "RelativeToolTip": "RefugeeLink\\Models\\Admin.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-08T11:10:12.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AdminCore.cs",
+              "DocumentMoniker": "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Core\\AdminCore.cs",
+              "RelativeDocumentMoniker": "RefugeeLink\\Core\\AdminCore.cs",
+              "ToolTip": "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Core\\AdminCore.cs",
+              "RelativeToolTip": "RefugeeLink\\Core\\AdminCore.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAwwDoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-08T11:09:56.827Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "RefugeeLink\\Controllers\\LoginController.cs",
+              "ToolTip": "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "RefugeeLink\\Controllers\\LoginController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-06T14:32:36.125Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\appsettings.json",
+              "RelativeDocumentMoniker": "RefugeeLink\\appsettings.json",
+              "ToolTip": "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\appsettings.json",
+              "RelativeToolTip": "RefugeeLink\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-06T14:50:35.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Francisco\\Desktop\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Program.cs",
+              "DocumentMoniker": "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Program.cs",
               "RelativeDocumentMoniker": "RefugeeLink\\Program.cs",
-              "ToolTip": "C:\\Users\\Francisco\\Desktop\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Program.cs",
+              "ToolTip": "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Program.cs",
               "RelativeToolTip": "RefugeeLink\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAtAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-07T11:42:29.288Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Francisco\\Desktop\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\appsettings.json",
-              "RelativeDocumentMoniker": "RefugeeLink\\appsettings.json",
-              "ToolTip": "C:\\Users\\Francisco\\Desktop\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\appsettings.json",
-              "RelativeToolTip": "RefugeeLink\\appsettings.json",
+              "DocumentIndex": 7,
+              "Title": "RefugeeLink.http",
+              "DocumentMoniker": "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\RefugeeLink.http",
+              "RelativeDocumentMoniker": "RefugeeLink\\RefugeeLink.http",
+              "ToolTip": "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\RefugeeLink.http",
+              "RelativeToolTip": "RefugeeLink\\RefugeeLink.http",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-03-06T14:50:35.312Z"
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2024-03-08T11:14:31.626Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MentorLoginDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Francisco\\Desktop\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Models\\MentorLoginDTO.cs",
-              "RelativeDocumentMoniker": "RefugeeLink\\Models\\MentorLoginDTO.cs",
-              "ToolTip": "C:\\Users\\Francisco\\Desktop\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Models\\MentorLoginDTO.cs",
-              "RelativeToolTip": "RefugeeLink\\Models\\MentorLoginDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAaAAAA",
+              "DocumentIndex": 8,
+              "Title": "AdminContext.cs",
+              "DocumentMoniker": "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Data\\AdminContext.cs",
+              "RelativeDocumentMoniker": "RefugeeLink\\Data\\AdminContext.cs",
+              "ToolTip": "D:\\SPRINT_FINAL\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Data\\AdminContext.cs",
+              "RelativeToolTip": "RefugeeLink\\Data\\AdminContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-06T14:38:20.816Z"
-            },
+              "WhenOpened": "2024-03-08T11:11:10.958Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\Francisco\\Desktop\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Controllers\\LoginController.cs",
-              "RelativeDocumentMoniker": "RefugeeLink\\Controllers\\LoginController.cs",
-              "ToolTip": "C:\\Users\\Francisco\\Desktop\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "RefugeeLink\\Controllers\\LoginController.cs",
-              "ViewState": "AQIAACoAAAAAAAAAAAAowEAAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-06T14:32:36.125Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LoginRequest.cs",
-              "DocumentMoniker": "C:\\Users\\Francisco\\Desktop\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Models\\LoginRequest.cs",
-              "RelativeDocumentMoniker": "RefugeeLink\\Models\\LoginRequest.cs",
-              "ToolTip": "C:\\Users\\Francisco\\Desktop\\RefugeeLINK\\EntityFramework\\RefugeeLink\\RefugeeLink\\Models\\LoginRequest.cs",
-              "RelativeToolTip": "RefugeeLink\\Models\\LoginRequest.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-06T14:31:56.663Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             }
           ]
         }
