@@ -38,9 +38,15 @@
           </li>
         </ul>
         <div class="text-right">
+          <p
+            *ngIf="mentor.applicationResponse"
+            class="text-sm text-gray-600 mb-2"
+          >
+            {{ mentor.applicationResponse }}
+          </p>
           <button
             class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
-            (click)="applyToMentorship(mentor.id)"
+            (click)="applyToMentorship(mentor.id, mentor)"
           >
             Apply to mentorship
           </button>

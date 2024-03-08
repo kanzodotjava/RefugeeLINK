@@ -43,6 +43,14 @@ export class ApiService {
   applyToMentorship(username: string, mentorId: number): Observable<any> {
     const url = `${this.baseUrl}/refugee/${username}/mentor`;
     const queryParams = new HttpParams().set('mentorId', mentorId.toString());
-    return this.http.put(url, null, { params: queryParams });
+    return this.http.put(url, null, {
+      params: queryParams,
+      responseType: 'text',
+    });
+  }
+
+  getMentorByUsername(username: string): Observable<any> {
+    const url = `http://localhost:8080/refugee/by-username/${username}/mentor`;
+    return this.http.get<any>(url);
   }
 }

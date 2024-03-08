@@ -1,0 +1,23 @@
+<div class="flex justify-center items-center h-screen">
+  <div *ngIf="mentor" class="bg-white rounded-lg shadow-md p-6 mb-4">
+    <h2 class="text-xl font-semibold mb-4">Mentor Information</h2>
+    <div class="mb-4">
+      <p><strong>Name:</strong> {{ mentor.name }}</p>
+      <p><strong>Email:</strong> {{ mentor.emailAddress }}</p>
+      <p><strong>Birthday Date:</strong> {{ mentor.birthdayDate }}</p>
+      <p><strong>Phone Number:</strong> {{ mentor.phoneNumber }}</p>
+      <p><strong>Country:</strong> {{ mentor.country }}</p>
+      <p><strong>Nationality:</strong> {{ mentor.nationality }}</p>
+      <p><strong>Primary Language:</strong> {{ mentor.primaryLanguage }}</p>
+      <p><strong>Secondary Language:</strong> {{ mentor.secondaryLanguage }}</p>
+      <p><strong>Citizen Card:</strong> {{ mentor.citizenCard }}</p>
+      <p><strong>Profession:</strong> {{ mentor.profession }}</p>
+      <p><strong>Status:</strong> {{ mentor.status }}</p>
+    </div>
+    <button
+      class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+    >
+      Chat Now
+    </button>
+  </div>
+</div>

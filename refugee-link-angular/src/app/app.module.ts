@@ -22,6 +22,7 @@ import { AuthGuard } from './guards/auth/auth.guard';
 import { PersonalPageComponent } from './components/personal-page/personal-page.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { ConnectedMentorComponent } from './components/connected-mentor/connected-mentor.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { ChatComponent } from './components/chat/chat.component';
     PersonalPageComponent,
     LogoutComponent,
     ChatComponent,
+    ConnectedMentorComponent,
 
   ],
   imports: [
