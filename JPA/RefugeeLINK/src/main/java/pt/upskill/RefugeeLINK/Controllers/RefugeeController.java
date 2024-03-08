@@ -135,4 +135,17 @@ public class RefugeeController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+
+    
+    @GetMapping("/by-username/{username}/mentor")
+    public ResponseEntity<MentorDTO> getMentorOfRefugee(@PathVariable String username) {
+        try {
+            Mentor mentor = refugeeService.getMentorOfRefugee(username);
+            MentorDTO mentorDTO = mentor.toDTO();
+            return new ResponseEntity<>(mentorDTO, HttpStatus.OK);
+        } catch (RuntimeException ex) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }
