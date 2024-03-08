@@ -5,6 +5,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+import pt.upskill.RefugeeLINK.Exceptions.MentorAlreadySelectedException;
 import pt.upskill.RefugeeLINK.Exceptions.MentorIdNotFound;
 import pt.upskill.RefugeeLINK.Models.Mentor;
 import pt.upskill.RefugeeLINK.Models.Refugee;
@@ -89,11 +90,14 @@ public class RefugeeService {
     }
 
     @Transactional
-    public void selectMentorForRefugee(String username, Long mentorId) throws MentorIdNotFound {
+    public void selectMentorForRefugee(String username, Long mentorId) throws MentorIdNotFound, MentorAlreadySelectedException {
 
         // Retrieve the refugee object
         Refugee refugee = getRefugeeByUsername(username);
 
+        if (refugee.getMentor() != null) {
+            throw new MentorAlreadySelectedException("Refugee " + username + " already has a mentor.");
+        }
         // Retrieve the mentor object
         Mentor mentor = mentorRepository.findById(mentorId)
                 .orElseThrow(() -> new MentorIdNotFound("Mentor with id " + mentorId + " not found"));
