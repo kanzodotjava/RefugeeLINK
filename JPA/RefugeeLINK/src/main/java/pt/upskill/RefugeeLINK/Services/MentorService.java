@@ -42,6 +42,10 @@ public class MentorService {
             throw new DataIntegrityViolationException("Email address " + email + " is already registered.");
         }
 
+        int citCard = mentor.getCitizenCard();
+        if(citCard < 100000000 || citCard > 999999999){
+            throw new IllegalArgumentException("Citizen card number must be a 9-digit number");
+        }
 
         return mentorRepository.save(mentor);
     }
