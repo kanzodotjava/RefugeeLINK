@@ -37,6 +37,12 @@ public class MentorService {
             throw new IllegalArgumentException("Password must be between 8 and 50 characters long and contain at least one uppercase character.");
         }
 
+        String email = mentor.getEmailAddress();
+        if (mentorRepository.existsByEmailAddress(email)) {
+            throw new DataIntegrityViolationException("Email address " + email + " is already registered.");
+        }
+
+
         return mentorRepository.save(mentor);
     }
 
