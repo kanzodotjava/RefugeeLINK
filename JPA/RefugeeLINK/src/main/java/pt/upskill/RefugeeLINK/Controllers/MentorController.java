@@ -139,9 +139,9 @@ public class MentorController {
         }
     }
 
-    @GetMapping("/{mentorId}/refugees")
-    public ResponseEntity<List<Refugee>> getRefugeesByMentor(@PathVariable long mentorId) {
-        List<Refugee> refugees = mentorService.getRefugeesByMentor(mentorId);
+    @GetMapping("/{username}/refugees")
+    public ResponseEntity<List<Refugee>> getRefugeesByMentor(@PathVariable String username) {
+        List<Refugee> refugees = mentorService.getRefugeesByMentor(username);
         return new ResponseEntity<>(refugees, HttpStatus.OK);
     }
 

@@ -1,5 +1,6 @@
 package pt.upskill.RefugeeLINK.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.annotation.Nullable;
@@ -27,6 +28,7 @@ public class Refugee extends Person {
     @JoinColumn(name = "mentor_id")
     @Nullable
     @JsonIgnoreProperties("refugees") // to avoid infinite recursion
+    @JsonBackReference
     private Mentor mentor;
 
     public String getRefugeeNumber() {

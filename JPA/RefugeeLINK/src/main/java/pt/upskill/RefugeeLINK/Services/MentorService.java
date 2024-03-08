@@ -1,7 +1,10 @@
 package pt.upskill.RefugeeLINK.Services;
 
 import jakarta.persistence.EntityExistsException;
+import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -23,6 +26,9 @@ public class MentorService {
     MentorRepository mentorRepository;
     @Autowired
     RefugeeRepository refugeeRepository;
+
+    @PersistenceContext
+    private EntityManager entityManager;
 
     public  MentorService(MentorRepository mentorRepository){
         this.mentorRepository = mentorRepository;
@@ -115,13 +121,23 @@ public class MentorService {
         return null;
     }
 
-    public List<Refugee> getRefugeesByMentor(long mentorId) {
-        Mentor mentor = mentorRepository.findById(mentorId)
-                .orElseThrow(() -> new EntityNotFoundException("Mentor with id: " + mentorId + " not found"));
+    public List<Refugee> getRefugeesByMentor(String mentorUsername) {
+        Mentor mentor = entityManager.createQuery(
+                        "SELECT m FROM Mentor m WHERE m.userName = :mentorUsername", Mentor.class)
+                .setParameter("mentorUsername", mentorUsername)
+                .getSingleResult();
 
-        List<Refugee> refugees = mentor.getRefugee();
+        if (mentor == null) {
+            throw new EntityNotFoundException("Mentor with username: " + mentorUsername + " not found");
+        }
+
+        List<Refugee> refugees = entityManager.createQuery(
+                        "SELECT r FROM Refugee r WHERE r.mentor.id = :mentorId", Refugee.class)
+                .setParameter("mentorId", mentor.getId())
+                .getResultList();
+
         if (refugees.isEmpty()) {
-            throw new EmptyResultDataAccessException("No refugees found for mentor with id: " + mentorId, 1);
+            throw new IllegalArgumentException("No refugees found for mentor with username: " + mentorUsername);
         }
 
         return refugees;

@@ -2,6 +2,7 @@ package pt.upskill.RefugeeLINK.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -19,6 +20,7 @@ public class Mentor extends Person{
     String description;
     @OneToMany(mappedBy = "mentor")
     @JsonIgnoreProperties("mentor")
+    @JsonManagedReference
     List<Refugee> refugees;
 
 //    @Enumerated(EnumType.STRING)
