@@ -23,6 +23,8 @@ public class MentorDTO {
     private int citizenCard;
     private Profession profession;
     private List<Long> refugeeIds;
+
+    private String description;
     private Status status;
 
     public Long getId() {
@@ -71,6 +73,10 @@ public class MentorDTO {
 
     public int getCitizenCard() {
         return citizenCard;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public Profession getProfession() {
@@ -139,6 +145,10 @@ public class MentorDTO {
 
     public void setRefugeeIds(List<Long> refugeeIds) {
         this.refugeeIds = refugeeIds;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setStatus(Status status) {
