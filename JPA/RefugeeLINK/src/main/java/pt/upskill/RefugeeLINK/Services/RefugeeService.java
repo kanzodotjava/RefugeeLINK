@@ -94,6 +94,9 @@ public class RefugeeService {
         // Retrieve the refugee object
         Refugee refugee = getRefugeeByUsername(username);
 
+        if (refugee.getMentor() != null) {
+            throw new IllegalArgumentException("Refugee " + username + " already has a mentor.");
+        }
         // Retrieve the mentor object
         Mentor mentor = mentorRepository.findById(mentorId)
                 .orElseThrow(() -> new MentorIdNotFound("Mentor with id " + mentorId + " not found"));
