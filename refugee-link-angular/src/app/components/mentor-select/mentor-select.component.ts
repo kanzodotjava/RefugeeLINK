@@ -9,26 +9,36 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MentorSelectComponent implements OnInit {
   mentors: any[] = [];
+  errorMessage: string = '';
 
   constructor(private mentorsService: ApiService) {}
 
   ngOnInit(): void {
     // Fetch mentors data
-    this.mentorsService.getMentors().subscribe((data) => {
-      this.mentors = data;
-    });
+    this.mentorsService.getMentors().subscribe(
+      (data) => {
+        this.mentors = data.map((mentor: any) => ({
+          ...mentor,
+          applicationResponse: null, // Add a property to store the application response
+        }));
+      },
+      (error) => {
+        console.error('Error fetching mentors:', error);
+      }
+    );
   }
 
-  applyToMentorship(mentorId: number): void {
+  applyToMentorship(mentorId: number, mentor: any): void {
     const username = localStorage.getItem('username');
     if (username) {
       this.mentorsService.applyToMentorship(username, mentorId).subscribe(
         (response) => {
           console.log(response); // Handle success response
-          // Optionally, you can reload the mentors list after successfully applying to mentorship
+          mentor.applicationResponse = response; // Update application response
         },
         (error) => {
-          console.error(error); // Handle error response
+          console.error('Error applying to mentorship:', error);
+          this.errorMessage = error.error; // Extract error message
         }
       );
     } else {

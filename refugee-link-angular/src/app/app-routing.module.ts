@@ -13,7 +13,7 @@ import { PersonalPageComponent } from './components/personal-page/personal-page.
 import { AuthGuard } from './guards/auth/auth.guard';
 import { LogoutComponent } from './components/logout/logout.component';
 import { ChatComponent } from './components/chat/chat.component';
-
+import { ConnectedMentorComponent } from './components/connected-mentor/connected-mentor.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -24,9 +24,13 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'mentor-select', component: MentorSelectComponent },
   { path: 'logout', component: LogoutComponent },
-  { path: 'personal-page', component: PersonalPageComponent, canActivate: [AuthGuard] },
+  {
+    path: 'personal-page',
+    component: PersonalPageComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'connected-mentor', component: ConnectedMentorComponent },
   { path: 'chat/:userId', component: ChatComponent },
-
 ];
 
 @NgModule({
