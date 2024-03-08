@@ -1,0 +1,28 @@
+<div class="flex justify-center items-center h-screen">
+  <div
+    *ngFor="let refugee of refugeeInfoList"
+    class="bg-white rounded-lg shadow-md p-6 mb-8 mr-8"
+    style="margin-bottom: 20px"
+  >
+    <h2 class="text-xl font-semibold mb-4">Refugee Information</h2>
+    <div class="mb-4">
+      <p><strong>Name:</strong> {{ refugee.name }}</p>
+      <p><strong>Email:</strong> {{ refugee.emailAddress }}</p>
+      <p><strong>Birthday Date:</strong> {{ refugee.birthdayDate }}</p>
+      <p><strong>Phone Number:</strong> {{ refugee.phoneNumber }}</p>
+      <p><strong>Country:</strong> {{ refugee.country }}</p>
+      <p><strong>Nationality:</strong> {{ refugee.nationality }}</p>
+      <p><strong>Primary Language:</strong> {{ refugee.primaryLanguage }}</p>
+      <p>
+        <strong>Secondary Language:</strong> {{ refugee.secondaryLanguage }}
+      </p>
+      <p><strong>Citizen Card:</strong> {{ refugee.citizenCard }}</p>
+      <p><strong>Profession:</strong> {{ refugee.profession }}</p>
+    </div>
+    <button
+      class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+    >
+      Chat Now
+    </button>
+  </div>
+</div>

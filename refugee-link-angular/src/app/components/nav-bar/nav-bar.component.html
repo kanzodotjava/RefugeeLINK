@@ -17,8 +17,10 @@
       <!-- Display mentor select link only when the user is logged in and is a refugee -->
       <ng-container *ngIf="getUserType() === 'Refugee'">
         <a routerLink="/mentor-select">Mentor Select</a>
-        <!-- Display connected mentor link -->
-        <a routerLink="/connected-mentor">Connected Mentor</a>
+      </ng-container>
+      <!-- Display connected mentor link -->
+      <ng-container *ngIf="getUserType() === 'Mentor'">
+        <a routerLink="/connected-refugees">Connected Refugees</a>
       </ng-container>
       <!-- Display link to personal page when user is logged in -->
       <a routerLink="/personal-page">Personal Page</a>

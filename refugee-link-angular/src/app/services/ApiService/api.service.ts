@@ -53,4 +53,9 @@ export class ApiService {
     const url = `http://localhost:8080/refugee/by-username/${username}/mentor`;
     return this.http.get<any>(url);
   }
+
+  getRefugeesByMentorUsername(username: string): Observable<any[]> {
+    const url = `http://localhost:8080/mentor/${username}/refugees`;
+    return this.http.get<any[]>(url);
+  }
 }

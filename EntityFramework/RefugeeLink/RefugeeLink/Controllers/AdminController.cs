@@ -87,9 +87,14 @@ namespace RefugeeLink.Controllers
             var loginSuccess = await _adminCore.Login(admin);
             if (loginSuccess)
             {
-                return Ok();
+                // Successful login
+                return Ok(new { message = "Login successful" });
             }
-            return Unauthorized();
+            else
+            {
+                // Failed login
+                return Unauthorized(new { message = "Invalid username or password" });
+            }
         }
     }
 }

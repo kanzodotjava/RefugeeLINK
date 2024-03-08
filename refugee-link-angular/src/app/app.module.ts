@@ -23,6 +23,9 @@ import { PersonalPageComponent } from './components/personal-page/personal-page.
 import { LogoutComponent } from './components/logout/logout.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { ConnectedMentorComponent } from './components/connected-mentor/connected-mentor.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { ConnectedRefugeesComponent } from './components/connected-refugees/connected-refugees.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 
 
 @NgModule({
@@ -37,13 +40,14 @@ import { ConnectedMentorComponent } from './components/connected-mentor/connecte
     RegisterAsRefugeeComponent,
     NewsComponent,
     LoginPageComponent,
-
     MentorSelectComponent,
-
     PersonalPageComponent,
     LogoutComponent,
     ChatComponent,
     ConnectedMentorComponent,
+    AdminLoginComponent,
+    ConnectedRefugeesComponent,
+    AdminDashboardComponent,
 
   ],
   imports: [
