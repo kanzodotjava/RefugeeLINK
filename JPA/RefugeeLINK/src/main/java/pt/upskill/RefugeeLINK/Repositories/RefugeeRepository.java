@@ -10,6 +10,6 @@ import java.util.Optional;
 @Repository
 public interface RefugeeRepository extends JpaRepository<Refugee, Long> {
     boolean existsByEmailAddress(String email);
-
+    boolean existsByUserName(String username);
     Optional<Refugee> findByUserName(String userName);
 }

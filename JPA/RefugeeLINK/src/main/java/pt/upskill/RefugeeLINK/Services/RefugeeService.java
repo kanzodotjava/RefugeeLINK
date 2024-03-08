@@ -52,6 +52,13 @@ public class RefugeeService {
             throw new IllegalArgumentException("Citizen card number must be a 9-digit number");
         }
 
+        if (mentorRepository.existsByUserName(username)) {
+            throw new DataIntegrityViolationException("Username " + username + " is already registered as a mentor.");
+        }
+
+        if (mentorRepository.existsByEmailAddress(email)) {
+            throw new DataIntegrityViolationException("Email address " + email + " is already registered as a mentor.");
+        }
 
         return refugeeRepository.save(refugee);
     }
@@ -95,6 +102,8 @@ public class RefugeeService {
         // Retrieve the refugee object
         Refugee refugee = getRefugeeByUsername(username);
 
+
+
         if (refugee.getMentor() != null) {
             throw new MentorAlreadySelectedException("Refugee " + username + " already has a mentor.");
         }
@@ -104,7 +113,7 @@ public class RefugeeService {
 
         // Update the mentor association for the refugee
         refugee.setMentor(mentor);
-
+        mentor.setRefugee(refugee);
         // Save the updated refugee
         refugeeRepository.save(refugee);
     }

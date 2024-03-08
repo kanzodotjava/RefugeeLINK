@@ -10,6 +10,7 @@ import pt.upskill.RefugeeLINK.DTO.MentorLoginDTO;
 import pt.upskill.RefugeeLINK.Enums.Status;
 import pt.upskill.RefugeeLINK.Models.Mentor;
 import pt.upskill.RefugeeLINK.Models.Person;
+import pt.upskill.RefugeeLINK.Models.Refugee;
 import pt.upskill.RefugeeLINK.Services.MentorService;
 
 import java.util.List;
@@ -136,6 +137,12 @@ public class MentorController {
         } catch (RuntimeException ex) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/{mentorId}/refugees")
+    public ResponseEntity<List<Refugee>> getRefugeesByMentor(@PathVariable long mentorId) {
+        List<Refugee> refugees = mentorService.getRefugeesByMentor(mentorId);
+        return new ResponseEntity<>(refugees, HttpStatus.OK);
     }
 
 //    @PostMapping("/login")
