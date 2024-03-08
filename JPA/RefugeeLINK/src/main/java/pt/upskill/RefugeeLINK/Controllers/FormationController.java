@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pt.upskill.RefugeeLINK.Exceptions.FormationIdNotFound;
+import pt.upskill.RefugeeLINK.Exceptions.OrganizationNotFound;
 import pt.upskill.RefugeeLINK.Exceptions.RefugeeIdNotFound;
 import pt.upskill.RefugeeLINK.Models.Formation;
 import pt.upskill.RefugeeLINK.Services.FormationService;
@@ -49,4 +50,13 @@ public class FormationController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @PostMapping("/{organizationId}/formations")
+    public ResponseEntity<Formation> createFormation(@PathVariable Long organizationId, @RequestBody Formation formation) {
+        try {
+            Formation newFormation = formationService.registerFormation(formation, organizationId);
+            return ResponseEntity.ok(newFormation);
+        } catch (OrganizationNotFound e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

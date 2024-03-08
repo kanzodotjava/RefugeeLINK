@@ -4,10 +4,13 @@ import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import pt.upskill.RefugeeLINK.Enums.Status;
 import pt.upskill.RefugeeLINK.Models.Mentor;
+import pt.upskill.RefugeeLINK.Models.Refugee;
 import pt.upskill.RefugeeLINK.Repositories.MentorRepository;
+import pt.upskill.RefugeeLINK.Repositories.RefugeeRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,6 +21,8 @@ public class MentorService {
 
     @Autowired
     MentorRepository mentorRepository;
+    @Autowired
+    RefugeeRepository refugeeRepository;
 
     public  MentorService(MentorRepository mentorRepository){
         this.mentorRepository = mentorRepository;
@@ -45,6 +50,14 @@ public class MentorService {
         int citCard = mentor.getCitizenCard();
         if(citCard < 100000000 || citCard > 999999999){
             throw new IllegalArgumentException("Citizen card number must be a 9-digit number");
+        }
+
+        if (refugeeRepository.existsByUserName(username)) {
+            throw new DataIntegrityViolationException("Username " + username + " is already registered as a refugee.");
+        }
+
+        if (refugeeRepository.existsByEmailAddress(email)) {
+            throw new DataIntegrityViolationException("Email address " + email + " is already registered as a refugee.");
         }
 
         return mentorRepository.save(mentor);
@@ -100,6 +113,18 @@ public class MentorService {
             return mentorRepository.save(mentor);
         }
         return null;
+    }
+
+    public List<Refugee> getRefugeesByMentor(long mentorId) {
+        Mentor mentor = mentorRepository.findById(mentorId)
+                .orElseThrow(() -> new EntityNotFoundException("Mentor with id: " + mentorId + " not found"));
+
+        List<Refugee> refugees = mentor.getRefugee();
+        if (refugees.isEmpty()) {
+            throw new EmptyResultDataAccessException("No refugees found for mentor with id: " + mentorId, 1);
+        }
+
+        return refugees;
     }
 
     public Mentor getMentorByUsername(String userName) {

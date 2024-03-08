@@ -19,7 +19,7 @@ public class Mentor extends Person{
     String description;
     @OneToMany(mappedBy = "mentor")
     @JsonIgnoreProperties("mentor")
-    List<Refugee> refugee;
+    List<Refugee> refugees;
 
 //    @Enumerated(EnumType.STRING)
     Status status;
@@ -33,7 +33,7 @@ public class Mentor extends Person{
     }
 
     public List<Refugee> getRefugee() {
-        return refugee;
+        return refugees;
     }
 
     public Status getStatus() {
@@ -44,8 +44,8 @@ public class Mentor extends Person{
         this.profession = profession;
     }
 
-    public void setRefugee(List<Refugee> refugee) {
-        this.refugee = refugee;
+    public void setRefugee(Refugee refugee) {
+        refugees.add(refugee);
     }
 
     public void setStatus(Status status) {
