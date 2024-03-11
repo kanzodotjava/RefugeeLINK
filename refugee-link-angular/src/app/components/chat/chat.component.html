@@ -1,0 +1,10 @@
+
+<div class="chat-window">
+  <ul class="messages-list">
+    <li *ngFor="let message of messageList">{{ message }}</li>
+  </ul>
+  <div class="message-box">
+    <input type="text" [(ngModel)]="newMessage" placeholder="Type a message..." />
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>
