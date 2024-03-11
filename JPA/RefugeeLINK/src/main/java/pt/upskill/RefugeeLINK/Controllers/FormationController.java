@@ -60,5 +60,33 @@ public class FormationController {
         }
     }
 
+    @PostMapping("/{formationId}/start")
+    public ResponseEntity<Formation> startFormation(@PathVariable Long formationId) {
+        try {
+            Formation startedFormation = formationService.startFormation(formationId);
+            return ResponseEntity.ok(startedFormation);
+        } catch (FormationIdNotFound e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
+    @PostMapping("/{formationId}/complete")
+    public ResponseEntity<Formation> completeFormation(@PathVariable Long formationId) {
+        try {
+            Formation completedFormation = formationService.completeFormation(formationId);
+            return ResponseEntity.ok(completedFormation);
+        } catch (FormationIdNotFound e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PostMapping("/{formationId}/startOnTime")
+    public ResponseEntity<Formation> startFormationOnTime(@PathVariable Long formationId) {
+        try {
+            Formation startedFormation = formationService.startFormationOnTime(formationId);
+            return ResponseEntity.ok(startedFormation);
+        } catch (FormationIdNotFound e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

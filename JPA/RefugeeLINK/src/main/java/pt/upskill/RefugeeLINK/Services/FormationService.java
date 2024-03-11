@@ -2,6 +2,7 @@ package pt.upskill.RefugeeLINK.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pt.upskill.RefugeeLINK.Enums.FormationStatus;
 import pt.upskill.RefugeeLINK.Exceptions.FormationIdNotFound;
 import pt.upskill.RefugeeLINK.Exceptions.OrganizationNotFound;
 import pt.upskill.RefugeeLINK.Exceptions.RefugeeIdNotFound;
@@ -11,6 +12,7 @@ import pt.upskill.RefugeeLINK.Models.Refugee;
 import pt.upskill.RefugeeLINK.Repositories.FormationRepository;
 import pt.upskill.RefugeeLINK.Repositories.OrganizationRepository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -74,5 +76,47 @@ public class FormationService {
         Organization organization = organizationService.getOrganizationById(organizationId);
         formation.setOrganization(organization);
         return this.formationRepository.save(formation);
+    }
+
+    public Formation startFormation(Long formationId) throws FormationIdNotFound {
+        Formation formation = formationRepository.findById(formationId)
+                .orElseThrow(() -> new FormationIdNotFound("Formation not found with id: " + formationId));
+
+        // Change the status to ONGOING
+        formation.setStatus(FormationStatus.ONGOING);
+
+        // Save the updated formation
+        return formationRepository.save(formation);
+    }
+
+    public Formation completeFormation(Long formationId) throws FormationIdNotFound {
+        Formation formation = formationRepository.findById(formationId)
+                .orElseThrow(() -> new FormationIdNotFound("Formation not found with id: " + formationId));
+
+        // Change the status to COMPLETED
+        formation.setStatus(FormationStatus.COMPLETED);
+
+        // Save the updated formation
+        return formationRepository.save(formation);
+    }
+
+
+    public Formation startFormationOnTime(Long formationId) throws FormationIdNotFound {
+        Formation formation = formationRepository.findById(formationId)
+                .orElseThrow(() -> new FormationIdNotFound("Formation not found with id: " + formationId));
+
+        // Check if the current date is after the start date
+        Date currentDate = new Date();
+        if (currentDate.after(formation.getStartDate())) {
+            // Change the status to ONGOING
+            formation.setStatus(FormationStatus.ONGOING);
+
+            // Save the updated formation
+            return formationRepository.save(formation);
+        } else {
+            // Handle the case where the current date is not after the start date
+            // You may throw an exception or return an appropriate response
+            throw new IllegalStateException("Cannot start the formation yet. Start date is in the future.");
+        }
     }
 }
