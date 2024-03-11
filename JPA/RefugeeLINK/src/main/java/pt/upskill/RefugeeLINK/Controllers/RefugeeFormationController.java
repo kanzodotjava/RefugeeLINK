@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pt.upskill.RefugeeLINK.DTO.RefugeeFormationDTO;
 import pt.upskill.RefugeeLINK.Exceptions.FormationIdNotFound;
 import pt.upskill.RefugeeLINK.Exceptions.RefugeeFormationIdNotFound;
 import pt.upskill.RefugeeLINK.Exceptions.RefugeeIdNotFound;
@@ -11,6 +12,7 @@ import pt.upskill.RefugeeLINK.Models.RefugeeFormation;
 import pt.upskill.RefugeeLINK.Services.RefugeeFormationService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/RefugeeFormation")
@@ -20,15 +22,19 @@ public class RefugeeFormationController {
     private RefugeeFormationService refugeeFormationService;
 
     @GetMapping("/all")
-    public ResponseEntity<List<RefugeeFormation>> getAllRefugeeFormations() {
+    public ResponseEntity<List<RefugeeFormationDTO>> getAllRefugeeFormations() {
         List<RefugeeFormation> refugeeFormations = refugeeFormationService.getAllRefugeeFormations();
-        return new ResponseEntity<>(refugeeFormations, HttpStatus.OK);
+        List<RefugeeFormationDTO> refugeeFormationDTOs = refugeeFormations.stream()
+                .map(RefugeeFormation::toDto)
+                .collect(Collectors.toList());
+        return new ResponseEntity<>(refugeeFormationDTOs, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<RefugeeFormation> getRefugeeFormationById(@PathVariable Long id) throws RefugeeFormationIdNotFound {
+    public ResponseEntity<RefugeeFormationDTO> getRefugeeFormationById(@PathVariable Long id) throws RefugeeFormationIdNotFound {
         RefugeeFormation refugeeFormation = refugeeFormationService.getRefugeeFormation(id);
-        return new ResponseEntity<>(refugeeFormation, HttpStatus.OK);
+        RefugeeFormationDTO refugeeFormationDTO = refugeeFormation.toDto();
+        return new ResponseEntity<>(refugeeFormationDTO, HttpStatus.OK);
     }
 
 
