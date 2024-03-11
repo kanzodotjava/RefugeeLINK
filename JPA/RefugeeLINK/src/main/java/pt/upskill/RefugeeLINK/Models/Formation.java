@@ -1,6 +1,7 @@
 package pt.upskill.RefugeeLINK.Models;
 
 import jakarta.persistence.*;
+import pt.upskill.RefugeeLINK.Enums.FormationStatus;
 
 import java.util.Date;
 import java.util.List;
@@ -14,7 +15,9 @@ public class Formation {
     String description;
     int numberOfLessons;
     Date startDate;
-    Date endDate;
+    int duration;
+
+    FormationStatus status;
     @OneToMany(mappedBy = "formation")
     private List<RefugeeFormation> refugees;
     @ManyToOne
@@ -40,8 +43,12 @@ public class Formation {
         return startDate;
     }
 
-    public Date getEndDate() {
-        return endDate;
+    public FormationStatus getStatus() {
+        return status;
+    }
+
+    public int getDuration() {
+        return duration;
     }
 
     public Organization getOrganization() {
@@ -72,8 +79,12 @@ public class Formation {
         this.startDate = startDate;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setStatus(FormationStatus status) {
+        this.status = status;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 
     public void setRefugees(List<RefugeeFormation> refugees) {

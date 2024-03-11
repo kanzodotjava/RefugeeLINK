@@ -51,7 +51,7 @@ public class FormationService {
             updatedFormation.setDescription(formation.getDescription());
             updatedFormation.setNumberOfLessons(formation.getNumberOfLessons());
             updatedFormation.setStartDate(formation.getStartDate());
-            updatedFormation.setEndDate(formation.getEndDate());
+            updatedFormation.setDuration(formation.getDuration());
 
 
             // Save the updated Formation back to the database
