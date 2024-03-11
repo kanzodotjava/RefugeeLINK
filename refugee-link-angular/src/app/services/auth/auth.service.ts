@@ -41,4 +41,9 @@ export class AuthService {
       userType: this.getUserType(),
     };
   }
+
+  static isAdmin(): boolean {
+    const userType = localStorage.getItem('userType');
+    return userType === 'admin';
+  }
 }
