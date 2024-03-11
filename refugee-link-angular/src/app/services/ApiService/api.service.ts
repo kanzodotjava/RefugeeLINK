@@ -25,9 +25,19 @@ export class ApiService {
     return this.http.post<any>(this.loginUrl, credentials);
   }
 
-  getMentors(): Observable<any> {
-    const url = 'http://localhost:8080/mentor/certified';
-    return this.http.get(url);
+  getMentors(): Observable<any[]> {
+    const url = `${this.baseUrl}/mentor`;
+    return this.http.get<any[]>(url);
+  }
+
+  acceptMentor(mentorId: number): Observable<any> {
+    const url = `${this.baseUrl}/mentor/${mentorId}/certify`;
+    return this.http.put(url, null);
+  }
+
+  rejectMentor(mentorId: number): Observable<any> {
+    const url = `${this.baseUrl}/mentor/${mentorId}/reject`;
+    return this.http.put(url, null);
   }
 
   getDetailsByUsername(username: string, userType: string): Observable<any> {

@@ -1,1 +1,55 @@
-<p>admin-dashboard works!</p>
+<!-- admin-dashboard.component.html -->
+<h2 class="text-2xl font-bold mb-4 text-center">Manage Mentors</h2>
+
+<div class="mentors-grid grid grid-cols-3 gap-4">
+  <div
+    *ngFor="let mentor of mentors"
+    class="mentor-card bg-white p-4 shadow-md rounded-md"
+  >
+    <div class="font-bold">{{ mentor.name }}</div>
+    <div><span class="font-bold">Email:</span> {{ mentor.emailAddress }}</div>
+    <div>
+      <span class="font-bold">Birthday:</span> {{ mentor.birthdayDate }}
+    </div>
+    <div>
+      <span class="font-bold">Phone Number:</span> {{ mentor.phoneNumber }}
+    </div>
+    <div><span class="font-bold">Country:</span> {{ mentor.country }}</div>
+    <div>
+      <span class="font-bold">Nationality:</span> {{ mentor.nationality }}
+    </div>
+    <div>
+      <span class="font-bold">Primary Language:</span>
+      {{ mentor.primaryLanguage }}
+    </div>
+    <div>
+      <span class="font-bold">Secondary Language:</span>
+      {{ mentor.secondaryLanguage }}
+    </div>
+    <div>
+      <span class="font-bold">Citizen Card:</span> {{ mentor.citizenCard }}
+    </div>
+    <div>
+      <span class="font-bold">Profession:</span> {{ mentor.profession }}
+    </div>
+    <div>
+      <span class="font-bold">Description:</span> {{ mentor.description }}
+    </div>
+    <div><span class="font-bold">Status:</span> {{ mentor.status }}</div>
+
+    <div class="mt-4">
+      <button
+        (click)="acceptMentor(mentor.id)"
+        class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mr-2"
+      >
+        Accept
+      </button>
+      <button
+        (click)="rejectMentor(mentor.id)"
+        class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+      >
+        Reject
+      </button>
+    </div>
+  </div>
+</div>

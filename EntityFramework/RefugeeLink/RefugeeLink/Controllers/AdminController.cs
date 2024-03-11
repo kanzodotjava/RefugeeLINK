@@ -11,7 +11,7 @@ namespace RefugeeLink.Controllers
     {
         private readonly AdminCore _adminCore;
 
-       public AdminController(AdminContext context)
+       public AdminController(MainContext context)
         {
             this._adminCore = new AdminCore(context);
         }
@@ -31,7 +31,7 @@ namespace RefugeeLink.Controllers
         }
 
         [HttpGet("username/{username}")]
-        public async Task<ActionResult<Admin>> GetAdminByUsername(string username)
+        public async Task<ActionResult<Admin>> GetOrganizationByUsername(string username)
         {
             var admin = await _adminCore.GetAdminByUsername(username);
 
