@@ -1,17 +1,27 @@
-<h2>News About Refugees</h2>
+<h2 class="text-xl font-bold mb-4 text-center mt-20">News About Refugees</h2>
 
-<div class="news-grid">
-  <div class="news-item" *ngFor="let news of newsData">
-    <div class="news-container">
+<div
+  class="news-grid grid grid-cols-1 md:grid-cols-3 gap-4 px-4 md:px-8 lg:px-16"
+>
+  <!-- Use an anchor tag around the entire news item and bind the href to news.url -->
+  <a
+    *ngFor="let news of newsData"
+    [href]="news.url"
+    target="_blank"
+    class="news-item-link bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out"
+  >
+    <div class="news-item flex flex-col">
       <img
-        class="news-image"
+        class="news-image w-full h-48 object-cover"
         [src]="news.urlToImage || 'https://via.placeholder.com/150'"
         alt="{{ news.title }}"
       />
-      <div class="news-details">
-        <h3 class="news-title">{{ news.title }}</h3>
-        <p class="news-description">{{ news.description }}</p>
+      <div class="news-details p-4 flex flex-col flex-grow">
+        <h3 class="news-title font-semibold mb-2">{{ news.title }}</h3>
+        <p class="news-description text-gray-700 text-sm flex-grow">
+          {{ news.description }}
+        </p>
       </div>
     </div>
-  </div>
+  </a>
 </div>
