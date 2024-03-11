@@ -54,13 +54,6 @@ public class RefugeeFormationService {
         refugeeFormationRepository.deleteById(id);
     }
 
-
-//    public void approveRefugeeFormation(Long id) throws RefugeeFormationIdNotFound {
-//        RefugeeFormation refugeeFormation = getRefugeeFormation(id);
-//        refugeeFormation.setApproved(true);
-//        updateRefugeeFormation(refugeeFormation);
-//    }
-
     public void approveRefugeeFormation(Long refugeeId, Long formationId) throws RefugeeFormationIdNotFound, RefugeeIdNotFound, FormationIdNotFound {
         // Find the RefugeeFormation object that corresponds to the given refugeeId and formationId
         RefugeeFormation refugeeFormation = refugeeFormationRepository.findByRefugeeIdAndFormationId(refugeeId, formationId)
@@ -84,6 +77,7 @@ public class RefugeeFormationService {
     }
 
 
-
-
+    public List<RefugeeFormation> getCompletedFormationsByRefugee(Long refugeeId) {
+        return refugeeFormationRepository.findAllByRefugeeIdAndIsApproved(refugeeId, true);
+    }
 }

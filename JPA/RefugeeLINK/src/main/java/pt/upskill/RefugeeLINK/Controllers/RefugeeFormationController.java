@@ -58,4 +58,10 @@ public class RefugeeFormationController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @GetMapping("/completed/{refugeeId}")
+    public ResponseEntity<List<RefugeeFormation>> getCompletedFormationsByRefugee(@PathVariable Long refugeeId) {
+        List<RefugeeFormation> completedFormations = refugeeFormationService.getCompletedFormationsByRefugee(refugeeId);
+        return new ResponseEntity<>(completedFormations, HttpStatus.OK);
+    }
 }
