@@ -16,6 +16,7 @@ import { ConnectedMentorComponent } from './components/connected-mentor/connecte
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { ConnectedRefugeesComponent } from './components/connected-refugees/connected-refugees.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { AdminAuthGuard } from './guards/adminAuthGuard/admin-auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -28,7 +29,11 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'admin-login', component: AdminLoginComponent },
   { path: 'connected-refugees', component: ConnectedRefugeesComponent },
-  { path: 'admin-dashboard', component: AdminDashboardComponent },
+  {
+    path: 'admin-dashboard',
+    component: AdminDashboardComponent,
+    canActivate: [AdminAuthGuard], // Use the adminAuthGuard function here
+  },
 
   {
     path: 'personal-page',
