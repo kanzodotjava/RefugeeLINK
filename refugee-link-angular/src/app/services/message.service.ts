@@ -7,7 +7,7 @@ import { Message } from 'src/app/models/message.model';
   providedIn: 'root'
 })
 export class MessageService {
-  private apiUrl = '/api/messages'; // URL to web API
+  private apiUrl = 'http://localhost:8080/api/messages'; // URL to web API
 
   constructor(private http: HttpClient) {}
 

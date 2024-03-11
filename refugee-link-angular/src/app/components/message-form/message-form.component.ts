@@ -10,8 +10,8 @@ import { MessageService } from '../../services/message.service';
 })
 export class MessageFormComponent {
   newMessage: Message = {
-    senderUsername: '', // Initialize with the sender's username
-    receiverUsername: '', // Initialize with the receiver's username
+    senderUsername: 'Refugee1', // Initialize with the sender's username
+    receiverUsername: 'mentor123', // Initialize with the receiver's username
     content: ''
   };
 
@@ -30,4 +30,6 @@ export class MessageFormComponent {
       });
     }
   }
+
+  
 }

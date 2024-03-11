@@ -9,8 +9,8 @@ import { Message } from '../../models/message.model';
   styleUrls: ['./message-list.component.css']
 })
 export class MessageListComponent implements OnInit {
-  @Input() senderUsername!: string;
-  @Input() receiverUsername!: string;
+    @Input() senderUsername: string = 'Refugee1';
+    @Input() receiverUsername: string = 'mentor123';
   messages: Message[] = [];
 
   constructor(private messageService: MessageService) {}
@@ -31,4 +31,6 @@ export class MessageListComponent implements OnInit {
       });
     }
   }
+
+  
 }

@@ -18,6 +18,7 @@ import { ConnectedRefugeesComponent } from './components/connected-refugees/conn
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminAuthGuard } from './guards/adminAuthGuard/admin-auth.guard';
 import { MessageFormComponent } from './components/message-form/message-form.component';
+import { MessageListComponent } from './components/message-list/message-list.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -43,6 +44,7 @@ const routes: Routes = [
   },
   { path: 'connected-mentor', component: ConnectedMentorComponent },
   { path: 'teste', component: MessageFormComponent },
+  { path: 'teste2', component: MessageListComponent },
 
 ];
 
