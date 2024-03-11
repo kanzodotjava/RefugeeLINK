@@ -4,8 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pt.upskill.RefugeeLINK.Exceptions.FormationIdNotFound;
 import pt.upskill.RefugeeLINK.Exceptions.OrganizationNotFound;
+import pt.upskill.RefugeeLINK.Models.Mentor;
 import pt.upskill.RefugeeLINK.Models.Organization;
 import pt.upskill.RefugeeLINK.Repositories.OrganizationRepository;
+
+import java.util.Optional;
 
 
 @Service
@@ -51,6 +54,10 @@ public class OrganizationService {
         }
     }
 
+    //find by username
+    public Optional<Organization> findOrganizationByUsername(String userName) {
+        return organizationRepository.findByUserName(userName);
+    }
 
 
 }
