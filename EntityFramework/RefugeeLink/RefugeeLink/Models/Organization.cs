@@ -12,5 +12,16 @@
 
 
         public string Password { get; set; }
+
+        public OrganizationDTO ToDTO()
+        {
+            return new OrganizationDTO
+            {
+
+                Username = this.Username,
+                Password = this.Password
+                
+            };
+        }
     }
 }

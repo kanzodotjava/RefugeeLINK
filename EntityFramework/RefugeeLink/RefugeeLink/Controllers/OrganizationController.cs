@@ -88,5 +88,21 @@ namespace RefugeeLink.Controllers
             return Ok(updatedOrg);
         }
 
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] OrganizationDTO org)
+        {
+            var loginSuccess = await _organizationCore.Login(org);
+            if (loginSuccess)
+            {
+                // Successful login
+                return Ok(new { message = "Login successful" });
+            }
+            else
+            {
+                // Failed login
+                return Unauthorized(new { message = "Invalid username or password" });
+            }
+        }
     }
 }

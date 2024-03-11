@@ -57,5 +57,21 @@ namespace RefugeeLink.Core
             return await _context.Organization.FirstOrDefaultAsync(x => x.Username == username);
         }
 
+        public async Task<bool> Login(OrganizationDTO org)
+        {
+            var orgInDb = await GetOrganizationByUsername(org.Username);
+            if (orgInDb == null)
+            {
+                return false;
+            }
+
+            if (orgInDb.Password == org.Password)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
     }
 }
