@@ -1,0 +1,6 @@
+<div class="message-list-container">
+    <div *ngFor="let message of messages" class="message">
+      <p>{{ message.content }}</p>
+      <span>{{ message.sentAt | date }}</span>
+    </div>
+  </div>
