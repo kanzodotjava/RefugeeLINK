@@ -37,7 +37,6 @@ public class MentorController {
     }
 
     @PostMapping
-    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<MentorDTO> createMentor(@RequestBody Mentor mentor){
         Mentor createdMentor = mentorService.addMentor(mentor);
         MentorDTO mentorDTO = createdMentor.toDTO();

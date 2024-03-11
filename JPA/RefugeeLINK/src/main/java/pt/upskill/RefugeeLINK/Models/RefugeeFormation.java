@@ -30,6 +30,7 @@ public class RefugeeFormation {
         return formation;
     }
 
+
     public boolean isApproved() {
         return isApproved;
     }

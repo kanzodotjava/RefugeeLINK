@@ -4,9 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pt.upskill.RefugeeLINK.DTO.FormationDTO;
 import pt.upskill.RefugeeLINK.Exceptions.FormationIdNotFound;
-import pt.upskill.RefugeeLINK.Exceptions.OrganizationNotFound;
-import pt.upskill.RefugeeLINK.Exceptions.RefugeeIdNotFound;
 import pt.upskill.RefugeeLINK.Models.Formation;
 import pt.upskill.RefugeeLINK.Services.FormationService;
 
@@ -33,10 +32,12 @@ public class FormationController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<Formation> registerFormation(@RequestBody Formation formation) {
-        Formation registeredFormation = formationService.registerFormation(formation);
-        return new ResponseEntity<>(registeredFormation, HttpStatus.CREATED);
+    public ResponseEntity<FormationDTO> registerFormation(@RequestBody Formation formation) {
+        Formation createdFormation = formationService.registerFormation(formation);
+        FormationDTO formationDto = createdFormation.toDto();
+        return new ResponseEntity<>(formationDto, HttpStatus.CREATED);
     }
+
 
     @PutMapping("/update")
     public ResponseEntity<Formation> updateFormation(@RequestBody Formation formation) throws FormationIdNotFound {
@@ -50,13 +51,24 @@ public class FormationController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PostMapping("/{organizationId}/formations")
-    public ResponseEntity<Formation> createFormation(@PathVariable Long organizationId, @RequestBody Formation formation) {
+    @PutMapping("/{id}/organization/{orgId}")
+    public ResponseEntity<Formation> updateOrganizationId(@PathVariable Long id, @PathVariable Long orgId) {
         try {
-            Formation newFormation = formationService.registerFormation(formation, organizationId);
-            return ResponseEntity.ok(newFormation);
-        } catch (OrganizationNotFound e) {
-            return ResponseEntity.notFound().build();
+            Formation updatedFormation = formationService.updateOrganizationId(id, orgId);
+            return new ResponseEntity<>(updatedFormation, HttpStatus.OK);
+        } catch (FormationIdNotFound e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PostMapping("/refugees/{refugeeId}/formations/{formationId}/register")
+    public ResponseEntity<?> registerRefugeeToFormation(@PathVariable Long refugeeId, @PathVariable Long formationId) {
+        boolean registrationSuccessful = formationService.registerRefugeeToFormation(refugeeId, formationId);
+
+        if (registrationSuccessful) {
+            return ResponseEntity.ok().body("Refugee successfully registered to the formation.");
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Refugee cannot be registered to this formation. Please check the formation status and if the refugee is already registered in an active formation.");
         }
     }
 
@@ -69,6 +81,30 @@ public class FormationController {
             return ResponseEntity.notFound().build();
         }
     }
+    
+
+
+
+//    @PostMapping("/{organizationId}/formations")
+//    public ResponseEntity<Formation> createFormation(@PathVariable Long organizationId, @RequestBody Formation formation) {
+//        try {
+//            Formation newFormation = formationService.registerFormation(formation, organizationId);
+//            return ResponseEntity.ok(newFormation);
+//        } catch (OrganizationNotFound e) {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
+
+//    @GetMapping("/{organizationUsername}/formations")
+//    public ResponseEntity<List<Formation>> getFormationsByOrganization(@PathVariable String organizationUsername) {
+//        try {
+//            List<Formation> formations = formationService.getFormationByOrganizationUsername(organizationUsername);
+//            return ResponseEntity.ok(formations);
+//        } catch (OrganizationNotFound e) {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
+
 
     @PostMapping("/{formationId}/complete")
     public ResponseEntity<Formation> completeFormation(@PathVariable Long formationId) {
@@ -89,4 +125,5 @@ public class FormationController {
             return ResponseEntity.notFound().build();
         }
     }
+
 }
