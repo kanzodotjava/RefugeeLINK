@@ -85,7 +85,8 @@ public class RefugeeFormationService {
         refugeeFormation.setApproved(false);
 
         // Save the changes
-        updateRefugeeFormation(refugeeFormation);
+        refugeeFormationRepository.save(refugeeFormation);
+
     }
 
 

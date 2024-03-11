@@ -1,6 +1,8 @@
 package pt.upskill.RefugeeLINK.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import pt.upskill.RefugeeLINK.DTO.RefugeeFormationDTO;
 
 @Entity
 public class RefugeeFormation {
@@ -49,6 +51,18 @@ public class RefugeeFormation {
 
     public void setApproved(boolean approved) {
         isApproved = approved;
+    }
+
+
+    public RefugeeFormationDTO toDto() {
+        RefugeeFormationDTO dto = new RefugeeFormationDTO();
+        dto.setId(this.id);
+        dto.setRefugeeId(this.refugee.getId());
+        dto.setRefugeeName(this.refugee.getName());
+        dto.setFormationId(this.formation.getId());
+        dto.setFormationName(this.formation.getName());
+        dto.setApproved(this.isApproved);
+        return dto;
     }
 }
 
