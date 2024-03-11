@@ -12,7 +12,6 @@ import { MentorSelectComponent } from './components/mentor-select/mentor-select.
 import { PersonalPageComponent } from './components/personal-page/personal-page.component';
 import { AuthGuard } from './guards/auth/auth.guard';
 import { LogoutComponent } from './components/logout/logout.component';
-import { ChatComponent } from './components/chat/chat.component';
 import { ConnectedMentorComponent } from './components/connected-mentor/connected-mentor.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { ConnectedRefugeesComponent } from './components/connected-refugees/connected-refugees.component';
@@ -36,8 +35,7 @@ const routes: Routes = [
     component: PersonalPageComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'connected-mentor', component: ConnectedMentorComponent },
-  { path: 'chat/:userId', component: ChatComponent },
+  { path: 'connected-mentor', component: ConnectedMentorComponent }
 ];
 
 @NgModule({
