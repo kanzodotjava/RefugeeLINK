@@ -25,14 +25,11 @@ import { ConnectedMentorComponent } from './components/connected-mentor/connecte
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { ConnectedRefugeesComponent } from './components/connected-refugees/connected-refugees.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
-import { ChatComponent } from './components/chat/chat.component';
-import { WebSocketService } from './services/web-socket.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatComponent,
     NavBarComponent,
     ServicesDisplayComponent,
     AboutUsComponent,
@@ -58,7 +55,7 @@ import { WebSocketService } from './services/web-socket.service';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [AuthGuard, WebSocketService],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

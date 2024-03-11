@@ -9,7 +9,7 @@ export class ApiService {
   private baseUrl = 'http://localhost:8080';
   private loginUrl = 'https://localhost:7165/login';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   sendFormData(data: any): Observable<any> {
     const endpointUrl = 'http://localhost:8080/refugee';
@@ -67,5 +67,10 @@ export class ApiService {
   getRefugeesByMentorUsername(username: string): Observable<any[]> {
     const url = `http://localhost:8080/mentor/${username}/refugees`;
     return this.http.get<any[]>(url);
+  }
+
+  getMentorUsernameByUsername(username: string): Observable<any> {
+    const url = `http://localhost:8080/refugee/by-username/${username}/mentor/username`;
+    return this.http.get<any>(url);
   }
 }

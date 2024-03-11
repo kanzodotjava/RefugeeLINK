@@ -16,7 +16,6 @@ import { ConnectedMentorComponent } from './components/connected-mentor/connecte
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { ConnectedRefugeesComponent } from './components/connected-refugees/connected-refugees.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
-import { ChatComponent } from './components/chat/chat.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -37,7 +36,6 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'connected-mentor', component: ConnectedMentorComponent },
-  { path: 'chat/:counterpartUsername', component: ChatComponent, canActivate: [AuthGuard] },
   
 ];
 
