@@ -77,6 +77,29 @@ public class RefugeeFormationService {
     }
 
 
+    public void failRefugeeFormation(Long refugeeId, Long formationId) throws RefugeeFormationIdNotFound, RefugeeIdNotFound, FormationIdNotFound {
+        // Find the RefugeeFormation object that corresponds to the given refugeeId and formationId
+        RefugeeFormation refugeeFormation = refugeeFormationRepository.findByRefugeeIdAndFormationId(refugeeId, formationId)
+                .orElseThrow(() -> new RefugeeFormationIdNotFound("Refugee Formation with refugeeId " + refugeeId + " and formationId " + formationId + " not found"));
+
+        // Check if the Refugee with the given refugeeId exists
+        if (!refugeeRepository.existsById(refugeeId)) {
+            throw new RefugeeIdNotFound("Refugee with id " + refugeeId + " not found");
+        }
+
+        // Check if the Formation with the given formationId exists
+        if (!formationRepository.existsById(formationId)) {
+            throw new FormationIdNotFound("Formation with id " + formationId + " not found");
+        }
+
+        // Set the isApproved field to true
+        refugeeFormation.setApproved(false);
+
+        // Save the changes
+        updateRefugeeFormation(refugeeFormation);
+    }
+
+
     public List<RefugeeFormation> getCompletedFormationsByRefugee(Long refugeeId) {
         return refugeeFormationRepository.findAllByRefugeeIdAndIsApproved(refugeeId, true);
     }

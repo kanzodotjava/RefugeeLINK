@@ -65,19 +65,19 @@ namespace RefugeeLink.Controllers
                 }
             }
 
-            // If REfugee login fails, try Organization login
-            var organizationApiUrl = "http://localhost:8080/organization/login";
-            var organizationResponse = await _httpClient.PostAsJsonAsync(organizationApiUrl, loginRequest);
+            //// If REfugee login fails, try Organization login
+            //var organizationApiUrl = "http://localhost:8080/organization/login";
+            //var organizationResponse = await _httpClient.PostAsJsonAsync(organizationApiUrl, loginRequest);
 
-            if (organizationResponse.IsSuccessStatusCode)
-            {
-                var organizationLoginSuccess = await System.Text.Json.JsonSerializer.DeserializeAsync<bool>(await organizationResponse.Content.ReadAsStreamAsync());
-                if (organizationLoginSuccess)
-                {
+            //if (organizationResponse.IsSuccessStatusCode)
+            //{
+            //    var organizationLoginSuccess = await System.Text.Json.JsonSerializer.DeserializeAsync<bool>(await organizationResponse.Content.ReadAsStreamAsync());
+            //    if (organizationLoginSuccess)
+            //    {
 
-                    return Ok(new { UserType = "Organization" });
-                }
-            }
+            //        return Ok(new { UserType = "Organization" });
+            //    }
+            //}
 
             // If both logins fail
             return Unauthorized(); // Login failed

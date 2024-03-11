@@ -25,7 +25,7 @@ namespace RefugeeLink
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddDbContext<AdminContext>(options =>
+            builder.Services.AddDbContext<MainContext>(options =>
             options.UseOracle(
                 builder.Configuration.GetConnectionString("AdminDb")));
 

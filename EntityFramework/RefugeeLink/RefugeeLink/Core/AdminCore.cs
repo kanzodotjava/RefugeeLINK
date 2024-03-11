@@ -6,9 +6,9 @@ namespace RefugeeLink.Core
 {
     public class AdminCore
     {
-        private readonly AdminContext _context;
+        private readonly MainContext _context;
 
-        public AdminCore(AdminContext context)
+        public AdminCore(MainContext context)
         {
             _context = context;
         }
