@@ -1,6 +1,7 @@
 package pt.upskill.RefugeeLINK.Models;
 
 import jakarta.persistence.*;
+import pt.upskill.RefugeeLINK.DTO.FormationDTO;
 import pt.upskill.RefugeeLINK.Enums.FormationStatus;
 
 import java.util.Date;
@@ -11,17 +12,19 @@ public class Formation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    String name;
-    String description;
-    int numberOfLessons;
-    Date startDate;
-    int duration;
-
-    FormationStatus status;
+    private String name;
+    private String description;
+    private int numberOfLessons;
+    private Date startDate;
+    private int duration;
+    private FormationStatus status;
     @OneToMany(mappedBy = "formation")
     private List<RefugeeFormation> refugees;
-    @ManyToOne
-    private Organization organization;
+
+    private Long organizationId;
+
+//    @ManyToOne
+//    private Organization organization;
 
     public Long getId() {
         return id;
@@ -51,12 +54,13 @@ public class Formation {
         return duration;
     }
 
-    public Organization getOrganization() {
-        return organization;
-    }
 
     public List<RefugeeFormation> getRefugees() {
         return refugees;
+    }
+
+    public Long getOrganizationId() {
+        return organizationId;
     }
 
     public void setId(Long id) {
@@ -91,9 +95,20 @@ public class Formation {
         this.refugees = refugees;
     }
 
-    public void setOrganization(Organization organization) {
-        this.organization = organization;
+    public void setOrganizationId(Long organizationId) {
+        this.organizationId = organizationId;
     }
 
-
+    public FormationDTO toDto(){
+        FormationDTO formation = new FormationDTO();
+        formation.setId(this.getId());
+        formation.setName(this.getName());
+        formation.setDescription(this.getDescription());
+        formation.setNumberOfLessons(this.getNumberOfLessons());
+        formation.setStartDate(this.getStartDate());
+        formation.setDuration(this.getDuration());
+        formation.setStatus(this.getStatus());
+        formation.setOrganizationId(this.getOrganizationId());
+        return formation;
+    }
 }

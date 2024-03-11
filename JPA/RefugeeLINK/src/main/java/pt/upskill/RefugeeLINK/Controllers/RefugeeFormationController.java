@@ -31,17 +31,6 @@ public class RefugeeFormationController {
         return new ResponseEntity<>(refugeeFormation, HttpStatus.OK);
     }
 
-    @PostMapping("/register")
-    public ResponseEntity<RefugeeFormation> registerRefugeeFormation(@RequestBody RefugeeFormation refugeeFormation) {
-        RefugeeFormation registeredRefugeeFormation = refugeeFormationService.addRefugeeFormation(refugeeFormation);
-        return new ResponseEntity<>(registeredRefugeeFormation, HttpStatus.CREATED);
-    }
-
-    @PutMapping("/update")
-    public ResponseEntity<RefugeeFormation> updateRefugeeFormation(@RequestBody RefugeeFormation refugeeFormation) throws RefugeeFormationIdNotFound {
-        RefugeeFormation updatedRefugeeFormation = refugeeFormationService.updateRefugeeFormation(refugeeFormation);
-        return new ResponseEntity<>(updatedRefugeeFormation, HttpStatus.OK);
-    }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteRefugeeFormation(@PathVariable Long id) throws RefugeeFormationIdNotFound {

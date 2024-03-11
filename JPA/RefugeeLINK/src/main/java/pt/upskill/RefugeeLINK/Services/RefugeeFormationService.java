@@ -26,10 +26,6 @@ public class RefugeeFormationService {
 
     public RefugeeFormation addRefugeeFormation;
 
-    public RefugeeFormation addRefugeeFormation(RefugeeFormation refugeeFormation) {
-        return refugeeFormationRepository.save(refugeeFormation);
-    }
-
 
     public List<RefugeeFormation> getAllRefugeeFormations() {
         return refugeeFormationRepository.findAll();
@@ -38,13 +34,6 @@ public class RefugeeFormationService {
 
     public RefugeeFormation getRefugeeFormation(Long id) throws RefugeeFormationIdNotFound {
         return refugeeFormationRepository.findById(id).orElseThrow(() -> new RefugeeFormationIdNotFound("Refugee Formation with id " + id + " not found"));
-    }
-
-    public RefugeeFormation updateRefugeeFormation(RefugeeFormation refugeeFormation) throws RefugeeFormationIdNotFound {
-        if (!refugeeFormationRepository.existsById(refugeeFormation.getId())) {
-            throw new RefugeeFormationIdNotFound("Refugee Formation with id " + refugeeFormation.getId() + " not found");
-        }
-        return refugeeFormationRepository.save(refugeeFormation);
     }
 
     public void deleteRefugeeFormation(Long id) throws RefugeeFormationIdNotFound {
@@ -73,11 +62,13 @@ public class RefugeeFormationService {
         refugeeFormation.setApproved(true);
 
         // Save the changes
-        updateRefugeeFormation(refugeeFormation);
+        refugeeFormationRepository.save(refugeeFormation);
     }
 
 
     public List<RefugeeFormation> getCompletedFormationsByRefugee(Long refugeeId) {
         return refugeeFormationRepository.findAllByRefugeeIdAndIsApproved(refugeeId, true);
     }
+
+
 }

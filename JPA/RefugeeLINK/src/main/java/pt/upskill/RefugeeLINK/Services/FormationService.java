@@ -2,14 +2,18 @@ package pt.upskill.RefugeeLINK.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pt.upskill.RefugeeLINK.Enums.FormationStatus;
 import pt.upskill.RefugeeLINK.Exceptions.FormationIdNotFound;
-import pt.upskill.RefugeeLINK.Exceptions.OrganizationNotFound;
+
 import pt.upskill.RefugeeLINK.Exceptions.RefugeeIdNotFound;
 import pt.upskill.RefugeeLINK.Models.Formation;
-import pt.upskill.RefugeeLINK.Models.Organization;
+
 import pt.upskill.RefugeeLINK.Models.Refugee;
+import pt.upskill.RefugeeLINK.Models.RefugeeFormation;
 import pt.upskill.RefugeeLINK.Repositories.FormationRepository;
-import pt.upskill.RefugeeLINK.Repositories.OrganizationRepository;
+import pt.upskill.RefugeeLINK.Repositories.RefugeeFormationRepository;
+import pt.upskill.RefugeeLINK.Repositories.RefugeeRepository;
+
 
 import java.util.List;
 import java.util.Map;
@@ -22,7 +26,10 @@ public class FormationService {
     private FormationRepository formationRepository;
 
     @Autowired
-    private OrganizationService organizationService;
+    private RefugeeRepository refugeeRepository;
+
+    @Autowired
+    private RefugeeFormationRepository refugeeFormationRepository;
 
     public Formation getFormationById(Long id) throws FormationIdNotFound {
         if (id == null) {
@@ -69,10 +76,63 @@ public class FormationService {
     }
 
 
-    //add formation with the organization id
-    public Formation registerFormation(Formation formation, Long organizationId) throws OrganizationNotFound {
-        Organization organization = organizationService.getOrganizationById(organizationId);
-        formation.setOrganization(organization);
-        return this.formationRepository.save(formation);
+    public Formation updateOrganizationId(Long id, Long newOrganizationId) throws FormationIdNotFound {
+        Optional<Formation> existingFormation = formationRepository.findById(id);
+
+        if (existingFormation.isPresent()) {
+            Formation updatedFormation = existingFormation.get();
+            updatedFormation.setOrganizationId(newOrganizationId);
+            return formationRepository.save(updatedFormation);
+        } else {
+            throw new FormationIdNotFound("Formation with ID " + id + " not found.");
+        }
     }
+
+
+    public boolean registerRefugeeToFormation(Long refugeeId, Long formationId) {
+        Optional<Refugee> refugeeOpt = refugeeRepository.findById(refugeeId);
+        Optional<Formation> formationOpt = formationRepository.findById(formationId);
+
+        if (refugeeOpt.isPresent() && formationOpt.isPresent()) {
+            Refugee refugee = refugeeOpt.get();
+            Formation formation = formationOpt.get();
+
+            // Verifica se a formação está com o status AWAITING_START
+            if (formation.getStatus() != FormationStatus.AWAITING_START) {
+                return false; // A formação não está aberta para inscrições
+            }
+
+            // Verifica se o refugiado já está inscrito em uma formação com status AWAITING_START ou ONGOING
+            boolean hasActiveFormation = refugeeFormationRepository.findAllByRefugee(refugee).stream()
+                    .anyMatch(rf -> rf.getFormation().getStatus() == FormationStatus.AWAITING_START ||
+                            rf.getFormation().getStatus() == FormationStatus.ONGOING);
+
+            if (!hasActiveFormation) {
+                RefugeeFormation newRefugeeFormation = new RefugeeFormation();
+                newRefugeeFormation.setRefugee(refugee);
+                newRefugeeFormation.setFormation(formation);
+                newRefugeeFormation.setApproved(false); // ou alguma lógica de aprovação
+                refugeeFormationRepository.save(newRefugeeFormation);
+                return true;
+            }
+        }
+        return false; // O refugiado não pode se registrar nesta formação
+    }
+
+
+
+
+
+    //add formation with the organization id
+//    public Formation registerFormation(Formation formation, Long organizationId) throws OrganizationNotFound {
+//        Organization organization = organizationService.getOrganizationById(organizationId);
+//        formation.setOrganization(organization);
+//        return this.formationRepository.save(formation);
+//    }
+//
+//    public List<Formation> getFormationByOrganizationUsername(String username) throws OrganizationNotFound{
+//        return formationRepository.findByOrganization_Username(username);
+//    }
+
+
 }
