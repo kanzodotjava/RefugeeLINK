@@ -5,31 +5,35 @@
     </a>
   </div>
   <div class="nav-links">
-    <a routerLink="/courses">Courses</a>
-    <a routerLink="/mentorship">Mentorship</a>
-    <a routerLink="/about-us">About Us</a>
-
-    <!-- Display login link only when the user is not logged in -->
-    <ng-container *ngIf="!isLoggedIn(); else loggedInTemplate">
-      <a routerLink="/login">Login</a>
-    </ng-container>
-    <ng-template #loggedInTemplate>
-      <!-- Display mentor select link only when the user is logged in and is a refugee -->
-      <ng-container *ngIf="getUserType() === 'Refugee'">
-        <a routerLink="/mentor-select">Mentor Select</a>
-      </ng-container>
-      <!-- Display connected mentor link -->
-      <ng-container *ngIf="getUserType() === 'Mentor'">
-        <a routerLink="/connected-refugees">Connected Refugees</a>
-      </ng-container>
-      <!-- Display link to personal page when user is logged in -->
-      <a routerLink="/personal-page">Personal Page</a>
-      <!-- Display logout link -->
+    <!-- Check if the user is admin -->
+    <ng-container *ngIf="getUserType() === 'admin'; else notAdmin">
+      <!-- Admin Dashboard and Logout links for admin users -->
+      <a routerLink="/admin-dashboard">Admin Dashboard</a>
       <a routerLink="/logout">Logout</a>
-    </ng-template>
+    </ng-container>
+    <!-- Template for users who are not admin -->
+    <ng-template #notAdmin>
+      <a routerLink="/courses">Courses</a>
+      <a routerLink="/mentorship">Mentorship</a>
+      <a routerLink="/about-us">About Us</a>
 
-    <!-- Conditionally display Sign Up link based on user login status -->
-    <a routerLink="/register" *ngIf="!isLoggedIn()">Sign Up</a>
+      <!-- Display login and signup links only when the user is not logged in -->
+      <ng-container *ngIf="!isLoggedIn(); else loggedInTemplate">
+        <a routerLink="/login">Login</a>
+        <a routerLink="/register">Sign Up</a>
+      </ng-container>
+      <ng-template #loggedInTemplate>
+        <!-- Conditional links for logged in users who are not admin -->
+        <ng-container *ngIf="getUserType() === 'Refugee'">
+          <a routerLink="/mentor-select">Mentor Select</a>
+        </ng-container>
+        <ng-container *ngIf="getUserType() === 'Mentor'">
+          <a routerLink="/connected-refugees">Connected Refugees</a>
+        </ng-container>
+        <a routerLink="/personal-page">Personal Page</a>
+        <a routerLink="/logout">Logout</a>
+      </ng-template>
+    </ng-template>
 
     <img
       src="assets/images/english.png"
