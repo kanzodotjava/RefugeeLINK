@@ -8,8 +8,9 @@ import { Observable } from 'rxjs';
 export class ApiService {
   private baseUrl = 'http://localhost:8080';
   private loginUrl = 'https://localhost:7165/login';
+  private baseUrlEntity = 'https://localhost:7165';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   sendFormData(data: any): Observable<any> {
     const endpointUrl = 'http://localhost:8080/refugee';
@@ -72,5 +73,25 @@ export class ApiService {
   getMentorUsernameByUsername(username: string): Observable<any> {
     const url = `http://localhost:8080/refugee/by-username/${username}/mentor/username`;
     return this.http.get<any>(url);
+  }
+
+  sendFormDataOrganization(data: any): Observable<any> {
+    const endpointUrl = `${this.baseUrlEntity}/organization`;
+    return this.http.post(endpointUrl, data);
+  }
+
+  getOrganizations(): Observable<any[]> {
+    const endpointUrl = `${this.baseUrlEntity}/organization`;
+    return this.http.get<any[]>(endpointUrl);
+  }
+
+  deleteOrganization(id: number): Observable<any> {
+    const endpointUrl = `${this.baseUrlEntity}/organization/${id}`;
+    return this.http.delete(endpointUrl);
+  }
+
+  updateOrganization(organizationData: any): Observable<any> {
+    const endpointUrl = `${this.baseUrlEntity}/organization/${organizationData.id}`;
+    return this.http.put(endpointUrl, organizationData);
   }
 }
