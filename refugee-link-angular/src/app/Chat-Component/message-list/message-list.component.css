@@ -1,0 +1,9 @@
+.messages {
+  overflow-y: auto;
+  flex-grow: 1;
+  margin-bottom: 16px;
+}
+
+mat-card {
+  margin-top: 8px;
+}

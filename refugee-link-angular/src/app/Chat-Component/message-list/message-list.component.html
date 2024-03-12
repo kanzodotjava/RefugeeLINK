@@ -1,0 +1,11 @@
+<div class="messages">
+  <mat-card *ngFor="let message of messages">
+    <mat-card-header>
+      <mat-card-title>{{message.senderUsername}}</mat-card-title>
+      <mat-card-subtitle>{{message.sentAt | date:'short'}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{message.content}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
