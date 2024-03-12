@@ -116,6 +116,7 @@ namespace RefugeeLink.Controllers
         {
             try
             {
+                formation.OrganizationId = orgId;
                 // Serialize the formation object to JSON
                 var formationJson = JsonSerializer.Serialize(formation);
 
@@ -133,7 +134,7 @@ namespace RefugeeLink.Controllers
 
 
                     // Assuming the formation object has an Id property that gets populated upon successful creation
-                    var updateResponse = await _httpClient.PutAsync($"localhost:8080/formation/{formationName}/organization/{orgId}", null);
+                    var updateResponse = await _httpClient.PutAsync($"http://localhost:8080/formation/{formationName}/organization/{orgId}", null);
 
                     if (updateResponse.IsSuccessStatusCode)
                     {
