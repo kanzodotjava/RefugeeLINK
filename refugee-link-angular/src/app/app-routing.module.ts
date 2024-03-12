@@ -18,6 +18,10 @@ import { ConnectedRefugeesComponent } from './components/connected-refugees/conn
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminAuthGuard } from './guards/adminAuthGuard/admin-auth.guard';
 import { ChatComponent } from './Chat-Component/chat/chat.component';
+import { MessageFormComponent } from './components/message-form/message-form.component';
+import { MessageListComponent } from './components/message-list/message-list.component';
+import { OrganizationLoginComponent } from './components/organization-login/organization-login.component';
+import { OrganizationDashboardComponent } from './components/organization-dashboard/organization-dashboard.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -35,6 +39,8 @@ const routes: Routes = [
     component: AdminDashboardComponent,
     canActivate: [AdminAuthGuard],
   },
+  { path: 'organization-login', component: OrganizationLoginComponent },
+  { path: 'organization-dashboard', component: OrganizationDashboardComponent },
 
   {
     path: 'personal-page',
@@ -44,6 +50,8 @@ const routes: Routes = [
   { path: 'connected-mentor', component: ConnectedMentorComponent },
   { path: 'chat', component: ChatComponent },
 
+  { path: 'teste', component: MessageFormComponent },
+  { path: 'teste2', component: MessageListComponent },
 ];
 
 @NgModule({

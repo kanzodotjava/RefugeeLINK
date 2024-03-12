@@ -15,6 +15,7 @@ import pt.upskill.RefugeeLINK.Repositories.RefugeeFormationRepository;
 import pt.upskill.RefugeeLINK.Repositories.RefugeeRepository;
 
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -161,22 +162,22 @@ public class FormationService {
     }
 
 
-    public Formation startFormationOnTime(Long formationId) throws FormationIdNotFound {
-        Formation formation = formationRepository.findById(formationId)
-                .orElseThrow(() -> new FormationIdNotFound("Formation not found with id: " + formationId));
-
-        // Check if the current date is after the start date
-        Date currentDate = new Date();
-        if (currentDate.after(formation.getStartDate())) {
-            // Change the status to ONGOING
-            formation.setStatus(FormationStatus.ONGOING);
-
-            // Save the updated formation
-            return formationRepository.save(formation);
-        } else {
-            // Handle the case where the current date is not after the start date
-            // You may throw an exception or return an appropriate response
-            throw new IllegalStateException("Cannot start the formation yet. Start date is in the future.");
-        }
-    }
+//    public Formation startFormationOnTime(Long formationId) throws FormationIdNotFound {
+//        Formation formation = formationRepository.findById(formationId)
+//                .orElseThrow(() -> new FormationIdNotFound("Formation not found with id: " + formationId));
+//
+//        // Check if the current date is after the start date
+//        LocalDate currentDate = new LocalDate();
+//        if (currentDate.after(formation.getStartDate())) {
+//            // Change the status to ONGOING
+//            formation.setStatus(FormationStatus.ONGOING);
+//
+//            // Save the updated formation
+//            return formationRepository.save(formation);
+//        } else {
+//            // Handle the case where the current date is not after the start date
+//            // You may throw an exception or return an appropriate response
+//            throw new IllegalStateException("Cannot start the formation yet. Start date is in the future.");
+//        }
+//    }
 }

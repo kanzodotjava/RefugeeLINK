@@ -6,10 +6,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import pt.upskill.RefugeeLINK.DTO.MentorDTO;
 import pt.upskill.RefugeeLINK.DTO.MentorLoginDTO;
+import pt.upskill.RefugeeLINK.DTO.MentorTierDTO;
 import pt.upskill.RefugeeLINK.DTO.MentorUsernameDTO;
 import pt.upskill.RefugeeLINK.Enums.Profession;
 import pt.upskill.RefugeeLINK.Enums.Status;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -23,6 +26,9 @@ public class Mentor extends Person{
 
 //    @Enumerated(EnumType.STRING)
     Status status;
+
+    LocalDate dateOfCreation;
+
 
     public Profession getProfession() {
         return profession;
@@ -40,6 +46,10 @@ public class Mentor extends Person{
         return status;
     }
 
+    public LocalDate getDateOfCreation() {
+        return dateOfCreation;
+    }
+
     public void setProfession(Profession profession) {
         this.profession = profession;
     }
@@ -54,6 +64,10 @@ public class Mentor extends Person{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setDateOfCreation(LocalDate dateOfCreation) {
+        this.dateOfCreation = dateOfCreation;
     }
 
     public MentorDTO toDTO() {
@@ -85,5 +99,12 @@ public class Mentor extends Person{
         MentorUsernameDTO mentorUsernameDto = new MentorUsernameDTO();
         mentorUsernameDto.setUsername(this.getUserName());
         return mentorUsernameDto;
+    }
+
+    public MentorTierDTO toTierDto(){
+        MentorTierDTO mentorTierDto = new MentorTierDTO();
+        mentorTierDto.setUsername(this.getUserName());
+        mentorTierDto.setDateOfCreation(this.dateOfCreation);
+        return mentorTierDto;
     }
 }

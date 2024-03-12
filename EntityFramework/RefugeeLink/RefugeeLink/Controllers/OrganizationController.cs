@@ -52,7 +52,7 @@ namespace RefugeeLink.Controllers
             return await _organizationCore.GetOrganizations();
         }
 
-        [HttpGet("/{username}")]
+        [HttpGet("/username/{username}")]
         public async Task<ActionResult<Organization>> GetOrganizationByUsername(string username)
         {
             var org = await _organizationCore.GetOrganizationByUsername(username);
@@ -116,6 +116,8 @@ namespace RefugeeLink.Controllers
         {
             try
             {
+                formation.OrganizationId = orgId;
+                formation.Status = "AWAITING_START";
                 // Serialize the formation object to JSON
                 var formationJson = JsonSerializer.Serialize(formation);
 
@@ -133,7 +135,7 @@ namespace RefugeeLink.Controllers
 
 
                     // Assuming the formation object has an Id property that gets populated upon successful creation
-                    var updateResponse = await _httpClient.PutAsync($"localhost:8080/formation/{formationName}/organization/{orgId}", null);
+                    var updateResponse = await _httpClient.PutAsync($"http://localhost:8080/formation/{formationName}/organization/{orgId}", null);
 
                     if (updateResponse.IsSuccessStatusCode)
                     {
@@ -165,7 +167,7 @@ namespace RefugeeLink.Controllers
                 Console.WriteLine($"Exception caught while creating/updating formation: {e.Message}");
             }
 
-            return false;
+            return true;
         }
 
 

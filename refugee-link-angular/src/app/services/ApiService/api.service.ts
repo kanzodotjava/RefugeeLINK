@@ -95,3 +95,23 @@
       return this.http.put(endpointUrl, organizationData);
     }
   }
+
+  organizationLogin(credentials: {
+    username: string;
+    password: string;
+  }): Observable<any> {
+    const endpointUrl = `${this.baseUrlEntity}/organization/login`;
+    return this.http.post(endpointUrl, credentials);
+  }
+
+  getOrganizationIdByUsername(username: string): Observable<any> {
+    return this.http.get<any>(`${this.baseUrlEntity}/username/${username}`);
+  }
+
+  createFormation(orgId: number, formationData: any): Observable<any> {
+    return this.http.post(
+      `${this.baseUrlEntity}/organization/createFormation/${orgId}`,
+      formationData
+    );
+  }
+}
