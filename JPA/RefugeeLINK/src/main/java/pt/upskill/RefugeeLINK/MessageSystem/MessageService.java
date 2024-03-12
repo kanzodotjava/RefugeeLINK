@@ -49,4 +49,7 @@ public class MessageService {
         return conversation;
     }
 
+    public List<Message> getConversationBetweenUsers(String user1, String user2) {
+        return messageRepository.findBySenderUsernameAndReceiverUsernameOrReceiverUsernameAndSenderUsername(user1, user2, user1, user2);
+    }
 }
