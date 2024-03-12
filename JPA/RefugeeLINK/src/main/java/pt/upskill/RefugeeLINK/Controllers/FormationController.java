@@ -86,7 +86,7 @@ public class FormationController {
             return ResponseEntity.notFound().build();
         }
     }
-    
+
 
 
 

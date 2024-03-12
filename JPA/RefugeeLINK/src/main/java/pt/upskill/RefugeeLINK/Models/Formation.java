@@ -1,5 +1,7 @@
 package pt.upskill.RefugeeLINK.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import pt.upskill.RefugeeLINK.DTO.FormationDTO;
 import pt.upskill.RefugeeLINK.Enums.FormationStatus;
@@ -18,9 +20,6 @@ public class Formation {
     private Date startDate;
     private int duration;
     private FormationStatus status;
-    @OneToMany(mappedBy = "formation")
-    private List<RefugeeFormation> refugees;
-
     private Long organizationId;
 
 //    @ManyToOne
@@ -55,9 +54,6 @@ public class Formation {
     }
 
 
-    public List<RefugeeFormation> getRefugees() {
-        return refugees;
-    }
 
     public Long getOrganizationId() {
         return organizationId;
@@ -91,9 +87,6 @@ public class Formation {
         this.duration = duration;
     }
 
-    public void setRefugees(List<RefugeeFormation> refugees) {
-        this.refugees = refugees;
-    }
 
     public void setOrganizationId(Long organizationId) {
         this.organizationId = organizationId;

@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pt.upskill.RefugeeLINK.DTO.MentorDTO;
-import pt.upskill.RefugeeLINK.DTO.MentorLoginDTO;
-import pt.upskill.RefugeeLINK.DTO.RefugeeDTO;
-import pt.upskill.RefugeeLINK.DTO.RefugeeLoginDto;
+import pt.upskill.RefugeeLINK.DTO.*;
 import pt.upskill.RefugeeLINK.Exceptions.MentorIdNotFound;
 import pt.upskill.RefugeeLINK.Models.Mentor;
 import pt.upskill.RefugeeLINK.Models.Refugee;
@@ -144,6 +141,17 @@ public class RefugeeController {
             Mentor mentor = refugeeService.getMentorOfRefugee(username);
             MentorDTO mentorDTO = mentor.toDTO();
             return new ResponseEntity<>(mentorDTO, HttpStatus.OK);
+        } catch (RuntimeException ex) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/by-username/{username}/mentor/username")
+    public ResponseEntity<MentorUsernameDTO> getMentorUsernameOfRefugee(@PathVariable String username) {
+        try {
+            Mentor mentor = refugeeService.getMentorOfRefugee(username);
+            MentorUsernameDTO mentorUsernameDTO = mentor.toUsernameDto();
+            return new ResponseEntity<>(mentorUsernameDTO, HttpStatus.OK);
         } catch (RuntimeException ex) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

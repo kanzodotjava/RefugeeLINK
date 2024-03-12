@@ -9,10 +9,14 @@ import pt.upskill.mschatsocket.DTO.ChatMessage;
 @Controller
 public class WebSocketController {
 
-    @MessageMapping("/chat/{roomId}")
-    @SendTo("/topic/{roomId}")
-    public ChatMessage chat(@DestinationVariable String roomId, ChatMessage message) {
-        return new ChatMessage(message.getMessage(), message.getUser());
-        }
+    @MessageMapping("/chat/{mentorUsername}/{refugeeUsername}")
+    @SendTo("/topic/chat/{mentorUsername}/{refugeeUsername}")
+    public ChatMessage chat(
+            @DestinationVariable String mentorUsername,
+            @DestinationVariable String refugeeUsername,
+            ChatMessage message) {
+
+        return message;
+    }
 
 }

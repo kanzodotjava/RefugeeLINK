@@ -1,14 +1,12 @@
 package pt.upskill.RefugeeLINK.Models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.OneToMany;
 import pt.upskill.RefugeeLINK.DTO.MentorDTO;
 import pt.upskill.RefugeeLINK.DTO.MentorLoginDTO;
+import pt.upskill.RefugeeLINK.DTO.MentorUsernameDTO;
 import pt.upskill.RefugeeLINK.Enums.Profession;
 import pt.upskill.RefugeeLINK.Enums.Status;
 
@@ -81,5 +79,11 @@ public class Mentor extends Person{
         mentorLoginDTO.setUserName(this.getUserName());
         mentorLoginDTO.setPassword(this.getPassword());
         return mentorLoginDTO;
+    }
+
+    public MentorUsernameDTO toUsernameDto() {
+        MentorUsernameDTO mentorUsernameDto = new MentorUsernameDTO();
+        mentorUsernameDto.setUsername(this.getUserName());
+        return mentorUsernameDto;
     }
 }

@@ -25,6 +25,9 @@ import { ConnectedMentorComponent } from './components/connected-mentor/connecte
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { ConnectedRefugeesComponent } from './components/connected-refugees/connected-refugees.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { MessageFormComponent } from './components/message-form/message-form.component';
+import { MessageListComponent } from './components/message-list/message-list.component';
+import { MessageService } from './services/message.service';
 
 
 @NgModule({
@@ -46,7 +49,8 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
     AdminLoginComponent,
     ConnectedRefugeesComponent,
     AdminDashboardComponent,
-
+    MessageFormComponent,
+    MessageListComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,7 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
     HttpClientModule,
     FormsModule,
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard,MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

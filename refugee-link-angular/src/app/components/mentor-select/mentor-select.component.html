@@ -1,22 +1,14 @@
 <div class="mentors-container">
   <h2 class="text-2xl font-bold mb-4">Mentors List</h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <div
-      *ngFor="let mentor of mentors"
-      class="bg-white shadow-md rounded-lg overflow-hidden"
-    >
+    <div *ngFor="let mentor of mentors" class="bg-white shadow-md rounded-lg overflow-hidden">
       <img src="https://api.dicebear.com/7.x/adventurer/svg" alt="avatar" />
 
       <div class="p-4">
         <h3 class="text-xl font-semibold mb-2">{{ mentor.name }}</h3>
         <ul class="mb-4">
-          <li>
-            <span class="font-semibold">Email:</span> {{ mentor.emailAddress }}
-          </li>
-          <li>
-            <span class="font-semibold">Profession:</span>
-            {{ mentor.profession }}
-          </li>
+          <li><span class="font-semibold">Email:</span> {{ mentor.emailAddress }}</li>
+          <li><span class="font-semibold">Profession:</span> {{ mentor.profession }}</li>
           <li>
             <span class="font-semibold">Country:</span> {{ mentor.country }}
           </li>
@@ -38,16 +30,12 @@
           </li>
         </ul>
         <div class="text-right">
-          <p
-            *ngIf="mentor.applicationResponse"
-            class="text-sm text-gray-600 mb-2"
-          >
+          <p *ngIf="mentor.applicationResponse"
+             class="text-sm text-gray-600 mb-2">
             {{ mentor.applicationResponse }}
           </p>
-          <button
-            class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
-            (click)="applyToMentorship(mentor.id, mentor)"
-          >
+          <button class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+                  (click)="applyToMentorship(mentor.id, mentor)">
             Apply to mentorship
           </button>
         </div>

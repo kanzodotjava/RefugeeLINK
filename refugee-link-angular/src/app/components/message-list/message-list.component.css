@@ -1,0 +1,33 @@
+.sender {
+    text-align: right;
+    background-color: #dcf8c6;
+  }
+  
+  .receiver {
+    text-align: left;
+    background-color: #fff;
+  }
+  
+  .message-list-container {
+    margin-top: 20px;
+  }
+  
+  .message {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: none;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+  

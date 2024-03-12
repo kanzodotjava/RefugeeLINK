@@ -1,6 +1,9 @@
+// mentor-select.component.ts
+
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/ApiService/api.service';
-import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'mentor-select',
@@ -11,19 +14,20 @@ export class MentorSelectComponent implements OnInit {
   mentors: any[] = [];
   errorMessage: string = '';
 
-  constructor(private mentorsService: ApiService) {}
+  constructor(
+    private mentorsService: ApiService,
+    private router: Router,
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
-    // Fetch mentors data
     this.mentorsService.getMentors().subscribe(
       (data) => {
-        this.mentors = data.map((mentor: any) => ({
-          ...mentor,
-          applicationResponse: null, // Add a property to store the application response
-        }));
+        this.mentors = data;
       },
       (error) => {
         console.error('Error fetching mentors:', error);
+        this.errorMessage = 'Failed to load mentors.';
       }
     );
   }
@@ -33,16 +37,17 @@ export class MentorSelectComponent implements OnInit {
     if (username) {
       this.mentorsService.applyToMentorship(username, mentorId).subscribe(
         (response) => {
-          console.log(response); // Handle success response
-          mentor.applicationResponse = response; // Update application response
+          console.log('Mentorship application successful:', response);
+          mentor.applicationResponse = 'Application successful';
         },
         (error) => {
           console.error('Error applying to mentorship:', error);
-          this.errorMessage = error.error; // Extract error message
+          this.errorMessage = 'Application failed. Please try again.';
         }
       );
     } else {
       console.error('Username not found in local storage');
+      this.errorMessage = 'You must be logged in to apply for mentorship.';
     }
   }
 }
