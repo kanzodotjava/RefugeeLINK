@@ -44,8 +44,10 @@ public class FormationService {
         return formationRepository.findAll();
     }
 
-    public Formation registerFormation(Formation formation) {
-        return this.formationRepository.save(formation);
+    public String registerFormation(Formation formation) {
+        formationRepository.save(formation);
+
+        return formation.getName();
     }
 
     public Formation updateFormation(Formation formation) throws FormationIdNotFound {
@@ -77,15 +79,15 @@ public class FormationService {
     }
 
 
-    public Formation updateOrganizationId(Long id, Long newOrganizationId) throws FormationIdNotFound {
-        Optional<Formation> existingFormation = formationRepository.findById(id);
+    public Formation updateOrganization(String name, Long newOrganizationId) throws FormationIdNotFound {
+        Optional<Formation> existingFormation = formationRepository.findByName(name);
 
         if (existingFormation.isPresent()) {
             Formation updatedFormation = existingFormation.get();
             updatedFormation.setOrganizationId(newOrganizationId);
             return formationRepository.save(updatedFormation);
         } else {
-            throw new FormationIdNotFound("Formation with ID " + id + " not found.");
+            throw new FormationIdNotFound("Formation " + name + " not found.");
         }
     }
 

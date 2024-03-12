@@ -1,6 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic;
 using RefugeeLink.Data;
 using RefugeeLink.Models;
+using System.Net.Http;
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.Json;
+
+
 
 namespace RefugeeLink.Core
 {
@@ -8,9 +16,12 @@ namespace RefugeeLink.Core
     {
         private readonly MainContext _context;
 
+        
+
         public OrganizationCore(MainContext context)
         {
             _context = context;
+         
         }
 
         public async Task<Organization> GetOrganizationById(long id)
@@ -73,5 +84,10 @@ namespace RefugeeLink.Core
             return false;
         }
 
+        
     }
+
+
+
+
 }

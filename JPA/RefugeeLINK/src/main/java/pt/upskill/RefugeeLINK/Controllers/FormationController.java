@@ -31,14 +31,19 @@ public class FormationController {
         return new ResponseEntity<>(formation, HttpStatus.OK);
     }
 
+//    @PostMapping("/register")
+//    public ResponseEntity<FormationDTO> registerFormation(@RequestBody Formation formation) {
+//        Formation createdFormation = formationService.registerFormation(formation);
+//        FormationDTO formationDto = createdFormation.toDto();
+//        return new ResponseEntity<>(formationDto, HttpStatus.CREATED);
+//    }
+
+
     @PostMapping("/register")
-    public ResponseEntity<FormationDTO> registerFormation(@RequestBody Formation formation) {
-        Formation createdFormation = formationService.registerFormation(formation);
-        FormationDTO formationDto = createdFormation.toDto();
-        return new ResponseEntity<>(formationDto, HttpStatus.CREATED);
+    public String  registerFormation(@RequestBody Formation formation) {
+        formationService.registerFormation(formation);
+        return formation.getName();
     }
-
-
     @PutMapping("/update")
     public ResponseEntity<Formation> updateFormation(@RequestBody Formation formation) throws FormationIdNotFound {
         Formation updatedFormation = formationService.updateFormation(formation);
@@ -51,10 +56,10 @@ public class FormationController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PutMapping("/{id}/organization/{orgId}")
-    public ResponseEntity<Formation> updateOrganizationId(@PathVariable Long id, @PathVariable Long orgId) {
+    @PutMapping("/{name}/organization/{orgId}")
+    public ResponseEntity<Formation> updateOrganizationId(@PathVariable String name, @PathVariable Long orgId) {
         try {
-            Formation updatedFormation = formationService.updateOrganizationId(id, orgId);
+            Formation updatedFormation = formationService.updateOrganization(name, orgId);
             return new ResponseEntity<>(updatedFormation, HttpStatus.OK);
         } catch (FormationIdNotFound e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
