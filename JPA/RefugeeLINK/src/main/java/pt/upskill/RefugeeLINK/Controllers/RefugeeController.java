@@ -157,9 +157,12 @@ public class RefugeeController {
         }
     }
 
-    @GetMapping("/refugees/mentor/{username}")
-    public ResponseEntity<List<Refugee>> getRefugeesByMentorUsername(@PathVariable String username) {
+    @GetMapping("/with-mentor/{username}")
+    public ResponseEntity<List<RefugeeMsgDTO>> getRefugeesByMentorUsername(@PathVariable String username) {
         List<Refugee> refugees = refugeeService.getRefugeesByMentorUsername(username);
-        return ResponseEntity.ok(refugees);
+        List<RefugeeMsgDTO> refugeeMsgDTOs = refugees.stream()
+                .map(Refugee::toMsgDTO)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(refugeeMsgDTOs);
     }
 }
