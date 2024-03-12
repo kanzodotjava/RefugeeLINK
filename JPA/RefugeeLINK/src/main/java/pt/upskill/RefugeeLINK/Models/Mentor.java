@@ -27,7 +27,6 @@ public class Mentor extends Person{
 //    @Enumerated(EnumType.STRING)
     Status status;
 
-    LocalDate dateOfCreation;
 
 
     public Profession getProfession() {
@@ -46,9 +45,6 @@ public class Mentor extends Person{
         return status;
     }
 
-    public LocalDate getDateOfCreation() {
-        return dateOfCreation;
-    }
 
     public void setProfession(Profession profession) {
         this.profession = profession;
@@ -66,9 +62,6 @@ public class Mentor extends Person{
         this.description = description;
     }
 
-    public void setDateOfCreation(LocalDate dateOfCreation) {
-        this.dateOfCreation = dateOfCreation;
-    }
 
     public MentorDTO toDTO() {
         MentorDTO mentorDTO = new MentorDTO();
@@ -104,7 +97,7 @@ public class Mentor extends Person{
     public MentorTierDTO toTierDto(){
         MentorTierDTO mentorTierDto = new MentorTierDTO();
         mentorTierDto.setUsername(this.getUserName());
-        mentorTierDto.setDateOfCreation(this.dateOfCreation);
+
         return mentorTierDto;
     }
 }
