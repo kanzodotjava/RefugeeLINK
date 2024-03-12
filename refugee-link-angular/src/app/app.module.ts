@@ -28,6 +28,8 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import { MessageFormComponent } from './components/message-form/message-form.component';
 import { MessageListComponent } from './components/message-list/message-list.component';
 import { MessageService } from './services/message.service';
+import { OrganizationLoginComponent } from './components/organization-login/organization-login.component';
+import { OrganizationDashboardComponent } from './components/organization-dashboard/organization-dashboard.component';
 
 
 @NgModule({
@@ -50,7 +52,9 @@ import { MessageService } from './services/message.service';
     ConnectedRefugeesComponent,
     AdminDashboardComponent,
     MessageFormComponent,
-    MessageListComponent
+    MessageListComponent,
+    OrganizationLoginComponent,
+    OrganizationDashboardComponent
   ],
   imports: [
     BrowserModule,
