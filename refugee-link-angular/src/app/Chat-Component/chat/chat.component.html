@@ -1,5 +1,4 @@
 <div class="chat-container">
   <h2>Chat with {{receiver}}</h2>
-  <app-message-list [messages]="messages"></app-message-list>
-  <app-message-form (messageSent)="sendMessage($event)"></app-message-form>
+    <app-message-form (messageSent)="sendMessage($event)"></app-message-form>
 </div>

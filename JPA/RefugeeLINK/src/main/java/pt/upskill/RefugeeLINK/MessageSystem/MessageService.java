@@ -50,6 +50,6 @@ public class MessageService {
     }
 
     public List<Message> getConversationBetweenUsers(String user1, String user2) {
-        return messageRepository.findBySenderUsernameAndReceiverUsernameOrReceiverUsernameAndSenderUsername(user1, user2, user1, user2);
+        return messageRepository.findBySenderUsernameAndReceiverUsernameOrReceiverUsernameAndSenderUsernameOrderBySentAtAsc(user1, user2, user1, user2);
     }
 }

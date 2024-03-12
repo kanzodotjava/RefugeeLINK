@@ -94,7 +94,6 @@
       const endpointUrl = `${this.baseUrlEntity}/organization/${organizationData.id}`;
       return this.http.put(endpointUrl, organizationData);
     }
-  }
 
   organizationLogin(credentials: {
     username: string;

@@ -21,4 +21,15 @@ export class MessageService {
   getMentorForRefugee(refugeeUsername: string): Observable<any> {
     return this.http.get(`http://localhost:8080/refugee/by-username/${refugeeUsername}/mentor/username`, { params: { refugeeUsername } });
   }
+
+  getRefugeesForMentor(mentorUsername: string): Observable<any> {
+    return this.http.get(`http://localhost:8080/refugee/with-mentor/${mentorUsername}`);
+  }
+
+  getMessagesBetweenMentorAndRefugee(mentorUsername: string, refugeeUsername: string): Observable<any> {
+    return this.http.get(`http://localhost:8080/api/messages/conversation-between-users/${mentorUsername}/${refugeeUsername}`);
+  }
 }
+
+
+

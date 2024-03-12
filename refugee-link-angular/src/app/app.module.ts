@@ -33,11 +33,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MessageFormComponent } from './components/message-form/message-form.component';
-import { MessageListComponent } from './components/message-list/message-list.component';
 import { MessageService } from './services/message.service';
 import { OrganizationLoginComponent } from './components/organization-login/organization-login.component';
 import { OrganizationDashboardComponent } from './components/organization-dashboard/organization-dashboard.component';
+import { MentorPageComponent } from './Chat-Component/mentor-page/mentor-page.component';
 
 
 @NgModule({
@@ -64,7 +63,8 @@ import { OrganizationDashboardComponent } from './components/organization-dashbo
     MessageFormComponent,
     MessageListComponent,
     OrganizationLoginComponent,
-    OrganizationDashboardComponent
+    OrganizationDashboardComponent,
+    MentorPageComponent,
   ],
   imports: [
     BrowserModule,

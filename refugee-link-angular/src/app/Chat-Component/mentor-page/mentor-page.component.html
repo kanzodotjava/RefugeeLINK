@@ -1,0 +1,31 @@
+
+<div class="flex-container">
+    <div class="refugees-list">
+        <h2>My Refugees</h2>
+        <ul>
+            <li *ngFor="let refugee of refugees" (click)="onSelectRefugee(refugee.username)">
+                {{ refugee.username }}
+            </li>
+        </ul>
+    </div>
+<div class="mentor-page">
+
+    <br/>
+    <br/>
+    <div class="conversation">
+        <h3>Conversation with {{ selectedRefugeeUsername }}</h3>
+        <div class="messages" #scrollMe>
+            <div *ngFor="let message of messages" class="message" [ngClass]="{'mentor-message': message.senderUsername === selectedRefugeeUsername, 'refugee-message': message.senderUsername !== selectedRefugeeUsername}">
+                <p><strong>{{ message.senderUsername }}:</strong> {{ message.content }}</p>
+            </div>
+        </div>
+        <div class="message-form-container" *ngIf="selectedRefugeeUsername">
+            <app-message-form (messageSent)="sendMessage($event)"></app-message-form>
+        </div>
+    </div>
+    <div class="refresh-container">
+        <button (click)="refreshMessages()">Refresh Messages</button>
+     </div>
+</div>
+
+</div>

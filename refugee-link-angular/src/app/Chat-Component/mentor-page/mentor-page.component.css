@@ -1,0 +1,97 @@
+.flex-container {
+    display: flex;
+    flex-direction: row; /* Arrange items in a row */
+    justify-content: space-between; /* Optional: Adjust this based on your layout needs */
+    align-items: start; /* Align items at the start of the flex container */
+    max-width: 1200px; /* Adjust based on your layout needs */
+    margin: auto; /* Center the entire container */
+    gap: 20px; /* Optional: Adds some space between the profile and chat */
+  }
+  
+
+.mentor-page {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 768px; /* or your preferred max width */
+    margin: auto;
+}
+
+.refugees-list {
+    flex-basis: 30%;
+}
+
+.conversation {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.refugees-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.refugees-list li {
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.refugees-list li:hover {
+    background-color: #f0f0f0;
+}
+
+.messages {
+    height: 400px; /* Adjust height as necessary */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 20px;
+    display: inline-block;
+    max-width: 80%;
+}
+
+.message p {
+    margin: 0;
+}
+
+.message-form-container {
+    margin-top: 20px;
+}
+
+.refresh-container {
+    text-align: center; /* Center the refresh button container */
+    margin-bottom: 10px; /* Add some space below the button */
+}
+
+.refresh-container button {
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.refresh-container button:hover {
+    background-color: #0056b3;
+}
+
+.mentor-message {
+    background-color: #d8eafd;
+    align-self: flex-start;
+}
+
+.refugee-message {
+    background-color: #f1f0f0;
+    align-self: flex-end;
+}
