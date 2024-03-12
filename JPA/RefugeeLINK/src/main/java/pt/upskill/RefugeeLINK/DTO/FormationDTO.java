@@ -1,7 +1,9 @@
 package pt.upskill.RefugeeLINK.DTO;
 
+import org.springframework.cglib.core.Local;
 import pt.upskill.RefugeeLINK.Enums.FormationStatus;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class FormationDTO {
@@ -10,7 +12,7 @@ public class FormationDTO {
     String name;
     String description;
     int numberOfLessons;
-    Date startDate;
+    LocalDate startDate;
     int duration;
     FormationStatus status;
     private Long organizationId;
@@ -47,11 +49,11 @@ public class FormationDTO {
         this.numberOfLessons = numberOfLessons;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 

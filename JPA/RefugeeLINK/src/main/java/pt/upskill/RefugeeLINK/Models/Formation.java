@@ -3,9 +3,11 @@ package pt.upskill.RefugeeLINK.Models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import org.springframework.cglib.core.Local;
 import pt.upskill.RefugeeLINK.DTO.FormationDTO;
 import pt.upskill.RefugeeLINK.Enums.FormationStatus;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -17,7 +19,7 @@ public class Formation {
     private String name;
     private String description;
     private int numberOfLessons;
-    private Date startDate;
+    private LocalDate startDate;
     private int duration;
     private FormationStatus status;
     private Long organizationId;
@@ -41,7 +43,7 @@ public class Formation {
         return numberOfLessons;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
@@ -75,7 +77,7 @@ public class Formation {
         this.numberOfLessons = numberOfLessons;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
