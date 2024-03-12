@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pt.upskill.RefugeeLINK.DTO.MentorDTO;
 import pt.upskill.RefugeeLINK.DTO.MentorLoginDTO;
+import pt.upskill.RefugeeLINK.DTO.MentorTierDTO;
 import pt.upskill.RefugeeLINK.Enums.Status;
 import pt.upskill.RefugeeLINK.Models.Mentor;
 import pt.upskill.RefugeeLINK.Models.Person;
@@ -157,4 +158,12 @@ public class MentorController {
 //        }
 //        return ResponseEntity.ok(false);
 //    }
+
+    //gets MenTor and returns MentoTierDto
+    @GetMapping("/tier/{username}")
+    public ResponseEntity<MentorTierDTO> getMentorTier(@PathVariable String username){
+        Mentor mentor = mentorService.getMentorByUsername(username);
+        MentorTierDTO mentorTierDTO = mentor.toTierDto();
+        return new ResponseEntity<>(mentorTierDTO,HttpStatus.OK);
+    }
 }
