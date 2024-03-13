@@ -32,6 +32,7 @@ import { MessageService } from './services/message.service';
 import { OrganizationLoginComponent } from './components/organization-login/organization-login.component';
 import { OrganizationDashboardComponent } from './components/organization-dashboard/organization-dashboard.component';
 import { MentorPageComponent } from './Chat-Component/mentor-page/mentor-page.component';
+import { RefugeeFormationsComponent } from './components/refugee-formations/refugee-formations.component';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { MentorPageComponent } from './Chat-Component/mentor-page/mentor-page.co
     OrganizationLoginComponent,
     OrganizationDashboardComponent,
     MentorPageComponent,
+    RefugeeFormationsComponent,
   ],
   imports: [
     BrowserModule,

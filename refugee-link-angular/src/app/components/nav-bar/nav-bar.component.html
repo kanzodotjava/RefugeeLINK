@@ -26,6 +26,8 @@
         <!-- Conditional links for logged in users who are not admin -->
         <ng-container *ngIf="getUserType() === 'Refugee'">
           <a routerLink="/mentor-select">Mentor Select</a>
+          <a routerLink="/refugee-formations">Formations</a>
+          <!-- Add this line -->
         </ng-container>
         <ng-container *ngIf="getUserType() === 'Mentor'">
           <a routerLink="/connected-refugees">Connected Refugees</a>
