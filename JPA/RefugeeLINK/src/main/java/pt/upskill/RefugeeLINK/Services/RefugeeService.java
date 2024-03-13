@@ -44,6 +44,10 @@ public class RefugeeService {
             throw new DataIntegrityViolationException("Email address " + email + " is already registered.");
         }
 
+        if (refugeeRepository.existsByUserName(username)) {
+            throw new DataIntegrityViolationException("Username " + username + " is already registered as a refugee.");
+        }
+
         String password = refugee.getPassword();
         if (password.length() < 8 || password.length() > 50 || !password.matches(".*[A-Z].*")) {
             throw new IllegalArgumentException("Password must be between 8 and 50 characters long and contain at least one uppercase character.");
