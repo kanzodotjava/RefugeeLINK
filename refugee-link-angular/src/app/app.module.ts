@@ -34,6 +34,7 @@ import { OrganizationDashboardComponent } from './components/organization-dashbo
 import { MentorPageComponent } from './Chat-Component/mentor-page/mentor-page.component';
 import { RefugeeFormationsComponent } from './components/refugee-formations/refugee-formations.component';
 import { FormationDetailsComponent } from './components/formation-details/formation-details.component';
+import { RatingComponent } from './components/rating/rating.component';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { FormationDetailsComponent } from './components/formation-details/format
     MentorPageComponent,
     RefugeeFormationsComponent,
     FormationDetailsComponent,
+    RatingComponent,
   ],
   imports: [
     BrowserModule,

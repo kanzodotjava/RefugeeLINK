@@ -1,0 +1,17 @@
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl; /* Reverse the order of stars */
+  font-size: 30px;
+  cursor: pointer;
+}
+
+  .rating span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+  }
+
+    .rating span:hover,
+    .rating span:hover ~ span {
+      color: orange; /* Color of stars on hover/select */
+    }
