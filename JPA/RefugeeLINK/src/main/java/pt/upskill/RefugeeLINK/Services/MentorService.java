@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
+import pt.upskill.RefugeeLINK.DTO.MentorRatingDTO;
 import pt.upskill.RefugeeLINK.Enums.Status;
 import pt.upskill.RefugeeLINK.Models.Mentor;
 import pt.upskill.RefugeeLINK.Models.Refugee;
@@ -148,6 +149,21 @@ public class MentorService {
         return mentorRepository.findByUserName(userName).orElseThrow(() -> new RuntimeException("Mentor not found with username: " + userName));
     }
 
+    public MentorRatingDTO getMentorRatingByUsername(String username) {
+        Mentor mentor = mentorRepository.findByUserName(username)
+                .orElseThrow(() -> new RuntimeException("Mentor not found with username: " + username));
+        MentorRatingDTO mentorRatingDTO = new MentorRatingDTO();
+        mentorRatingDTO.setRating(mentor.getRating());
+        return mentorRatingDTO;
+    }
+
+    @Transactional
+    public Mentor updateMentorRatingByUsername(String username, double newRating) {
+        Mentor mentor = mentorRepository.findByUserName(username)
+                .orElseThrow(() -> new RuntimeException("Mentor not found with username: " + username));
+        mentor.setRating(newRating);
+        return mentorRepository.save(mentor);
+    }
 
 
 }

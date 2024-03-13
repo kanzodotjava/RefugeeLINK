@@ -12,7 +12,8 @@ namespace RefugeeLink.Data
 
         public DbSet<RefugeeLink.Models.Admin> Admin { get; set; }
         public DbSet<Organization> Organization { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<MentorRating> MentorRatings { get; set; }
+        public DbSet<RatingDetail> RatingDetails { get; set; }
 
 
 
