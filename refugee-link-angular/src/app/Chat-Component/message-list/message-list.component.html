@@ -1,16 +1,22 @@
-<div *ngIf="selectedMentorUsername; else selectMentorPrompt">
-  <div class="flex-container">
+<div class="main-container" *ngIf="selectedMentorUsername; else selectMentorPrompt">
+  <div class="content-container">
 
-    <!-- Mentor's Profile on the left -->
-    <div class="mentor-profile">
-      <app-connected-mentor></app-connected-mentor>
-      <app-rating></app-rating>
+    <!-- Mentor's Profile and Rating on the left -->
+    <div class="left-container">
+
+      <div class="mentor-profile">
+        <app-connected-mentor></app-connected-mentor>
+      </div>
+
+      <div class="rating-container">
+        <app-rating></app-rating>
+      </div>
     </div>
 
     <!-- Chat Container on the right -->
     <div class="chat-container">
+      <h2>Conversation with {{ selectedMentorUsername }}</h2>
       <div class="conversation-container">
-        <h2>Conversation with {{ selectedMentorUsername }}</h2>
         <div class="messages" #scrollMe>
           <div *ngFor="let message of messages" class="message" [ngClass]="{'mentor-message': message.senderUsername === selectedMentorUsername, 'refugee-message': message.senderUsername !== selectedMentorUsername}">
             <p><strong>{{ message.senderUsername }}:</strong> {{ message.content }}</p>

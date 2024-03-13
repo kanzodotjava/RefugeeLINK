@@ -1,106 +1,75 @@
-.flex-container {
-  display: flex;
-  flex-direction: row; /* Arrange items in a row */
-  justify-content: space-between; /* Optional: Adjust this based on your layout needs */
-  align-items: flex-start; /* Align items at the start of the flex container */
-  max-width: 1200px; /* Adjust based on your layout needs */
-  margin: auto; /* Center the entire container */
-  gap: 20px; /* Optional: Adds some space between the profile and chat */
-  margin-top: -125px;
+/* General Styles */
+body, html {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.mentor-profile {
-  flex: 1; /* Allows the mentor profile to grow as needed, adjust as necessary */
-  /* Add more styling here as needed */
+.main-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 1200px; /* Adjust based on your preference */
+}
+
+.left-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%; /* Adjust the width ratio between profile/rating and chat */
+}
+
+.rating-container, .mentor-profile {
+  margin-bottom: 20px;
 }
 
 .chat-container {
-  flex: 3;
+  width: 68%; /* Adjust the width ratio between profile/rating and chat */
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  max-width: 768px; /* or your preferred max width */
-  margin: auto;
 }
 
-.conversation-container {
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 8px;
+.conversation-container, .message-form-container, .refresh-container {
   margin-bottom: 20px;
 }
 
 .messages {
-  height: 400px; /* Adjust height as necessary */
   overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  height: 400px; /* Adjust based on your preference */
+  border: 1px solid #ccc;
+  padding: 10px;
 }
 
 .message {
-  padding: 10px;
-  border-radius: 20px;
-  display: inline-block;
-  max-width: 80%;
+  margin-bottom: 10px;
 }
 
-.mentor-message {
-  background-color: #d8eafd; /* Light blue to distinguish mentor's messages */
-  align-self: flex-start; /* Align mentor's messages to the left */
-}
-
-.refugee-message {
-  background-color: #f1f0f0; /* Light grey for refugee's messages */
-  align-self: flex-end; /* Align refugee's messages to the right */
-}
-
-.message p {
-  margin: 0;
-}
-
-.message-form-container {
-  margin-top: 20px;
-}
-
-.refresh-container {
-  text-align: center; /* Center the refresh button container */
-  margin-bottom: 10px; /* Add some space below the button */
-}
-
-  .refresh-container button {
-    padding: 5px 10px;
-    cursor: pointer;
-    background-color: #007bff; /* A nice blue background */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-  }
-
-    .refresh-container button:hover {
-      background-color: #0056b3; /* A slightly darker blue on hover */
-    }
+/* Add any specific styles for .mentor-message and .refugee-message */
 
 .select-mentor-prompt {
   text-align: center;
-  /* Add any additional styling you like here */
+  margin-top: 50px;
 }
 
-  .select-mentor-prompt p {
-    margin-bottom: 1em;
-    text-align: center;
-  }
+/* Buttons and Inputs */
+button, input[type="text"] {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
-  .select-mentor-prompt button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+button:hover {
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
 
-    .select-mentor-prompt button:hover {
-      background-color: #0056b3;
-    }
+

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../services/auth/auth.service';
 import { ApiService } from '../../services/ApiService/api.service';
@@ -8,9 +8,11 @@ import { ApiService } from '../../services/ApiService/api.service';
   templateUrl: './rating.component.html',
   styleUrls: ['./rating.component.css'],
 })
-export class RatingComponent {
+export class RatingComponent{
   mentorUsername: any;
   refugeeUsername = this.authService.getUsername();
+  canRate: boolean = true;
+  currentRating: number = 0;
   
 
   constructor(
@@ -22,7 +24,36 @@ export class RatingComponent {
       .getMentorUsernameByUsername(this.refugeeUsername!)
       .subscribe((data) => {
         this.mentorUsername = data.username;
+        this.checkIfUserHasRated();
+        this.getRating();
       });
+  }
+
+
+  checkIfUserHasRated() {
+    const url = `https://localhost:7165/has-rated`;
+    const body = {
+      mentorUsername: this.mentorUsername,
+      userUsername: this.refugeeUsername,
+    };
+
+    this.http.post(url, body).subscribe({
+      next: (response: any) => {
+        // Assuming the response contains a boolean indicating if the user has rated
+        this.canRate = !response.hasRated;
+      },
+      error: (error) => {
+        console.error('Error checking if user has rated', error);
+        // Handle error, possibly by disabling rating or showing an error message
+      },
+    });
+  }
+
+  updateRating(rating: number) {
+    this.currentRating = rating; // Update visual rating
+    if (this.canRate) {
+      this.rate(rating); // Proceed to submit the rating only if the user can rate
+    }// Proceed to submit the rating
   }
 
   rate(rating: number) {
@@ -31,8 +62,8 @@ export class RatingComponent {
 
     const url = 'https://localhost:7165/rate-mentor';
     const body = {
-      mentorUsername: 'mentor123',
-      userUsername: 'Refugee1',
+      mentorUsername: this.mentorUsername,
+      userUsername: this.refugeeUsername,
       rating: doubleRating,
     };
 
@@ -42,10 +73,31 @@ export class RatingComponent {
     this.http.post(url, body).subscribe({
       next: (response) => {
         console.log('Rating submitted successfully', response);
+        this.checkIfUserHasRated();
       },
       error: (error) => {
         console.error('Failed to submit rating', error);
       },
     });
   }
+
+  getRating() {
+    const url = `https://localhost:7165/get-rating`;
+    const body = {
+      mentorUsername: this.mentorUsername,
+      userUsername: this.refugeeUsername,
+    };
+
+    this.http.post(url, body).subscribe({
+      next: (response: any) => {
+        this.currentRating = response.rating;
+      },
+      error: (error) => {
+        console.error('Error retrieving rating', error);
+      },
+    });
+  }
 }
+
+
+

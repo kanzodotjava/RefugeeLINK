@@ -35,6 +35,7 @@ import { MentorPageComponent } from './Chat-Component/mentor-page/mentor-page.co
 import { RefugeeFormationsComponent } from './components/refugee-formations/refugee-formations.component';
 import { FormationDetailsComponent } from './components/formation-details/formation-details.component';
 import { RatingComponent } from './components/rating/rating.component';
+import { ArrayFromNumberPipe } from './pipes/array-from-number.pipe';
 
 
 @NgModule({
@@ -66,6 +67,7 @@ import { RatingComponent } from './components/rating/rating.component';
     RefugeeFormationsComponent,
     FormationDetailsComponent,
     RatingComponent,
+    ArrayFromNumberPipe,
   ],
   imports: [
     BrowserModule,

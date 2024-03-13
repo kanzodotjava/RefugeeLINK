@@ -2,9 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using RefugeeLink.Data;
 using RefugeeLink.Models;
-using System;
 using System.Globalization;
-using System.Text.Json;
 
 namespace RefugeeLink.Controllers
 {
@@ -21,10 +19,12 @@ namespace RefugeeLink.Controllers
             _clientFactory = clientFactory;
         }
 
-     
+
         [HttpPost("/rate-mentor")]
         public async Task<IActionResult> RateMentor([FromBody] RatingDetail ratingDetail)
         {
+          
+
             // Assuming the external API is the source of truth for the current average rating
             var client = _clientFactory.CreateClient();
             var response = await client.GetAsync($"http://localhost:8080/mentor/get-rating/{ratingDetail.MentorUsername}");
@@ -60,7 +60,7 @@ namespace RefugeeLink.Controllers
                 mentorRating.TotalRaters = totalRaters; // Update the total raters count
             }
 
-            
+
 
             await _context.SaveChangesAsync();
 
@@ -78,6 +78,45 @@ namespace RefugeeLink.Controllers
             }
 
             return Ok();
+        }
+
+        [HttpPost("/has-rated")]
+        public async Task<IActionResult> HasRatedMentor([FromBody] RatingDetail ratingDetail)
+        {
+            var existingRating = await _context.RatingDetails
+                .FirstOrDefaultAsync(rd => rd.UserUsername == ratingDetail.UserUsername && rd.MentorUsername == ratingDetail.MentorUsername);
+
+            if (existingRating != null)
+            {
+               
+                return Ok(new { hasRated = true });
+            }
+
+            
+            return Ok(new { hasRated = false });
+        }
+
+        [HttpGet("/rating-details")]
+        public async Task<IActionResult> GetAllRatingDetails()
+        {
+            var ratingDetails = await _context.RatingDetails.ToListAsync();
+
+            return Ok(ratingDetails);
+        }
+
+
+        [HttpPost("/get-rating")]
+        public async Task<IActionResult> GetRating([FromBody] RatingDetail ratingDetail)
+        {
+            var existingRating = await _context.RatingDetails
+                .FirstOrDefaultAsync(rd => rd.UserUsername == ratingDetail.UserUsername && rd.MentorUsername == ratingDetail.MentorUsername);
+
+            if (existingRating != null)
+            {
+                return Ok(existingRating);
+            }
+
+            return NotFound();
         }
     }
 }

@@ -15,3 +15,17 @@
     .rating span:hover ~ span {
       color: orange; /* Color of stars on hover/select */
     }
+
+.rated {
+  color: grey;
+}
+
+.can-rate {
+  color: lightgrey;
+}
+
+.already-rated-message {
+  color: red;
+  margin-top: 10px;
+  pointer-events: none;
+}
