@@ -112,6 +112,7 @@ public class FormationService {
                             rf.getFormation().getStatus() == FormationStatus.ONGOING);
 
             if (!hasActiveFormation) {
+                refugee.setFormation(formation);
                 RefugeeFormation newRefugeeFormation = new RefugeeFormation();
                 newRefugeeFormation.setRefugee(refugee);
                 newRefugeeFormation.setFormation(formation);

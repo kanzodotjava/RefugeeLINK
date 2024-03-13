@@ -6,7 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import pt.upskill.RefugeeLINK.DTO.MentorDTO;
 import pt.upskill.RefugeeLINK.DTO.MentorLoginDTO;
-import pt.upskill.RefugeeLINK.DTO.MentorTierDTO;
+import pt.upskill.RefugeeLINK.DTO.MentorRatingDTO;
+
 import pt.upskill.RefugeeLINK.DTO.MentorUsernameDTO;
 import pt.upskill.RefugeeLINK.Enums.Profession;
 import pt.upskill.RefugeeLINK.Enums.Status;
@@ -27,6 +28,8 @@ public class Mentor extends Person{
 //    @Enumerated(EnumType.STRING)
     Status status;
 
+    double rating = 0.0;
+
 
 
     public Profession getProfession() {
@@ -45,6 +48,9 @@ public class Mentor extends Person{
         return status;
     }
 
+    public double getRating() {
+        return rating;
+    }
 
     public void setProfession(Profession profession) {
         this.profession = profession;
@@ -62,11 +68,15 @@ public class Mentor extends Person{
         this.description = description;
     }
 
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
 
     public MentorDTO toDTO() {
         MentorDTO mentorDTO = new MentorDTO();
         mentorDTO.setId(this.getId());
         mentorDTO.setName(this.getName());
+        mentorDTO.setUserName(this.getUserName());
         mentorDTO.setEmailAddress(this.getEmailAddress());
         mentorDTO.setBirthdayDate(this.getBirthdayDate());
         mentorDTO.setPhoneNumber(this.getPhoneNumber());
@@ -94,10 +104,10 @@ public class Mentor extends Person{
         return mentorUsernameDto;
     }
 
-    public MentorTierDTO toTierDto(){
-        MentorTierDTO mentorTierDto = new MentorTierDTO();
-        mentorTierDto.setUsername(this.getUserName());
-
-        return mentorTierDto;
+    public MentorRatingDTO toMentorRatingDTO(){
+        MentorRatingDTO mentorRatingDTO = new MentorRatingDTO();
+        mentorRatingDTO.setRating(this.rating);
+        return mentorRatingDTO;
     }
+
 }

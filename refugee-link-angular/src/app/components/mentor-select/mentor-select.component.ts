@@ -13,7 +13,7 @@ import { AuthService } from '../../services/auth/auth.service';
 export class MentorSelectComponent implements OnInit {
   mentors: any[] = [];
   errorMessage: string = '';
-  profilePictureUrl!: string;
+  profilePictureUrl: string = './assets/images/pfp/';
 
 
   constructor(

@@ -17,11 +17,12 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
 import { ConnectedRefugeesComponent } from './components/connected-refugees/connected-refugees.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminAuthGuard } from './guards/adminAuthGuard/admin-auth.guard';
-import { ChatComponent } from './Chat-Component/chat/chat.component';
 import { OrganizationLoginComponent } from './components/organization-login/organization-login.component';
 import { OrganizationDashboardComponent } from './components/organization-dashboard/organization-dashboard.component';
 import { MentorPageComponent } from './Chat-Component/mentor-page/mentor-page.component';
 import { MessageListComponent } from './Chat-Component/message-list/message-list.component';
+import { RefugeeFormationsComponent } from './components/refugee-formations/refugee-formations.component';
+import { FormationDetailsComponent } from './components/formation-details/formation-details.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -49,8 +50,10 @@ const routes: Routes = [
   },
   { path: 'connected-mentor', component: ConnectedMentorComponent },
   { path: 'chat', component: MessageListComponent },
-  { path: 'test', component: MentorPageComponent }
+  { path: 'messages', component: MentorPageComponent },
 
+  { path: 'refugee-formations', component: RefugeeFormationsComponent },
+  { path: 'formation/:id', component: FormationDetailsComponent },
 ];
 
 @NgModule({

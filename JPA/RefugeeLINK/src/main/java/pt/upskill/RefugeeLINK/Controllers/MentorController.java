@@ -3,20 +3,22 @@ package pt.upskill.RefugeeLINK.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+
 import org.springframework.web.bind.annotation.*;
 import pt.upskill.RefugeeLINK.DTO.MentorDTO;
 import pt.upskill.RefugeeLINK.DTO.MentorLoginDTO;
-import pt.upskill.RefugeeLINK.DTO.MentorTierDTO;
+
+import pt.upskill.RefugeeLINK.DTO.MentorRatingDTO;
+import pt.upskill.RefugeeLINK.DTO.MentorUsernameDTO;
 import pt.upskill.RefugeeLINK.Enums.Status;
 import pt.upskill.RefugeeLINK.Models.Mentor;
-import pt.upskill.RefugeeLINK.Models.Person;
+
 import pt.upskill.RefugeeLINK.Models.Refugee;
 import pt.upskill.RefugeeLINK.Services.MentorService;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Stack;
+
 import java.util.stream.Collectors;
 
 @RestController
@@ -146,21 +148,26 @@ public class MentorController {
     }
 
 
-    //gets MenTor and returns MentoTierDto
-    @GetMapping("/tier/{username}")
-    public ResponseEntity<MentorTierDTO> getMentorTier(@PathVariable String username){
-        Mentor mentor = mentorService.getMentorByUsername(username);
-        MentorTierDTO mentorTierDTO = mentor.toTierDto();
-        return new ResponseEntity<>(mentorTierDTO,HttpStatus.OK);
+
+    @GetMapping("/only-usernames")
+    public ResponseEntity<List<MentorUsernameDTO>> getAllMentorTiers() {
+        List<Mentor> mentors = mentorService.getAllMentors();
+        List<MentorUsernameDTO> mentorUsername = mentors.stream()
+                .map(Mentor::toUsernameDto)
+                .collect(Collectors.toList());
+        return new ResponseEntity<>(mentorUsername, HttpStatus.OK);
     }
 
 
-    @GetMapping("/only-usernames")
-    public ResponseEntity<List<MentorTierDTO>> getAllMentorTiers() {
-        List<Mentor> mentors = mentorService.getAllMentors();
-        List<MentorTierDTO> mentorTiers = mentors.stream()
-                .map(Mentor::toTierDto)
-                .collect(Collectors.toList());
-        return new ResponseEntity<>(mentorTiers, HttpStatus.OK);
+    @GetMapping("/get-rating/{username}")
+    public ResponseEntity<Double> getMentorRatingByUsername(@PathVariable String username) {
+        double mentorRating = mentorService.getMentorRatingByUsername(username);
+        return ResponseEntity.ok(mentorRating);
+    }
+
+    @PutMapping("/update-rating/{username}/{newRating}")
+    public ResponseEntity<Mentor> updateMentorRatingByUsername(@PathVariable String username, @PathVariable double newRating) {
+        Mentor updatedMentor = mentorService.updateMentorRatingByUsername(username, newRating);
+        return ResponseEntity.ok(updatedMentor);
     }
 }

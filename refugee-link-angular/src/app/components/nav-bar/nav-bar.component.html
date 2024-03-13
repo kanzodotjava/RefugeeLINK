@@ -26,12 +26,19 @@
         <!-- Conditional links for logged in users who are not admin -->
         <ng-container *ngIf="getUserType() === 'Refugee'">
           <a routerLink="/mentor-select">Mentor Select</a>
+          <a routerLink="/refugee-formations">Formations</a>
+          <!-- Add this line -->
         </ng-container>
         <ng-container *ngIf="getUserType() === 'Mentor'">
           <a routerLink="/connected-refugees">Connected Refugees</a>
         </ng-container>
         <a routerLink="/personal-page">Personal Page</a>
-        <a routerLink="/chat">Chat</a>
+        <ng-container *ngIf="getUserType() === 'Refugee'">
+          <a routerLink="/chat">Chat</a>
+        </ng-container>
+        <ng-container *ngIf="getUserType() === 'Mentor'">
+          <a routerLink="/messages">Messages</a>
+        </ng-container>
         <a routerLink="/logout">Logout</a>
       </ng-template>
     </ng-template>
