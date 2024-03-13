@@ -94,3 +94,44 @@
   background-color: #f1f0f0;
   align-self: flex-end;
 }
+
+.refugees-list {
+  flex-basis: 30%;
+  background-color: #f9f9f9; /* Slight background color */
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* subtle shadow */
+  margin-top: 45px;
+}
+
+.refugee-card {
+  cursor: pointer;
+  padding: 12px;
+  margin-bottom: 8px; /* spacing between cards */
+  background-color: #ffffff; /* white background */
+  border-radius: 8px; /* rounded corners */
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s; /* smooth background color transition */
+}
+
+  .refugee-card:hover {
+    background-color: #e8f0fe; /* highlight color on hover */
+  }
+
+.refugee-icon {
+  font-size: 24px; /* larger icon size */
+  margin-right: 12px; /* spacing between icon and name */
+}
+
+.refugee-name {
+  font-weight: bold; /* bold name */
+}
+
+.profile-picture {
+  width: 50px; /* or any size you prefer */
+  height: 50px; /* maintain aspect ratio */
+  border-radius: 50%; /* circular profile images */
+  object-fit: cover; /* to ensure the image covers the area */
+  margin-right: 12px; /* spacing between image and name */
+}

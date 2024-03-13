@@ -1,12 +1,15 @@
 
+
   <div class="layout-container">
+    
     <!-- Filters Sidebar -->
     <aside class="filters-sidebar">
-      <!-- Country Filter -->
+      <!-- Country Filter --><h2 class=" text-center font-bold mb-4">Apply Filters</h2>
+
       <div class="filter-group">
         <h3 class="filter-title">Country</h3>
         <select [(ngModel)]="filterCriteria.country" (change)="updateFilterCriteria({country: filterCriteria.country})">
-          <option value="">All Countries</option>
+          <option value="">All</option>
           <option *ngFor="let country of uniqueCountries" [value]="country">{{ country }}</option>
         </select>
       </div>
@@ -15,7 +18,7 @@
       <div class="filter-group">
         <h3 class="filter-title">Profession</h3>
         <select [(ngModel)]="filterCriteria.profession" (change)="updateFilterCriteria({profession: filterCriteria.profession})">
-          <option value="">All Professions</option>
+          <option value="">All</option>
           <option *ngFor="let profession of uniqueProfessions" [value]="profession">{{ profession }}</option>
         </select>
       </div>
@@ -24,7 +27,7 @@
       <div class="filter-group">
         <h3 class="filter-title">Primary Language</h3>
         <select [(ngModel)]="filterCriteria.primaryLanguage" (change)="updateFilterCriteria({primaryLanguage: filterCriteria.primaryLanguage})">
-          <option value="">All Primary Languages</option>
+          <option value="">All</option>
           <option *ngFor="let primaryLanguage of uniquePrimaryLanguage" [value]="primaryLanguage">{{ primaryLanguage }}</option>
         </select>
       </div>
@@ -33,19 +36,21 @@
       <div class="filter-group">
         <h3 class="filter-title">Secondary Language</h3>
         <select [(ngModel)]="filterCriteria.secondaryLanguage" (change)="updateFilterCriteria({secondaryLanguage: filterCriteria.secondaryLanguage})">
-          <option value="">All Secondary Languages</option>
+          <option value="">All</option>
           <option *ngFor="let secondaryLanguage of uniqueSecondaryLanguage" [value]="secondaryLanguage">{{ secondaryLanguage }}</option>
         </select>
       </div>
+      <h2 class=" text-center font-light mb-4">Click on a mentor to select him as your mentor</h2>
 
     </aside>
 
     <!-- Mentor list container unchanged -->
-
     <div class="mentors-container">
       <h2 class="text-2xl font-bold mb-4">Mentors List</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div *ngFor="let mentor of filteredMentors" class="bg-white shadow-md rounded-lg overflow-hidden">
+      <p></p>
+      <p></p>
+      <div class="mentor-grid">
+        <div *ngFor="let mentor of filteredMentors" class="mentor-card" (click)="applyToMentorship(mentor.id, mentor)">
           <div class="profile-picture-container">
             <img [src]="profilePictureUrl + mentor.userName + '.jpg'" alt="Profile Picture" class="profile-picture" onerror="this.src='./assets/images/pfp/default.jpg';">
           </div>
@@ -80,15 +85,11 @@
                  class="text-sm text-gray-600 mb-2">
                 {{ mentor.applicationResponse }}
               </p>
-              <button class="custom-button" (click)="applyToMentorship(mentor.id, mentor)">
-                Choose Mentor
-              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 
 

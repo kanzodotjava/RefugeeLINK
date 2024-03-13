@@ -28,7 +28,12 @@
       <p>Upload Profile Picture</p>
       <input type="file" (change)="onFileSelected($event)">
       <button (click)="upload()">Upload</button>
+      <br/>
+      <br/>
+      <button *ngIf="isRefugee" (click)="removeMentor()">Remove Mentor</button>
+
     </div>
+      
   </div>
   <div *ngIf="!userDetails" class="text-center mt-4">
     Loading user details...

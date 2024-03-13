@@ -12,6 +12,7 @@ import { HttpClient } from '@angular/common/http';
 export class PersonalPageComponent implements OnInit {
   userDetails: any;
   profilePictureUrl: string;
+  isRefugee: boolean = false; // Add this property
 
 
   constructor(
@@ -29,6 +30,7 @@ export class PersonalPageComponent implements OnInit {
     const username = this.authService.getUsername();
     console.log('Username:', username);
     const userType = this.authService.getUserType();
+    this.isRefugee = userType === 'Refugee';
     console.log('User type:', userType);
     if (username && userType) {
       this.apiService.getDetailsByUsername(username, userType).subscribe(
@@ -60,29 +62,47 @@ export class PersonalPageComponent implements OnInit {
       console.error('Username is not available');
       return;
     }
-
+  
     if (this.selectedFile) {
       const fd = new FormData();
       fd.append('image', this.selectedFile, this.selectedFile.name);
       const uploadUrl = `http://localhost:8080/file/upload/${username}`; // Use the username in the URL
-
+  
       this.http.post(uploadUrl, fd).subscribe({
         next: (res) => {
           console.log(res);
-          // Handle response, e.g., displaying the uploaded image or saving the URL
+          // Refresh the profile picture URL with a cache-busting query parameter
+          this.profilePictureUrl = `./assets/images/pfp/${username}.jpg?` + new Date().getTime();
         },
         error: (err) => {
           console.error('Error uploading file:', err);
-          // Handle error
         }
       });
     } else {
       console.error('No file selected');
     }
   }
+  
+  removeMentor() {
+    const userId = this.userDetails.id; // Assuming `id` is the correct property
+    if (!userId) {
+      console.error('User ID is not available');
+      return;
+    }
 
-
-
-
-
+    const removeMentorUrl = `http://localhost:8080/refugee/${userId}/mentor`;
+    this.http.delete(removeMentorUrl).subscribe({
+      next: (res) => {
+        console.log('Mentor removed successfully:', res);
+        // Update the local userDetails to reflect the removal
+        this.userDetails.mentor = null; // Assuming `mentor` is the correct property
+        // Optionally, refresh the details or inform the user
+      },
+      error: (err) => {
+        console.error('Error removing mentor:', err);
+        // Handle error, maybe show a message to the user
+      }
+    });
+  }
 }
+

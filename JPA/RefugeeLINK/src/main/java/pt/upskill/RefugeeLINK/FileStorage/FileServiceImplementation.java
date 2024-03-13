@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -28,9 +29,11 @@ public class FileServiceImplementation implements FileService {
             directory.mkdirs();
         }
 
-        Files.copy(file.getInputStream(), Paths.get(filepath));
+        // Overwrite the existing file, if it exists
+        Files.copy(file.getInputStream(), Paths.get(filepath), StandardCopyOption.REPLACE_EXISTING);
 
         return uniqueFileName;
     }
+
 
 }

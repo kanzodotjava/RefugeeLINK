@@ -11,6 +11,7 @@ export class MentorPageComponent implements OnInit {
   refugees: any[] = [];
   selectedRefugeeUsername!: string;
   messages: any[] = [];
+  profilePictureUrl: string = './assets/images/pfp/';
   @ViewChild('scrollMe') private myScrollContainer!: ElementRef;
 
   constructor(

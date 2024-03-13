@@ -2,9 +2,14 @@
 <div class="flex-container">
     <div class="refugees-list">
         <h2>My Refugees</h2>
+        <br/>
         <ul>
-            <li *ngFor="let refugee of refugees" (click)="onSelectRefugee(refugee.username)">
-                {{ refugee.username }}
+            <li *ngFor="let refugee of refugees" class="refugee-card" (click)="onSelectRefugee(refugee.username)">
+                <img [src]="profilePictureUrl + refugee.username + '.jpg'" 
+                     alt="Profile Picture" 
+                     class="profile-picture" 
+                     onerror="this.src='./assets/images/pfp/default.jpg';">
+                <span class="refugee-name">{{ refugee.username }}</span>
             </li>
         </ul>
     </div>

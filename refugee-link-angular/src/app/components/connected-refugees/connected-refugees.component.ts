@@ -7,9 +7,9 @@ import { ApiService } from '../../services/ApiService/api.service';
 })
 export class ConnectedRefugeesComponent implements OnInit{
   refugeeInfoList: any[] = [];
+  profilePictureUrl: string = './assets/images/pfp/';
 
-
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) {  }
 
   
   ngOnInit(): void {

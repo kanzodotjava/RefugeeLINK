@@ -1,15 +1,12 @@
 .layout-container {
   display: flex;
   margin: 0 auto;
-  max-width: 1200px; /* Set a max-width for larger screens */
 }
 
 .filters-sidebar {
-  width: 450px; /* Width of the sidebar */
+  width: 300px; /* Fixed width for the sidebar */
   padding: 20px;
-  border-right: 1px solid #e0e0e0; /* A line to separate the sidebar from the content */
-  margin-right: 20px;
-  margin-left: -300px;
+  border-right: 1px solid #e0e0e0;
 }
 
 .filter-group {
@@ -30,18 +27,23 @@
 }
 
 .mentors-container {
-  width: 150%;
-  margin: auto;
-  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* This sets the gap between cards */
+  justify-content: center; /* This centers the cards in the container */ 
 }
 
 
 .mentor-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-  padding: 10px 0;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin: 0.5rem;
+  flex: 1 1 200px; /* Removed, conflicts with width */
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  min-width: 500px; /* Minimum width for the cards */
 }
 
 .mentor-info {
@@ -108,4 +110,22 @@
   max-height: 100%; /* Optional: if you want to ensure that the image height does not exceed the container's height */
   object-fit: cover;
   margin-top: 30px;
+  border-radius: 50%;
+}
+
+.error-message {
+  color: red;
+  margin: 10px 0;
+}
+.mentor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transform: scale(1.05);
+}
+
+.mentor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns, each taking one fraction of the available space */
+  gap: 1rem;
+  justify-content: center;
 }

@@ -31,7 +31,7 @@ export class MentorSelectComponent implements OnInit {
   ngOnInit(): void {
     this.mentorsService.getMentors().subscribe(
       (data) => {
-        this.mentors = data;
+        this.mentors = data.map(mentor => ({ ...mentor, errorMessage: null }));
         this.filteredMentors = [...this.mentors];
         this.initializeFilterOptions();
       },
@@ -48,11 +48,12 @@ export class MentorSelectComponent implements OnInit {
       this.mentorsService.applyToMentorship(username, mentorId).subscribe(
         (response) => {
           console.log('Mentorship application successful:', response);
-          mentor.applicationResponse = 'Application successful';
+          mentor.applicationResponse = 'Selected mentor successfully';
+          mentor.errorMessage = null;
         },
         (error) => {
+          mentor.errorMessage = error.error.message;
           console.error('Error applying to mentorship:', error);
-          this.errorMessage = 'Application failed. Please try again.';
         }
       );
     } else {
