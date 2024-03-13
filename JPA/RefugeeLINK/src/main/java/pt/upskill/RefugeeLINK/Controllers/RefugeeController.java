@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pt.upskill.RefugeeLINK.DTO.*;
 import pt.upskill.RefugeeLINK.Exceptions.MentorIdNotFound;
+import pt.upskill.RefugeeLINK.Models.Formation;
 import pt.upskill.RefugeeLINK.Models.Mentor;
 import pt.upskill.RefugeeLINK.Models.Refugee;
 import pt.upskill.RefugeeLINK.Services.RefugeeService;
@@ -164,5 +165,15 @@ public class RefugeeController {
                 .map(Refugee::toMsgDTO)
                 .collect(Collectors.toList());
         return ResponseEntity.ok(refugeeMsgDTOs);
+    }
+
+    @GetMapping("/current-formation/{username}")
+    public ResponseEntity<Formation> getCurrentFormation(@PathVariable String username) {
+        try {
+            Formation formation = refugeeService.getRefugeeFormationByUsername(username);
+            return new ResponseEntity<>(formation, HttpStatus.OK);
+        } catch (RuntimeException ex) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }

@@ -153,4 +153,14 @@ public class MentorController {
         MentorTierDTO mentorTierDTO = mentor.toTierDto();
         return new ResponseEntity<>(mentorTierDTO,HttpStatus.OK);
     }
+
+
+    @GetMapping("/only-usernames")
+    public ResponseEntity<List<MentorTierDTO>> getAllMentorTiers() {
+        List<Mentor> mentors = mentorService.getAllMentors();
+        List<MentorTierDTO> mentorTiers = mentors.stream()
+                .map(Mentor::toTierDto)
+                .collect(Collectors.toList());
+        return new ResponseEntity<>(mentorTiers, HttpStatus.OK);
+    }
 }
