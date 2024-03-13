@@ -22,6 +22,7 @@ import { OrganizationDashboardComponent } from './components/organization-dashbo
 import { MentorPageComponent } from './Chat-Component/mentor-page/mentor-page.component';
 import { MessageListComponent } from './Chat-Component/message-list/message-list.component';
 import { RefugeeFormationsComponent } from './components/refugee-formations/refugee-formations.component';
+import { FormationDetailsComponent } from './components/formation-details/formation-details.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -52,6 +53,7 @@ const routes: Routes = [
   { path: 'messages', component: MentorPageComponent },
 
   { path: 'refugee-formations', component: RefugeeFormationsComponent },
+  { path: 'formation/:id', component: FormationDetailsComponent },
 ];
 
 @NgModule({

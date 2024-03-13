@@ -124,8 +124,12 @@ export class ApiService {
       responseType: 'text' as 'json',
     });
   }
-   getCurrentFormationsByUsername(username: string): Observable<any[]> {
+  getCurrentFormationsByUsername(username: string): Observable<any[]> {
     const url = `${this.baseUrl}/refugee/current-formation/${username}`;
     return this.http.get<any[]>(url);
+  }
+
+  getFormationDetails(id: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/formation/${id}`);
   }
 }

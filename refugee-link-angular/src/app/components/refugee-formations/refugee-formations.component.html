@@ -1,5 +1,3 @@
-<!-- refugee-formations.component.html -->
-
 <div class="mx-auto max-w-screen-lg mt-8">
   <h2 class="text-2xl font-bold mb-4 mx-auto text-center">
     Formations awaiting to start
@@ -11,20 +9,61 @@
       <div class="bg-white overflow-hidden shadow-md rounded-lg">
         <div class="px-6 py-4">
           <div class="font-bold text-xl mb-2">{{ formation.name }}</div>
-          <p class="text-gray-700 text-base">{{ formation.description }}</p>
-          <p class="text-gray-700">
-            Number of Lessons: {{ formation.numberOfLessons }}
-          </p>
-          <p class="text-gray-700">Start Date: {{ formation.startDate }}</p>
-          <p class="text-gray-700">Duration: {{ formation.duration }}</p>
-          <p class="text-gray-700">Status: {{ formation.status }}</p>
+          <div class="grid grid-cols-2 gap-2">
+            <p class="text-gray-700">Description:</p>
+            <p class="text-gray-700">{{ formation.description }}</p>
+            <p class="text-gray-700">Number of Lessons:</p>
+            <p class="text-gray-700">{{ formation.numberOfLessons }}</p>
+            <p class="text-gray-700">Start Date:</p>
+            <p class="text-gray-700">{{ formation.startDate }}</p>
+            <p class="text-gray-700">Duration:</p>
+            <p class="text-gray-700">{{ formation.duration }}</p>
+            <p class="text-gray-700">Status:</p>
+            <p class="text-gray-700">{{ formation.status }}</p>
+          </div>
           <button
             (click)="applyToFormation(formation.id)"
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4"
           >
             Apply
           </button>
           <p *ngIf="applicationMessage">{{ applicationMessage }}</p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<!-- your.component.html -->
+<div class="mx-auto max-w-screen-lg mt-8">
+  <h2 class="text-2xl font-bold mb-4 mx-auto text-center">
+    Formations enrolled
+  </h2>
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center"
+  >
+    <ng-container *ngFor="let formation of formations">
+      <div class="bg-white overflow-hidden shadow-md rounded-lg">
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2">{{ formation.name }}</div>
+          <div class="grid grid-cols-2 gap-2">
+            <p class="text-gray-700">Description:</p>
+            <p class="text-gray-700">{{ formation.description }}</p>
+            <p class="text-gray-700">Number of Lessons:</p>
+            <p class="text-gray-700">{{ formation.numberOfLessons }}</p>
+            <p class="text-gray-700">Start Date:</p>
+            <p class="text-gray-700">{{ formation.startDate }}</p>
+            <p class="text-gray-700">Duration:</p>
+            <p class="text-gray-700">{{ formation.duration }}</p>
+            <p class="text-gray-700">Status:</p>
+            <p class="text-gray-700">{{ formation.status }}</p>
+          </div>
+          <a
+            [routerLink]="['/formation', formation.id]"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4 inline-block"
+          >
+            View Formation
+          </a>
         </div>
       </div>
     </ng-container>
