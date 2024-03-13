@@ -17,8 +17,11 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
 import { ConnectedRefugeesComponent } from './components/connected-refugees/connected-refugees.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminAuthGuard } from './guards/adminAuthGuard/admin-auth.guard';
-import { MessageFormComponent } from './components/message-form/message-form.component';
-import { MessageListComponent } from './components/message-list/message-list.component';
+import { ChatComponent } from './Chat-Component/chat/chat.component';
+import { OrganizationLoginComponent } from './components/organization-login/organization-login.component';
+import { OrganizationDashboardComponent } from './components/organization-dashboard/organization-dashboard.component';
+import { MentorPageComponent } from './Chat-Component/mentor-page/mentor-page.component';
+import { MessageListComponent } from './Chat-Component/message-list/message-list.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -36,6 +39,8 @@ const routes: Routes = [
     component: AdminDashboardComponent,
     canActivate: [AdminAuthGuard],
   },
+  { path: 'organization-login', component: OrganizationLoginComponent },
+  { path: 'organization-dashboard', component: OrganizationDashboardComponent },
 
   {
     path: 'personal-page',
@@ -43,8 +48,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'connected-mentor', component: ConnectedMentorComponent },
-  { path: 'teste', component: MessageFormComponent },
-  { path: 'teste2', component: MessageListComponent },
+  { path: 'chat', component: MessageListComponent },
+  { path: 'test', component: MentorPageComponent }
 
 ];
 

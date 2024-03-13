@@ -13,6 +13,8 @@ import { AuthService } from '../../services/auth/auth.service';
 export class MentorSelectComponent implements OnInit {
   mentors: any[] = [];
   errorMessage: string = '';
+  profilePictureUrl!: string;
+
 
   constructor(
     private mentorsService: ApiService,

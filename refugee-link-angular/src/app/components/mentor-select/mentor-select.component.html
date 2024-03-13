@@ -2,7 +2,9 @@
   <h2 class="text-2xl font-bold mb-4">Mentors List</h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <div *ngFor="let mentor of mentors" class="bg-white shadow-md rounded-lg overflow-hidden">
-      <img src="https://api.dicebear.com/7.x/adventurer/svg" alt="avatar" />
+       <div class="profile-picture-container">
+      <img [src]="profilePictureUrl" alt="Profile Picture" class="profile-picture" onError="this.src='./assets/images/pfp/default.jpg';">
+    </div>
 
       <div class="p-4">
         <h3 class="text-xl font-semibold mb-2">{{ mentor.name }}</h3>

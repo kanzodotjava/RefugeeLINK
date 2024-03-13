@@ -20,6 +20,11 @@ public class MessageService {
 
     public Message sendMessage(String senderUsername, String receiverUsername, String content) {
         // Find the sender and receiver. Assume that usernames are unique across Mentors and Refugees
+        System.out.println("Sending message:");
+        System.out.println("Sender: " + senderUsername);
+        System.out.println("Receiver: " + receiverUsername);
+        System.out.println("Content: " + content);
+
         Person sender = mentorRepository.findByUserName(senderUsername)
                 .map(mentor -> (Person)mentor)
                 .orElseGet(() -> refugeeRepository.findByUserName(senderUsername)
@@ -44,4 +49,7 @@ public class MessageService {
         return conversation;
     }
 
+    public List<Message> getConversationBetweenUsers(String user1, String user2) {
+        return messageRepository.findBySenderUsernameAndReceiverUsernameOrReceiverUsernameAndSenderUsernameOrderBySentAtAsc(user1, user2, user1, user2);
+    }
 }

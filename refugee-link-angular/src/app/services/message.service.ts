@@ -1,25 +1,35 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Message } from 'src/app/models/message.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService {
-  private apiUrl = 'http://localhost:8080/api/messages'; // URL to web API
+  private apiUrl = 'http://localhost:8080/api/messages'; 
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  sendMessage(message: Message): Observable<Message> {
-    return this.http.post<Message>(`${this.apiUrl}/send`, message);
+  sendMessage(senderUsername: string, receiverUsername: string, content: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/send`, { senderUsername, receiverUsername, content });
   }
 
-  getConversation(senderUsername: string, receiverUsername: string): Observable<Message[]> {
-    const params = new HttpParams()
-      .set('senderUsername', senderUsername)
-      .set('receiverUsername', receiverUsername);
+  getConversation(senderUsername: string, receiverUsername: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/conversation`, { params: { senderUsername, receiverUsername } });
+  }
 
-    return this.http.get<Message[]>(`${this.apiUrl}/conversation`, { params });
+  getMentorForRefugee(refugeeUsername: string): Observable<any> {
+    return this.http.get(`http://localhost:8080/refugee/by-username/${refugeeUsername}/mentor/username`, { params: { refugeeUsername } });
+  }
+
+  getRefugeesForMentor(mentorUsername: string): Observable<any> {
+    return this.http.get(`http://localhost:8080/refugee/with-mentor/${mentorUsername}`);
+  }
+
+  getMessagesBetweenMentorAndRefugee(mentorUsername: string, refugeeUsername: string): Observable<any> {
+    return this.http.get(`http://localhost:8080/api/messages/conversation-between-users/${mentorUsername}/${refugeeUsername}`);
   }
 }
+
+
+

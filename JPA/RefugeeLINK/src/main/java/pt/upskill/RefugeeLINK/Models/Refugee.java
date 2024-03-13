@@ -8,6 +8,7 @@ import jakarta.persistence.*;
 import pt.upskill.RefugeeLINK.DTO.MentorLoginDTO;
 import pt.upskill.RefugeeLINK.DTO.RefugeeDTO;
 import pt.upskill.RefugeeLINK.DTO.RefugeeLoginDto;
+import pt.upskill.RefugeeLINK.DTO.RefugeeMsgDTO;
 
 import java.util.List;
 
@@ -89,5 +90,11 @@ public class Refugee extends Person {
         refugeeLoginDTO.setUserName(this.getUserName());
         refugeeLoginDTO.setPassword(this.getPassword());
         return refugeeLoginDTO;
+    }
+
+    public RefugeeMsgDTO toMsgDTO() {
+        RefugeeMsgDTO refugeeMsgDTO = new RefugeeMsgDTO();
+        refugeeMsgDTO.setUsername(this.getUserName());
+        return refugeeMsgDTO;
     }
 }

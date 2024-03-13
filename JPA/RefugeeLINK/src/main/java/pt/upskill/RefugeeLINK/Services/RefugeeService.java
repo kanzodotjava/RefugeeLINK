@@ -12,6 +12,7 @@ import pt.upskill.RefugeeLINK.Models.Refugee;
 import pt.upskill.RefugeeLINK.Repositories.MentorRepository;
 import pt.upskill.RefugeeLINK.Repositories.RefugeeRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -142,4 +143,16 @@ public class RefugeeService {
         return refugee.getMentor();
     }
 
+
+    public List<Refugee> getRefugeesByMentorUsername(String mentorUsername) {
+        List<Refugee> refugees = getAllRefugees();
+        List<Refugee> matchedRefugees = new ArrayList<>();
+        for (Refugee refugee : refugees) {
+            Mentor mentor = refugee.getMentor();
+            if (mentor != null && mentor.getUserName().equals(mentorUsername)) {
+                matchedRefugees.add(refugee);
+            }
+        }
+        return matchedRefugees;
+    }
 }

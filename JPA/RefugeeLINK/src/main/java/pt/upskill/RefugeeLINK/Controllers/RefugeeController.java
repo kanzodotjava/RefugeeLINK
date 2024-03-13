@@ -156,4 +156,13 @@ public class RefugeeController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @GetMapping("/with-mentor/{username}")
+    public ResponseEntity<List<RefugeeMsgDTO>> getRefugeesByMentorUsername(@PathVariable String username) {
+        List<Refugee> refugees = refugeeService.getRefugeesByMentorUsername(username);
+        List<RefugeeMsgDTO> refugeeMsgDTOs = refugees.stream()
+                .map(Refugee::toMsgDTO)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(refugeeMsgDTOs);
+    }
 }

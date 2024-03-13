@@ -31,4 +31,10 @@ public class MessageController {
         List<Message> conversation = messageService.getConversation(senderUsername, receiverUsername);
         return ResponseEntity.ok(conversation);
     }
+
+    @GetMapping("/conversation-between-users/{user1}/{user2}")
+    public ResponseEntity<List<Message>> getConversationBetweenUsers(@PathVariable String user1, @PathVariable String user2) {
+        List<Message> conversation = messageService.getConversationBetweenUsers(user1, user2);
+        return ResponseEntity.ok(conversation);
+    }
 }
