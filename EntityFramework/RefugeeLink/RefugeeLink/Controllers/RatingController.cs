@@ -65,7 +65,12 @@ namespace RefugeeLink.Controllers
             await _context.SaveChangesAsync();
 
             // Update the external API with the new average rating
-            var updateResponse = await client.PutAsync($"http://localhost:8080/mentor/update-rating/{ratingDetail.MentorUsername}/{mentorRating.AverageRating}", null);
+            //var updateResponse = await client.PutAsync($"http://localhost:8080/mentor/update-rating/{ratingDetail.MentorUsername}/{mentorRating.AverageRating}", null);
+
+            // Update the external API with the new average rating
+            string formattedRating = mentorRating.AverageRating.ToString(CultureInfo.InvariantCulture);
+            var updateResponse = await client.PutAsync($"http://localhost:8080/mentor/update-rating/{ratingDetail.MentorUsername}/{formattedRating}", null);
+
 
             if (!updateResponse.IsSuccessStatusCode)
             {
