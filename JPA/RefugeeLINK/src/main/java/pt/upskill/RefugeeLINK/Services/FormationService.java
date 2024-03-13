@@ -180,4 +180,12 @@ public class FormationService {
 //            throw new IllegalStateException("Cannot start the formation yet. Start date is in the future.");
 //        }
 //    }
+
+    public List<Formation> getFormationByStatus(FormationStatus status){
+        List<Formation> formations = formationRepository.findByStatus(status);
+        if(formations.isEmpty()){
+            throw new IllegalArgumentException("No formations found!");
+        }
+        return formations;
+    }
 }

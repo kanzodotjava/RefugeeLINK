@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pt.upskill.RefugeeLINK.DTO.FormationDTO;
+import pt.upskill.RefugeeLINK.Enums.FormationStatus;
 import pt.upskill.RefugeeLINK.Exceptions.FormationIdNotFound;
 import pt.upskill.RefugeeLINK.Models.Formation;
 import pt.upskill.RefugeeLINK.Services.FormationService;
@@ -84,6 +85,17 @@ public class FormationController {
             return ResponseEntity.ok(startedFormation);
         } catch (FormationIdNotFound e) {
             return ResponseEntity.notFound().build();
+        }
+    }
+
+
+    @GetMapping("/status/{status}")
+    public ResponseEntity<List<Formation>> getFormationByStatus(@PathVariable FormationStatus status) {
+        try {
+            List<Formation> formations = formationService.getFormationByStatus(status);
+            return new ResponseEntity<>(formations, HttpStatus.OK);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
