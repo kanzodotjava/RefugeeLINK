@@ -2,6 +2,8 @@ package pt.upskill.RefugeeLINK.Repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import pt.upskill.RefugeeLINK.Enums.Country;
+import pt.upskill.RefugeeLINK.Enums.Language;
 import pt.upskill.RefugeeLINK.Enums.Status;
 import pt.upskill.RefugeeLINK.Models.Mentor;
 
@@ -14,5 +16,7 @@ public interface MentorRepository extends JpaRepository<Mentor, Long> {
     List<Mentor> getMentorByStatus(Status status);
     boolean existsByUserName(String username);
     boolean existsByEmailAddress(String email);
+
+    List<Mentor> findByNationalityAndPrimaryLanguageAndSecondaryLanguage(Country nationality, Language primaryLanguage, Language secondaryLanguage);
 
 }

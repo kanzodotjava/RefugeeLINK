@@ -10,6 +10,8 @@ import pt.upskill.RefugeeLINK.DTO.MentorLoginDTO;
 
 import pt.upskill.RefugeeLINK.DTO.MentorRatingDTO;
 import pt.upskill.RefugeeLINK.DTO.MentorUsernameDTO;
+import pt.upskill.RefugeeLINK.Enums.Country;
+import pt.upskill.RefugeeLINK.Enums.Language;
 import pt.upskill.RefugeeLINK.Enums.Status;
 import pt.upskill.RefugeeLINK.Models.Mentor;
 
@@ -169,5 +171,15 @@ public class MentorController {
     public ResponseEntity<Mentor> updateMentorRatingByUsername(@PathVariable String username, @PathVariable double newRating) {
         Mentor updatedMentor = mentorService.updateMentorRatingByUsername(username, newRating);
         return ResponseEntity.ok(updatedMentor);
+    }
+
+
+    @GetMapping("/filter")
+    public ResponseEntity<List<Mentor>> filterMentors(
+            @RequestParam Country nationality,
+            @RequestParam Language primaryLanguage,
+            @RequestParam Language secondaryLanguage) {
+        List<Mentor> filteredMentors = mentorService.filterMentors(nationality, primaryLanguage, secondaryLanguage);
+        return new ResponseEntity<>(filteredMentors, HttpStatus.OK);
     }
 }

@@ -1,8 +1,40 @@
-.mentors-container {
-  width: 80%;
+.layout-container {
+  display: flex;
   margin: 0 auto;
+  max-width: 1200px; /* Set a max-width for larger screens */
+}
+
+.filters-sidebar {
+  width: 450px; /* Width of the sidebar */
+  padding: 20px;
+  border-right: 1px solid #e0e0e0; /* A line to separate the sidebar from the content */
+  margin-right: 20px;
+  margin-left: -300px;
+}
+
+.filter-group {
+  margin-bottom: 30px;
+}
+
+.filter-title {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.filters-sidebar select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.mentors-container {
+  width: 150%;
+  margin: auto;
   padding: 20px;
 }
+
 
 .mentor-card {
   display: flex;
@@ -54,7 +86,7 @@
   color: #ffffff; /* White text color */
   padding: 10px 20px; /* Adjust padding as needed */
   border-radius: 8px; /* Rounded corners */
-  margin-right: 120px;
+  margin: auto;
   display: inline-block;
 }
 

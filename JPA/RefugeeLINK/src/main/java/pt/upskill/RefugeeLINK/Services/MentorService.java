@@ -10,6 +10,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import pt.upskill.RefugeeLINK.DTO.MentorRatingDTO;
+import pt.upskill.RefugeeLINK.Enums.Country;
+import pt.upskill.RefugeeLINK.Enums.Language;
 import pt.upskill.RefugeeLINK.Enums.Status;
 import pt.upskill.RefugeeLINK.Models.Mentor;
 import pt.upskill.RefugeeLINK.Models.Refugee;
@@ -164,6 +166,9 @@ public class MentorService {
     }
 
 
+    public List<Mentor> filterMentors(Country nationality, Language primaryLanguage, Language secondaryLanguage) {
+        return mentorRepository.findByNationalityAndPrimaryLanguageAndSecondaryLanguage(nationality, primaryLanguage, secondaryLanguage);
+    }
 }
 
 

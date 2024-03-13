@@ -12,9 +12,15 @@ import { AuthService } from '../../services/auth/auth.service';
 })
 export class MentorSelectComponent implements OnInit {
   mentors: any[] = [];
+  filteredMentors: any[] = [];
   errorMessage: string = '';
   profilePictureUrl: string = './assets/images/pfp/';
 
+  uniqueCountries: string[] = [];
+  uniqueProfessions: string[] = [];
+  uniquePrimaryLanguage: string[] = [];
+  uniqueSecondaryLanguage: string[] = [];
+  uniqueNationality: string[] = [];
 
   constructor(
     private mentorsService: ApiService,
@@ -26,6 +32,8 @@ export class MentorSelectComponent implements OnInit {
     this.mentorsService.getMentors().subscribe(
       (data) => {
         this.mentors = data;
+        this.filteredMentors = [...this.mentors];
+        this.initializeFilterOptions();
       },
       (error) => {
         console.error('Error fetching mentors:', error);
@@ -52,4 +60,49 @@ export class MentorSelectComponent implements OnInit {
       this.errorMessage = 'You must be logged in to apply for mentorship.';
     }
   }
+
+
+  filterCriteria = {
+    country: '',
+    profession: '',
+    primaryLanguage: '',
+    secondaryLanguage: '',
+    nationality: '',
+  };
+
+  updateFilterCriteria(criteria: any): void {
+    this.filterCriteria = { ...this.filterCriteria, ...criteria };
+    this.filterMentors();
+  }
+
+  filterMentors(): void {
+    this.filteredMentors = this.mentors.filter(mentor => {
+      return (
+        (this.filterCriteria.country ? mentor.country === this.filterCriteria.country : true) &&
+        (this.filterCriteria.profession ? mentor.profession === this.filterCriteria.profession : true) &&
+        (this.filterCriteria.primaryLanguage ? mentor.primaryLanguage === this.filterCriteria.primaryLanguage : true) &&
+        (this.filterCriteria.secondaryLanguage ? mentor.secondaryLanguage === this.filterCriteria.secondaryLanguage : true) &&
+        (this.filterCriteria.nationality ? mentor.nationality === this.filterCriteria.nationality : true)
+      );
+    });
+  }
+
+  initializeFilterOptions(): void {
+    this.uniqueCountries = this.extractUniqueValues(this.mentors, 'country');
+    this.uniqueProfessions = this.extractUniqueValues(this.mentors, 'profession');
+    this.uniquePrimaryLanguage = this.extractUniqueValues(this.mentors, 'primaryLanguage');
+    this.uniqueSecondaryLanguage = this.extractUniqueValues(this.mentors, 'secondaryLanguage');
+    this.uniqueNationality = this.extractUniqueValues(this.mentors, 'nationality');
+
+
+  }
+
+  extractUniqueValues(items: any[], key: string): string[] {
+    return [...new Set(items.map(item => item[key]))].sort();
+  }
+
+  applyFilters(): void {
+    this.filterMentors();
+  }
+  
 }
