@@ -113,7 +113,7 @@ public class RefugeeController {
         }
     }
 
-    @DeleteMapping("/{id}/mentor")
+    @DeleteMapping("/{refugeeId}/mentor")
     public ResponseEntity<String> removeMentorFromRefugee(@PathVariable Long refugeeId) {
         try {
             refugeeService.removeMentorFromRefugee(refugeeId);
