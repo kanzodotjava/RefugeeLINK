@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row; /* Arrange items in a row */
   justify-content: space-between; /* Optional: Adjust this based on your layout needs */
-  align-items: start; /* Align items at the start of the flex container */
+  align-items: flex-start; /* Align items at the start of the flex container */
   max-width: 1200px; /* Adjust based on your layout needs */
   margin: auto; /* Center the entire container */
   gap: 20px; /* Optional: Adds some space between the profile and chat */
@@ -68,18 +68,39 @@
   margin-bottom: 10px; /* Add some space below the button */
 }
 
-.refresh-container button {
-  padding: 5px 10px;
-  cursor: pointer;
-  background-color: #007bff; /* A nice blue background */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1em;
+  .refresh-container button {
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #007bff; /* A nice blue background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+
+    .refresh-container button:hover {
+      background-color: #0056b3; /* A slightly darker blue on hover */
+    }
+
+.select-mentor-prompt {
+  text-align: center;
+  /* Add any additional styling you like here */
 }
 
-.refresh-container button:hover {
-  background-color: #0056b3; /* A slightly darker blue on hover */
-}
+  .select-mentor-prompt p {
+    margin-bottom: 1em;
+    text-align: center;
+  }
 
+  .select-mentor-prompt button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
 
+    .select-mentor-prompt button:hover {
+      background-color: #0056b3;
+    }

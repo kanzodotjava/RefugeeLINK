@@ -1,7 +1,8 @@
 <div class="message-form">
-  <mat-form-field class="message-input" appearance="fill">
-    <mat-label>Write a message</mat-label>
-    <input matInput [(ngModel)]="messageContent" (keyup.enter)="sendMessage()" />
-  </mat-form-field>
-  <button mat-raised-button color="primary" (click)="sendMessage()">Send</button>
+  <div class="message-input">
+    <label>Write a message</label>
+    <input [(ngModel)]="messageContent" (keyup.enter)="sendMessage()" />
+  </div>
+  <button class="send-button" (click)="sendMessage()">Send</button>
 </div>
+

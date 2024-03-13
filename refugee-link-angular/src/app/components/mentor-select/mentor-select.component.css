@@ -48,3 +48,17 @@
   .details-button:hover {
     background-color: #0056b3;
   }
+
+.custom-button {
+  background-color: #3490dc; /* Blue background color */
+  color: #ffffff; /* White text color */
+  padding: 10px 20px; /* Adjust padding as needed */
+  border-radius: 8px; /* Rounded corners */
+  margin-right: 120px;
+  display: inline-block;
+}
+
+.custom-button:hover {
+  background-color: #2779bd; /* Darker blue on hover */
+}
+
