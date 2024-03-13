@@ -1,4 +1,5 @@
 import { AfterViewChecked, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { MessageService } from 'src/app/services/message.service';
 
@@ -14,7 +15,8 @@ export class MessageListComponent implements OnInit, AfterViewChecked{
 
 
   constructor(private messageService: MessageService, 
-    private authService: AuthService) {
+    private authService: AuthService,
+  private router: Router) {
     
   }
 
@@ -86,5 +88,8 @@ export class MessageListComponent implements OnInit, AfterViewChecked{
     }
   }
 
+  goToMentorSelect(): void {
+    this.router.navigate(['/mentor-select']); // Adjust the route as per your application's routing
+  }
 }
 

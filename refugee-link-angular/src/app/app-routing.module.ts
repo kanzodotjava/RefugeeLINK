@@ -49,7 +49,7 @@ const routes: Routes = [
   },
   { path: 'connected-mentor', component: ConnectedMentorComponent },
   { path: 'chat', component: MessageListComponent },
-  { path: 'test', component: MentorPageComponent }
+  { path: 'messages', component: MentorPageComponent }
 
 ];
 
