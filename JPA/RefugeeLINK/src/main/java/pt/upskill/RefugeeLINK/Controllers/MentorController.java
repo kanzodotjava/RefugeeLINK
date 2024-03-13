@@ -3,20 +3,22 @@ package pt.upskill.RefugeeLINK.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+
 import org.springframework.web.bind.annotation.*;
 import pt.upskill.RefugeeLINK.DTO.MentorDTO;
 import pt.upskill.RefugeeLINK.DTO.MentorLoginDTO;
-import pt.upskill.RefugeeLINK.DTO.MentorTierDTO;
+
+import pt.upskill.RefugeeLINK.DTO.MentorRatingDTO;
+import pt.upskill.RefugeeLINK.DTO.MentorUsernameDTO;
 import pt.upskill.RefugeeLINK.Enums.Status;
 import pt.upskill.RefugeeLINK.Models.Mentor;
-import pt.upskill.RefugeeLINK.Models.Person;
+
 import pt.upskill.RefugeeLINK.Models.Refugee;
 import pt.upskill.RefugeeLINK.Services.MentorService;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Stack;
+
 import java.util.stream.Collectors;
 
 @RestController
@@ -145,25 +147,27 @@ public class MentorController {
         return new ResponseEntity<>(refugees, HttpStatus.OK);
     }
 
-//    @PostMapping("/login")
-//    public ResponseEntity<Boolean> validateLogin(@RequestBody MentorLoginDTO mentorLoginDTO) {
-//        Optional<Mentor> mentor = mentorService.findMentorByUsername(mentorLoginDTO.getUserName());
-//        if (mentor.isPresent()) {
-//
-//            String hashedInputPassword = mentorService.hashPassword(mentorLoginDTO.getPassword());
-//
-//            if (hashedInputPassword.equals(mentor.get().getPassword())) {
-//                return ResponseEntity.ok(true);
-//            }
-//        }
-//        return ResponseEntity.ok(false);
-//    }
 
-    //gets MenTor and returns MentoTierDto
-    @GetMapping("/tier/{username}")
-    public ResponseEntity<MentorTierDTO> getMentorTier(@PathVariable String username){
-        Mentor mentor = mentorService.getMentorByUsername(username);
-        MentorTierDTO mentorTierDTO = mentor.toTierDto();
-        return new ResponseEntity<>(mentorTierDTO,HttpStatus.OK);
+
+    @GetMapping("/only-usernames")
+    public ResponseEntity<List<MentorUsernameDTO>> getAllMentorTiers() {
+        List<Mentor> mentors = mentorService.getAllMentors();
+        List<MentorUsernameDTO> mentorUsername = mentors.stream()
+                .map(Mentor::toUsernameDto)
+                .collect(Collectors.toList());
+        return new ResponseEntity<>(mentorUsername, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/get-rating/{username}")
+    public ResponseEntity<MentorRatingDTO> getMentorRatingByUsername(@PathVariable String username) {
+        MentorRatingDTO mentorRating = mentorService.getMentorRatingByUsername(username);
+        return ResponseEntity.ok(mentorRating);
+    }
+
+    @PutMapping("/update-rating/{username}")
+    public ResponseEntity<Mentor> updateMentorRatingByUsername(@PathVariable String username, @RequestBody double newRating) {
+        Mentor updatedMentor = mentorService.updateMentorRatingByUsername(username, newRating);
+        return ResponseEntity.ok(updatedMentor);
     }
 }

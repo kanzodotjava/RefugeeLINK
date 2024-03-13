@@ -115,7 +115,7 @@ public class FormationService {
                 RefugeeFormation newRefugeeFormation = new RefugeeFormation();
                 newRefugeeFormation.setRefugee(refugee);
                 newRefugeeFormation.setFormation(formation);
-                newRefugeeFormation.setApproved(false); // ou alguma lógica de aprovação
+                newRefugeeFormation.setApproved(false);
                 refugeeFormationRepository.save(newRefugeeFormation);
                 return true;
             }
@@ -124,19 +124,6 @@ public class FormationService {
     }
 
 
-
-
-
-    //add formation with the organization id
-//    public Formation registerFormation(Formation formation, Long organizationId) throws OrganizationNotFound {
-//        Organization organization = organizationService.getOrganizationById(organizationId);
-//        formation.setOrganization(organization);
-//        return this.formationRepository.save(formation);
-//    }
-//
-//    public List<Formation> getFormationByOrganizationUsername(String username) throws OrganizationNotFound{
-//        return formationRepository.findByOrganization_Username(username);
-//    }
 
 
     public Formation startFormation(Long formationId) throws FormationIdNotFound {
@@ -162,24 +149,6 @@ public class FormationService {
     }
 
 
-//    public Formation startFormationOnTime(Long formationId) throws FormationIdNotFound {
-//        Formation formation = formationRepository.findById(formationId)
-//                .orElseThrow(() -> new FormationIdNotFound("Formation not found with id: " + formationId));
-//
-//        // Check if the current date is after the start date
-//        LocalDate currentDate = new LocalDate();
-//        if (currentDate.after(formation.getStartDate())) {
-//            // Change the status to ONGOING
-//            formation.setStatus(FormationStatus.ONGOING);
-//
-//            // Save the updated formation
-//            return formationRepository.save(formation);
-//        } else {
-//            // Handle the case where the current date is not after the start date
-//            // You may throw an exception or return an appropriate response
-//            throw new IllegalStateException("Cannot start the formation yet. Start date is in the future.");
-//        }
-//    }
 
     public List<Formation> getFormationByStatus(FormationStatus status){
         List<Formation> formations = formationRepository.findByStatus(status);
