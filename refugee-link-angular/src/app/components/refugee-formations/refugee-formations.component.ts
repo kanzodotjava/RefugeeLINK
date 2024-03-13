@@ -13,6 +13,7 @@ export class RefugeeFormationsComponent implements OnInit {
   formations: any[] = [];
   loggedInRefugeeId: number | undefined;
   applicationMessage: string = '';
+  formationInfo: any;
 
   constructor(
     private apiService: ApiService,
@@ -22,6 +23,19 @@ export class RefugeeFormationsComponent implements OnInit {
   ngOnInit(): void {
     this.loadFormations();
     this.getLoggedInRefugeeId();
+    const username = this.authService.getUsername();
+    if (username !== null) {
+      this.apiService.getCurrentFormationsByUsername(username).subscribe(
+        (data) => {
+          this.formationInfo = data;
+        },
+        (error) => {
+          console.error('Error fetching formation:', error);
+        }
+      );
+    } else {
+      console.error('Username is null');
+    }
   }
 
   loadFormations(): void {

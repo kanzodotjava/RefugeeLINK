@@ -33,6 +33,7 @@ import { OrganizationLoginComponent } from './components/organization-login/orga
 import { OrganizationDashboardComponent } from './components/organization-dashboard/organization-dashboard.component';
 import { MentorPageComponent } from './Chat-Component/mentor-page/mentor-page.component';
 import { RefugeeFormationsComponent } from './components/refugee-formations/refugee-formations.component';
+import { FormationDetailsComponent } from './components/formation-details/formation-details.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { RefugeeFormationsComponent } from './components/refugee-formations/refu
     OrganizationDashboardComponent,
     MentorPageComponent,
     RefugeeFormationsComponent,
+    FormationDetailsComponent,
   ],
   imports: [
     BrowserModule,
