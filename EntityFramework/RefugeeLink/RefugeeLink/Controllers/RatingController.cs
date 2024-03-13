@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using RefugeeLink.Data;
 using RefugeeLink.Models;
 using System;
+using System.Globalization;
 using System.Text.Json;
 
 namespace RefugeeLink.Controllers
@@ -26,15 +27,17 @@ namespace RefugeeLink.Controllers
         {
             // Assuming the external API is the source of truth for the current average rating
             var client = _clientFactory.CreateClient();
-            var response = await client.GetAsync($"http://localhost:8080/get-rating/{ratingDetail.MentorUsername}");
+            var response = await client.GetAsync($"http://localhost:8080/mentor/get-rating/{ratingDetail.MentorUsername}");
 
             if (!response.IsSuccessStatusCode)
             {
                 return BadRequest("Could not retrieve the current rating from the external API.");
             }
 
-            var currentRatingJson = await response.Content.ReadAsStringAsync();
-            var currentRating = JsonSerializer.Deserialize<double>(currentRatingJson);
+            var contentString = await response.Content.ReadAsStringAsync();
+            var currentRating = double.Parse(contentString, CultureInfo.InvariantCulture);
+
+            _context.RatingDetails.Add(ratingDetail);
 
             // Get or create the mentor rating entity
             var mentorRating = await _context.MentorRatings
@@ -57,10 +60,12 @@ namespace RefugeeLink.Controllers
                 mentorRating.TotalRaters = totalRaters; // Update the total raters count
             }
 
+            
+
             await _context.SaveChangesAsync();
 
             // Update the external API with the new average rating
-            var updateResponse = await client.PutAsync($"http://localhost:8080/update-rating/{ratingDetail.MentorUsername}", new StringContent(JsonSerializer.Serialize(new { averageRating = mentorRating.AverageRating }), System.Text.Encoding.UTF8, "application/json"));
+            var updateResponse = await client.PutAsync($"http://localhost:8080/mentor/update-rating/{ratingDetail.MentorUsername}/{mentorRating.AverageRating}", null);
 
             if (!updateResponse.IsSuccessStatusCode)
             {

@@ -160,13 +160,13 @@ public class MentorController {
 
 
     @GetMapping("/get-rating/{username}")
-    public ResponseEntity<MentorRatingDTO> getMentorRatingByUsername(@PathVariable String username) {
-        MentorRatingDTO mentorRating = mentorService.getMentorRatingByUsername(username);
+    public ResponseEntity<Double> getMentorRatingByUsername(@PathVariable String username) {
+        double mentorRating = mentorService.getMentorRatingByUsername(username);
         return ResponseEntity.ok(mentorRating);
     }
 
-    @PutMapping("/update-rating/{username}")
-    public ResponseEntity<Mentor> updateMentorRatingByUsername(@PathVariable String username, @RequestBody double newRating) {
+    @PutMapping("/update-rating/{username}/{newRating}")
+    public ResponseEntity<Mentor> updateMentorRatingByUsername(@PathVariable String username, @PathVariable double newRating) {
         Mentor updatedMentor = mentorService.updateMentorRatingByUsername(username, newRating);
         return ResponseEntity.ok(updatedMentor);
     }

@@ -149,12 +149,10 @@ public class MentorService {
         return mentorRepository.findByUserName(userName).orElseThrow(() -> new RuntimeException("Mentor not found with username: " + userName));
     }
 
-    public MentorRatingDTO getMentorRatingByUsername(String username) {
+    public double getMentorRatingByUsername(String username) {
         Mentor mentor = mentorRepository.findByUserName(username)
                 .orElseThrow(() -> new RuntimeException("Mentor not found with username: " + username));
-        MentorRatingDTO mentorRatingDTO = new MentorRatingDTO();
-        mentorRatingDTO.setRating(mentor.getRating());
-        return mentorRatingDTO;
+        return mentor.getRating();
     }
 
     @Transactional

@@ -7,7 +7,7 @@ import jakarta.persistence.OneToMany;
 import pt.upskill.RefugeeLINK.DTO.MentorDTO;
 import pt.upskill.RefugeeLINK.DTO.MentorLoginDTO;
 import pt.upskill.RefugeeLINK.DTO.MentorRatingDTO;
-import pt.upskill.RefugeeLINK.DTO.MentorTierDTO;
+
 import pt.upskill.RefugeeLINK.DTO.MentorUsernameDTO;
 import pt.upskill.RefugeeLINK.Enums.Profession;
 import pt.upskill.RefugeeLINK.Enums.Status;
@@ -28,7 +28,7 @@ public class Mentor extends Person{
 //    @Enumerated(EnumType.STRING)
     Status status;
 
-    double rating;
+    double rating = 0.0;
 
 
 
