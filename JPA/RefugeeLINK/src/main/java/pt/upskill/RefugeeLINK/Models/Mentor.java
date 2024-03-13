@@ -76,6 +76,7 @@ public class Mentor extends Person{
         MentorDTO mentorDTO = new MentorDTO();
         mentorDTO.setId(this.getId());
         mentorDTO.setName(this.getName());
+        mentorDTO.setUserName(this.getUserName());
         mentorDTO.setEmailAddress(this.getEmailAddress());
         mentorDTO.setBirthdayDate(this.getBirthdayDate());
         mentorDTO.setPhoneNumber(this.getPhoneNumber());
