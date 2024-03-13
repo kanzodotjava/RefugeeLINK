@@ -1,8 +1,4 @@
 <div class="message-form">
-  <div class="message-input">
-    <label>Write a message</label>
-    <input [(ngModel)]="messageContent" (keyup.enter)="sendMessage()" />
-  </div>
+  <input class="message-input" [(ngModel)]="messageContent" (keyup.enter)="sendMessage()" placeholder="Write a message" />
   <button class="send-button" (click)="sendMessage()">Send</button>
 </div>
-

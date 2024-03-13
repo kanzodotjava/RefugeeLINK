@@ -2,18 +2,16 @@
   display: flex;
   align-items: center;
   gap: 8px;
-}
-
-.message-input {
   margin-bottom: 10px;
 }
 
-  .message-input input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
+.message-input {
+  flex-grow: 1; /* Ensure the input takes up the available space */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none; /* Remove the outline to make it look cleaner */
+}
 
 .send-button {
   background-color: #007bff; /* Blue color */
