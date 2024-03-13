@@ -4,21 +4,21 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../services/ApiService/api.service';
 
 enum Language {
-  MANDARIN = 'Mandarin',
-  BENGALI = 'Bengali',
-  TURKISH = 'Turkish',
-  GERMAN = 'German',
-  ARABIC = 'Arabic',
+  MANDARIN = 'MANDARIN',
+  BENGALI = 'BENGALI',
+  TURKISH = 'TURKISH',
+  GERMAN = 'GERMAN',
+  ARABIC = 'ARABIC',
   ENGLISH = 'ENGLISH',
-  JAPANESE = 'Japanese',
-  HINDI = 'Hindi',
-  RUSSIAN = 'Russian',
-  SPANISH = 'Spanish',
-  PORTUGUESE = 'Portuguese',
-  FRENCH = 'French',
-  ITALIAN = 'Italian',
-  KOREAN = 'Korean',
-  UKRAINIAN = 'Ukrainian',
+  JAPANESE = 'JAPANESE',
+  HINDI = 'HINDI',
+  RUSSIAN = 'RUSSIAN',
+  SPANISH = 'SPANISH',
+  PORTUGUESE = 'PORTUGUESE',
+  FRENCH = 'FRENCH',
+  ITALIAN = 'ITALIAN',
+  KOREAN = 'KOREAN',
+  UKRAINIAN = 'UKRAINIAN',
 }
 
 @Component({
