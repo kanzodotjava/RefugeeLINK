@@ -145,19 +145,6 @@ public class MentorController {
         return new ResponseEntity<>(refugees, HttpStatus.OK);
     }
 
-//    @PostMapping("/login")
-//    public ResponseEntity<Boolean> validateLogin(@RequestBody MentorLoginDTO mentorLoginDTO) {
-//        Optional<Mentor> mentor = mentorService.findMentorByUsername(mentorLoginDTO.getUserName());
-//        if (mentor.isPresent()) {
-//
-//            String hashedInputPassword = mentorService.hashPassword(mentorLoginDTO.getPassword());
-//
-//            if (hashedInputPassword.equals(mentor.get().getPassword())) {
-//                return ResponseEntity.ok(true);
-//            }
-//        }
-//        return ResponseEntity.ok(false);
-//    }
 
     //gets MenTor and returns MentoTierDto
     @GetMapping("/tier/{username}")

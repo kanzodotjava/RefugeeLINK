@@ -24,8 +24,6 @@ public class Formation {
     private FormationStatus status;
     private Long organizationId;
 
-//    @ManyToOne
-//    private Organization organization;
 
     public Long getId() {
         return id;

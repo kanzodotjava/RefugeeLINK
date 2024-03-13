@@ -102,27 +102,6 @@ public class FormationController {
 
 
 
-//    @PostMapping("/{organizationId}/formations")
-//    public ResponseEntity<Formation> createFormation(@PathVariable Long organizationId, @RequestBody Formation formation) {
-//        try {
-//            Formation newFormation = formationService.registerFormation(formation, organizationId);
-//            return ResponseEntity.ok(newFormation);
-//        } catch (OrganizationNotFound e) {
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
-
-//    @GetMapping("/{organizationUsername}/formations")
-//    public ResponseEntity<List<Formation>> getFormationsByOrganization(@PathVariable String organizationUsername) {
-//        try {
-//            List<Formation> formations = formationService.getFormationByOrganizationUsername(organizationUsername);
-//            return ResponseEntity.ok(formations);
-//        } catch (OrganizationNotFound e) {
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
-
-
     @PostMapping("/{formationId}/complete")
     public ResponseEntity<Formation> completeFormation(@PathVariable Long formationId) {
         try {
@@ -132,15 +111,5 @@ public class FormationController {
             return ResponseEntity.notFound().build();
         }
     }
-
-//    @PostMapping("/{formationId}/startOnTime")
-//    public ResponseEntity<Formation> startFormationOnTime(@PathVariable Long formationId) {
-//        try {
-//            Formation startedFormation = formationService.startFormationOnTime(formationId);
-//            return ResponseEntity.ok(startedFormation);
-//        } catch (FormationIdNotFound e) {
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
 
 }
