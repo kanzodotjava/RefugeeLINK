@@ -7,6 +7,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import pt.upskill.RefugeeLINK.Exceptions.MentorAlreadySelectedException;
 import pt.upskill.RefugeeLINK.Exceptions.MentorIdNotFound;
+import pt.upskill.RefugeeLINK.Models.Formation;
 import pt.upskill.RefugeeLINK.Models.Mentor;
 import pt.upskill.RefugeeLINK.Models.Refugee;
 import pt.upskill.RefugeeLINK.Repositories.MentorRepository;
@@ -155,4 +156,13 @@ public class RefugeeService {
         }
         return matchedRefugees;
     }
+
+
+    public Formation getRefugeeFormationByUsername(String username) {
+        Refugee refugee = refugeeRepository.findByUserName(username)
+                .orElseThrow(() -> new RuntimeException("Refugee not found with username: " + username));
+        return refugee.getFormation();
+    }
+
+
 }

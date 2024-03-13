@@ -115,7 +115,7 @@ public class FormationService {
                 RefugeeFormation newRefugeeFormation = new RefugeeFormation();
                 newRefugeeFormation.setRefugee(refugee);
                 newRefugeeFormation.setFormation(formation);
-                newRefugeeFormation.setApproved(false); // ou alguma lógica de aprovação
+                newRefugeeFormation.setApproved(false);
                 refugeeFormationRepository.save(newRefugeeFormation);
                 return true;
             }
