@@ -1,0 +1,26 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) for Viewing Enrolled Formations
+
+autonumber
+
+actor Refugee
+participant ":RefugeeLink App" as App
+
+activate Refugee
+Refugee -> App : navigates to Enrolled Formations section
+activate App
+App -> App : retrieves enrolled formations from database
+App -> Refugee : displays list of enrolled formations
+deactivate App
+
+Refugee -> App : selects a specific formation
+activate App
+App -> App : retrieves detailed information about selected formation
+App -> Refugee : presents detailed information about selected formation
+deactivate App
+
+@enduml

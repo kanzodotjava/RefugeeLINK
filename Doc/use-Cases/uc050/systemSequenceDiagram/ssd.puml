@@ -1,0 +1,31 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) for Creating Organizations
+
+autonumber
+
+actor "System Administrator" as Admin
+participant ":RefugeeLink Admin Panel" as Panel
+
+activate Admin
+Admin -> Panel : navigates to organization creation feature
+activate Panel
+Panel -> Admin : presents organization creation form
+deactivate Panel
+
+Admin -> Panel : fills out organization creation form
+activate Panel
+Panel -> Panel : validates organization details
+Panel -> Admin : confirms successful submission
+deactivate Panel
+
+Admin -> Panel : submits organization details for review and approval
+activate Panel
+Panel -> Panel : reviews organization details
+Panel -> Admin : notifies approval status
+deactivate Panel
+
+@enduml

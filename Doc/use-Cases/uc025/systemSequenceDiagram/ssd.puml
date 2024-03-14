@@ -1,0 +1,42 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) for Applying for Formation Programs
+
+autonumber
+
+actor "Registered Refugee" as Refugee
+participant ":RefugeeLink App" as App
+
+activate Refugee
+Refugee -> App : navigates to formation programs section
+activate App
+App -> Refugee : displays list of available programs
+deactivate App
+
+activate Refugee
+Refugee -> App : selects a formation program
+activate App
+App -> Refugee : displays detailed program information
+deactivate App
+
+Refugee -> App : decides to apply
+activate App
+App -> Refugee : displays application form
+deactivate App
+
+Refugee -> App : fills out application form
+activate App
+App -> App : validates application form
+App -> Refugee : prompts to complete all required fields if incomplete
+deactivate App
+
+Refugee -> App : submits application
+activate App
+App -> App : records application
+App -> Refugee : provides confirmation message
+deactivate App
+
+@enduml

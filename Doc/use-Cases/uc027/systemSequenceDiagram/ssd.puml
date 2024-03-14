@@ -1,0 +1,42 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) for Applying for a Job
+
+autonumber
+
+actor Refugee
+participant ":RefugeeLink App" as App
+
+activate Refugee
+Refugee -> App : navigates to job listings section
+activate App
+App -> Refugee : displays list of available job listings
+deactivate App
+
+activate Refugee
+Refugee -> App : selects a specific job listing
+activate App
+App -> Refugee : presents detailed job information
+deactivate App
+
+Refugee -> App : decides to apply
+activate App
+App -> Refugee : provides instructions for application
+deactivate App
+
+Refugee -> App : follows application instructions
+activate App
+App -> Refugee : guides through application process
+deactivate App
+
+Refugee -> App : completes application process
+activate App
+App -> App : validates application
+App -> Refugee : confirms successful submission
+deactivate App
+
+@enduml
+

@@ -1,0 +1,38 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) for Chatting with Mentor
+
+autonumber
+
+actor Refugee
+actor Mentor
+participant ":RefugeeLink App" as App
+
+activate Refugee
+Refugee -> App : navigates to chat feature
+activate App
+App -> Refugee : displays list of connected mentors
+deactivate App
+
+activate Refugee
+Refugee -> App : selects a mentor to chat with
+activate App
+App -> Refugee : initiates chat session with selected mentor
+deactivate App
+
+Refugee -> Mentor : sends message
+Mentor -> Refugee : receives message and responds
+
+Refugee <-> Mentor : continues conversation
+
+note right: Chat session continues...
+
+Refugee -> App : ends chat session
+activate App
+App -> Refugee : confirms end of chat session
+deactivate App
+
+@enduml
