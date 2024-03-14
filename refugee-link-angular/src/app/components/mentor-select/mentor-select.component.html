@@ -75,10 +75,17 @@
                 <span class="font-semibold">Secondary Language:</span>
                 {{ mentor.secondaryLanguage }}
               </li>
+             
 
               <li>
                 <span class="font-semibold">Description:</span> {{ mentor.description }}
               </li>
+
+              <li>
+                <span class="font-semibold">Rating: </span>
+                <span class="gold-star" [innerHTML]="mentor.rating | starRating"></span>
+              </li>
+
             </ul>
             <div class="text-right">
               <p *ngIf="mentor.applicationResponse"

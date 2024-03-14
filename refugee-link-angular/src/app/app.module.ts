@@ -36,6 +36,8 @@ import { RefugeeFormationsComponent } from './components/refugee-formations/refu
 import { FormationDetailsComponent } from './components/formation-details/formation-details.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { ArrayFromNumberPipe } from './pipes/array-from-number.pipe';
+import { StarRatingPipe } from './pipes/star-rating.pipe';
+
 
 
 @NgModule({
@@ -68,6 +70,8 @@ import { ArrayFromNumberPipe } from './pipes/array-from-number.pipe';
     FormationDetailsComponent,
     RatingComponent,
     ArrayFromNumberPipe,
+    StarRatingPipe,
+   
   ],
   imports: [
     BrowserModule,
