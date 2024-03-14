@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import pt.upskill.RefugeeLINK.DTO.FormationDTO;
 import pt.upskill.RefugeeLINK.Enums.FormationStatus;
 import pt.upskill.RefugeeLINK.Exceptions.FormationIdNotFound;
@@ -16,6 +17,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/formation")
 public class FormationController {
+
+    private final RestTemplate restTemplate;
+
+    @Autowired
+    public FormationController(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     @Autowired
     private FormationService formationService;
@@ -110,6 +118,18 @@ public class FormationController {
         } catch (FormationIdNotFound e) {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/formations-by-organization/{organizationId}")
+    public ResponseEntity<List<Formation>> getFormationsByOrganizationId(@PathVariable Long organizationId) {
+        List<Formation> formations = formationService.getFormationsByOrganizationId(organizationId);
+        return ResponseEntity.ok(formations);
+    }
+
+    @GetMapping("/formations-by-organization-username/{username}")
+    public ResponseEntity<List<Formation>> getFormationsByOrganizationUsername(@PathVariable String username) {
+        List<Formation> formations = formationService.getFormationsByOrganizationUsername(username);
+        return ResponseEntity.ok(formations);
     }
 
 }

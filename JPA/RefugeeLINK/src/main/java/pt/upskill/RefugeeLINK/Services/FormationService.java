@@ -1,7 +1,9 @@
 package pt.upskill.RefugeeLINK.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import pt.upskill.RefugeeLINK.Enums.FormationStatus;
 import pt.upskill.RefugeeLINK.Exceptions.FormationIdNotFound;
 
@@ -24,6 +26,13 @@ import java.util.Optional;
 @Service
 public class FormationService {
 
+    private final RestTemplate restTemplate;
+
+    @Autowired
+    public FormationService(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
+
     @Autowired
     private FormationRepository formationRepository;
 
@@ -32,6 +41,8 @@ public class FormationService {
 
     @Autowired
     private RefugeeFormationRepository refugeeFormationRepository;
+
+
 
     public Formation getFormationById(Long id) throws FormationIdNotFound {
         if (id == null) {
@@ -158,4 +169,24 @@ public class FormationService {
         }
         return formations;
     }
+
+    public List<Formation> getFormationsByOrganizationId(Long organizationId) {
+        return formationRepository.findAllByOrganizationId(organizationId);
+    }
+
+
+    public List<Formation> getFormationsByOrganizationUsername(String username) {
+
+        // Step 1: Get the organization id
+        String url = "https://localhost:7165/organization/formations/" + username;
+        ResponseEntity<Long> response = restTemplate.getForEntity(url, Long.class);
+        Long organizationId = response.getBody();
+
+        // Step 2: Get the formations by organization id
+        List<Formation> formations = getFormationsByOrganizationId(organizationId);
+
+
+        return formations;
+    }
+
 }

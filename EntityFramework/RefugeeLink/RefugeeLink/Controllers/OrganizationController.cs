@@ -6,6 +6,7 @@ using RefugeeLink.Models;
 using System.Text.Json;
 using System.Text;
 using System.Net.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace RefugeeLink.Controllers
 {
@@ -175,5 +176,27 @@ namespace RefugeeLink.Controllers
         //        await httpClient.PutAsync($"localhost:8080/formation/{createdFormation.Id}/organization/{orgId}", null);
         //    }
         //}
+
+        [HttpGet("formations/{username}")]
+        public async Task<ActionResult<long>> GetOrganizationUsernameById(string username)
+        {
+            if (string.IsNullOrEmpty(username))
+            {
+                return NotFound();
+            }
+
+            var id = await _organizationCore.GetOrganizationByIdUsername(username);
+
+            if (id == 0)
+            {
+                return NotFound();
+            }
+
+
+
+            return id;
+        }
+
+
     }
 }

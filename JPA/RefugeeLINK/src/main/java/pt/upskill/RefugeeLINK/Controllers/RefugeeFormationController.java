@@ -8,6 +8,7 @@ import pt.upskill.RefugeeLINK.DTO.RefugeeFormationDTO;
 import pt.upskill.RefugeeLINK.Exceptions.FormationIdNotFound;
 import pt.upskill.RefugeeLINK.Exceptions.RefugeeFormationIdNotFound;
 import pt.upskill.RefugeeLINK.Exceptions.RefugeeIdNotFound;
+import pt.upskill.RefugeeLINK.Models.Refugee;
 import pt.upskill.RefugeeLINK.Models.RefugeeFormation;
 import pt.upskill.RefugeeLINK.Services.RefugeeFormationService;
 
@@ -58,5 +59,12 @@ public class RefugeeFormationController {
     public ResponseEntity<List<RefugeeFormation>> getCompletedFormationsByRefugee(@PathVariable Long refugeeId) {
         List<RefugeeFormation> completedFormations = refugeeFormationService.getCompletedFormationsByRefugee(refugeeId);
         return new ResponseEntity<>(completedFormations, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/refugees-by-formation/{formationId}")
+    public ResponseEntity<List<Refugee>> getRefugeesByFormationId(@PathVariable Long formationId) {
+        List<Refugee> refugees = refugeeFormationService.getRefugeesByFormationId(formationId);
+        return ResponseEntity.ok(refugees);
     }
 }

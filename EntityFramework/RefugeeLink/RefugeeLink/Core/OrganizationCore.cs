@@ -84,7 +84,13 @@ namespace RefugeeLink.Core
             return false;
         }
 
-        
+        public async Task<long> GetOrganizationByIdUsername(string username)
+        {
+            var organization = await _context.Organization.FirstOrDefaultAsync(o => o.Username == username);
+            return organization?.Id ?? 0;
+        }
+
+
     }
 
 

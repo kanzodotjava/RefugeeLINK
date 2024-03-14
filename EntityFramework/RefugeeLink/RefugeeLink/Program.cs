@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.EntityFrameworkCore;
 using RefugeeLink.Data;
+using System.Net;
 
 namespace RefugeeLink
 {
@@ -8,6 +9,9 @@ namespace RefugeeLink
     {
         public static void Main(string[] args)
         {
+
+            ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.

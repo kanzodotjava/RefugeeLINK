@@ -1,6 +1,8 @@
 package pt.upskill.RefugeeLINK.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import pt.upskill.RefugeeLINK.DTO.RefugeeFormationDTO;
 
@@ -12,10 +14,14 @@ public class RefugeeFormation {
 
     @ManyToOne
     @JoinColumn(name = "refugee_id")
+    @JsonIgnoreProperties("mentor") // to avoid infinite recursion
+    @JsonBackReference
     private Refugee refugee;
 
     @ManyToOne
     @JoinColumn(name = "formation_id")
+    @JsonIgnoreProperties("refugees") // to avoid infinite recursion
+    @JsonBackReference
     private Formation formation;
 
     private boolean isApproved;
