@@ -1,3 +1,4 @@
+
 <div class="main-container" *ngIf="selectedMentorUsername; else selectMentorPrompt">
   <div class="content-container">
 
@@ -15,7 +16,10 @@
 
     <!-- Chat Container on the right -->
     <div class="chat-container">
-      <h2>Conversation with {{ selectedMentorUsername }}</h2>
+      <h2>Conversation with: <span class="username">{{ selectedMentorUsername }}</span></h2>
+
+
+      <br />
       <div class="conversation-container">
         <div class="messages" #scrollMe>
           <div *ngFor="let message of messages" class="message" [ngClass]="{'mentor-message': message.senderUsername === selectedMentorUsername, 'refugee-message': message.senderUsername !== selectedMentorUsername}">

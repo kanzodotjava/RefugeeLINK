@@ -11,6 +11,7 @@ body, html {
   justify-content: center;
   width: 100%;
   padding: 20px 0;
+  margin-top: 50px;
 }
 
 .content-container {
@@ -25,10 +26,11 @@ body, html {
   flex-direction: column;
   align-items: center;
   width: 30%; /* Adjust the width ratio between profile/rating and chat */
+  margin-top: -280px;
 }
 
 .rating-container, .mentor-profile {
-  margin-bottom: 20px;
+  margin-bottom: -280px;
 }
 
 .chat-container {
@@ -42,14 +44,18 @@ body, html {
 }
 
 .messages {
+  height: 400px; /* Adjust height as necessary */
   overflow-y: auto;
-  height: 400px; /* Adjust based on your preference */
-  border: 1px solid #ccc;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .message {
-  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  display: inline-block;
+  max-width: 80%;
 }
 
 /* Add any specific styles for .mentor-message and .refugee-message */
@@ -73,3 +79,63 @@ button:hover {
 }
 
 
+.select-mentor-prompt {
+  text-align: center;
+  /* Add any additional styling you like here */
+}
+
+  .select-mentor-prompt p {
+    margin-bottom: 1em;
+    text-align: center;
+  }
+
+  .select-mentor-prompt button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+    .select-mentor-prompt button:hover {
+      background-color: #0056b3;
+    }
+
+.refresh-container button:hover {
+  background-color: #0056b3; /* A slightly darker blue on hover */
+}
+
+.mentor-message {
+  background-color: #d8eafd; /* Light blue to distinguish mentor's messages */
+  align-self: flex-start; /* Align mentor's messages to the left */
+}
+
+.refugee-message {
+  background-color: #f1f0f0; /* Light grey for refugee's messages */
+  align-self: flex-end; /* Align refugee's messages to the right */
+}
+
+.message p {
+  margin: 0;
+}
+
+.message-form-container {
+  margin-top: 20px;
+}
+
+h2 {
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  align-content:center;
+}
+
+.username {
+  color: #4cbcf8;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  align-content: center;
+}

@@ -1,17 +1,22 @@
-<div class="rating">
-  <ng-container *ngIf="canRate">
-    <span *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
-          [class.rated]="i < currentRating"
-          [class.can-rate]="canRate"
-          (click)="canRate && updateRating(i + 1)">
-      ★
-    </span>
-  </ng-container>
-  <div *ngIf="!canRate" class="already-rated-message">
-    User already rated. Rating:
+<div class="main">
+  Rate this mentor:
+  <div class="rating">
+    <ng-container *ngIf="canRate">
 
-    <span *ngFor="let star of currentRating | arrayFromNumber; let i = index">
-      ★
-    </span>
+      <span *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
+            [class.rated]="i < currentRating"
+            [class.can-rate]="canRate"
+            (click)="canRate && updateRating(i + 1)">
+        ★
+      </span>
+    </ng-container>
+    <div *ngIf="!canRate" class="already-rated-message">
+
+
+      <span *ngFor="let star of currentRating | arrayFromNumber; let i = index">
+        ★
+      </span>
+      :User already rated. Rating
+    </div>
   </div>
 </div>

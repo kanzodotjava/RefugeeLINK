@@ -3,6 +3,11 @@
   direction: rtl; /* Reverse the order of stars */
   font-size: 30px;
   cursor: pointer;
+  margin-left: 35px;
+}
+.main {
+    font-weight: bold;
+    
 }
 
   .rating span {
