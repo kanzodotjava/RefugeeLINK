@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/ApiService/api.service';
 import { retry, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-connected-refugees',
@@ -12,7 +13,8 @@ export class ConnectedRefugeesComponent implements OnInit {
   refugeeInfoList: any[] = [];
   profilePictureUrl: string = './assets/images/pfp/';
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService,
+  private router: Router) { }
 
   ngOnInit(): void {
     const username = localStorage.getItem('username');
@@ -33,5 +35,9 @@ export class ConnectedRefugeesComponent implements OnInit {
     } else {
       console.error('Username not found in local storage');
     }
+  }
+
+  goToChat(): void {
+    this.router.navigate(['/messages']); // Adjust the route as per your application's routing
   }
 }

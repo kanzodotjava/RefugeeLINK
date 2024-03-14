@@ -68,6 +68,7 @@ export class MentorPageComponent implements OnInit {
   }
 
   refreshMessages(): void {
+    console.log("refreshing")
     const mentorUsername = this.authService.getUsername();
     const refugeeUsername = this.selectedRefugeeUsername;
     if (refugeeUsername && mentorUsername) {
