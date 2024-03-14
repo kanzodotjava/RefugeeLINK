@@ -1,18 +1,43 @@
 @startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title View Enrolled Formations
+
+autonumber
 
 actor Refugee
-participant RefugeeLink as "RefugeeLink App"
-participant Database as "Database"
+participant ":EnrolledFormationsUI" as ui
+participant ":EnrolledFormationsController" as ctrl
+participant "System" as system
 
-Refugee -> RefugeeLink: Log in
-Refugee -> RefugeeLink: Navigate to "Enrolled Formations"
-RefugeeLink -> Database: Retrieve enrolled formations for Refugee
-Database --> RefugeeLink: List of enrolled formations
-RefugeeLink --> Refugee: Display list of enrolled formations
+activate Refugee
 
-Refugee -> RefugeeLink: Select an enrolled formation
-RefugeeLink -> Database: Retrieve details of selected formation
-Database --> RefugeeLink: Details of selected formation
-RefugeeLink --> Refugee: Display details of selected formation
+    Refugee -> ui : navigates to Enrolled Formations section
+    activate ui
+        ui -> ctrl : loadEnrolledFormations()
+        activate ctrl
+            ctrl -> system : getEnrolledFormations()
+            activate system
+                system --> ctrl : enrolledFormationsList
+            deactivate system
+            ctrl -> ui : displayEnrolledFormations(enrolledFormationsList)
+        deactivate ctrl
+    deactivate ui
+
+    Refugee -> ui : selects a specific formation
+    activate ui
+        ui -> ctrl : viewFormationDetails(selectedFormation)
+        activate ctrl
+            ctrl -> system : getFormationDetails(selectedFormation)
+            activate system
+                system --> ctrl : formationDetails
+            deactivate system
+            ctrl -> ui : displayFormationDetails(formationDetails)
+        deactivate ctrl
+    deactivate ui
+
+deactivate Refugee
 
 @enduml

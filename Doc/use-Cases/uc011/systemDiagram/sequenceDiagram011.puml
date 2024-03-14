@@ -3,31 +3,45 @@ skinparam monochrome true
 skinparam packageStyle rectangle
 skinparam shadowing false
 
-title Mentor Registration Process
+title Register as a Mentor
 
 autonumber
 
 actor Guest
-participant "RegistrationMentorPage" as MentorPage
-participant "RegistrationController" as RegCtrl
-participant Database
+participant ":MentorRegistrationPageUI" as ui
+participant ":MentorRegistrationController" as ctrl
+participant "System" as system
 
 activate Guest
 
-Guest -> MentorPage : Accesses Registration Page
-activate MentorPage
-
-MentorPage -> RegCtrl : Submits Registration Form
-activate RegCtrl
-
-RegCtrl -> Database : Store Registration Data
-activate Database
-Database --> RegCtrl : Confirmation
-deactivate Database
-
-RegCtrl --> Guest : Confirmation Message
-deactivate RegCtrl
-deactivate MentorPage
+    Guest -> ui : navigates to mentor registration page
+    activate ui
+        ui -> ctrl : presentMentorRegistrationForm()
+        activate ctrl
+            ctrl -> ui : displayMentorRegistrationForm()
+            deactivate ctrl
+        ui --> Guest : shows mentor registration form
+        Guest -> ui : fills out mentor registration form
+        activate ui
+            ui -> ctrl : submitMentorRegistrationForm(personalInfo, expertise, availability)
+            activate ctrl
+                ctrl -> system : validateInformation(personalInfo, expertise, availability)
+                activate system
+                    system --> ctrl : validationResult
+                deactivate system
+                alt validationResult is valid
+                    ctrl -> system : sendSystemMessage()
+                    activate system
+                        system --> ctrl : messageSentConfirmation
+                    deactivate system
+                    ctrl -> ui : showConfirmationMessage(messageSentConfirmation)
+                    ui --> Guest : shows confirmation message
+                else validationResult is invalid
+                    ctrl -> ui : showErrorMessage(validationResult)
+                end
+            deactivate ctrl
+        deactivate ui
+    deactivate ui
 
 deactivate Guest
 

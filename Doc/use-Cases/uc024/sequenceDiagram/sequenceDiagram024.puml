@@ -1,32 +1,82 @@
 @startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title Chat with Mentor
+
+autonumber
 
 actor Refugee
 actor Mentor
+participant ":ChatFeatureUI" as ui
+participant ":ChatFeatureController" as ctrl
+participant "System" as system
 
-Refugee -> RefugeeLink: Log in
-Refugee -> RefugeeLink: Navigate to chat feature
-RefugeeLink --> Refugee: Display list of connected mentors
+activate Refugee
 
-Mentor -> RefugeeLink: Log in
-RefugeeLink --> Mentor: Notify mentor of incoming chat request
-Mentor --> RefugeeLink: Accept chat request
+    Refugee -> ui : navigates to chat feature
+    activate ui
+        ui -> ctrl : loadConnectedMentors()
+        activate ctrl
+            ctrl -> system : getConnectedMentors()
+            activate system
+                system --> ctrl : connectedMentorsList
+            deactivate system
+            ctrl -> ui : displayConnectedMentors(connectedMentorsList)
+        deactivate ctrl
+    deactivate ui
 
-RefugeeLink -> Refugee: Initiate chat session with mentor
-RefugeeLink -> Mentor: Initiate chat session with refugee
+    Refugee -> ui : selects a mentor to chat with
+    activate ui
+        ui -> ctrl : initiateChatSession(selectedMentor)
+        activate ctrl
+            ctrl -> system : initiateChat(selectedMentor)
+            activate system
+                system --> ctrl : chatSessionInitiated
+            deactivate system
+            ctrl -> ui : displayChatSession(chatSessionInitiated)
+        deactivate ctrl
+    deactivate ui
 
-activate RefugeeLink
-RefugeeLink -> Mentor: Send initial message
+    Refugee -> ui : sends a message to the mentor
+    activate ui
+        ui -> ctrl : sendMessage(messageContent)
+        activate ctrl
+            ctrl -> system : sendChatMessage(messageContent)
+            activate system
+                system --> ctrl : messageSentConfirmation
+            deactivate system
+            ctrl -> ui : displayMessageConfirmation(messageSentConfirmation)
+        deactivate ctrl
+    deactivate ui
+
+    Refugee -> ui : navigates through chat history
+    activate ui
+        ui -> ctrl : viewChatHistory()
+        activate ctrl
+            ctrl -> system : getChatHistory(selectedMentor)
+            activate system
+                system --> ctrl : chatHistory
+            deactivate system
+            ctrl -> ui : displayChatHistory(chatHistory)
+        deactivate ctrl
+    deactivate ui
+
+deactivate Refugee
+
 activate Mentor
-Mentor --> RefugeeLink: Receive initial message
-deactivate Mentor
-RefugeeLink --> Refugee: Display initial message
-Refugee -> RefugeeLink: Send message to mentor
-RefugeeLink -> Mentor: Receive message from refugee
-activate Mentor
-Mentor --> RefugeeLink: Send response to refugee
-deactivate Mentor
-RefugeeLink --> Refugee: Display mentor's response
 
-...
+    Mentor -> system : receives message from refugee
+    activate system
+        system -> Mentor : deliverMessage(messageContent)
+    deactivate system
+
+    Mentor -> system : sends response to refugee
+    activate system
+        system -> Refugee : deliverMessage(responseContent)
+    deactivate system
+
+deactivate Mentor
 
 @enduml

@@ -3,31 +3,44 @@ skinparam monochrome true
 skinparam packageStyle rectangle
 skinparam shadowing false
 
-title Refugee Registration Process
+title Register as a Refugee
 
 autonumber
 
 actor Guest
-participant "RegistrationRefugeePage" as RegPage
-participant "RegistrationController" as RegCtrl
-participant Database
+participant ":RegistrationPageUI" as ui
+participant ":RegistrationController" as ctrl
+participant "System" as system
 
 activate Guest
 
-Guest -> RegPage : Accesses Registration Page
-activate RegPage
-
-RegPage -> RegCtrl : Submits Registration Form
-activate RegCtrl
-
-RegCtrl -> Database : Store Registration Data
-activate Database
-Database --> RegCtrl : Confirmation
-deactivate Database
-
-RegCtrl --> Guest : Confirmation Message
-deactivate RegCtrl
-deactivate RegPage
+    Guest -> ui : navigates to registration page
+    activate ui
+        ui -> ctrl : presentRegistrationForm()
+        activate ctrl
+            ctrl -> ui : displayRegistrationForm()
+            deactivate ctrl
+        ui --> Guest : shows registration form
+        Guest -> ui : fills out registration form
+        activate ui
+            ui -> ctrl : submitRegistrationForm
+            activate ctrl
+                ctrl -> system : validateInformation
+                activate system
+                    system --> ctrl : validationResult
+                deactivate system
+                alt validationResult is valid
+                    ctrl -> system : sendSystemMessage()
+                    activate system
+                        system --> ctrl : messageSentConfirmation
+                    deactivate system
+                    ctrl -> ui : showConfirmationMessage(messageSentConfirmation)
+                else validationResult is invalid
+                    ctrl -> ui : showErrorMessage(validationResult)
+                end
+            deactivate ctrl
+        deactivate ui
+    deactivate ui
 
 deactivate Guest
 

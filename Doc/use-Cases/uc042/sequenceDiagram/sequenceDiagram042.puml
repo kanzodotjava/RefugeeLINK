@@ -1,21 +1,39 @@
 @startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title Chat with Apprentices Sequence Diagram
+
+autonumber
 
 actor Mentor
-participant RefugeeLink as "RefugeeLink App"
-participant Database as "Database"
-participant Apprentice as "Apprentice"
+participant "RefugeeLink App" as app
+participant "Chat Feature" as chat
+participant "Apprentice" as apprentice
 
-Mentor -> RefugeeLink: Log in
-Mentor -> RefugeeLink: Navigate to chat feature
-RefugeeLink --> Mentor: List of current apprentices
-Mentor -> RefugeeLink: Select apprentice to chat with
-RefugeeLink -> Database: Retrieve chat history
-Database --> RefugeeLink: Chat history for selected apprentice
-Mentor <-> Apprentice: Chat messages
-Mentor -> RefugeeLink: Send message
-RefugeeLink -> Apprentice: Deliver message notification
-Apprentice -> RefugeeLink: Receive message
-RefugeeLink -> Mentor: Deliver message confirmation
-Note right of Mentor: Chat continues...\n(Real-time communication)
+activate Mentor
 
+Mentor -> app : Opens RefugeeLink App
+activate app
+    app -> chat : Accesses Chat Feature
+    activate chat
+        chat -> app : Display List of Apprentices
+        app -> chat : Shows List of Apprentices
+        chat -> app : Selects an Apprentice
+        app -> chat : Initiates Chat Session
+        chat -> app : Displays Chat Interface
+    deactivate chat
+deactivate app
+
+Mentor -> chat : Sends Message
+activate chat
+    chat -> apprentice : Sends Message
+    activate apprentice
+        apprentice -> chat : Receives Message
+    deactivate apprentice
+    chat -> Mentor : Confirms Message Sent
+deactivate chat
+
+deactivate Mentor
 @enduml
