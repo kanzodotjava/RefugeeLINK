@@ -1,0 +1,27 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) for Toggling Approval Status of Students
+
+autonumber
+
+actor Organization
+participant ":RefugeeLink App" as App
+
+activate Organization
+Organization -> App : navigates to student list for a formation
+activate App
+App -> App : retrieves student list with approval status
+App -> Organization : displays student list
+deactivate App
+
+Organization -> App : selects a student to toggle approval status
+activate App
+App -> App : toggles approval status for selected student
+App -> Organization : updates approval status
+deactivate App
+
+
+@enduml
