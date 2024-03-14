@@ -14,4 +14,5 @@ import java.util.Optional;
 public interface FormationRepository extends JpaRepository<Formation, Long>{
     Optional<Formation> findByName(String name);
     List<Formation> findByStatus(FormationStatus status);
+
 }

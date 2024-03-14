@@ -5,12 +5,14 @@ import org.springframework.stereotype.Service;
 import pt.upskill.RefugeeLINK.Exceptions.FormationIdNotFound;
 import pt.upskill.RefugeeLINK.Exceptions.RefugeeFormationIdNotFound;
 import pt.upskill.RefugeeLINK.Exceptions.RefugeeIdNotFound;
+import pt.upskill.RefugeeLINK.Models.Refugee;
 import pt.upskill.RefugeeLINK.Models.RefugeeFormation;
 import pt.upskill.RefugeeLINK.Repositories.FormationRepository;
 import pt.upskill.RefugeeLINK.Repositories.RefugeeFormationRepository;
 import pt.upskill.RefugeeLINK.Repositories.RefugeeRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class RefugeeFormationService {
@@ -93,5 +95,18 @@ public class RefugeeFormationService {
         return refugeeFormationRepository.findAllByRefugeeIdAndIsApproved(refugeeId, true);
     }
 
+
+    public List<Refugee> getRefugeesByFormationId(Long formationId) {
+        // Retrieve the list of RefugeeFormation objects by formation id
+        List<RefugeeFormation> refugeeFormations = refugeeFormationRepository.findAllByFormationId(formationId);
+
+        // Extract the refugee ids from the list of RefugeeFormation objects
+        List<Long> refugeeIds = refugeeFormations.stream()
+                .map(refugeeFormation -> refugeeFormation.getRefugee().getId())
+                .collect(Collectors.toList());
+
+        // Return the refugees associated with the retrieved refugee IDsr
+        return refugeeRepository.findAllById(refugeeIds);
+    }
 
 }

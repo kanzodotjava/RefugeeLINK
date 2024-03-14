@@ -178,5 +178,9 @@ public class RefugeeService {
         return refugee.getFormation();
     }
 
+    public List<Refugee> getRefugeesByIds(List<Long> refugeeIds) {
+        return refugeeRepository.findAllById(refugeeIds);
+    }
+
 
 }
