@@ -24,6 +24,8 @@ import { MessageListComponent } from './Chat-Component/message-list/message-list
 import { RefugeeFormationsComponent } from './components/refugee-formations/refugee-formations.component';
 import { FormationDetailsComponent } from './components/formation-details/formation-details.component';
 import { OrganizationAuthGuard } from './guards/organizationAuthGuard/organization-auth.guard';
+import { RefugeeAuthGuard } from './guards/refugeeAuthGuard/refugee-auth.guard';
+import { MentorAuthGuard } from './guards/mentorAuthGuard/mentor-auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -32,10 +34,18 @@ const routes: Routes = [
   { path: 'register-as-mentor', component: RegisterAsMentorComponent },
   { path: 'register-as-refugee', component: RegisterAsRefugeeComponent },
   { path: 'login', component: LoginPageComponent },
-  { path: 'mentor-select', component: MentorSelectComponent },
+  {
+    path: 'mentor-select',
+    component: MentorSelectComponent,
+    canActivate: [RefugeeAuthGuard],
+  },
   { path: 'logout', component: LogoutComponent },
   { path: 'admin-login', component: AdminLoginComponent },
-  { path: 'connected-refugees', component: ConnectedRefugeesComponent },
+  {
+    path: 'connected-refugees',
+    component: ConnectedRefugeesComponent,
+    canActivate: [MentorAuthGuard],
+  },
   {
     path: 'admin-dashboard',
     component: AdminDashboardComponent,
