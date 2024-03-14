@@ -2,7 +2,6 @@
   unicode-bidi: bidi-override;
   direction: rtl; /* Reverse the order of stars */
   font-size: 30px;
-  cursor: pointer;
   margin-left: 35px;
   margin: 0;
   padding: 0;
@@ -30,11 +29,12 @@
 
 .can-rate {
   color: lightgrey;
+  cursor: pointer;
 }
 
 .already-rated-message {
   color: darkgoldenrod;
   margin-top: 10px;
   pointer-events: none;
+  cursor: not-allowed;
 }
-
