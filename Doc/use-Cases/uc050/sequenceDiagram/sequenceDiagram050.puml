@@ -1,18 +1,36 @@
 @startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
 
-actor Admin
-participant "RefugeeLink Admin Panel" as Panel
-participant "RefugeeLink Database" as Database
-participant "Organization" as Org
+title Create Organizations Sequence Diagram
 
-Admin -> Panel: Log in
-Admin -> Panel: Navigate to create organization
-Panel --> Admin: Organization creation form
-Admin -> Panel: Fill out organization details
-Admin -> Panel: Submit organization details
-Panel -> Database: Save organization details
-Database --> Panel: Confirmation of organization creation
-Panel --> Admin: Confirmation message
-Admin -> Org: Notification of successful creation
+autonumber
 
+actor SystemAdministrator
+participant "RefugeeLink Admin Panel" as admin_panel
+participant "Organization Creation Form" as creation_form
+participant "RefugeeLink Administrator Ctrl" as platform_admin
+
+activate SystemAdministrator
+
+SystemAdministrator -> admin_panel : Accesses RefugeeLink Admin Panel
+activate admin_panel
+    admin_panel -> SystemAdministrator : Displays Organization Creation Feature
+    SystemAdministrator -> admin_panel : Opens Organization Creation Feature
+    admin_panel -> creation_form : Displays Organization Creation Form
+    activate creation_form
+        creation_form -> admin_panel : Submits Organization Details
+        admin_panel -> platform_admin : Submits Organization Details for Review
+    deactivate creation_form
+    admin_panel -> SystemAdministrator : Displays Confirmation Message
+deactivate admin_panel
+
+activate platform_admin
+    platform_admin -> platform_admin : Reviews Organization Details
+    platform_admin -> admin_panel : Approves Organization
+    admin_panel -> SystemAdministrator : Sends Approval Notification
+deactivate platform_admin
+
+deactivate SystemAdministrator
 @enduml

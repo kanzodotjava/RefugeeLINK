@@ -1,17 +1,43 @@
 @startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title Toggle Approval Status of Students in Formations
+
+autonumber
 
 actor Organization
-participant "RefugeeLink App" as App
-participant "Formation Student List" as List
-participant Database
+participant ":FormationDetailsUI" as ui_details
+participant ":FormationDetailsController" as ctrl_details
+participant "System" as system
 
-Organization -> App: Log in
-Organization -> App: Navigate to formation
-App -> Database: Retrieve student list for formation
-Database --> App: Student list
-Organization -> App: Toggle approval status of student
-App -> Database: Update student approval status
-Database --> App: Confirmation of update
-App --> Organization: Confirmation message
+activate Organization
+
+    Organization -> ui_details : navigates to student list for a formation
+    activate ui_details
+        ui_details -> ctrl_details : loadStudentList(formation)
+        activate ctrl_details
+            ctrl_details -> system : getStudentList(formation)
+            activate system
+                system --> ctrl_details : studentList
+            deactivate system
+            ctrl_details -> ui_details : displayStudentList(studentList)
+        deactivate ctrl_details
+    deactivate ui_details
+
+    Organization -> ui_details : selects a student to toggle approval status
+    activate ui_details
+        ui_details -> ctrl_details : selectStudent(student)
+        activate ctrl_details
+            ctrl_details -> system : toggleApprovalStatus(student)
+            activate system
+                system --> ctrl_details : approvalStatusToggledConfirmation
+            deactivate system
+            ctrl_details -> ui_details : displayConfirmationMessage(approvalStatusToggledConfirmation)
+        deactivate ctrl_details
+    deactivate ui_details
+
+deactivate Organization
 
 @enduml

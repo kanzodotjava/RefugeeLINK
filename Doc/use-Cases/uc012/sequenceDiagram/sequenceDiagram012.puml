@@ -3,31 +3,34 @@ skinparam monochrome true
 skinparam packageStyle rectangle
 skinparam shadowing false
 
-title Guest Views News About Refugees via News API
+title View News about Refugees on Homepage
 
 autonumber
 
 actor Guest
-participant "Homepage" as HP
-participant "NewsController" as NewsCtrl
-participant "NewsAPI" as NewsAPI
+participant ":HomepageUI" as ui
+participant ":HomepageController" as ctrl
+participant "NewsRepository" as newsRepo
+participant "System" as system
 
 activate Guest
 
-Guest -> HP : Accesses Homepage
-activate HP
-
-HP -> NewsCtrl : Request News Updates
-activate NewsCtrl
-
-NewsCtrl -> NewsAPI : Request News Articles
-activate NewsAPI
-NewsAPI --> NewsCtrl : News Articles
-deactivate NewsAPI
-
-NewsCtrl --> HP : Display News Updates
-deactivate NewsCtrl
-deactivate HP
+    Guest -> ui : accesses homepage
+    activate ui
+        ui -> ctrl : loadNews()
+        activate ctrl
+            ctrl -> newsRepo : getLatestNews()
+            activate newsRepo
+                newsRepo -> newsRepo : fetchNews()
+                newsRepo --> ctrl : newsList
+            deactivate newsRepo
+            ctrl -> system : displayNews(newsList)
+            activate system
+                system --> ctrl : newsDisplayedConfirmation
+            deactivate system
+            ctrl -> ui : showNews(newsList)
+        deactivate ctrl
+    deactivate ui
 
 deactivate Guest
 

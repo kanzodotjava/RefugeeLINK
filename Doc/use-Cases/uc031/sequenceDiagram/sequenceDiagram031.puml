@@ -1,20 +1,39 @@
 @startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title Create Formation
+
+autonumber
 
 actor Organization
-participant RefugeeLink as "RefugeeLink App"
-participant Database as "Database"
-participant Administrator as "RefugeeLink Administrator"
+participant ":FormationCreationUI" as ui_creation
+participant ":FormationCreationController" as ctrl_creation
+participant "System" as system
 
-Organization -> RefugeeLink: Log in
-Organization -> RefugeeLink: Navigate to "Create Formation"
-RefugeeLink --> Organization: Formation creation form
-Organization -> RefugeeLink: Fill out formation details
-Organization -> RefugeeLink: Upload additional materials/resources
-Organization -> RefugeeLink: Submit formation for review
-RefugeeLink -> Database: Save submitted formation details
-Database --> RefugeeLink: Confirmation of formation submission
-RefugeeLink -> Administrator: Notify administrator of new formation submission
-Administrator --> RefugeeLink: Review submitted formation
-RefugeeLink --> Organization: Confirmation message of formation submission review
+activate Organization
+
+    Organization -> ui_creation : navigates to Create Formation section
+    activate ui_creation
+        ui_creation -> ctrl_creation : displayFormationCreationForm()
+        activate ctrl_creation
+            ctrl_creation -> ui_creation : displayFormationCreationForm()
+        deactivate ctrl_creation
+    deactivate ui_creation
+
+    Organization -> ui_creation : fills out formation creation form
+    activate ui_creation
+        ui_creation -> ctrl_creation : submitFormationCreationForm(formationDetails)
+        activate ctrl_creation
+            ctrl_creation -> system : submitFormationForReview(formationDetails)
+            activate system
+                system --> ctrl_creation : formationSubmittedConfirmation
+            deactivate system
+            ctrl_creation -> ui_creation : displayConfirmationMessage(formationSubmittedConfirmation)
+        deactivate ctrl_creation
+    deactivate ui_creation
+
+deactivate Organization
 
 @enduml

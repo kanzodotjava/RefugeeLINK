@@ -3,46 +3,35 @@ skinparam monochrome true
 skinparam packageStyle rectangle
 skinparam shadowing false
 
-title Registered Refugee Views Available Mentors and Applies Filters/Search
+title View Available Mentors
 
 autonumber
 
-actor Refugee
-participant "App" as App
-participant "MentorController" as MentorCtrl
-participant "MentorDatabase" as MentorDB
+actor RegisteredRefugee
+participant ":MentorSectionUI" as ui
+participant ":MentorSectionController" as ctrl
+participant "MentorRepository" as mentorRepo
+participant "System" as system
 
-activate Refugee
+activate RegisteredRefugee
 
-Refugee -> App : Navigate to Mentors Section
-activate App
+    RegisteredRefugee -> ui : navigates to mentor section
+    activate ui
+        ui -> ctrl : loadAvailableMentors()
+        activate ctrl
+            ctrl -> mentorRepo : getAvailableMentors()
+            activate mentorRepo
+                mentorRepo -> mentorRepo : fetchAvailableMentors()
+                mentorRepo --> ctrl : mentorList
+            deactivate mentorRepo
+            ctrl -> system : displayMentors(mentorList)
+            activate system
+                system --> ctrl : mentorsDisplayedConfirmation
+            deactivate system
+            ctrl -> ui : showMentors(mentorList)
+        deactivate ctrl
+    deactivate ui
 
-App -> MentorCtrl : Request Available Mentors
-activate MentorCtrl
-
-MentorCtrl -> MentorDB : Retrieve Mentors List
-activate MentorDB
-MentorDB --> MentorCtrl : List of Mentors
-deactivate MentorDB
-
-MentorCtrl --> App : Display Mentors
-deactivate MentorCtrl
-
-Refugee -> App : Apply Filters/Search (Optional)
-activate App
-
-App -> MentorCtrl : Filter/Search Request
-activate MentorCtrl
-
-MentorCtrl -> MentorDB : Apply Filters/Search
-activate MentorDB
-MentorDB --> MentorCtrl : Filtered/Search Results
-deactivate MentorDB
-
-MentorCtrl --> App : Display Filtered/Search Results
-deactivate MentorCtrl
-deactivate App
-
-deactivate Refugee
+deactivate RegisteredRefugee
 
 @enduml

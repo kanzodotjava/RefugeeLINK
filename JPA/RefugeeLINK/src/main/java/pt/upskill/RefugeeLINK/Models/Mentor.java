@@ -26,7 +26,7 @@ public class Mentor extends Person{
     List<Refugee> refugees;
 
 //    @Enumerated(EnumType.STRING)
-    Status status;
+    Status status = Status.AWAITING;
 
     double rating = 0.0;
 

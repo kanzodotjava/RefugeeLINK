@@ -3,55 +3,42 @@ skinparam monochrome true
 skinparam packageStyle rectangle
 skinparam shadowing false
 
-title Refugee Applies for Mentorship
+title Apply to Mentorship
 
-actor Refugee
-participant "RefugeeLink" as RL
-participant "Database" as DB
-participant "Mentor"
+autonumber
 
-activate Refugee
+actor RegisteredRefugee
+participant ":MentorProfileUI" as ui_profile
+participant ":MentorProfileController" as ctrl_profile
+participant "System" as system
 
-Refugee -> RL : Log in
-Refugee -> RL : Navigate to "View Available Mentors"
-activate RL
+activate RegisteredRefugee
 
-RL -> DB : Retrieve available mentors
-activate DB
-DB --> RL : List of mentors
-deactivate DB
+    RegisteredRefugee -> ui_profile : views available mentors
+    activate ui_profile
+        ui_profile -> ctrl_profile : loadMentorProfiles()
+        activate ctrl_profile
+            ctrl_profile -> system : getAvailableMentors()
+            activate system
+                system --> ctrl_profile : availableMentorsList
+            deactivate system
+            ctrl_profile -> ui_profile : displayMentorProfiles(availableMentorsList)
+        deactivate ctrl_profile
+    deactivate ui_profile
 
-RL --> Refugee : Display list of available mentors
+    RegisteredRefugee -> ui_profile : selects a mentor profile
+    activate ui_profile
+        ui_profile -> ctrl_profile : viewMentorProfile(selectedMentor)
+        activate ctrl_profile
+            ctrl_profile -> ui_profile : displayMentorProfileDetails(selectedMentor)
+        deactivate ctrl_profile
+    deactivate ui_profile
 
-Refugee -> RL : Select a mentor to view details
+    RegisteredRefugee -> system : apply for mentorship
+    activate system
+        system -> RegisteredRefugee : provideMentorshipApplicationForm(selectedMentor)
+    deactivate system
 
-RL -> DB : Retrieve mentor details
-activate DB
-DB --> RL : Mentor details
-deactivate DB
-
-RL --> Refugee : Display mentor details
-
-Refugee -> RL : Initiate mentorship application
-RL --> Refugee : Display mentorship application form
-
-Refugee -> RL : Fill out application form
-RL --> Refugee : Submit application
-
-RL --> DB : Save mentorship application
-activate DB
-DB --> RL : Confirmation of application submission
-deactivate DB
-
-RL --> Mentor : Notify mentor of new application
-activate Mentor
-Mentor --> RL : Review mentorship application
-RL --> Mentor : Accept or decline mentorship application
-deactivate Mentor
-
-RL --> Refugee : Confirmation message of application submission
-
-deactivate RL
-deactivate Refugee
+deactivate RegisteredRefugee
 
 @enduml

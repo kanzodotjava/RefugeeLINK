@@ -169,4 +169,14 @@ public class RefugeeService {
     }
 
 
+    public Formation getCurrentFormationByRefugee(String username) {
+        // Retrieve the refugee object by username
+        Refugee refugee = refugeeRepository.findByUserName(username)
+                .orElseThrow(() -> new RuntimeException("Refugee not found with username: " + username));
+
+        // Return the current formation of the refugee
+        return refugee.getFormation();
+    }
+
+
 }

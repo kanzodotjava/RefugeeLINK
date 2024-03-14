@@ -170,10 +170,12 @@ public class RefugeeController {
     @GetMapping("/current-formation/{username}")
     public ResponseEntity<Formation> getCurrentFormation(@PathVariable String username) {
         try {
-            Formation formation = refugeeService.getRefugeeFormationByUsername(username);
+            Formation formation = refugeeService.getCurrentFormationByRefugee(username);
             return new ResponseEntity<>(formation, HttpStatus.OK);
         } catch (RuntimeException ex) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+
 }
