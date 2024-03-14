@@ -35,48 +35,108 @@
     <div class="form-field">
       <label for="country">Country:</label>
       <select id="country" formControlName="country">
-        <option value="USA">United States of America</option>
-        <!-- Add more options for countries here -->
+        <option *ngFor="let country of countries" [value]="country">
+          {{ country }}
+        </option>
       </select>
     </div>
 
     <div class="form-field">
       <label for="userName">Username:</label>
       <input type="text" id="userName" formControlName="userName" />
+      <div
+        *ngIf="
+          mentorForm.get('userName')?.invalid &&
+          (mentorForm.get('userName')?.dirty ||
+            mentorForm.get('userName')?.touched)
+        "
+        class="error-message"
+      >
+        <div *ngIf="mentorForm.get('userName')?.errors?.['required']">
+          Username is required
+        </div>
+        <div *ngIf="mentorForm.get('userName')?.errors?.['minlength']">
+          Username must be at least 6 characters long
+        </div>
+        <div *ngIf="mentorForm.get('userName')?.errors?.['maxlength']">
+          Username cannot be more than 12 characters long
+        </div>
+      </div>
     </div>
 
     <div class="form-field">
       <label for="password">Password:</label>
       <input type="password" id="password" formControlName="password" />
+      <div
+        *ngIf="
+          mentorForm.get('password')?.invalid &&
+          (mentorForm.get('password')?.dirty ||
+            mentorForm.get('password')?.touched)
+        "
+        class="error-message"
+      >
+        <div *ngIf="mentorForm.get('password')?.errors?.['required']">
+          Password is required
+        </div>
+        <div *ngIf="mentorForm.get('password')?.errors?.['minlength']">
+          Password must be at least 8 characters long
+        </div>
+        <div *ngIf="mentorForm.get('password')?.errors?.['maxlength']">
+          Password cannot be more than 50 characters long
+        </div>
+        <div *ngIf="mentorForm.get('password')?.errors?.['uppercase']">
+          Password must contain at least one uppercase letter
+        </div>
+      </div>
     </div>
 
     <div class="form-field">
       <label for="nationality">Nationality:</label>
       <select id="nationality" formControlName="nationality">
-        <option value="USA">United States of America</option>
-        <!-- Add more options for nationalities here -->
+        <option *ngFor="let country of countries" [value]="country">
+          {{ country }}
+        </option>
       </select>
     </div>
 
     <div class="form-field">
       <label for="primaryLanguage">Primary Language:</label>
       <select id="primaryLanguage" formControlName="primaryLanguage">
-        <option value="ENGLISH">English</option>
-        <!-- Add more options for languages here -->
+        <option *ngFor="let lang of languages" [value]="lang">
+          {{ lang }}
+        </option>
       </select>
     </div>
 
     <div class="form-field">
       <label for="secondaryLanguage">Secondary Language:</label>
       <select id="secondaryLanguage" formControlName="secondaryLanguage">
-        <option value="ENGLISH">English</option>
-        <!-- Add more options for languages here -->
+        <option *ngFor="let lang of languages" [value]="lang">
+          {{ lang }}
+        </option>
       </select>
     </div>
 
     <div class="form-field">
       <label for="citizenCard">Citizen Card Number:</label>
-      <input type="number" id="citizenCard" formControlName="citizenCard" />
+      <input type="text" id="citizenCard" formControlName="citizenCard" />
+      <div
+        *ngIf="
+          mentorForm.get('citizenCard')?.invalid &&
+          (mentorForm.get('citizenCard')?.dirty ||
+            mentorForm.get('citizenCard')?.touched)
+        "
+        class="error-message"
+      >
+        <div *ngIf="mentorForm.get('citizenCard')?.errors?.['required']">
+          Citizen Card Number is required
+        </div>
+        <div
+          *ngIf="mentorForm.get('citizenCard')?.errors?.['invalidCitizenCard']"
+        >
+          Citizen Card Number must be exactly 9 digits
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
@@ -105,6 +165,10 @@
 
     <div *ngIf="errorMessage" class="error-message">
       {{ errorMessage }}
+    </div>
+
+    <div *ngIf="registrationSuccess" class="success-message">
+      Mentor registration successful!
     </div>
 
     <button type="submit" class="submit-button">Submit</button>
