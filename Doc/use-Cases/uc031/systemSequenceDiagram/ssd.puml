@@ -1,0 +1,25 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) for Creating Formation
+
+autonumber
+
+actor Organization
+participant ":RefugeeLink App" as App
+
+activate Organization
+Organization -> App : navigates to Create Formation section
+activate App
+App -> Organization : presents formation creation form
+deactivate App
+
+Organization -> App : fills out formation creation form
+App -> Organization : uploads relevant materials/resources
+Organization -> App : submits formation for review and approval
+App -> Organization : confirms successful submission
+deactivate App
+
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) for Chatting with Apprentices
+
+autonumber
+
+actor Mentor
+participant ":RefugeeLink App" as App
+
+activate Mentor
+Mentor -> App : navigates to chat feature
+activate App
+App -> App : retrieves list of mentor's apprentices
+App -> Mentor : displays list of apprentices
+deactivate App
+
+Mentor -> App : selects an apprentice
+activate App
+App -> App : opens chat interface with selected apprentice
+deactivate App
+
+note right: Chat session begins...
+
+@enduml
