@@ -50,10 +50,11 @@ export class RatingComponent{
   }
 
   updateRating(rating: number) {
-    this.currentRating = rating; // Update visual rating
+    // Reverse the rating logic
+    this.currentRating = 6 - rating; // Update visual rating
     if (this.canRate) {
-      this.rate(rating); // Proceed to submit the rating only if the user can rate
-    }// Proceed to submit the rating
+      this.rate(this.currentRating); // Proceed to submit the rating only if the user can rate
+    }
   }
 
   rate(rating: number) {

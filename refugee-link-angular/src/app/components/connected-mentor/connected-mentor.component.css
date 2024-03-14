@@ -15,3 +15,8 @@
   margin-bottom: 50px;
   border-radius: 50%;
 }
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}

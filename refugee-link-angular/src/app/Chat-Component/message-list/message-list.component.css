@@ -1,84 +1,3 @@
-/* General Styles */
-body, html {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.main-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding: 20px 0;
-  margin-top: 50px;
-}
-
-.content-container {
-  display: flex;
-  justify-content: space-between;
-  width: 80%;
-  max-width: 1200px; /* Adjust based on your preference */
-}
-
-.left-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 30%; /* Adjust the width ratio between profile/rating and chat */
-  margin-top: -280px;
-}
-
-.rating-container, .mentor-profile {
-  margin-bottom: -280px;
-}
-
-.chat-container {
-  width: 68%; /* Adjust the width ratio between profile/rating and chat */
-  display: flex;
-  flex-direction: column;
-}
-
-.conversation-container, .message-form-container, .refresh-container {
-  margin-bottom: 20px;
-}
-
-.messages {
-  height: 400px; /* Adjust height as necessary */
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.message {
-  padding: 10px;
-  border-radius: 20px;
-  display: inline-block;
-  max-width: 80%;
-}
-
-/* Add any specific styles for .mentor-message and .refugee-message */
-
-.select-mentor-prompt {
-  text-align: center;
-  margin-top: 50px;
-}
-
-/* Buttons and Inputs */
-button, input[type="text"] {
-  padding: 10px;
-  margin: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-button:hover {
-  cursor: pointer;
-  background-color: #f0f0f0;
-}
-
-
 .select-mentor-prompt {
   text-align: center;
   /* Add any additional styling you like here */
@@ -102,15 +21,6 @@ button:hover {
       background-color: #0056b3;
     }
 
-.refresh-container button:hover {
-  background-color: #0056b3; /* A slightly darker blue on hover */
-}
-
-.mentor-message {
-  background-color: #d8eafd; /* Light blue to distinguish mentor's messages */
-  align-self: flex-start; /* Align mentor's messages to the left */
-}
-
 .refugee-message {
   background-color: #f1f0f0; /* Light grey for refugee's messages */
   align-self: flex-end; /* Align refugee's messages to the right */
@@ -124,18 +34,75 @@ button:hover {
   margin-top: 20px;
 }
 
-h2 {
-  color: #333;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  align-content:center;
+.refresh-container {
+  text-align: center; /* Center the refresh button container */
+  margin-bottom: 10px; /* Add some space below the button */
 }
 
-.username {
-  color: #4cbcf8;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  align-content: center;
+  .refresh-container button {
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #007bff; /* A nice blue background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+
+    .refresh-container button:hover {
+      background-color: #0056b3; /* A slightly darker blue on hover */
+    }
+
+
+.flex-container {
+  display: flex;
+  flex-direction: row; /* Arrange items in a row */
+  justify-content: space-between; /* Optional: Adjust this based on your layout needs */
+  align-items: start; /* Align items at the start of the flex container */
+  max-width: 1200px; /* Adjust based on your layout needs */
+  margin: auto; /* Center the entire container */
+  gap: 20px; /* Optional: Adds some space between the profile and chat */
 }
+
+.mentor-profile {
+  flex: 1; /* Allows the mentor profile to grow as needed, adjust as necessary */
+  /* Add more styling here as needed */
+}
+
+.chat-container {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 768px; /* or your preferred max width */
+  margin: auto;
+}
+
+.conversation-container {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.messages {
+  height: 400px; /* Adjust height as necessary */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  padding: 10px;
+  border-radius: 20px;
+  display: inline-block;
+  max-width: 80%;
+}
+
+.mentor-message {
+  background-color: #d8eafd; /* Light blue to distinguish mentor's messages */
+  align-self: flex-start; /* Align mentor's messages to the left */
+}
+
+

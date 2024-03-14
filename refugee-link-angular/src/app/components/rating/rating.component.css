@@ -4,10 +4,13 @@
   font-size: 30px;
   cursor: pointer;
   margin-left: 35px;
+  margin: 0;
+  padding: 0;
 }
 .main {
-    font-weight: bold;
-    
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
 }
 
   .rating span {
@@ -30,7 +33,8 @@
 }
 
 .already-rated-message {
-  color: red;
+  color: darkgoldenrod;
   margin-top: 10px;
   pointer-events: none;
 }
+
