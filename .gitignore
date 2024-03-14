@@ -201,3 +201,4 @@ README.html
 .exercism
 *.xml
 /EntityFramework/RefugeeLink/.vs/RefugeeLink/FileContentIndex
+JPA/RefugeeLINK/src/main/resources/application.properties
