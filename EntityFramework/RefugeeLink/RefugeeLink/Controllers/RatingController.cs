@@ -47,17 +47,20 @@ namespace RefugeeLink.Controllers
                 mentorRating = new MentorRating
                 {
                     Username = ratingDetail.MentorUsername,
-                    AverageRating = currentRating,
+                    AverageRating = ratingDetail.Rating,
                     TotalRaters = 1 // Assuming if it's not found, it's the first rater
                 };
                 _context.MentorRatings.Add(mentorRating);
             }
             else
             {
-                // Calculate the new average based on the external API's current average
                 var totalRaters = mentorRating.TotalRaters + 1;
-                mentorRating.AverageRating = ((mentorRating.AverageRating * mentorRating.TotalRaters) + ratingDetail.Rating) / totalRaters;
+                var totalRatingSum = mentorRating.AverageRating * mentorRating.TotalRaters; // Sum of all ratings so far
+                var newTotalRatingSum = totalRatingSum + ratingDetail.Rating; // Sum of all ratings including the new one
+                mentorRating.AverageRating = newTotalRatingSum / totalRaters; // Calculate the new average
                 mentorRating.TotalRaters = totalRaters; // Update the total raters count
+
+
             }
 
 
