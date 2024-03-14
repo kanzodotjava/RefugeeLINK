@@ -1,5 +1,6 @@
 import { AfterViewChecked, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription, interval } from 'rxjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { MessageService } from 'src/app/services/message.service';
 
@@ -8,15 +9,22 @@ import { MessageService } from 'src/app/services/message.service';
   templateUrl: './message-list.component.html',
   styleUrls: ['./message-list.component.css']
 })
+
+
+
+
 export class MessageListComponent implements OnInit, AfterViewChecked{
   selectedMentorUsername!: string;
   messages: any[] = [];
   @ViewChild('scrollMe') private myScrollContainer!: ElementRef;
-
+  subscription: Subscription;
+  source = interval(5000);
 
   constructor(private messageService: MessageService, 
     private authService: AuthService,
-  private router: Router) {
+    private router: Router) {
+    this.subscription = this.source.subscribe(val => this.refreshMessages());
+
     
   }
 
@@ -62,6 +70,7 @@ export class MessageListComponent implements OnInit, AfterViewChecked{
 
   ngAfterViewChecked(): void {
     this.scrollToBottom();
+   
   }
 
   scrollToBottom(): void {
@@ -71,6 +80,7 @@ export class MessageListComponent implements OnInit, AfterViewChecked{
   }
 
   refreshMessages(): void {
+    console.log("refreshing")
     const mentorUsername = this.selectedMentorUsername;
     const refugeeUsername = this.authService.getUsername();
     if (mentorUsername && refugeeUsername) {
@@ -90,6 +100,10 @@ export class MessageListComponent implements OnInit, AfterViewChecked{
 
   goToMentorSelect(): void {
     this.router.navigate(['/mentor-select']); // Adjust the route as per your application's routing
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
 

@@ -4,7 +4,7 @@
     <!-- Mentor's Profile on the left -->
     <div class="mentor-profile">
       <app-connected-mentor></app-connected-mentor>
-      <app-rating></app-rating>
+        <app-rating></app-rating>
 
     </div>
 
@@ -20,9 +20,6 @@
         <div class="message-form-container" *ngIf="selectedMentorUsername">
           <app-message-form (messageSent)="sendMessage($event)"></app-message-form>
         </div>
-      </div>
-      <div class="refresh-container">
-        <button (click)="refreshMessages()">Refresh Messages</button>
       </div>
     </div>
   </div>
