@@ -34,12 +34,7 @@
     height: 200px; /* Adjust this value as needed */
     object-fit: cover; /* This will ensure the image covers the area without distorting aspect ratio */
   }
-.service-img-formation {
-  width: 200px; /* Adjust this value as needed */
-  height: 180px; /* Adjust this value as needed */
-  margin-top: -20px;
-  margin-bottom: 15px;
-}
+
 
 .service-text {
   width: 100%; /* Ensures both divs take full width of their parent */
