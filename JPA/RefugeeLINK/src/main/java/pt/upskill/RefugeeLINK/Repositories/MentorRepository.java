@@ -17,6 +17,5 @@ public interface MentorRepository extends JpaRepository<Mentor, Long> {
     boolean existsByUserName(String username);
     boolean existsByEmailAddress(String email);
 
-    List<Mentor> findByNationalityAndPrimaryLanguageAndSecondaryLanguage(Country nationality, Language primaryLanguage, Language secondaryLanguage);
 
 }
