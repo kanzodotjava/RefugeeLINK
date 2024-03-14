@@ -70,12 +70,12 @@
 }
 
 .chat-container {
-  flex: 3;
+  flex: 2;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   max-width: 768px; /* or your preferred max width */
-  margin: auto;
+  margin: 0;
 }
 
 .conversation-container {

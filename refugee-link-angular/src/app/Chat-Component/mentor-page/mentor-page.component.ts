@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Subscription, interval } from 'rxjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { MessageService } from 'src/app/services/message.service';
 
@@ -13,11 +14,16 @@ export class MentorPageComponent implements OnInit {
   messages: any[] = [];
   profilePictureUrl: string = './assets/images/pfp/';
   @ViewChild('scrollMe') private myScrollContainer!: ElementRef;
+  subscription: Subscription;
+  source = interval(5000);
 
   constructor(
     private authService: AuthService,
     private messageService: MessageService
-  ) {}
+  ) {
+    this.subscription = this.source.subscribe(val => this.refreshMessages());
+
+  }
 
   ngOnInit(): void {
     const mentorUsername = this.authService.getUsername();
@@ -79,4 +85,7 @@ export class MentorPageComponent implements OnInit {
     }
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }
