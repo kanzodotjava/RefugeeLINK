@@ -23,6 +23,7 @@ import { MentorPageComponent } from './Chat-Component/mentor-page/mentor-page.co
 import { MessageListComponent } from './Chat-Component/message-list/message-list.component';
 import { RefugeeFormationsComponent } from './components/refugee-formations/refugee-formations.component';
 import { FormationDetailsComponent } from './components/formation-details/formation-details.component';
+import { OrganizationAuthGuard } from './guards/organizationAuthGuard/organization-auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -41,7 +42,11 @@ const routes: Routes = [
     canActivate: [AdminAuthGuard],
   },
   { path: 'organization-login', component: OrganizationLoginComponent },
-  { path: 'organization-dashboard', component: OrganizationDashboardComponent },
+  {
+    path: 'organization-dashboard',
+    component: OrganizationDashboardComponent,
+    canActivate: [OrganizationAuthGuard],
+  },
 
   {
     path: 'personal-page',
