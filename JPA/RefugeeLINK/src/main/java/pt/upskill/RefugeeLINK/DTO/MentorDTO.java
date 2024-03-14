@@ -26,6 +26,7 @@ public class MentorDTO {
 
     private String description;
     private Status status;
+    private double rating;
 
     public Long getId() {
         return id;
@@ -89,6 +90,10 @@ public class MentorDTO {
 
     public Status getStatus() {
         return status;
+    }
+
+    public double getRating() {
+        return rating;
     }
 
     public void setId(Long id) {
@@ -155,6 +160,7 @@ public class MentorDTO {
         this.status = status;
     }
 
-
-
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
 }

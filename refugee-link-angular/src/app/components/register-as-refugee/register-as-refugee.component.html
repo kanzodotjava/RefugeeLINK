@@ -36,7 +36,9 @@
     <div>
       <label for="country">Country:</label>
       <select id="country" formControlName="country">
-        <option value="ALGERIA">Algeria</option>
+        <option *ngFor="let country of countries" [value]="country">
+          {{ country }}
+        </option>
       </select>
     </div>
 
@@ -53,9 +55,9 @@
     <div>
       <label for="nationality">Nationality:</label>
       <select id="nationality" formControlName="nationality">
-        <option value="ALGERIA">Algeria</option>
-
-        <!-- Add more options for other nationalities here -->
+        <option *ngFor="let country of countries" [value]="country">
+          {{ country }}
+        </option>
       </select>
     </div>
 

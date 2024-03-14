@@ -173,13 +173,4 @@ public class MentorController {
         return ResponseEntity.ok(updatedMentor);
     }
 
-
-    @GetMapping("/filter")
-    public ResponseEntity<List<Mentor>> filterMentors(
-            @RequestParam Country nationality,
-            @RequestParam Language primaryLanguage,
-            @RequestParam Language secondaryLanguage) {
-        List<Mentor> filteredMentors = mentorService.filterMentors(nationality, primaryLanguage, secondaryLanguage);
-        return new ResponseEntity<>(filteredMentors, HttpStatus.OK);
-    }
 }
