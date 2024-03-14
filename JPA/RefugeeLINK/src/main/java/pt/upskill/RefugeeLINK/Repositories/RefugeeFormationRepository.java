@@ -15,4 +15,6 @@ public interface RefugeeFormationRepository extends JpaRepository<RefugeeFormati
 
     List<RefugeeFormation> findAllByRefugee(Refugee refugee);
 
+    List<RefugeeFormation> findAllByFormationId(Long formationId);
+
 }

@@ -26,8 +26,13 @@ export class ApiService {
     return this.http.post<any>(this.loginUrl, credentials);
   }
 
-  getMentors(): Observable<any[]> {
+  getAllMentors(): Observable<any[]> {
     const url = `${this.baseUrl}/mentor`;
+    return this.http.get<any[]>(url);
+  }
+
+  getMentors(): Observable<any[]> {
+    const url = `${this.baseUrl}/mentor/certified`;
     return this.http.get<any[]>(url);
   }
 
@@ -131,5 +136,11 @@ export class ApiService {
 
   getFormationDetails(id: number): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/formation/${id}`);
+  }
+
+  getCurrentFormationByUsername(username: string): Observable<any> {
+    return this.http.get<any>(
+      `${this.baseUrl}/refugee/current-formation/${username}`
+    );
   }
 }
