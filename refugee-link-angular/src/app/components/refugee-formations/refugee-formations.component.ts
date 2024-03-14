@@ -3,6 +3,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/ApiService/api.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-refugee-formations',
@@ -17,17 +18,17 @@ export class RefugeeFormationsComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.loadFormations();
-    this.getLoggedInRefugeeId();
     const username = this.authService.getUsername();
     if (username !== null) {
       this.apiService.getCurrentFormationsByUsername(username).subscribe(
         (data) => {
-          this.formationInfo = data;
+          this.formationInfo = data; // Assign the response to formationInfo
         },
         (error) => {
           console.error('Error fetching formation:', error);
@@ -63,22 +64,6 @@ export class RefugeeFormationsComponent implements OnInit {
     }
   }
 
-  getLoggedInRefugeeId(): void {
-    const username = this.authService.getUsername();
-    if (username) {
-      this.apiService.getDetailsByUsername(username, 'Refugee').subscribe(
-        (response) => {
-          this.loggedInRefugeeId = response.id;
-        },
-        (error) => {
-          console.error('Failed to fetch refugee details:', error);
-        }
-      );
-    } else {
-      console.error('Username is null');
-    }
-  }
-
   applyToFormation(formationId: number): void {
     this.apiService.applyToFormation(1, formationId).subscribe(
       (response) => {
@@ -89,5 +74,8 @@ export class RefugeeFormationsComponent implements OnInit {
         this.applicationMessage = error.error; // Set the error message from the server response
       }
     );
+  }
+  goToFormationDetails(formationId: number): void {
+    this.router.navigate(['/formation', formationId]); // Navigate to the formation details page
   }
 }

@@ -22,7 +22,7 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   fetchMentors() {
-    this.apiService.getMentors().subscribe((mentors: any[]) => {
+    this.apiService.getAllMentors().subscribe((mentors: any[]) => {
       this.mentors = mentors;
     });
   }

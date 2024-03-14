@@ -1,102 +1,157 @@
+<div class="layout-container">
+  <!-- Filters Sidebar -->
+  <aside class="filters-sidebar">
+    <!-- Country Filter -->
+    <h2 class="text-center font-bold mb-4">Apply Filters</h2>
 
+    <div class="filter-group">
+      <h3 class="filter-title">Country</h3>
+      <select
+        [(ngModel)]="filterCriteria.country"
+        (change)="updateFilterCriteria({ country: filterCriteria.country })"
+      >
+        <option value="">All</option>
+        <option *ngFor="let country of uniqueCountries" [value]="country">
+          {{ country }}
+        </option>
+      </select>
+    </div>
 
-  <div class="layout-container">
-    
-    <!-- Filters Sidebar -->
-    <aside class="filters-sidebar">
-      <!-- Country Filter --><h2 class=" text-center font-bold mb-4">Apply Filters</h2>
+    <!-- Profession Filter -->
+    <div class="filter-group">
+      <h3 class="filter-title">Profession</h3>
+      <select
+        [(ngModel)]="filterCriteria.profession"
+        (change)="
+          updateFilterCriteria({ profession: filterCriteria.profession })
+        "
+      >
+        <option value="">All</option>
+        <option
+          *ngFor="let profession of uniqueProfessions"
+          [value]="profession"
+        >
+          {{ profession }}
+        </option>
+      </select>
+    </div>
 
-      <div class="filter-group">
-        <h3 class="filter-title">Country</h3>
-        <select [(ngModel)]="filterCriteria.country" (change)="updateFilterCriteria({country: filterCriteria.country})">
-          <option value="">All</option>
-          <option *ngFor="let country of uniqueCountries" [value]="country">{{ country }}</option>
-        </select>
-      </div>
+    <!-- Primary Languange Filter -->
+    <div class="filter-group">
+      <h3 class="filter-title">Primary Language</h3>
+      <select
+        [(ngModel)]="filterCriteria.primaryLanguage"
+        (change)="
+          updateFilterCriteria({
+            primaryLanguage: filterCriteria.primaryLanguage
+          })
+        "
+      >
+        <option value="">All</option>
+        <option
+          *ngFor="let primaryLanguage of uniquePrimaryLanguage"
+          [value]="primaryLanguage"
+        >
+          {{ primaryLanguage }}
+        </option>
+      </select>
+    </div>
 
-      <!-- Profession Filter -->
-      <div class="filter-group">
-        <h3 class="filter-title">Profession</h3>
-        <select [(ngModel)]="filterCriteria.profession" (change)="updateFilterCriteria({profession: filterCriteria.profession})">
-          <option value="">All</option>
-          <option *ngFor="let profession of uniqueProfessions" [value]="profession">{{ profession }}</option>
-        </select>
-      </div>
+    <!-- Secondary Languange Filter -->
+    <div class="filter-group">
+      <h3 class="filter-title">Secondary Language</h3>
+      <select
+        [(ngModel)]="filterCriteria.secondaryLanguage"
+        (change)="
+          updateFilterCriteria({
+            secondaryLanguage: filterCriteria.secondaryLanguage
+          })
+        "
+      >
+        <option value="">All</option>
+        <option
+          *ngFor="let secondaryLanguage of uniqueSecondaryLanguage"
+          [value]="secondaryLanguage"
+        >
+          {{ secondaryLanguage }}
+        </option>
+      </select>
+    </div>
+    <h2 class="text-center font-light mb-4">
+      Click on a mentor to select him as your mentor
+    </h2>
+  </aside>
 
-      <!-- Primary Languange Filter -->
-      <div class="filter-group">
-        <h3 class="filter-title">Primary Language</h3>
-        <select [(ngModel)]="filterCriteria.primaryLanguage" (change)="updateFilterCriteria({primaryLanguage: filterCriteria.primaryLanguage})">
-          <option value="">All</option>
-          <option *ngFor="let primaryLanguage of uniquePrimaryLanguage" [value]="primaryLanguage">{{ primaryLanguage }}</option>
-        </select>
-      </div>
+  <!-- Mentor list container unchanged -->
+  <div class="mentors-container">
+    <h2 class="text-2xl font-bold mb-4">Mentors List</h2>
+    <p></p>
+    <p></p>
+    <div class="mentor-grid">
+      <div
+        *ngFor="let mentor of filteredMentors"
+        class="mentor-card"
+        (click)="applyToMentorship(mentor.id, mentor)"
+      >
+        <div class="profile-picture-container">
+          <img
+            [src]="profilePictureUrl + mentor.userName + '.jpg'"
+            alt="Profile Picture"
+            class="profile-picture"
+            onerror="this.src='./assets/images/pfp/default.jpg';"
+          />
+        </div>
 
-      <!-- Secondary Languange Filter -->
-      <div class="filter-group">
-        <h3 class="filter-title">Secondary Language</h3>
-        <select [(ngModel)]="filterCriteria.secondaryLanguage" (change)="updateFilterCriteria({secondaryLanguage: filterCriteria.secondaryLanguage})">
-          <option value="">All</option>
-          <option *ngFor="let secondaryLanguage of uniqueSecondaryLanguage" [value]="secondaryLanguage">{{ secondaryLanguage }}</option>
-        </select>
-      </div>
-      <h2 class=" text-center font-light mb-4">Click on a mentor to select him as your mentor</h2>
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">{{ mentor.name }}</h3>
+          <ul class="mb-4">
+            <li>
+              <span class="font-semibold">Email:</span>
+              {{ mentor.emailAddress }}
+            </li>
+            <li>
+              <span class="font-semibold">Profession:</span>
+              {{ mentor.profession }}
+            </li>
+            <li>
+              <span class="font-semibold">Country:</span> {{ mentor.country }}
+            </li>
+            <li>
+              <span class="font-semibold">Nationality:</span>
+              {{ mentor.nationality }}
+            </li>
+            <li>
+              <span class="font-semibold">Primary Language:</span>
+              {{ mentor.primaryLanguage }}
+            </li>
+            <li>
+              <span class="font-semibold">Secondary Language:</span>
+              {{ mentor.secondaryLanguage }}
+            </li>
 
-    </aside>
+            <li>
+              <span class="font-semibold">Description:</span>
+              {{ mentor.description }}
+            </li>
 
-    <!-- Mentor list container unchanged -->
-    <div class="mentors-container">
-      <h2 class="text-2xl font-bold mb-4">Mentors List</h2>
-      <p></p>
-      <p></p>
-      <div class="mentor-grid">
-        <div *ngFor="let mentor of filteredMentors" class="mentor-card" (click)="applyToMentorship(mentor.id, mentor)">
-          <div class="profile-picture-container">
-            <img [src]="profilePictureUrl + mentor.userName + '.jpg'" alt="Profile Picture" class="profile-picture" onerror="this.src='./assets/images/pfp/default.jpg';">
-          </div>
-
-          <div class="p-4">
-            <h3 class="text-xl font-semibold mb-2">{{ mentor.name }}</h3>
-            <ul class="mb-4">
-              <li><span class="font-semibold">Email:</span> {{ mentor.emailAddress }}</li>
-              <li><span class="font-semibold">Profession:</span> {{ mentor.profession }}</li>
-              <li>
-                <span class="font-semibold">Country:</span> {{ mentor.country }}
-              </li>
-              <li>
-                <span class="font-semibold">Nationality:</span>
-                {{ mentor.nationality }}
-              </li>
-              <li>
-                <span class="font-semibold">Primary Language:</span>
-                {{ mentor.primaryLanguage }}
-              </li>
-              <li>
-                <span class="font-semibold">Secondary Language:</span>
-                {{ mentor.secondaryLanguage }}
-              </li>
-             
-
-              <li>
-                <span class="font-semibold">Description:</span> {{ mentor.description }}
-              </li>
-
-              <li>
-                <span class="font-semibold">Rating: </span>
-                <span class="gold-star" [innerHTML]="mentor.rating | starRating"></span>
-              </li>
-
-            </ul>
-            <div class="text-right">
-              <p *ngIf="mentor.applicationResponse"
-                 class="text-sm text-gray-600 mb-2">
-                {{ mentor.applicationResponse }}
-              </p>
-            </div>
+            <li>
+              <span class="font-semibold">Rating: </span>
+              <span
+                class="gold-star"
+                [innerHTML]="mentor.rating | starRating"
+              ></span>
+            </li>
+          </ul>
+          <div class="text-right">
+            <p
+              *ngIf="mentor.applicationResponse"
+              class="text-sm text-gray-600 mb-2"
+            >
+              {{ mentor.applicationResponse }}
+            </p>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-
+</div>
