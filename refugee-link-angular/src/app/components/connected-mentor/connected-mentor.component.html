@@ -1,4 +1,4 @@
-<div class="flex justify-center items-center h-screen">
+<div class="flex-center">
   <div *ngIf="mentor" class="bg-white rounded-lg shadow-md p-6 mb-4">
     <div class="profile-picture-container">
       <img [src]="profilePictureUrl" alt="Profile Picture" class="profile-picture" onError="this.src='./assets/images/pfp/default.jpg';">
@@ -13,7 +13,6 @@
       <p><strong>Nationality:</strong> {{ mentor.nationality }}</p>
       <p><strong>Primary Language:</strong> {{ mentor.primaryLanguage }}</p>
       <p><strong>Secondary Language:</strong> {{ mentor.secondaryLanguage }}</p>
-      <p><strong>Citizen Card:</strong> {{ mentor.citizenCard }}</p>
       <p><strong>Profession:</strong> {{ mentor.profession }}</p>
       <p><strong>Description:</strong> {{ mentor.description }}</p>
     </div>

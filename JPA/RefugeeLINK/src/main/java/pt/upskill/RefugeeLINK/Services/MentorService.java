@@ -170,9 +170,7 @@ public class MentorService {
     }
 
 
-    public List<Mentor> filterMentors(Country nationality, Language primaryLanguage, Language secondaryLanguage) {
-        return mentorRepository.findByNationalityAndPrimaryLanguageAndSecondaryLanguage(nationality, primaryLanguage, secondaryLanguage);
-    }
+
 }
 
 
