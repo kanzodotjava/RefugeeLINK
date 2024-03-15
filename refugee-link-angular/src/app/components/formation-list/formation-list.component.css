@@ -1,0 +1,46 @@
+.formation-grid {
+  display: grid;
+  grid-gap: 24px; /* Increase spacing between cards */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+}
+
+.formation-card {
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  border-left: 5px solid #007BFF; /* Blue accent on the side */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
+}
+
+  .formation-card:hover {
+    transform: translateY(-5px); /* Lift card on hover */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+  }
+
+  .formation-card .title {
+    font-weight: bold;
+    margin-bottom: 12px;
+    font-size: 20px;
+    color: #007BFF; /* Blue color for the title */
+  }
+
+  .formation-card .detail {
+    margin-bottom: 10px;
+    color: #4A4A4A; /* Grey color for text */
+  }
+
+    .formation-card .detail span {
+      font-weight: bold;
+      color: #333333; /* Darker grey for detail label */
+    }
+
+  /* Style adjustments for specific details */
+  .formation-card .status {
+    font-weight: bold;
+    padding: 4px 8px;
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #E0F7FA; /* Light blue background for status */
+    color: #007BFF; /* Blue text for status */
+  }

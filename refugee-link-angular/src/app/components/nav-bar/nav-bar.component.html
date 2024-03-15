@@ -36,6 +36,12 @@
         <ng-container *ngIf="getUserType() === 'Refugee'">
           <a routerLink="/chat">Chat</a>
         </ng-container>
+        <ng-container *ngIf="getUserType() === 'organization'">
+          <a routerLink="/organization-formations">Formations</a>
+        </ng-container>
+        <ng-container *ngIf="getUserType() === 'organization'">
+          <a routerLink="/organization-dashboard">Create Formation</a>
+        </ng-container>
         <ng-container *ngIf="getUserType() === 'Mentor'">
           <a routerLink="/messages">Messages</a>
         </ng-container>

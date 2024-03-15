@@ -37,6 +37,8 @@ import { FormationDetailsComponent } from './components/formation-details/format
 import { RatingComponent } from './components/rating/rating.component';
 import { ArrayFromNumberPipe } from './pipes/array-from-number.pipe';
 import { StarRatingPipe } from './pipes/star-rating.pipe';
+import { FormationListComponent } from './components/formation-list/formation-list.component';
+import { FormationRefugeesComponent } from './components/formation-refugees/formation-refugees.component';
 
 
 
@@ -71,6 +73,8 @@ import { StarRatingPipe } from './pipes/star-rating.pipe';
     RatingComponent,
     ArrayFromNumberPipe,
     StarRatingPipe,
+    FormationListComponent,
+    FormationRefugeesComponent,
    
   ],
   imports: [

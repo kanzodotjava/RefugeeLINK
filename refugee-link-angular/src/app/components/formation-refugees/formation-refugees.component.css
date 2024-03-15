@@ -1,0 +1,81 @@
+.details-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.refugee-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.refugee-item {
+  background-color: #f9f9f9;
+  border-left: 5px solid #007BFF;
+  margin-bottom: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex; /* Use flexbox to layout the content */
+  justify-content: space-between; /* Space between content and button */
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+  .refugee-item:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+  }
+
+.refugee-detail {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  margin-right: 16px;
+  margin-bottom: 8px;
+  flex-basis: 100%;
+}
+
+  .refugee-detail span {
+    font-weight: bold;
+    color: #0056b3;
+  }
+
+.approved {
+  color: #28a745; /* Green for approved */
+  font-weight: bold;
+}
+
+.not-approved {
+  color: #dc3545; /* Red for not approved */
+  font-weight: bold;
+}
+
+.detail-label {
+  font-weight: bold;
+  display: block; /* Display as block to ensure it takes its own line */
+}
+
+.approve-button {
+  background-color: #ccc; /* Grey background */
+  color: white; /* White text */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding around text */
+  text-align: center; /* Center text */
+  text-decoration: none; /* No underline */
+  display: inline-block; /* Allow setting dimensions */
+  font-size: 16px; /* Text size */
+  margin: 4px 2px; /* Some margin around the button */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+  cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+  border-radius: 5px; /* Rounded corners */
+  margin-left: auto;
+  margin-top: auto;
+}
+
+  /* Style for the Approve button on hover */
+  .approve-button:hover {
+    background-color: #007bff; /* Blue background on hover */
+  }

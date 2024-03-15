@@ -26,6 +26,8 @@ import { FormationDetailsComponent } from './components/formation-details/format
 import { OrganizationAuthGuard } from './guards/organizationAuthGuard/organization-auth.guard';
 import { RefugeeAuthGuard } from './guards/refugeeAuthGuard/refugee-auth.guard';
 import { MentorAuthGuard } from './guards/mentorAuthGuard/mentor-auth.guard';
+import { FormationListComponent } from './components/formation-list/formation-list.component';
+import { FormationRefugeesComponent } from './components/formation-refugees/formation-refugees.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -55,6 +57,16 @@ const routes: Routes = [
   {
     path: 'organization-dashboard',
     component: OrganizationDashboardComponent,
+    canActivate: [OrganizationAuthGuard],
+  },
+  {
+    path: 'organization-formations',
+    component: FormationListComponent,
+    canActivate: [OrganizationAuthGuard],
+  },
+  {
+    path: 'organization-formations-refugees/:id',
+    component: FormationRefugeesComponent,
     canActivate: [OrganizationAuthGuard],
   },
 

@@ -143,4 +143,17 @@ export class ApiService {
       `${this.baseUrl}/refugee/current-formation/${username}`
     );
   }
+
+  getFormationsByUsername(username: string): Observable<any[]> {
+    return this.http.get<any[]>(`http://localhost:8080/formation/formations-by-organization-username/${username}`);
+  }
+
+  getRefugeesByFormation(formationId: string): Observable<any[]> {
+    return this.http.get<any[]>(`http://localhost:8080/RefugeeFormation/refugees-by-formation/${formationId}`);
+  }
+
+  approveRefugee(refugeeId: number, formationId: number): Observable<any> {
+    return this.http.put(`http://localhost:8080/RefugeeFormation/approve/${refugeeId}/${formationId}`, {});
+  }
+
 }

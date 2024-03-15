@@ -1,0 +1,17 @@
+<div *ngIf="formations.length > 0; else noFormations" class="formation-grid">
+  <div *ngFor="let formation of formations" class="formation-card">
+    <div class="title">{{ formation.name }}</div>
+    <div class="detail"><span>Description:</span> {{ formation.description }}</div>
+    <div class="detail"><span>Number of Lessons:</span> {{ formation.numberOfLessons }}</div>
+    <div class="detail"><span>Start Date:</span> {{ formation.startDate | date }}</div>
+    <div class="detail"><span>Duration (weeks):</span> {{ formation.duration }}</div>
+    <div class="detail"><span>Status:</span> <span class="status">{{ formation.status }}</span></div>
+    <div class="detail"><span>Organization ID:</span> {{ formation.organizationId }}</div>
+    <br />
+    <button (click)="viewDetails(formation.id)" class="view-details-button">View Details</button>
+  </div>
+</div>
+
+<ng-template #noFormations>
+  <p>No formations found for the current organization.</p>
+</ng-template>
