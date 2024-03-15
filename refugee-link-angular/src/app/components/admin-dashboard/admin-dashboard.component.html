@@ -1,153 +1,138 @@
 <!-- admin-dashboard.component.html -->
-<h2 class="text-2xl font-bold mb-4 text-center">Manage Mentors</h2>
+<div class="flex justify-center mb-4">
+  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2"
+          (click)="setActiveSection('mentors')">
+    Manage Mentors
+  </button>
+  <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded m-2"
+          (click)="setActiveSection('organizations')">
+    Register Organizations
+  </button>
+</div>
 
-<div class="mentors-grid grid grid-cols-3 gap-4">
-  <div
-    *ngFor="let mentor of mentors"
-    class="mentor-card bg-white p-4 shadow-md rounded-md"
-  >
-    <div class="font-bold">{{ mentor.name }}</div>
-    <div><span class="font-bold">Email:</span> {{ mentor.emailAddress }}</div>
-    <div>
-      <span class="font-bold">Birthday:</span> {{ mentor.birthdayDate }}
-    </div>
-    <div>
-      <span class="font-bold">Phone Number:</span> {{ mentor.phoneNumber }}
-    </div>
-    <div><span class="font-bold">Country:</span> {{ mentor.country }}</div>
-    <div>
-      <span class="font-bold">Nationality:</span> {{ mentor.nationality }}
-    </div>
-    <div>
-      <span class="font-bold">Primary Language:</span>
-      {{ mentor.primaryLanguage }}
-    </div>
-    <div>
-      <span class="font-bold">Secondary Language:</span>
-      {{ mentor.secondaryLanguage }}
-    </div>
-    <div>
-      <span class="font-bold">Citizen Card:</span> {{ mentor.citizenCard }}
-    </div>
-    <div>
-      <span class="font-bold">Profession:</span> {{ mentor.profession }}
-    </div>
-    <div>
-      <span class="font-bold">Description:</span> {{ mentor.description }}
-    </div>
-    <div><span class="font-bold">Status:</span> {{ mentor.status }}</div>
 
-    <div class="mt-4">
-      <button
-        (click)="acceptMentor(mentor.id)"
-        class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mr-2"
-      >
-        Accept
-      </button>
-      <button
-        (click)="rejectMentor(mentor.id)"
-        class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
-      >
-        Reject
-      </button>
+<div *ngIf="activeSection === 'mentors'">
+  <h2 class="text-2xl font-bold mb-4 text-center">Manage Mentors</h2>
+
+  <div class="mentors-grid grid grid-cols-3 gap-4">
+    <div *ngFor="let mentor of mentors"
+         class="mentor-card bg-white p-4 shadow-md rounded-md">
+      <div class="font-bold">{{ mentor.name }}</div>
+      <div><span class="font-bold">Email:</span> {{ mentor.emailAddress }}</div>
+      <div>
+        <span class="font-bold">Birthday:</span> {{ mentor.birthdayDate }}
+      </div>
+      <div>
+        <span class="font-bold">Phone Number:</span> {{ mentor.phoneNumber }}
+      </div>
+      <div><span class="font-bold">Country:</span> {{ mentor.country }}</div>
+      <div>
+        <span class="font-bold">Nationality:</span> {{ mentor.nationality }}
+      </div>
+      <div>
+        <span class="font-bold">Primary Language:</span>
+        {{ mentor.primaryLanguage }}
+      </div>
+      <div>
+        <span class="font-bold">Secondary Language:</span>
+        {{ mentor.secondaryLanguage }}
+      </div>
+      <div>
+        <span class="font-bold">Citizen Card:</span> {{ mentor.citizenCard }}
+      </div>
+      <div>
+        <span class="font-bold">Profession:</span> {{ mentor.profession }}
+      </div>
+      <div>
+        <span class="font-bold">Description:</span> {{ mentor.description }}
+      </div>
+      <div><span class="font-bold">Status:</span> {{ mentor.status }}</div>
+
+      <div class="mt-4">
+        <button (click)="acceptMentor(mentor.id)"
+                class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mr-2">
+          Accept
+        </button>
+        <button (click)="rejectMentor(mentor.id)"
+                class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+          Reject
+        </button>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="flex justify-center items-center h-screen">
-  <div class="w-full max-w-md">
-    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-      <h2 class="text-xl font-bold mb-4 text-center">
-        Register an organization
-      </h2>
-      <form
-        [formGroup]="organizationForm"
-        (ngSubmit)="onSubmit()"
-        class="refugee-form"
-      >
-        <div class="mb-4">
-          <label for="name" class="block text-gray-700 text-sm font-bold mb-2"
-            >Full Name:</label
-          >
-          <input
-            type="text"
-            id="name"
-            formControlName="name"
-            placeholder="Full Name"
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          />
-        </div>
-        <div class="mb-4">
-          <label
-            for="username"
-            class="block text-gray-700 text-sm font-bold mb-2"
-            >Username:</label
-          >
-          <input
-            type="text"
-            id="username"
-            formControlName="username"
-            placeholder="Username"
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          />
-        </div>
-        <div class="mb-6">
-          <label
-            for="password"
-            class="block text-gray-700 text-sm font-bold mb-2"
-            >Password:</label
-          >
-          <input
-            type="password"
-            id="password"
-            formControlName="password"
-            placeholder="Password"
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          />
-        </div>
-        <div class="flex items-center justify-center">
-          <button
-            type="submit"
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          >
-            Submit
+<div *ngIf="activeSection === 'organizations'">
+  <div class="flex justify-center items-center h-screen">
+    <div class="w-full max-w-md">
+      <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <h2 class="text-xl font-bold mb-4 text-center">
+          Register an organization
+        </h2>
+        <form [formGroup]="organizationForm"
+              (ngSubmit)="onSubmit()"
+              class="refugee-form">
+          <div class="mb-4">
+            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Full Name:</label>
+            <input type="text"
+                   id="name"
+                   formControlName="name"
+                   placeholder="Full Name"
+                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          </div>
+          <div class="mb-4">
+            <label for="username"
+                   class="block text-gray-700 text-sm font-bold mb-2">Username:</label>
+            <input type="text"
+                   id="username"
+                   formControlName="username"
+                   placeholder="Username"
+                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          </div>
+          <div class="mb-6">
+            <label for="password"
+                   class="block text-gray-700 text-sm font-bold mb-2">Password:</label>
+            <input type="password"
+                   id="password"
+                   formControlName="password"
+                   placeholder="Password"
+                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          </div>
+          <div class="flex items-center justify-center">
+            <button type="submit"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-screen-lg mb-8">
+    <h2 class="text-2xl font-bold mb-4">Organization List</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div *ngFor="let organization of organizations"
+           class="bg-white p-4 shadow-md rounded-md relative">
+        <div class="font-bold">{{ organization.name }}</div>
+        <div>Username: {{ organization.username }}</div>
+        <div>Password: {{ organization.password }}</div>
+        <!-- You can add more organization details here -->
+        <!-- Buttons Container -->
+        <div class="flex justify-between mt-2">
+          <!-- Edit Button -->
+          <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-2 rounded"
+                  (click)="editOrganization(organization)">
+            Edit
+          </button>
+
+          <!-- Delete Button -->
+          <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded"
+                  (click)="deleteOrganization(organization.id)">
+            Delete
           </button>
         </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-<div class="mx-auto max-w-screen-lg mb-8">
-  <h2 class="text-2xl font-bold mb-4">Organization List</h2>
-
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    <div
-      *ngFor="let organization of organizations"
-      class="bg-white p-4 shadow-md rounded-md relative"
-    >
-      <div class="font-bold">{{ organization.name }}</div>
-      <div>Username: {{ organization.username }}</div>
-      <div>Password: {{ organization.password }}</div>
-      <!-- You can add more organization details here -->
-
-      <!-- Buttons Container -->
-      <div class="flex justify-between mt-2">
-        <!-- Edit Button -->
-        <button
-          class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-2 rounded"
-          (click)="editOrganization(organization)"
-        >
-          Edit
-        </button>
-
-        <!-- Delete Button -->
-        <button
-          class="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded"
-          (click)="deleteOrganization(organization.id)"
-        >
-          Delete
-        </button>
       </div>
     </div>
   </div>

@@ -12,6 +12,7 @@ export class AdminDashboardComponent implements OnInit {
   organizationForm!: FormGroup;
   organizations: any[] = [];
   editingOrganization: any = null;
+  activeSection: 'mentors' | 'organizations' = 'mentors';
 
   constructor(private apiService: ApiService, private fb: FormBuilder) {}
 
@@ -119,5 +120,9 @@ export class AdminDashboardComponent implements OnInit {
       username: organization.username,
       password: organization.password,
     });
+  }
+
+  setActiveSection(section: 'mentors' | 'organizations'): void {
+    this.activeSection = section;
   }
 }
