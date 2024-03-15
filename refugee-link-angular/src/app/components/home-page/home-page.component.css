@@ -1,14 +1,24 @@
 /* home.component.css */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /* Default styles */
 .hero {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .hero-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
 }
@@ -16,7 +26,10 @@
 .hero-text-container {
   flex: 1;
   max-width: 600px;
-  margin-left: 250px;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  text-align: center; /* Center text */
 }
 
 .hero-text {
@@ -67,7 +80,6 @@
   max-width: 100%; /* Ensure image responsiveness */
   height: auto;
   width: 900px;
-  margin-right: 50px;
 }
 
 /* Responsive styles */

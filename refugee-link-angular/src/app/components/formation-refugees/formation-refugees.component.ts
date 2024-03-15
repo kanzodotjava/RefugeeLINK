@@ -10,19 +10,13 @@ interface CompletedFormation {
 @Component({
   selector: 'app-formation-refugees',
   templateUrl: './formation-refugees.component.html',
-  styleUrls: ['./formation-refugees.component.css']
+  styleUrls: ['./formation-refugees.component.css'],
 })
-
 export class FormationRefugeesComponent implements OnInit {
   refugees: any[] = [];
-  formationId: number | null = null;;
+  formationId!: number;
 
-  constructor(
-    private apiService: ApiService,
-    private route: ActivatedRoute
-
-  ) { }
-
+  constructor(private apiService: ApiService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     const formationId = this.route.snapshot.paramMap.get('id');
@@ -32,15 +26,17 @@ export class FormationRefugeesComponent implements OnInit {
         (data) => {
           this.refugees = data;
         },
-        (error) => console.error('There was an error fetching the refugees', error)
+        (error) =>
+          console.error('There was an error fetching the refugees', error)
       );
     }
   }
 
   isFormationApproved(refugee: any, formationId: number): boolean {
-    const formation = refugee.completedFormations.find((f: CompletedFormation) => f.id === formationId && f.approved === true);
-
-    return !!formation;
+    const formation = refugee.completedFormations.find(
+      (f: CompletedFormation) => f.id === formationId
+    );
+    return formation ? formation.approved === true : false;
   }
 
   approveRefugee(refugeeId: number, formationId: number | null): void {

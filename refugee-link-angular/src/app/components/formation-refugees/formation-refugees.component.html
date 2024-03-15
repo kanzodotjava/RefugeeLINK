@@ -1,16 +1,29 @@
 <div *ngIf="refugees.length > 0; else noRefugees" class="details-container">
   <ul class="refugee-list">
     <li *ngFor="let refugee of refugees" class="refugee-item">
-      <div class="refugee-detail">Name: <span>{{ refugee.name }}</span></div>
-      <div class="refugee-detail">Username: <span>{{ refugee.userName }}</span></div>
+      <div class="refugee-detail">
+        Name: <span>{{ refugee.name }}</span>
+      </div>
+      <div class="refugee-detail">
+        Username: <span>{{ refugee.userName }}</span>
+      </div>
       <div class="refugee-detail">
         Approved at this formation:
-        <span *ngIf="isFormationApproved(refugee, 22)" class="approved">Yes</span>
-        <span *ngIf="!isFormationApproved(refugee, 22)" class="not-approved">No</span>
+        <span *ngIf="isFormationApproved(refugee, formationId)" class="approved"
+          >Yes</span
+        >
+        <span
+          *ngIf="!isFormationApproved(refugee, formationId)"
+          class="not-approved"
+          >No</span
+        >
       </div>
-
-
-      <button (click)="approveRefugee(refugee.id, formationId)" class="approve-button">Approve</button>
+      <button
+        (click)="approveRefugee(refugee.id, formationId)"
+        class="approve-button"
+      >
+        Approve
+      </button>
     </li>
   </ul>
 </div>
