@@ -123,6 +123,11 @@ export class ApiService {
     return this.http.get<any[]>(`${this.baseUrl}/formation/status/${status}`);
   }
 
+  getOrganizationNameById(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrlEntity}/name/${id}`, { responseType: 'text' });
+  }
+  
+
   applyToFormation(refugeeId: number, formationId: number): Observable<string> {
     const url = `${this.baseUrl}/formation/refugees/${refugeeId}/formations/${formationId}/register`;
     return this.http.post<string>(url, null, {
