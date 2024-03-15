@@ -1,0 +1,39 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title Ban or Verify Mentors Sequence Diagram
+
+autonumber
+
+actor SystemAdministrator
+participant "RefugeeLink Admin Panel" as admin_panel
+participant "Mentor Management Feature" as mentor_management
+participant "Mentor Account" as mentor_account
+participant "System Logs" as system_logs
+
+activate SystemAdministrator
+
+SystemAdministrator -> admin_panel : Accesses RefugeeLink Admin Panel
+activate admin_panel
+    admin_panel -> SystemAdministrator : Displays Mentor Management Feature
+    SystemAdministrator -> admin_panel : Opens Mentor Management Feature
+    admin_panel -> mentor_management : Displays Mentor List
+    activate mentor_management
+        mentor_management -> SystemAdministrator : Selects Mentor
+        SystemAdministrator -> mentor_management : Selects Action (Ban/Verify)
+        mentor_management -> mentor_account : Updates Account Status
+        mentor_account -> system_logs : Logs Action
+    deactivate mentor_management
+    admin_panel -> SystemAdministrator : Displays Confirmation Message
+deactivate admin_panel
+
+activate SystemAdministrator
+SystemAdministrator -> mentor_account : Reviews Mentor's Account Status
+activate mentor_account
+    mentor_account -> SystemAdministrator : Displays Account Status
+deactivate mentor_account
+
+deactivate SystemAdministrator
+@enduml
