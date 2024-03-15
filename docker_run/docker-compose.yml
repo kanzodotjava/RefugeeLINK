@@ -10,13 +10,3 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=prod
       - JAVA_OPTS=-Djava.security.egd=file:/dev/./urandom
-
-  maven-app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: maven-app
-    ports:
-      - "3000:3000"
-    environment:
-      - SPRING_PROFILES_ACTIVE=prod
