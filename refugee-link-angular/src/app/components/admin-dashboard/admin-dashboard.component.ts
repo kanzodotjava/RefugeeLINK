@@ -12,7 +12,7 @@ export class AdminDashboardComponent implements OnInit {
   organizationForm!: FormGroup;
   organizations: any[] = [];
   editingOrganization: any = null;
-  activeSection: 'mentors' | 'organizations' = 'mentors';
+  activeSection: 'mentors' | 'organizations' | null = null;
 
   constructor(private apiService: ApiService, private fb: FormBuilder) {}
 
@@ -122,7 +122,7 @@ export class AdminDashboardComponent implements OnInit {
     });
   }
 
-  setActiveSection(section: 'mentors' | 'organizations'): void {
+  setActiveSection(section: 'mentors' | 'organizations' | null): void {
     this.activeSection = section;
   }
 }
