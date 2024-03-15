@@ -1,16 +1,27 @@
 /* home.component.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* Default styles */
 .hero {
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin-left: -175px;
 }
 
 .hero-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
+
 }
 
 .hero-text-container {
