@@ -12,12 +12,13 @@ import { Router } from '@angular/router';
 export class ConnectedRefugeesComponent implements OnInit {
   refugeeInfoList: any[] = [];
   profilePictureUrl: string = './assets/images/pfp/';
-
   constructor(private apiService: ApiService,
   private router: Router) { }
-
+  public userStatus: string = '';
   ngOnInit(): void {
     const username = localStorage.getItem('username');
+    this.getStatus(username || '');
+
     if (username) {
       this.apiService
         .getRefugeesByMentorUsername(username)
@@ -35,6 +36,16 @@ export class ConnectedRefugeesComponent implements OnInit {
     } else {
       console.error('Username not found in local storage');
     }
+  }
+
+  getStatus(username: string) {
+    this.apiService.getStatusByUsername(username).subscribe(status => {
+      // Remove quotes from the status string
+      this.userStatus = status.replace(/['"]+/g, '');
+      console.log(this.userStatus); // This will log the actual status without quotes, e.g., REJECTED
+    }, error => {
+      console.error('Error fetching status:', error);
+    });
   }
 
   goToChat(): void {

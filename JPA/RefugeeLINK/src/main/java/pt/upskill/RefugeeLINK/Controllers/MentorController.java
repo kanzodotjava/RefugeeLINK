@@ -173,4 +173,11 @@ public class MentorController {
         return ResponseEntity.ok(updatedMentor);
     }
 
+    //get mentor status by username
+    @GetMapping("/status/{username}")
+    public ResponseEntity<Status> getMentorStatusByUsername(@PathVariable String username) {
+        Status status = mentorService.getMentorStatusByUsername(username);
+        return ResponseEntity.ok(status);
+    }
+
 }

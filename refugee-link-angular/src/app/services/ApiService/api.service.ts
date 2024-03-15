@@ -157,6 +157,9 @@ export class ApiService {
     return this.http.get<any[]>(`http://localhost:8080/RefugeeFormation/refugees-by-formation/${formationId}`);
   }
 
+  getStatusByUsername(username: string): Observable<string> {
+    return this.http.get(`http://localhost:8080/mentor/status/${username}`, { responseType: 'text' });
+  }
   approveRefugee(refugeeId: number, formationId: number): Observable<any> {
     return this.http.put(`http://localhost:8080/RefugeeFormation/approve/${refugeeId}/${formationId}`, {});
   }

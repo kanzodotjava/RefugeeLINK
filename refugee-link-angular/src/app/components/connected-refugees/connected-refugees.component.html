@@ -1,3 +1,20 @@
+<ng-container *ngIf="userStatus === 'AWAITING'">
+  <!-- Display message for mentors with AWAITING or REJECTED status -->
+  <div class="status-message">
+    <p>Your mentorship status is {{ userStatus }}.</p>
+    <p>Please wait for approval or contact support for assistance.</p>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="userStatus === 'REJECTED'">
+  <!-- Display message for mentors with AWAITING or REJECTED status -->
+  <div class="status-message">
+    <p>Your mentorship status is {{ userStatus }}.</p>
+    <p>Please contact support for assistance if you believe this is a mistake.</p>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="userStatus === 'CERTIFIED'"> 
 <div class="flex justify-center items-center h-screen">
   <ng-container *ngIf="refugeeInfoList.length > 0; else noRefugees">
     <div *ngFor="let refugee of refugeeInfoList"
@@ -24,6 +41,7 @@
     </div>
   </ng-container>
 
+
   <ng-template #noRefugees>
     <div class="no-refugee-prompt">
       <img src="assets/images/thankyomentors.png" alt="Thank you" class="thank-you-image">
@@ -33,3 +51,4 @@
     </div>
   </ng-template>
 </div>
+</ng-container>

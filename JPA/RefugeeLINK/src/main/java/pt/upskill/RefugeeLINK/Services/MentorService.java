@@ -170,7 +170,11 @@ public class MentorService {
     }
 
 
-
+    public Status getMentorStatusByUsername(String username) {
+        Mentor mentor = mentorRepository.findByUserName(username)
+                .orElseThrow(() -> new RuntimeException("Mentor not found with username: " + username));
+        return mentor.getStatus();
+    }
 }
 
 
