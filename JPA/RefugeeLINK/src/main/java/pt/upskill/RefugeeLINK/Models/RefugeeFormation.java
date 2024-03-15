@@ -15,13 +15,11 @@ public class RefugeeFormation {
     @ManyToOne
     @JoinColumn(name = "refugee_id")
     @JsonIgnoreProperties("mentor") // to avoid infinite recursion
-    @JsonBackReference
     private Refugee refugee;
 
     @ManyToOne
     @JoinColumn(name = "formation_id")
-    @JsonIgnoreProperties("refugees") // to avoid infinite recursion
-    @JsonBackReference
+    @JsonIgnoreProperties("refugees")
     private Formation formation;
 
     private boolean isApproved;
