@@ -23,3 +23,37 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
+
+
+  .no-refugee-prompt p {
+    margin-top: 0;
+    margin-bottom: 1em; /* Space between paragraphs */
+    line-height: 1.5; /* Improve readability */
+    font-size: 1.1rem; /* Slightly larger text for emphasis */
+   text-align: center;
+  }
+
+.no-refugee-prompt {
+  position: relative; /* Establishes a positioning context for absolute children */
+  max-width: 600px;
+  margin: 50px auto 20px; /* Adjust top margin to give space for the image */
+  padding: 20px;
+  background-color: #f0f4f8;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+  .no-refugee-prompt .thank-you-image {
+    position: absolute; /* Position absolutely within .no-refugee-prompt */
+    top: -275px; /* Adjust as necessary to move the image above the container */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Offset by half the image's width */
+    max-width: 250px; /* Control the size of the image */
+    height: auto;
+    border-radius: 50%; /* Optional: creates a circular image */
+  }
+
