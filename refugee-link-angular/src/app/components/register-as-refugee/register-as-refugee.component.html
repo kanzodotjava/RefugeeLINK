@@ -43,13 +43,68 @@
     </div>
 
     <div>
-      <label for="userName">Username:</label>
-      <input type="text" id="userName" formControlName="userName" />
+      <label for="gender">Gender:</label>
+      <select id="gender" formControlName="gender">
+        <option value="MALE">Male</option>
+        <option value="FEMALE">Female</option>
+        <option value="OTHER">Other</option>
+      </select>
     </div>
 
-    <div>
+    <div class="form-field">
+      <label for="userName">Username:</label>
+      <input type="text" id="userName" formControlName="userName" />
+      <div
+        *ngIf="
+          refugeeForm.get('userName')?.errors?.['required'] &&
+          (refugeeForm.get('userName')?.dirty ||
+            refugeeForm.get('userName')?.touched)
+        "
+        class="error-message"
+      >
+        Username is required.
+      </div>
+      <div
+        *ngIf="refugeeForm.get('userName')?.errors?.['minlength'] && (refugeeForm.get('userName')?.dirty || refugeeForm.get('userName')?.touched)"
+        class="error-message"
+      >
+        Username must be at least 6 characters long.
+      </div>
+      <div
+        *ngIf="refugeeForm.get('userName')?.errors?.['maxlength'] && (refugeeForm.get('userName')?.dirty || refugeeForm.get('userName')?.touched)"
+        class="error-message"
+      >
+        Username cannot exceed 12 characters.
+      </div>
+    </div>
+
+    <div class="form-field">
       <label for="password">Password:</label>
       <input type="password" id="password" formControlName="password" />
+      <div
+        *ngIf="refugeeForm.get('password')?.errors?.['required'] && (refugeeForm.get('password')?.dirty || refugeeForm.get('password')?.touched)"
+        class="error-message"
+      >
+        Password is required.
+      </div>
+      <div
+        *ngIf="refugeeForm.get('password')?.errors?.['minlength'] && (refugeeForm.get('password')?.dirty || refugeeForm.get('password')?.touched)"
+        class="error-message"
+      >
+        Password must be at least 8 characters long.
+      </div>
+      <div
+        *ngIf="refugeeForm.get('password')?.errors?.['maxlength'] && (refugeeForm.get('password')?.dirty || refugeeForm.get('password')?.touched)"
+        class="error-message"
+      >
+        Password cannot exceed 50 characters.
+      </div>
+      <div
+        *ngIf="refugeeForm.get('password')?.errors?.['pattern'] && (refugeeForm.get('password')?.dirty || refugeeForm.get('password')?.touched)"
+        class="error-message"
+      >
+        Password must contain at least one uppercase character.
+      </div>
     </div>
 
     <div>
@@ -79,9 +134,24 @@
       </select>
     </div>
 
-    <div>
+    <div class="form-field">
       <label for="citizenCard">Citizen Card Number:</label>
-      <input type="number" id="citizenCard" formControlName="citizenCard" />
+      <input type="text" id="citizenCard" formControlName="citizenCard" />
+      <div
+        *ngIf="
+          (refugeeForm.get('citizenCard')?.errors?.['required'] ||
+            refugeeForm.get('citizenCard')?.errors?.['pattern']) &&
+          (refugeeForm.get('citizenCard')?.dirty || refugeeForm.get('citizenCard')?.touched)
+        "
+        class="error-message"
+      >
+        <div *ngIf="refugeeForm.get('citizenCard')?.errors?.['required']">
+          Citizen card number is required.
+        </div>
+        <div *ngIf="refugeeForm.get('citizenCard')?.errors?.['pattern']">
+          Citizen card number must be a 9-digit number.
+        </div>
+      </div>
     </div>
 
     <div>
@@ -97,6 +167,13 @@
     <!-- Error Message Display -->
     <div *ngIf="!isRefugeeNumberValid" class="error-message">
       Refugee number is not valid.
+    </div>
+
+    <div *ngIf="submissionStatus === 'success'" class="success-message">
+      Form submitted successfully!
+    </div>
+    <div *ngIf="submissionStatus === 'error'" class="error-message">
+      Form submission failed. Please try again later.
     </div>
 
     <button type="submit" class="submit-button">Submit</button>
