@@ -90,6 +90,20 @@ namespace RefugeeLink.Core
             return organization?.Id ?? 0;
         }
 
+        
+        public async Task<string> GetOrganizationNameById(long id)
+    {
+        // Assuming you have an Organization entity with a property called Name
+        var organization = await _context.Organization.FindAsync(id);
+
+        // If organization not found or name is null/empty, return null
+        if (organization == null || string.IsNullOrEmpty(organization.Name))
+        {
+            return null;
+        }
+
+        return organization.Name;
+    }
 
     }
 

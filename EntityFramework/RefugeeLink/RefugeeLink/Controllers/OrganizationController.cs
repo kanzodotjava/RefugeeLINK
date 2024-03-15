@@ -197,6 +197,23 @@ namespace RefugeeLink.Controllers
             return id;
         }
 
+       [HttpGet("/name/{id}")]
+public async Task<ActionResult<string>> GetOrganizationNameById(long id)
+{
+    if (id <= 0)
+    {
+        return NotFound();
+    }
+
+    var organizationName = await _organizationCore.GetOrganizationNameById(id);
+
+    if (string.IsNullOrEmpty(organizationName))
+    {
+        return NotFound();
+    }
+
+    return organizationName;
+}
 
     }
 }

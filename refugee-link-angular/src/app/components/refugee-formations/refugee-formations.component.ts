@@ -1,9 +1,10 @@
 // refugee-formations.component.ts
 
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/ApiService/api.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
+import { map, combineLatest, catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-refugee-formations',
@@ -19,7 +20,8 @@ export class RefugeeFormationsComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -42,17 +44,44 @@ export class RefugeeFormationsComponent implements OnInit {
   loadFormations(): void {
     this.apiService.getFormationsByStatus('AWAITING_START').subscribe(
       (formations) => {
-        this.formations = formations.map((formation: any) => ({
-          ...formation,
-          status: this.getStatusText(formation.status),
-        }));
+        if (!formations.length) {
+          console.log('No formations to display.');
+          return;
+        }
+  
+        const formationObservables = formations.map((formation: any) => 
+        
+        this.apiService.getOrganizationNameById(formation.organizationId).pipe(
+          
+          map(organizationName => ({
+            ...formation,
+            status: this.getStatusText(formation.status),
+            organizationName // Since organizationName is already a string
+            
+          })),
+          catchError(error => {
+            console.error('Error fetching organization name:', error);
+            return of({ ...formation, organizationName: 'Unknown' }); // Provide a fallback
+          })
+        )
+      );
+        combineLatest(formationObservables).subscribe(
+          (formationsWithOrgNames) => {
+            console.log('Formations with organization names:', formationsWithOrgNames);
+            this.formations = formationsWithOrgNames;
+            this.cdr.detectChanges(); // Manually trigger change detection if needed
+          },
+          (error) => {
+            console.error('Failed to load formations with organization names:', error);
+          }
+        );
       },
       (error) => {
         console.error('Failed to load formations:', error);
-        // Handle error if needed
       }
     );
   }
+  
 
   getStatusText(status: string): string {
     switch (status) {
@@ -63,6 +92,8 @@ export class RefugeeFormationsComponent implements OnInit {
         return status; // Default to the original status value
     }
   }
+
+  
 
   applyToFormation(formationId: number): void {
     this.apiService.applyToFormation(1, formationId).subscribe(
