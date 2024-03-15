@@ -1,6 +1,7 @@
 package pt.upskill.RefugeeLINK.DTO;
 
 import pt.upskill.RefugeeLINK.Enums.Country;
+import pt.upskill.RefugeeLINK.Enums.Gender;
 import pt.upskill.RefugeeLINK.Enums.Language;
 
 import java.time.LocalDate;
@@ -18,6 +19,8 @@ public class RefugeeDTO {
     private Language primaryLanguage;
     private Language secondaryLanguage;
     private String refugeeId;
+
+    private Gender gender;
 
     // Getters and setters
 
@@ -111,6 +114,14 @@ public class RefugeeDTO {
 
     public String getRefugeeId() {
         return refugeeId;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
     public void setRefugeeId(String refugeeId) {
