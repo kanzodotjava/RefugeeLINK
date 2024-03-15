@@ -1,0 +1,29 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) for Ban or Verify Mentors
+
+autonumber
+
+actor "System Administrator" as Admin
+participant ":RefugeeLink Admin Panel" as Panel
+participant ":Mentor Management Feature" as Management
+participant ":Mentor Account" as Account
+participant ":System Logs" as Logs
+
+Admin -> Panel : Accesses RefugeeLink Admin Panel
+activate Panel
+Panel -> Admin : Displays Mentor Management Feature
+Admin -> Panel : Opens Mentor Management Feature
+Panel -> Management : Displays Mentor List
+Admin -> Management : Selects Mentor
+Management -> Admin : Selects Action (Ban/Verify)
+Management -> Account : Updates Account Status
+Account -> Logs : Logs Action
+Admin -> Panel : Displays Confirmation Message
+Admin -> Account : Reviews Mentor's Account Status
+Account -> Admin : Displays Account Status
+
+@enduml
