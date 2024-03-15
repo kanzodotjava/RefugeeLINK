@@ -1,9 +1,6 @@
 package pt.upskill.RefugeeLINK.DTO;
 
-import pt.upskill.RefugeeLINK.Enums.Country;
-import pt.upskill.RefugeeLINK.Enums.Language;
-import pt.upskill.RefugeeLINK.Enums.Profession;
-import pt.upskill.RefugeeLINK.Enums.Status;
+import pt.upskill.RefugeeLINK.Enums.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -27,6 +24,7 @@ public class MentorDTO {
     private String description;
     private Status status;
     private double rating;
+    private Gender gender;
 
     public Long getId() {
         return id;
@@ -50,6 +48,10 @@ public class MentorDTO {
 
     public Country getCountry() {
         return country;
+    }
+
+    public Gender getGender() {
+        return gender;
     }
 
     public String getUserName() {
@@ -118,6 +120,10 @@ public class MentorDTO {
 
     public void setCountry(Country country) {
         this.country = country;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
     public void setUserName(String userName) {
