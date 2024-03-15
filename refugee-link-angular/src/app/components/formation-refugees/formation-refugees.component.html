@@ -8,21 +8,14 @@
         Username: <span>{{ refugee.userName }}</span>
       </div>
       <div class="refugee-detail">
-        Approved at this formation:
-        <span *ngIf="isFormationApproved(refugee, formationId)" class="approved"
-          >Yes</span
-        >
-        <span
-          *ngIf="!isFormationApproved(refugee, formationId)"
-          class="not-approved"
-          >No</span
-        >
+        Approval Status: <span>{{ refugee.approvalStatus }}</span>
       </div>
-      <button
-        (click)="approveRefugee(refugee.id, formationId)"
-        class="approve-button"
-      >
-        Approve
+      <button (click)="approveRefugee(refugee.id, formationId)"
+              class="approve-button">
+        Change Approval Status
+      </button>
+      <button (click)="expelRefugeeFromFormation(refugee.id, formationId)" class="expel-button">
+      Expel from Formation
       </button>
     </li>
   </ul>

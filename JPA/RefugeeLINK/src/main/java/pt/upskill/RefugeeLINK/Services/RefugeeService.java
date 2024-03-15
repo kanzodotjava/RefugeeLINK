@@ -182,5 +182,16 @@ public class RefugeeService {
         return refugeeRepository.findAllById(refugeeIds);
     }
 
+    @Transactional
+    public void removeFormationFromRefugee(String username) {
+        // Retrieve the refugee object
+        Refugee refugee = getRefugeeByUsername(username);
+
+        // Remove the formation association from the refugee
+        refugee.setFormation(null);
+
+        // Save the updated refugee
+        refugeeRepository.save(refugee);
+    }
 
 }
