@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class OrganizationDashboardComponent implements OnInit {
   formationForm!: FormGroup;
   organizationId!: number;
-  creationSuccess = false;
+  creationSuccess: boolean | null = null;
 
   constructor(
     private formBuilder: FormBuilder,

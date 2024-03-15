@@ -28,6 +28,8 @@ import { RefugeeAuthGuard } from './guards/refugeeAuthGuard/refugee-auth.guard';
 import { MentorAuthGuard } from './guards/mentorAuthGuard/mentor-auth.guard';
 import { FormationListComponent } from './components/formation-list/formation-list.component';
 import { FormationRefugeesComponent } from './components/formation-refugees/formation-refugees.component';
+import { MentorshipComponent } from './components/mentorship/mentorship.component';
+import { LearningComponent } from './components/learning/learning.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -36,6 +38,8 @@ const routes: Routes = [
   { path: 'register-as-mentor', component: RegisterAsMentorComponent },
   { path: 'register-as-refugee', component: RegisterAsRefugeeComponent },
   { path: 'login', component: LoginPageComponent },
+  { path: 'mentorship', component: MentorshipComponent },
+  { path: 'learning', component: LearningComponent },
   {
     path: 'mentor-select',
     component: MentorSelectComponent,

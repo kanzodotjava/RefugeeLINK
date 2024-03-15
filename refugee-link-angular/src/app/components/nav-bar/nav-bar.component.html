@@ -13,10 +13,9 @@
     </ng-container>
     <!-- Template for users who are not admin -->
     <ng-template #notAdmin>
-
       <!-- Display login and signup links only when the user is not logged in -->
       <ng-container *ngIf="!isLoggedIn(); else loggedInTemplate">
-        <a routerLink="/courses">Courses</a>
+        <a routerLink="/learning">Learning</a>
         <a routerLink="/mentorship">Mentorship</a>
         <a routerLink="/about-us">About Us</a>
         <a routerLink="/login">Login</a>

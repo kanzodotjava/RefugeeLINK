@@ -39,6 +39,8 @@ import { ArrayFromNumberPipe } from './pipes/array-from-number.pipe';
 import { StarRatingPipe } from './pipes/star-rating.pipe';
 import { FormationListComponent } from './components/formation-list/formation-list.component';
 import { FormationRefugeesComponent } from './components/formation-refugees/formation-refugees.component';
+import { MentorshipComponent } from './components/mentorship/mentorship.component';
+import { LearningComponent } from './components/learning/learning.component';
 
 
 
@@ -75,6 +77,8 @@ import { FormationRefugeesComponent } from './components/formation-refugees/form
     StarRatingPipe,
     FormationListComponent,
     FormationRefugeesComponent,
+    MentorshipComponent,
+    LearningComponent,
    
   ],
   imports: [
