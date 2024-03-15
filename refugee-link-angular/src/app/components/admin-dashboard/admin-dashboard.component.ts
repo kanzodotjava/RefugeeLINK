@@ -12,7 +12,7 @@ export class AdminDashboardComponent implements OnInit {
   organizationForm!: FormGroup;
   organizations: any[] = [];
   editingOrganization: any = null;
-  activeSection: 'mentors' | 'organizations' | null = null;
+  activeSection: 'mentors' | 'organizations' | 'awaiting' | 'denied' | null = null;
 
   constructor(private apiService: ApiService, private fb: FormBuilder) {}
 
@@ -122,7 +122,21 @@ export class AdminDashboardComponent implements OnInit {
     });
   }
 
-  setActiveSection(section: 'mentors' | 'organizations' | null): void {
+  setActiveSection(section: 'mentors' | 'organizations' | 'awaiting' | 'denied' | null): void {
     this.activeSection = section;
   }
+
+  get certifiedMentors() {
+    return this.mentors.filter(mentor => mentor.status === 'CERTIFIED');
+  }
+
+  get awaitingMentors() {
+    return this.mentors.filter(mentor => mentor.status === 'AWAITING');
+  }
+
+  get deniedMentors() {
+    return this.mentors.filter(mentor => mentor.status === 'REJECTED');
+  }
+
+
 }
