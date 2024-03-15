@@ -407,15 +407,12 @@ export class RegisterAsMentorComponent {
   ) {
     this.mentorForm = this.formBuilder.group({
       id: [0],
-      name: ['teste1teste1', Validators.required],
-      emailAddress: [
-        'teste1teste1@gmail.com',
-        [Validators.required, Validators.email],
-      ],
-      phoneNumber: ['11111111111'],
+      name: ['', Validators.required],
+      emailAddress: ['', [Validators.required, Validators.email]],
+      phoneNumber: [''],
       country: [''],
       userName: [
-        'teste1teste1',
+        '',
         [
           Validators.required,
           Validators.minLength(6),
@@ -431,21 +428,22 @@ export class RegisterAsMentorComponent {
           uppercaseValidator(),
         ],
       ],
+      gender: ['', Validators.required],
       nationality: [''],
       primaryLanguage: [''],
       secondaryLanguage: [''],
-      citizenCard: [
-        '11111111111',
-        [Validators.required, citizenCardValidator()],
-      ], // Include custom validator
+      citizenCard: ['', [Validators.required, citizenCardValidator()]], // Include custom validator
       profession: [''],
-      description: ['11111111111'],
+      description: [''],
       birthdayDate: [''],
     });
   }
 
   onSubmit() {
     if (this.mentorForm.valid) {
+      // Log the JSON data before making the HTTP POST request
+      console.log('JSON Data:', this.mentorForm.value);
+
       this.httpClient
         .post('http://localhost:8080/mentor', this.mentorForm.value)
         .subscribe(
