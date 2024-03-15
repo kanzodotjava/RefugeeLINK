@@ -40,6 +40,9 @@ import { StarRatingPipe } from './pipes/star-rating.pipe';
 import { FormationListComponent } from './components/formation-list/formation-list.component';
 import { FormationRefugeesComponent } from './components/formation-refugees/formation-refugees.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { MentorshipComponent } from './components/mentorship/mentorship.component';
+import { LearningComponent } from './components/learning/learning.component';
+
 
 
 
@@ -77,6 +80,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     FormationListComponent,
     FormationRefugeesComponent,
     NotFoundComponent,
+    MentorshipComponent,
+    LearningComponent,
    
   ],
   imports: [
