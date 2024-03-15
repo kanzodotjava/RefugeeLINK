@@ -26,6 +26,9 @@ public class RefugeeFormationService {
     @Autowired
     FormationRepository formationRepository;
 
+    @Autowired
+    RefugeeService refugeeService;
+
     public RefugeeFormation addRefugeeFormation;
 
 
@@ -45,7 +48,8 @@ public class RefugeeFormationService {
         refugeeFormationRepository.deleteById(id);
     }
 
-    public void approveRefugeeFormation(Long refugeeId, Long formationId) throws RefugeeFormationIdNotFound, RefugeeIdNotFound, FormationIdNotFound {
+
+    public void toggleApprovalStatus(Long refugeeId, Long formationId) throws RefugeeFormationIdNotFound, RefugeeIdNotFound, FormationIdNotFound {
         // Find the RefugeeFormation object that corresponds to the given refugeeId and formationId
         RefugeeFormation refugeeFormation = refugeeFormationRepository.findByRefugeeIdAndFormationId(refugeeId, formationId)
                 .orElseThrow(() -> new RefugeeFormationIdNotFound("Refugee Formation with refugeeId " + refugeeId + " and formationId " + formationId + " not found"));
@@ -60,13 +64,12 @@ public class RefugeeFormationService {
             throw new FormationIdNotFound("Formation with id " + formationId + " not found");
         }
 
-        // Set the isApproved field to true
-        refugeeFormation.setApproved(true);
+        // Toggle the isApproved field
+        refugeeFormation.setApproved(!refugeeFormation.isApproved());
 
         // Save the changes
         refugeeFormationRepository.save(refugeeFormation);
     }
-
 
     public void failRefugeeFormation(Long refugeeId, Long formationId) throws RefugeeFormationIdNotFound, RefugeeIdNotFound, FormationIdNotFound {
         // Find the RefugeeFormation object that corresponds to the given refugeeId and formationId
@@ -108,5 +111,30 @@ public class RefugeeFormationService {
         // Return the refugees associated with the retrieved refugee IDsr
         return refugeeRepository.findAllById(refugeeIds);
     }
+
+    public boolean isRefugeeFormationApproved(Long refugeeId, Long formationId) throws RefugeeFormationIdNotFound {
+        // Find the RefugeeFormation object that corresponds to the given refugeeId and formationId
+        RefugeeFormation refugeeFormation = refugeeFormationRepository.findByRefugeeIdAndFormationId(refugeeId, formationId)
+                .orElseThrow(() -> new RefugeeFormationIdNotFound("Refugee Formation with refugeeId " + refugeeId + " and formationId " + formationId + " not found"));
+
+        // Return the isApproved status
+        return refugeeFormation.isApproved();
+    }
+
+    public void deleteRefugeeFormation(Long refugeeId, Long formationId) throws RefugeeFormationIdNotFound {
+        // Find the RefugeeFormation object that corresponds to the given refugeeId and formationId
+        RefugeeFormation refugeeFormation = refugeeFormationRepository.findByRefugeeIdAndFormationId(refugeeId, formationId)
+                .orElseThrow(() -> new RefugeeFormationIdNotFound("Refugee Formation with refugeeId " + refugeeId + " and formationId " + formationId + " not found"));
+
+        // Check if the Formation being deleted is the current Formation of the Refugee
+        if (refugeeFormation.getRefugee().getFormation().getId().equals(formationId)) {
+            // If so, remove the Formation from the Refugee
+            refugeeService.removeFormationFromRefugee(refugeeFormation.getRefugee().getUserName());
+        }
+
+        // Delete the RefugeeFormation
+        refugeeFormationRepository.delete(refugeeFormation);
+    }
+
 
 }

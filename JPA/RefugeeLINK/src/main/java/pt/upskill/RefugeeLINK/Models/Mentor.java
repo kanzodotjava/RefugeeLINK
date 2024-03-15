@@ -89,6 +89,7 @@ public class Mentor extends Person{
         mentorDTO.setStatus(this.status);
         mentorDTO.setDescription(this.description);
         mentorDTO.setRating(this.rating);
+        mentorDTO.setGender(this.getGender());
         return mentorDTO;
     }
 

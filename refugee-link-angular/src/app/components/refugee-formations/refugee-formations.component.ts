@@ -99,6 +99,7 @@ export class RefugeeFormationsComponent implements OnInit {
     this.apiService.applyToFormation(1, formationId).subscribe(
       (response) => {
         this.applicationMessage = response;
+        this.ngOnInit();
       },
       (error) => {
         console.error('Failed to submit application:', error);

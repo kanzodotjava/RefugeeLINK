@@ -79,3 +79,24 @@
   .approve-button:hover {
     background-color: #007bff; /* Blue background on hover */
   }
+
+.expel-button {
+  background-color: #ccc; /* Grey background */
+  color: white; /* White text */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding around text */
+  text-align: center; /* Center text */
+  text-decoration: none; /* No underline */
+  display: inline-block; /* Allow setting dimensions */
+  font-size: 16px; /* Text size */
+  margin: 4px 2px; /* Some margin around the button */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+  cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+  border-radius: 5px; /* Rounded corners */
+  margin-left: 15px;
+  margin-top: auto;
+}
+
+.expel-button:hover {
+  background-color: darkred; /* Blue background on hover */
+}

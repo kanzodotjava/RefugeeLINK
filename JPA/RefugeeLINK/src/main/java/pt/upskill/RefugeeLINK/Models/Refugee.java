@@ -36,6 +36,7 @@ public class Refugee extends Person {
      */
     @OneToMany(mappedBy = "refugee")
     @Nullable
+    @JsonIgnoreProperties("refugee")
     private List<RefugeeFormation> completedFormations;
 
     /**

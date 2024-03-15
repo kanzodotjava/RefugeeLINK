@@ -45,10 +45,10 @@ public class RefugeeFormationController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PutMapping("/approve/{refugeeId}/{formationId}")
-    public ResponseEntity<Void> approveRefugeeFormation(@PathVariable Long refugeeId, @PathVariable Long formationId) {
+    @PutMapping("/toggleApproval/{refugeeId}/{formationId}")
+    public ResponseEntity<Void> toggleApprovalStatus(@PathVariable Long refugeeId, @PathVariable Long formationId) {
         try {
-            refugeeFormationService.approveRefugeeFormation(refugeeId, formationId);
+            refugeeFormationService.toggleApprovalStatus(refugeeId, formationId);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (RefugeeFormationIdNotFound | RefugeeIdNotFound | FormationIdNotFound e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -66,5 +66,25 @@ public class RefugeeFormationController {
     public ResponseEntity<List<Refugee>> getRefugeesByFormationId(@PathVariable Long formationId) {
         List<Refugee> refugees = refugeeFormationService.getRefugeesByFormationId(formationId);
         return ResponseEntity.ok(refugees);
+    }
+
+    @GetMapping("/isApproved/{refugeeId}/{formationId}")
+    public ResponseEntity<Boolean> isRefugeeFormationApproved(@PathVariable Long refugeeId, @PathVariable Long formationId) {
+        try {
+            boolean isApproved = refugeeFormationService.isRefugeeFormationApproved(refugeeId, formationId);
+            return new ResponseEntity<>(isApproved, HttpStatus.OK);
+        } catch (RefugeeFormationIdNotFound e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @DeleteMapping("/expel/{refugeeId}/{formationId}")
+    public ResponseEntity<Void> deleteRefugeeFormation(@PathVariable Long refugeeId, @PathVariable Long formationId) {
+        try {
+            refugeeFormationService.deleteRefugeeFormation(refugeeId, formationId);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (RefugeeFormationIdNotFound e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }
