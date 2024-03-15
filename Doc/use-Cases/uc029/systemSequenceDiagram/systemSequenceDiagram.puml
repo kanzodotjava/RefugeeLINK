@@ -1,0 +1,23 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) for View Personal Information as a Refugee
+
+actor Refugee
+participant "RefugeeLink Platform" as Platform
+participant "Personal Information Page" as InfoPage
+
+Refugee -> Platform: Logs into RefugeeLink
+activate Platform
+Platform -> Refugee: Presents profile section
+Refugee -> InfoPage: Navigates to personal information page
+activate InfoPage
+InfoPage -> Refugee: Displays personal information
+Refugee -> Refugee: Reviews personal information
+deactivate InfoPage
+Platform -> Refugee: Confirms successful display
+deactivate Platform
+
+@enduml

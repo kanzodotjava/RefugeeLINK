@@ -1,0 +1,23 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) for View Connected Refugees as a Mentor
+
+actor Mentor
+participant "RefugeeLink Platform" as Platform
+participant "Connected Refugees Page" as RefugeesPage
+
+Mentor -> Platform: Logs into RefugeeLink
+activate Platform
+Platform -> Mentor: Presents mentor dashboard
+Mentor -> RefugeesPage: Navigates to connected refugees page
+activate RefugeesPage
+RefugeesPage -> Mentor: Displays list of connected refugees
+Mentor -> Mentor: Reviews connected refugees list
+deactivate RefugeesPage
+Platform -> Mentor: Confirms successful display
+deactivate Platform
+
+@enduml

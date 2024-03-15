@@ -1,0 +1,23 @@
+@startuml
+skinparam monochrome true
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+title System Sequence Diagram (SSD) for Access Personal Information as a Mentor
+
+actor Mentor
+participant "RefugeeLink Platform" as Platform
+participant "Personal Information Page" as InfoPage
+
+Mentor -> Platform: Logs into RefugeeLink
+activate Platform
+Platform -> Mentor: Presents profile section
+Mentor -> InfoPage: Navigates to personal information page
+activate InfoPage
+InfoPage -> Mentor: Displays personal information
+Mentor -> Mentor: Reviews personal information
+deactivate InfoPage
+Platform -> Mentor: Confirms successful display
+deactivate Platform
+
+@enduml
