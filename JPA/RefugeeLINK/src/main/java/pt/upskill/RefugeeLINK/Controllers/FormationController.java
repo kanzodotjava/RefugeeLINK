@@ -1,5 +1,6 @@
 package pt.upskill.RefugeeLINK.Controllers;
 
+import org.apache.commons.lang3.EnumUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -130,6 +131,19 @@ public class FormationController {
     public ResponseEntity<List<Formation>> getFormationsByOrganizationUsername(@PathVariable String username) {
         List<Formation> formations = formationService.getFormationsByOrganizationUsername(username);
         return ResponseEntity.ok(formations);
+    }
+
+    @PutMapping("/{formationId}/status")
+    public ResponseEntity<Void> changeFormationStatus(@PathVariable Long formationId, @RequestBody FormationStatus newStatus) {
+        if (newStatus == null || !EnumUtils.isValidEnum(FormationStatus.class, newStatus.name())) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        try {
+            formationService.changeFormationStatus(formationId, newStatus);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (FormationIdNotFound e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
 }

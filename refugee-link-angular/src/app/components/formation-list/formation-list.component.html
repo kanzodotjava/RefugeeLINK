@@ -8,9 +8,22 @@
     <div class="detail"><span>Status:</span> <span class="status">{{ formation.status }}</span></div>
     <div class="detail"><span>Organization ID:</span> {{ formation.organizationId }}</div>
     <br />
+
+    <div class="detail">
+      <span>Change Status:</span>
+      <br />
+      <select (change)="formation.status" (change)="confirmChangeStatus(formation.id, $event)">
+        <option value="" disabled selected>Select status</option>
+        <option *ngFor="let status of statuses; let i = index" [value]="status">{{ statusDisplayNames[i] }}</option>
+      </select>
+    </div>
+
+    <br />
+
     <button (click)="viewDetails(formation.id)" class="view-details-button">View Details</button>
   </div>
-</div>
+  </div>
+
 
 <ng-template #noFormations>
   <p>No formations found for the current organization.</p>

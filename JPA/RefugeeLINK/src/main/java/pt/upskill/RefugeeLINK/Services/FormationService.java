@@ -189,4 +189,16 @@ public class FormationService {
         return formations;
     }
 
+    public Formation changeFormationStatus(Long formationId, FormationStatus newStatus) throws FormationIdNotFound {
+        // Find the Formation object that corresponds to the given formationId
+        Formation formation = formationRepository.findById(formationId)
+                .orElseThrow(() -> new FormationIdNotFound("Formation with id " + formationId + " not found"));
+
+        // Change the status of the Formation
+        formation.setStatus(newStatus);
+
+        // Save the updated Formation
+        return formationRepository.save(formation);
+    }
+
 }

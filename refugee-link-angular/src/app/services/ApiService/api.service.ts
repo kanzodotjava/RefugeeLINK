@@ -126,7 +126,7 @@ export class ApiService {
   getOrganizationNameById(id: number): Observable<any> {
     return this.http.get(`${this.baseUrlEntity}/name/${id}`, { responseType: 'text' });
   }
-  
+
 
   applyToFormation(refugeeId: number, formationId: number): Observable<string> {
     const url = `${this.baseUrl}/formation/refugees/${refugeeId}/formations/${formationId}/register`;
@@ -161,7 +161,7 @@ export class ApiService {
     return this.http.get(`http://localhost:8080/mentor/status/${username}`, { responseType: 'text' });
   }
   approveRefugee(refugeeId: number, formationId: number): Observable<any> {
-    return this.http.put(`http://localhost:8080/RefugeeFormation/toggleApproval/${refugeeId}/${formationId}`, {}); 
+    return this.http.put(`http://localhost:8080/RefugeeFormation/toggleApproval/${refugeeId}/${formationId}`, {});
   }
 
   getRefugeeApprovalStatus(refugeeId: number, formationId: number): Observable<any> {
@@ -179,4 +179,9 @@ export class ApiService {
       );
   }
 
+  changeFormationStatus(formationId: number, newStatus: string): Observable<any> {
+    return this.http.put(`http://localhost:8080/formation/${formationId}/status`, `"${newStatus}"`, {
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
 }
