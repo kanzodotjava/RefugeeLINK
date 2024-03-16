@@ -172,4 +172,9 @@ export class ApiService {
     return this.http.delete(`http://localhost:8080/RefugeeFormation/expel/${refugeeId}/${formationId}`);
   }
 
+  changeFormationStatus(formationId: number, newStatus: string): Observable<any> {
+    return this.http.put(`http://localhost:8080/formation/${formationId}/status`, `"${newStatus}"`, {
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
 }

@@ -44,3 +44,41 @@
     background-color: #E0F7FA; /* Light blue background for status */
     color: #007BFF; /* Blue text for status */
   }
+
+.detail select {
+  width: 200px;
+  height: 35px;
+  background: white;
+  color: gray;
+  padding-left: 5px;
+  font-size: 14px;
+  border: none;
+  margin-left: 10px;
+  border-radius: 5px;
+  outline: none;
+}
+
+  .detail select option {
+    color: black;
+  }
+
+  .detail select:focus {
+    border: 2px solid #5b9dd9;
+  }
+
+.view-details-button {
+  background-color: #007bff; /* Blue color */
+  border: none;
+  color: white;
+  padding: 10px 20px; /* Adjust padding as needed */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners */
+}
+
+  .view-details-button:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+  }

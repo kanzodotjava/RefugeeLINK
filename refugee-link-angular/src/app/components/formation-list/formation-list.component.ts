@@ -10,6 +10,9 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class FormationListComponent implements OnInit {
   formations: any[] = [];
+  statuses = ['AWAITING_START', 'ONGOING', 'COMPLETED'];
+  statusDisplayNames = ['Awaiting Start', 'Ongoing', 'Completed'];
+
 
   constructor(
     private apiService: ApiService,
@@ -39,4 +42,31 @@ export class FormationListComponent implements OnInit {
   viewDetails(formationId: number) {
     this.router.navigate(['/organization-formations-refugees', formationId]);
   }
+
+  changeStatus(formationId: number, newStatus: string): void {
+    this.apiService.changeFormationStatus(formationId, newStatus).subscribe(
+      () => {
+        console.log('Status changed successfully');
+        // Update the local data as well
+        const formation = this.formations.find(f => f.id === formationId);
+        if (formation) {
+          formation.status = newStatus;
+        }
+      },
+      (error) => {
+        console.error('Failed to change status:', error);
+      }
+    );
+  }
+
+  confirmChangeStatus(formationId: number, event: Event): void {
+    const target = event.target as HTMLSelectElement;
+    if (target) {
+      const newStatus = target.value;
+      if (confirm('Are you sure you want to change the status?')) {
+        this.changeStatus(formationId, newStatus);
+      }
+    }
+  }
+
 }
