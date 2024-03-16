@@ -10,8 +10,8 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class FormationListComponent implements OnInit {
   formations: any[] = [];
-  statuses = ['AWAITING_START', 'ONGOING', 'COMPLETED'];
-  statusDisplayNames = ['Awaiting Start', 'Ongoing', 'Completed'];
+  statuses = ['AWAITING_START', 'ONGOING', 'COMPLETED', 'CANCELLED'];
+  statusDisplayNames = ['Awaiting Start', 'Ongoing', 'Completed', 'Cancelled'];
 
 
   constructor(
