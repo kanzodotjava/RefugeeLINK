@@ -194,4 +194,9 @@ public class RefugeeService {
         refugeeRepository.save(refugee);
     }
 
+    public Long getRefugeeIdByUsername(String username) {
+        return refugeeRepository.findByUserName(username)
+                .map(Refugee::getId)
+                .orElseThrow(() -> new RuntimeException("Refugee not found with username: " + username));
+    }
 }

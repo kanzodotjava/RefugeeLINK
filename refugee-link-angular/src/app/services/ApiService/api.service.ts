@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -170,6 +170,13 @@ export class ApiService {
 
   expelRefugeeFromFormation(refugeeId: number, formationId: number): Observable<any> {
     return this.http.delete(`http://localhost:8080/RefugeeFormation/expel/${refugeeId}/${formationId}`);
+  }
+
+  getRefugeeIdByUsername(username: string): Observable<number> {
+    return this.http.get(`http://localhost:8080/refugee/id/${username}`, { responseType: 'text' })
+      .pipe(
+        map((response: string) => parseInt(response, 10)) // Parse response string to number
+      );
   }
 
 }

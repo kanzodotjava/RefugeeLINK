@@ -177,5 +177,16 @@ public class RefugeeController {
         }
     }
 
+    //get refugee id by username
+    @GetMapping("/id/{username}")
+    public ResponseEntity<Long> getRefugeeIdByUsername(@PathVariable String username) {
+        try {
+            Long refugeeId = refugeeService.getRefugeeIdByUsername(username);
+            return new ResponseEntity<>(refugeeId, HttpStatus.OK);
+        } catch (RuntimeException ex) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
 
 }

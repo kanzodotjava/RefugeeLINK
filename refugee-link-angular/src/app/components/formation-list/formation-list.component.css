@@ -44,3 +44,21 @@
     background-color: #E0F7FA; /* Light blue background for status */
     color: #007BFF; /* Blue text for status */
   }
+
+  .view-details-button {
+    background-color: #007BFF; /* Blue background */
+    color: #ffffff; /* White text */
+    border: none; /* Remove button border */
+    padding: 10px 20px; /* Padding around text */
+    text-align: center; /* Center text */
+    text-decoration: none; /* No underline */
+    display: inline-block; /* Allow setting dimensions */
+    font-size: 16px; /* Text size */
+    margin: 4px 2px; /* Some margin around the button */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+  }
+
+    .view-details-button:hover {
+      background-color: #0069d9; /* Darker blue on hover */
+    }

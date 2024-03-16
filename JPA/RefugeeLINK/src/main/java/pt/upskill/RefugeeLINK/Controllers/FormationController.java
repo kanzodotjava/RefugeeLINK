@@ -82,7 +82,7 @@ public class FormationController {
         if (registrationSuccessful) {
             return ResponseEntity.ok().body("Refugee successfully registered to the formation.");
         } else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("You register to this formation. Please check the formation status and if you are already registered in an active formation.");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("You are already registered to this formation or formation already started. Please check the formation status and if you are already registered in a formation.");
         }
     }
 

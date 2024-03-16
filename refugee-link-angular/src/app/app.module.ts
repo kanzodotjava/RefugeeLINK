@@ -89,7 +89,7 @@ import { LearningComponent } from './components/learning/learning.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent],
