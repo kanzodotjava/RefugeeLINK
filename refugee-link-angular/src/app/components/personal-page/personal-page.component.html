@@ -53,3 +53,10 @@
   </div>
 </ng-container>
 
+<ng-container *ngIf="failedToUploadReponseError">
+  <div class="popup">
+    <span class="close" (click)="closePopup()">&times;</span>
+    <p>{{ failedToUploadReponseError }}</p>
+  </div>
+</ng-container>
+
