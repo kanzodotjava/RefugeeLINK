@@ -1,0 +1,23 @@
+.profile-picture-container {
+    max-width: 300px;
+    margin: auto; /* This centers the container itself horizontally if it's within a flex or grid item */
+    display: flex;
+    justify-content: center; /* These two properties center the child img horizontally */
+    align-items: center; /* This property centers the child img vertically */
+    height: 200px;
+  }
+  
+  .profile-picture {
+    max-width: 100%; /* Ensures the image does not exceed its container */
+    max-height: 100%; /* Optional: if you want to ensure that the image height does not exceed the container's height */
+    object-fit: cover;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    border-radius: 50%;
+  }
+  
+  .flex-center {
+    justify-content: center;
+    align-items: center;
+  }
+  
