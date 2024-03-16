@@ -146,16 +146,20 @@
               ></span>
             </li>
           </ul>
-          <div class="text-right">
-            <p
-              *ngIf="mentor.applicationResponse"
-              class="text-sm text-gray-600 mb-2"
-            >
-              {{ mentor.applicationResponse }}
-            </p>
-          </div>
         </div>
       </div>
-    </div>
+    </div>    
   </div>
 </div>
+<ng-container *ngIf="errorMessage">
+  <div class="popup">
+    <span class="close" (click)="closePopup()">&times;</span>
+    <p>{{ errorMessage }}</p>
+  </div>
+</ng-container>
+<ng-container *ngIf="applicationResponse">
+  <div class="popup">
+    <span class="close" (click)="closePopup()">&times;</span>
+    <p>{{ applicationResponse }}</p>
+  </div>
+</ng-container>

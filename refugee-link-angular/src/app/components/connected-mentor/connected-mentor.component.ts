@@ -14,19 +14,12 @@ export class ConnectedMentorComponent {
 
   constructor(private apiService: ApiService, private authService: AuthService) {
     this.username = this.authService.getUsername();
-    this.apiService.getMentorUsernameByUsername(this.username!).subscribe(data => {
-      this.mentor = data.username;
-    this.profilePictureUrl = this.username
-      ? `./assets/images/pfp/${this.mentor}.jpg`
-        : './assets/images/pfp/default.jpg';
-    });
   }
   
 
   ngOnInit(): void {
-    const username = localStorage.getItem('username');
-    if (username) {
-      this.apiService.getMentorByUsername(username).subscribe(
+    if (this.username) {
+      this.apiService.getMentorByUsername(this.username).subscribe(
         (data) => {
           this.mentor = data;
         },

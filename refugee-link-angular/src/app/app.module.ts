@@ -42,6 +42,7 @@ import { FormationRefugeesComponent } from './components/formation-refugees/form
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MentorshipComponent } from './components/mentorship/mentorship.component';
 import { LearningComponent } from './components/learning/learning.component';
+import { PfpComponent } from './pfp/pfp.component';
 
 
 
@@ -82,6 +83,7 @@ import { LearningComponent } from './components/learning/learning.component';
     NotFoundComponent,
     MentorshipComponent,
     LearningComponent,
+    PfpComponent,
    
   ],
   imports: [
