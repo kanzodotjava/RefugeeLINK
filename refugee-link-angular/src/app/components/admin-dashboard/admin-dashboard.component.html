@@ -5,13 +5,18 @@
     Manage Mentors
   </button>
   <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded m-2"
-          (click)="setActiveSection('organizations')">
+          (click)="setActiveSection('organizations'); resetForm();">
     Register Organizations
+  </button>
+  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2"
+          (click)="setActiveSection('list')">
+    Organizations List
   </button>
   <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded m-2"
           (click)="setActiveSection(null)">
     Close Section
   </button>
+
 </div>
 
 <div *ngIf="activeSection === 'mentors'">
@@ -174,60 +179,66 @@
   </div>
 </div>
 
-  <div *ngIf="activeSection === 'organizations'">
-    <div class="flex justify-center items-center h-screen">
-      <div class="w-full max-w-md">
-        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-          <h2 class="text-xl font-bold mb-4 text-center">
-            Register an organization
-          </h2>
-          <form [formGroup]="organizationForm"
-                (ngSubmit)="onSubmit()"
-                class="refugee-form">
-            <div class="mb-4">
-              <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Full Name:</label>
-              <input type="text"
-                     id="name"
-                     formControlName="name"
-                     placeholder="Full Name"
-                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-            </div>
-            <div class="mb-4">
-              <label for="username"
-                     class="block text-gray-700 text-sm font-bold mb-2">Username:</label>
-              <input type="text"
-                     id="username"
-                     formControlName="username"
-                     placeholder="Username"
-                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-            </div>
-            <div class="mb-6">
-              <label for="password"
-                     class="block text-gray-700 text-sm font-bold mb-2">Password:</label>
-              <input type="password"
-                     id="password"
-                     formControlName="password"
-                     placeholder="Password"
-                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-            </div>
-            <div class="flex items-center justify-center">
-              <button type="submit"
-                      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                Submit
-              </button>
-            </div>
-          </form>
-        </div>
+<div *ngIf="activeSection === 'organizations'">
+  <div class="flex justify-center p-10 ">
+    <div class="w-full max-w-md">
+      <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <h2 class="text-xl font-bold mb-4 text-center">
+          Register an organization
+        </h2>
+        <form [formGroup]="organizationForm"
+              (ngSubmit)="onSubmit()"
+              class="refugee-form">
+          <div class="mb-4">
+            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Full Name:</label>
+            <input type="text"
+                   id="name"
+                   formControlName="name"
+                   placeholder="Full Name"
+                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          </div>
+          <div class="mb-4">
+            <label for="username"
+                   class="block text-gray-700 text-sm font-bold mb-2">Username:</label>
+            <input type="text"
+                   id="username"
+                   formControlName="username"
+                   placeholder="Username"
+                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          </div>
+          <div class="mb-6">
+            <label for="password"
+                   class="block text-gray-700 text-sm font-bold mb-2">Password:</label>
+            <input type="password"
+                   id="password"
+                   formControlName="password"
+                   placeholder="Password"
+                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          </div>
+          <div class="flex items-center justify-center">
+            <button type="submit"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              Submit
+            </button>
+          </div>
+        </form>
       </div>
     </div>
+  </div>
+</div>
 
+  <div *ngIf="activeSection === 'list'">
 
-    <div class="mx-auto max-w-screen-lg mb-8">
-      <h2 class="text-2xl font-bold mb-4">Organization List</h2>
+    <div class="mx-auto max-w-screen-lg mb-8 p-10">
+     
+      <h2 class="text-2xl font-bold mb-4 text-center">Organization List</h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="grid space-y-4 p-10">
         <div *ngFor="let organization of organizations"
+             [ngClass]="{'w-full': isUpdating, 'w-full md:wfull': !isUpdating}"
              class="bg-white p-4 shadow-md rounded-md relative">
+
+
           <div class="font-bold">{{ organization.name }}</div>
           <div>Username: {{ organization.username }}</div>
           <div>Password: {{ organization.password }}</div>
@@ -246,7 +257,47 @@
               Delete
             </button>
           </div>
+
+          <div *ngIf="editingOrganization && editingOrganization.id === organization.id" class="flex justify-center p-10">
+
+            <div class="w-full max-w-md">
+              <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <h2 class="text-xl font-bold mb-4 text-center">
+                  Edit Organization
+                </h2>
+                <form [formGroup]="organizationForm" (ngSubmit)="onSubmit()" class="organization-form">
+                  <div class="mb-4">
+                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
+                    <input type="text" id="name" formControlName="name" placeholder="Name"
+                           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                  </div>
+                  <div class="mb-4">
+                    <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Username:</label>
+                    <input type="text" id="username" formControlName="username" placeholder="Username"
+                           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                  </div>
+                  <div class="mb-6">
+                    <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password:</label>
+                    <input type="password" id="password" formControlName="password" placeholder="Password"
+                           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <button type="submit"
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                      Update
+                    </button>
+                    <button type="button" (click)="cancelEdit()"
+                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
+
