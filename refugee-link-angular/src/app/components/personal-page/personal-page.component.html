@@ -38,3 +38,18 @@
     Loading user details...
   </div>
 </div>
+
+<ng-container *ngIf="removeMentorResponse">
+  <div class="popup">
+    <span class="close" (click)="closePopup()">&times;</span>
+    <p>{{ removeMentorResponse }}</p>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="removeMentorResponseError">
+  <div class="popup">
+    <span class="close" (click)="closePopup()">&times;</span>
+    <p>{{ removeMentorResponseError }}</p>
+  </div>
+</ng-container>
+

@@ -13,6 +13,8 @@ export class PersonalPageComponent implements OnInit {
   userDetails: any;
   profilePictureUrl: string;
   isRefugee: boolean = false; // Add this property
+  removeMentorResponse: string = '';
+  removeMentorResponseError: string = '';
 
 
   constructor(
@@ -84,25 +86,24 @@ export class PersonalPageComponent implements OnInit {
   }
   
   removeMentor() {
-    const userId = this.userDetails.id; // Assuming `id` is the correct property
-    if (!userId) {
-      console.error('User ID is not available');
-      return;
+    if (this.isRefugee && this.userDetails?.id) {
+      this.apiService.removeMentorFromRefugee(this.userDetails.id).subscribe({
+        next: (response) => {
+          console.log('Mentor removed successfully:', response);
+          this.removeMentorResponse = 'Mentor removed successfully.';
+        },
+        error: (error) => {
+          console.error('Error removing mentor:', error);
+          this.removeMentorResponseError = 'Failed to remove mentor. You have no selected mentor!';
+        }
+      });
+    } else {
+      this.removeMentorResponseError = 'Operation not permitted. User is not a refugee or user details are missing.';
     }
-
-    const removeMentorUrl = `http://localhost:8080/refugee/${userId}/mentor`;
-    this.http.delete(removeMentorUrl).subscribe({
-      next: (res) => {
-        console.log('Mentor removed successfully:', res);
-        // Update the local userDetails to reflect the removal
-        this.userDetails.mentor = null; // Assuming `mentor` is the correct property
-        // Optionally, refresh the details or inform the user
-      },
-      error: (err) => {
-        console.error('Error removing mentor:', err);
-        // Handle error, maybe show a message to the user
-      }
-    });
+  }
+  closePopup() {
+    this.removeMentorResponse = ''; 
+    this.removeMentorResponseError = '';
   }
 }
 

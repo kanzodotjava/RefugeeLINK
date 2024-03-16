@@ -45,7 +45,12 @@ export class RefugeeFormationsComponent implements OnInit {
     if (this.username !== null) {
       this.apiService.getCurrentFormationsByUsername(this.username!).subscribe(
         (data) => {
-          this.formationInfo = data; // Assign the response to formationInfo
+          this.formationInfo = data; 
+          this.apiService.getOrganizationNameById(this.formationInfo.organizationId).subscribe(
+            (data) => {
+              this.formationInfo.organizationName = data; 
+            }
+          )
         },
         (error) => {
           console.error('Error fetching formation:', error);
@@ -54,11 +59,10 @@ export class RefugeeFormationsComponent implements OnInit {
     } else {
       console.error('Username is null');
     }
-  
   }
 
   loadFormations(): void {
-    const statuses = ['AWAITING_START', 'ONGOING']; // Add 'ONGOING' status
+    const statuses = ['AWAITING_START', 'ONGOING', 'COMPLETED'];
     statuses.forEach(status => {
       this.apiService.getFormationsByStatus(status).subscribe(
         (formations) => {
@@ -84,7 +88,7 @@ export class RefugeeFormationsComponent implements OnInit {
           combineLatest(formationObservables).subscribe(
             (formationsWithOrgNames) => {
               console.log(`Formations with ${status} status and organization names:`, formationsWithOrgNames);
-              this.formations = this.formations.concat(formationsWithOrgNames); // Append to existing formations
+              this.formations = this.formations.concat(formationsWithOrgNames); 
               this.cdr.detectChanges();
             },
             (error) => {
@@ -105,9 +109,8 @@ export class RefugeeFormationsComponent implements OnInit {
     switch (status) {
       case 'AWAITING_START':
         return 'Awaiting Start';
-      // Add more cases for other status values if needed
       default:
-        return status; // Default to the original status value
+        return status; 
     }
   }
 
@@ -130,16 +133,16 @@ export class RefugeeFormationsComponent implements OnInit {
       },
       (error) => {
         console.error('Failed to submit application:', error);
-        this.applicationMessage = error.error; // Set the error message from the server response
+        this.applicationMessage = error.error; 
       }
       
     );
   }
   goToFormationDetails(formationId: number): void {
-    this.router.navigate(['/formation', formationId]); // Navigate to the formation details page
+    this.router.navigate(['/formation', formationId]); 
   }
 
   closePopup() {
-    this.applicationMessage = ''; // Clear the message to hide the popup
+    this.applicationMessage = ''; 
   }
 }

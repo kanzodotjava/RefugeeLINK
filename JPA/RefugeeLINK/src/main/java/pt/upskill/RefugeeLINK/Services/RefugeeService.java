@@ -127,13 +127,13 @@ public class RefugeeService {
     @Transactional
     public void removeMentorFromRefugee(Long refugeeId) {
 
-        // Retrieve the refugee object
+        if (getRefugeeById(refugeeId).getMentor() == null) {
+            throw new RuntimeException("Refugee " + refugeeId + " does not have a mentor.");
+        }
         Refugee refugee = getRefugeeById(refugeeId);
 
-        // Remove the mentor association from the refugee
         refugee.setMentor(null);
 
-        // Save the updated refugee
         refugeeRepository.save(refugee);
     }
 

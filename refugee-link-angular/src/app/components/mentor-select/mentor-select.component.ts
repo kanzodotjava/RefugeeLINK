@@ -14,6 +14,7 @@ export class MentorSelectComponent implements OnInit {
   mentors: any[] = [];
   filteredMentors: any[] = [];
   errorMessage: string = '';
+  applicationResponse: string = '';
   profilePictureUrl: string = './assets/images/pfp/';
 
   uniqueCountries: string[] = [];
@@ -45,22 +46,21 @@ export class MentorSelectComponent implements OnInit {
   applyToMentorship(mentorId: number, mentor: any): void {
     const username = localStorage.getItem('username');
     if (username) {
-      this.mentorsService.applyToMentorship(username, mentorId).subscribe(
-        (response) => {
-          console.log('Mentorship application successful:', response);
-          mentor.applicationResponse = 'Selected mentor successfully';
-          mentor.errorMessage = null;
-        },
-        (error) => {
-          mentor.errorMessage = error.error.message;
-          console.error('Error applying to mentorship:', error);
-        }
-      );
+        this.mentorsService.applyToMentorship(username, mentorId).subscribe(
+            (response) => {
+                console.log('Mentorship application successful:', response);
+                this.applicationResponse = 'Mentor selected successfully! ';
+            },
+            (error) => {
+                this.errorMessage = 'Please remove a mentor before selecting a new one'; 
+                console.error('Error applying to mentorship:', error);
+            }
+        );
     } else {
-      console.error('Username not found in local storage');
-      this.errorMessage = 'You must be logged in to apply for mentorship.';
+        console.error('Username not found in local storage');
+        this.errorMessage = 'You must be logged in to apply for mentorship.';
     }
-  }
+}
 
 
   filterCriteria = {
@@ -106,5 +106,8 @@ export class MentorSelectComponent implements OnInit {
     this.filterMentors();
   }
 
-  
+  closePopup() {
+    this.errorMessage = ''; 
+    this.applicationResponse = '';
+  }
 }

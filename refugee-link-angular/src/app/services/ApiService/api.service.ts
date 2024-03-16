@@ -184,4 +184,9 @@ export class ApiService {
       headers: { 'Content-Type': 'application/json' }
     });
   }
+
+  removeMentorFromRefugee(refugeeId: number): Observable<any> {
+    return this.http.delete(`http://localhost:8080/refugee/${refugeeId}/mentor`,  { responseType: 'text' });
+  }
+
 }
