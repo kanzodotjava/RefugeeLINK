@@ -10,7 +10,7 @@ export class ApiService {
   private loginUrl = 'https://localhost:7165/login';
   private baseUrlEntity = 'https://localhost:7165';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   sendFormData(data: any): Observable<any> {
     const endpointUrl = 'http://localhost:8080/refugee';
@@ -80,7 +80,7 @@ export class ApiService {
     return this.http.get<any>(url);
   }
 
-  sendFormDataOrganization(data: any): Observable<any> {
+  createOrganization(data: any): Observable<any> {
     const endpointUrl = `${this.baseUrlEntity}/organization`;
     return this.http.post(endpointUrl, data);
   }
@@ -184,4 +184,9 @@ export class ApiService {
       headers: { 'Content-Type': 'application/json' }
     });
   }
+
+  updateFormation(formationId: number, formationData: any): Observable<any> {
+return this.http.put(`http://localhost:8080/formation/${formationId}`, formationData);
+  }
+
 }
