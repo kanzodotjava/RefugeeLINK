@@ -44,40 +44,48 @@ public class RefugeeService {
      * @return  the added refugee
      */
     public Refugee addRefugee(Refugee refugee) {
+
+        // Check if the refugee already exists
         if (refugeeRepository.existsById(refugee.getId())) {
             throw new DataIntegrityViolationException("Refugee with ID " + refugee.getId() + " already exists.");
         }
+
+        // Check if the username is valid
         String username = refugee.getUserName();
         if (username.length() < 6 || username.length() > 12 || !username.matches("^[a-zA-Z0-9]+$")) {
             throw new IllegalArgumentException("Username must be between 6 and 12 characters long and contain only letters and numbers.");
         }
+
+        // Check if the email already exists
         String email = refugee.getEmailAddress();
         if (refugeeRepository.existsByEmailAddress(email)) {
             throw new DataIntegrityViolationException("Email address " + email + " is already registered.");
         }
+        if (mentorRepository.existsByEmailAddress(email)) {
+            throw new DataIntegrityViolationException("Email address " + email + " is already registered as a mentor.");
+        }
 
+        // Check if the username already exists
         if (refugeeRepository.existsByUserName(username)) {
             throw new DataIntegrityViolationException("Username " + username + " is already registered as a refugee.");
         }
+        if (mentorRepository.existsByUserName(username)) {
+            throw new DataIntegrityViolationException("Username " + username + " is already registered as a mentor.");
+        }
 
+        // Check if the password is valid
         String password = refugee.getPassword();
         if (password.length() < 8 || password.length() > 50 || !password.matches(".*[A-Z].*")) {
             throw new IllegalArgumentException("Password must be between 8 and 50 characters long and contain at least one uppercase character.");
         }
 
+        // Check if the citizen card is valid
         int citCard = refugee.getCitizenCard();
         if(citCard < 100000000 || citCard > 999999999){
             throw new IllegalArgumentException("Citizen card number must be a 9-digit number");
         }
 
-        if (mentorRepository.existsByUserName(username)) {
-            throw new DataIntegrityViolationException("Username " + username + " is already registered as a mentor.");
-        }
-
-        if (mentorRepository.existsByEmailAddress(email)) {
-            throw new DataIntegrityViolationException("Email address " + email + " is already registered as a mentor.");
-        }
-
+        // Return the added refugee after saving it
         return refugeeRepository.save(refugee);
     }
 
@@ -87,6 +95,7 @@ public class RefugeeService {
      * @return  the refugee with the given id.
      */
     public Refugee getRefugeeById(Long id) {
+        // Check if the refugee exists with the given id and return it
         return refugeeRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Refugee with id: " + id + " was not found!"));
     }
@@ -96,10 +105,15 @@ public class RefugeeService {
      * @return  the list of all refugees.
      */
     public List<Refugee> getAllRefugees() {
+        // Retrieve all refugees
         List<Refugee> refugees = refugeeRepository.findAll();
+
+        // Check if the list is empty
         if (refugees.isEmpty()) {
             System.out.println("No refugees found!");
         }
+
+        // Return the list of all refugees
         return refugees;
     }
 
@@ -109,10 +123,14 @@ public class RefugeeService {
      * @return  True if the refugee was found and deleted. False otherwise.
      */
     public boolean deleteRefugeeById(Long id) {
+
+        // Check if the refugee exists with the given id
         if (refugeeRepository.existsById(id)) {
             refugeeRepository.deleteById(id);
             return true;
         }
+
+        // Return false if the refugee was not deleted
         return false;
     }
 
@@ -123,10 +141,13 @@ public class RefugeeService {
      * @return  The updated refugee.
      */
     public Refugee updateRefugee(Long id, Refugee refugee) {
+
+        // Check if the refugee exists with the given id and updates it
         if (refugeeRepository.existsById(id)) {
             refugee.setId(id);
             return refugeeRepository.save(refugee);
         }
+
         throw new EntityNotFoundException("Refugee with id: " + id + " was not found!");
     }
 
@@ -136,6 +157,7 @@ public class RefugeeService {
      * @return  The refugee with the given username.
      */
     public Optional<Refugee> findRefugeeByUsername(String userName) {
+        // Return the refugee with the given username
         return refugeeRepository.findByUserName(userName);
     }
 
@@ -255,7 +277,11 @@ public class RefugeeService {
         return refugee.getFormation();
     }
 
-
+    /**
+     *  Get the current formation of a refugee.
+     * @param username
+     * @return  The current formation of the refugee.
+     */
     public Formation getCurrentFormationByRefugee(String username) {
         // Retrieve the refugee object by username
         Refugee refugee = refugeeRepository.findByUserName(username)
@@ -265,10 +291,26 @@ public class RefugeeService {
         return refugee.getFormation();
     }
 
+    /**
+     *  Get the list of refugees by ids
+     * @param refugeeIds
+     * @return  The list of refugees with the given ids.
+     */
     public List<Refugee> getRefugeesByIds(List<Long> refugeeIds) {
+
+        // Check if the ids are valid
+        if (refugeeIds == null || refugeeIds.isEmpty()) {
+            throw new RuntimeException("Refugee ids cannot be null or empty");
+        }
+
+        // Retrieve all refugees
         return refugeeRepository.findAllById(refugeeIds);
     }
 
+    /**
+     *  Remove the formation association from a refugee.
+     * @param username
+     */
     @Transactional
     public void removeFormationFromRefugee(String username) {
         // Retrieve the refugee object
@@ -281,7 +323,13 @@ public class RefugeeService {
         refugeeRepository.save(refugee);
     }
 
+    /**
+     *  Get the id of a refugee by username.
+     * @param username
+     * @return  The id of the refugee with the given username.
+     */
     public Long getRefugeeIdByUsername(String username) {
+        // Check if the refugee exists with the given username and return its id
         return refugeeRepository.findByUserName(username)
                 .map(Refugee::getId)
                 .orElseThrow(() -> new RuntimeException("Refugee not found with username: " + username));
