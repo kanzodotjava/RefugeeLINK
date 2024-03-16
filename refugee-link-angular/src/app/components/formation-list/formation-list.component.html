@@ -10,9 +10,9 @@
     <br />
 
     <div class="detail">
-      <span>Status:</span>
+      <span>Change Status:</span>
       <select (change)="formation.status" (change)="confirmChangeStatus(formation.id, $event)">
-        <option value="" disabled selected>Change status</option>
+        <option value="" disabled selected>Select status</option>
         <option *ngFor="let status of statuses; let i = index" [value]="status">{{ statusDisplayNames[i] }}</option>
       </select>
     </div>
