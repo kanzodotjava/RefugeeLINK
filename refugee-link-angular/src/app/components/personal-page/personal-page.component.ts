@@ -15,6 +15,7 @@ export class PersonalPageComponent implements OnInit {
   isRefugee: boolean = false; // Add this property
   removeMentorResponse: string = '';
   removeMentorResponseError: string = '';
+  failedToUploadReponseError: string = '';
 
 
   constructor(
@@ -78,10 +79,12 @@ export class PersonalPageComponent implements OnInit {
         },
         error: (err) => {
           console.error('Error uploading file:', err);
+          this.failedToUploadReponseError = 'Failed to upload file. Make sure you are trying to upload .jpg files only!';
         }
       });
     } else {
       console.error('No file selected');
+      this.failedToUploadReponseError = 'Please select a file to upload.';
     }
   }
   
@@ -104,6 +107,7 @@ export class PersonalPageComponent implements OnInit {
   closePopup() {
     this.removeMentorResponse = ''; 
     this.removeMentorResponseError = '';
+    this.failedToUploadReponseError = '';
   }
 }
 

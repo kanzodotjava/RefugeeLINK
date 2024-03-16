@@ -1,8 +1,6 @@
 <div class="flex-center">
   <div *ngIf="mentor" class="bg-white rounded-lg shadow-md p-6 mb-4">
-    <div class="profile-picture-container">
-      <img [src]="profilePictureUrl" alt="Profile Picture" class="profile-picture" onError="this.src='./assets/images/pfp/default.jpg';">
-    </div>
+    <app-pfp></app-pfp>
     <h2 class="text-xl font-semibold mb-4">Mentor Information</h2>
     <div class="mb-4">
       <p><strong>Name:</strong> {{ mentor.name }}</p>

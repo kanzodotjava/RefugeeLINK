@@ -54,8 +54,8 @@ public class FormationController {
         formationService.registerFormation(formation);
         return formation.getName();
     }
-    @PutMapping("/update")
-    public ResponseEntity<Formation> updateFormation(@RequestBody Formation formation) throws FormationIdNotFound {
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Formation> updateFormation(@PathVariable Long id, @RequestBody Formation formation) throws FormationIdNotFound {
         Formation updatedFormation = formationService.updateFormation(formation);
         return new ResponseEntity<>(updatedFormation, HttpStatus.OK);
     }
