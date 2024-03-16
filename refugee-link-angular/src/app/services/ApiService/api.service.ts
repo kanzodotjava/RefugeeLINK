@@ -188,10 +188,9 @@ export class ApiService {
 
   updateFormation(formationId: number, formationData: any): Observable<any> {
 return this.http.put(`http://localhost:8080/formation/${formationId}`, formationData);
-
+}
   removeMentorFromRefugee(refugeeId: number): Observable<any> {
     return this.http.delete(`http://localhost:8080/refugee/${refugeeId}/mentor`,  { responseType: 'text' });
-
+}
   }
 
-}
