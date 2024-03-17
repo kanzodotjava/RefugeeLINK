@@ -15,6 +15,9 @@ import pt.upskill.RefugeeLINK.Services.RefugeeFormationService;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ *  Controller for RefugeeFormation
+ */
 @RestController
 @RequestMapping("/RefugeeFormation")
 public class RefugeeFormationController {
@@ -22,6 +25,10 @@ public class RefugeeFormationController {
     @Autowired
     private RefugeeFormationService refugeeFormationService;
 
+    /**
+     *  Get all formations for all refugees
+     * @return  List of all refugees formations
+     */
     @GetMapping("/all")
     public ResponseEntity<List<RefugeeFormationDTO>> getAllRefugeeFormations() {
         List<RefugeeFormation> refugeeFormations = refugeeFormationService.getAllRefugeeFormations();
@@ -31,6 +38,12 @@ public class RefugeeFormationController {
         return new ResponseEntity<>(refugeeFormationDTOs, HttpStatus.OK);
     }
 
+    /**
+     *  Get a formation by id
+     * @param id
+     * @return
+     * @throws RefugeeFormationIdNotFound
+     */
     @GetMapping("/{id}")
     public ResponseEntity<RefugeeFormationDTO> getRefugeeFormationById(@PathVariable Long id) throws RefugeeFormationIdNotFound {
         RefugeeFormation refugeeFormation = refugeeFormationService.getRefugeeFormation(id);
