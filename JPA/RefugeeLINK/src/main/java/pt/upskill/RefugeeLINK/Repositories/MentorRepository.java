@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- *  Represents a repository for {@link Mentor} entities.
+ *  Represents a repository for Mentor entities.
  */
 @Repository
 public interface MentorRepository extends JpaRepository<Mentor, Long> {
