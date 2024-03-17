@@ -1,5 +1,8 @@
 package pt.upskill.RefugeeLINK.Enums;
 
+/**
+ *  Professions
+ */
 public enum Profession {
     ENGINEER("Engineer"),
     DOCTOR("Doctor"),
