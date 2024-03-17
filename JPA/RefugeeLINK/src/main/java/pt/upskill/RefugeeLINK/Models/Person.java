@@ -276,7 +276,6 @@ public abstract class Person {
 
     /**
      * Sets the secondary language spoken by the person.
-     *
      * @param secondaryLanguage
      */
     public void setSecondaryLanguage(Language secondaryLanguage) {
@@ -285,7 +284,6 @@ public abstract class Person {
 
     /**
      * Sets the citizen card number of the person.
-     *
      * @param citizenCard
      */
     public void setCitizenCard(int citizenCard) {
@@ -294,7 +292,6 @@ public abstract class Person {
 
     /**
      * Sets the gender of the person.
-     *
      * @param gender
      */
     public void setGender(Gender gender) {

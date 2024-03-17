@@ -12,7 +12,9 @@ export class AdminDashboardComponent implements OnInit {
   organizationForm!: FormGroup;
   organizations: any[] = [];
   editingOrganization: any = null;
-  activeSection: 'mentors' | 'organizations' | 'awaiting' | 'denied' | null = null;
+  activeSection: 'mentors' | 'organizations' | 'awaiting' | 'denied' | 'list' | null = null;
+  isUpdating = false;
+
 
   constructor(private apiService: ApiService, private fb: FormBuilder) {}
 
@@ -65,7 +67,7 @@ export class AdminDashboardComponent implements OnInit {
         );
       } else {
         // If creating a new organization, add it
-        this.apiService.sendFormDataOrganization(formData).subscribe(
+        this.apiService.createOrganization(formData).subscribe(
           (response) => {
             console.log('Organization added:', response);
             this.fetchOrganizations(); // Refresh organization list
@@ -122,7 +124,17 @@ export class AdminDashboardComponent implements OnInit {
     });
   }
 
-  setActiveSection(section: 'mentors' | 'organizations' | 'awaiting' | 'denied' | null): void {
+  toggleUpdate() {
+    this.isUpdating = !this.isUpdating;
+  }
+
+
+  cancelEdit(): void {
+    this.editingOrganization = null;
+    this.resetForm();
+  }
+
+  setActiveSection(section: 'mentors' | 'organizations' | 'awaiting' | 'denied' | 'list' | null): void {
     this.activeSection = section;
   }
 

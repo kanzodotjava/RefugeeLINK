@@ -6,13 +6,22 @@ using System.Globalization;
 
 namespace RefugeeLink.Controllers
 {
+
+    /* 
+    The RatingController class is part of the RefugeeLink.Controllers namespace.
+    It uses the MainContext class to interact with the database and IHttpClientFactory to make HTTP requests.
+    */
     public class RatingController : Controller
     {
-
+        // Private fields to hold the instances of MainContext and IHttpClientFactory.
         private readonly MainContext _context;
         private readonly IHttpClientFactory _clientFactory;
 
 
+        /* 
+        The constructor for the RatingController class.
+        It takes a MainContext object and an IHttpClientFactory object as parameters.
+        */
         public RatingController(MainContext context, IHttpClientFactory clientFactory)
         {
             _context = context;
@@ -20,12 +29,17 @@ namespace RefugeeLink.Controllers
         }
 
 
+
+        /* 
+        Method to rate a mentor.
+        It uses the Post method and expects a RatingDetail object in the request body.
+        */
         [HttpPost("/rate-mentor")]
         public async Task<IActionResult> RateMentor([FromBody] RatingDetail ratingDetail)
         {
           
 
-            // Assuming the external API is the source of truth for the current average rating
+            
             var client = _clientFactory.CreateClient();
             var response = await client.GetAsync($"http://localhost:8080/mentor/get-rating/{ratingDetail.MentorUsername}");
 
@@ -39,7 +53,7 @@ namespace RefugeeLink.Controllers
 
             _context.RatingDetails.Add(ratingDetail);
 
-            // Get or create the mentor rating entity
+         
             var mentorRating = await _context.MentorRatings
                 .FirstOrDefaultAsync(mr => mr.Username == ratingDetail.MentorUsername);
             if (mentorRating == null)
@@ -67,10 +81,7 @@ namespace RefugeeLink.Controllers
 
             await _context.SaveChangesAsync();
 
-            // Update the external API with the new average rating
-            //var updateResponse = await client.PutAsync($"http://localhost:8080/mentor/update-rating/{ratingDetail.MentorUsername}/{mentorRating.AverageRating}", null);
-
-            // Update the external API with the new average rating
+           
             string formattedRating = mentorRating.AverageRating.ToString(CultureInfo.InvariantCulture);
             var updateResponse = await client.PutAsync($"http://localhost:8080/mentor/update-rating/{ratingDetail.MentorUsername}/{formattedRating}", null);
 
@@ -83,6 +94,12 @@ namespace RefugeeLink.Controllers
             return Ok();
         }
 
+
+
+        /* 
+        Method to check if a user has rated a mentor.
+        It uses the Post method and expects a RatingDetail object in the request body.
+        */
         [HttpPost("/has-rated")]
         public async Task<IActionResult> HasRatedMentor([FromBody] RatingDetail ratingDetail)
         {
@@ -99,6 +116,11 @@ namespace RefugeeLink.Controllers
             return Ok(new { hasRated = false });
         }
 
+
+        /* 
+        Method to get all rating details.
+        It uses the Get method.
+        */
         [HttpGet("/rating-details")]
         public async Task<IActionResult> GetAllRatingDetails()
         {
@@ -108,6 +130,11 @@ namespace RefugeeLink.Controllers
         }
 
 
+
+        /* 
+        Method to get a rating.
+        It uses the Post method and expects a RatingDetail object in the request body.
+        */
         [HttpPost("/get-rating")]
         public async Task<IActionResult> GetRating([FromBody] RatingDetail ratingDetail)
         {

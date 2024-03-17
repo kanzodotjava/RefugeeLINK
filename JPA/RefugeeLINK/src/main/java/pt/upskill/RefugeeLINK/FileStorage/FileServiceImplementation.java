@@ -8,8 +8,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 @Service
 public class FileServiceImplementation implements FileService {
@@ -18,6 +16,11 @@ public class FileServiceImplementation implements FileService {
     public String uploadImage(String path, MultipartFile file, String uniqueIdentifier) throws IOException {
         String originalFilename = file.getOriginalFilename();
         String fileExtension = originalFilename.substring(originalFilename.lastIndexOf("."));
+
+        // Check if the file is a .jpg file
+        if (!fileExtension.equalsIgnoreCase(".jpg")) {
+            throw new IOException("Only .jpg files are allowed.");
+        }
 
         // Creating a unique filename using the uniqueIdentifier
         String uniqueFileName = uniqueIdentifier + fileExtension;
@@ -34,6 +37,4 @@ public class FileServiceImplementation implements FileService {
 
         return uniqueFileName;
     }
-
-
 }

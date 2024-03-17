@@ -18,10 +18,9 @@
       <p>
         <strong>Secondary Language:</strong> {{ userDetails.secondaryLanguage }}
       </p>
-      <p><strong>Citizen Card:</strong> {{ userDetails.citizenCard }}</p>
-      <p><strong>Profession:</strong> {{ userDetails.profession }}</p>
-      <p><strong>Status:</strong> {{ userDetails.status }}</p>
-
+      <p>
+        <strong>Gender:</strong> {{ userDetails.gender }}
+      </p>
     </div>
     <br />
     <div>
@@ -39,3 +38,25 @@
     Loading user details...
   </div>
 </div>
+
+<ng-container *ngIf="removeMentorResponse">
+  <div class="popup">
+    <span class="close" (click)="closePopup()">&times;</span>
+    <p>{{ removeMentorResponse }}</p>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="removeMentorResponseError">
+  <div class="popup">
+    <span class="close" (click)="closePopup()">&times;</span>
+    <p>{{ removeMentorResponseError }}</p>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="failedToUploadReponseError">
+  <div class="popup">
+    <span class="close" (click)="closePopup()">&times;</span>
+    <p>{{ failedToUploadReponseError }}</p>
+  </div>
+</ng-container>
+

@@ -36,6 +36,7 @@ public class Refugee extends Person {
      */
     @OneToMany(mappedBy = "refugee")
     @Nullable
+    @JsonIgnoreProperties("refugee")
     private List<RefugeeFormation> completedFormations;
 
     /**
@@ -123,7 +124,11 @@ public class Refugee extends Person {
         this.mentor = mentor;
     }
 
-
+    /**
+     *  Converts the object to a DTO.
+     *
+     * @return  The DTO representation of the object.
+     */
     public RefugeeDTO toDTO() {
         RefugeeDTO refugeeDTO = new RefugeeDTO();
         refugeeDTO.setId(this.getId());
@@ -136,9 +141,15 @@ public class Refugee extends Person {
         refugeeDTO.setPrimaryLanguage(this.getPrimaryLanguage());
         refugeeDTO.setSecondaryLanguage(this.getSecondaryLanguage());
         refugeeDTO.setRefugeeId(this.getRefugeeNumber());
+        refugeeDTO.setGender(this.getGender());
         return refugeeDTO;
     }
 
+    /**
+     *  Converts the object to a login DTO.
+     *
+     * @return  The DTO representation of the object.
+     */
     public RefugeeLoginDto toLoginDTO() {
         RefugeeLoginDto refugeeLoginDTO = new RefugeeLoginDto();
         refugeeLoginDTO.setUserName(this.getUserName());
@@ -146,6 +157,11 @@ public class Refugee extends Person {
         return refugeeLoginDTO;
     }
 
+    /**
+     *  Converts the object to a message DTO.
+     *
+     * @return  The DTO message representation of the object.
+     */
     public RefugeeMsgDTO toMsgDTO() {
         RefugeeMsgDTO refugeeMsgDTO = new RefugeeMsgDTO();
         refugeeMsgDTO.setUsername(this.getUserName());

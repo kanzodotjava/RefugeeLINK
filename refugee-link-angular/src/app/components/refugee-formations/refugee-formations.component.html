@@ -1,70 +1,140 @@
 <div class="mx-auto max-w-screen-lg mt-8">
+  <div *ngIf="formationInfo">
+    <h2 class="text-2xl font-bold mb-4 mx-auto text-center">
+      CURRENT FORMATION
+    </h2>
+    <div class="bg-white overflow-hidden shadow-md rounded-lg">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">{{ formationInfo.organizationName }}</div>
+        <div class="font-bold text-xl mb-2">{{ formationInfo.name }}</div>
+        <div class="grid grid-cols-2 gap-2">
+          <p class="text-gray-700 font-bold">Description:</p>
+          <p class="text-gray-700">{{ formationInfo.description }}</p>
+          <p class="text-gray-700 font-bold">Number of Lessons:</p>
+          <p class="text-gray-700">{{ formationInfo.numberOfLessons }}</p>
+          <p class="text-gray-700 font-bold">Start Date:</p>
+          <p class="text-gray-700">{{ formationInfo.startDate }}</p>
+          <p class="text-gray-700 font-bold">Duration:</p>
+          <p class="text-gray-700">{{ formationInfo.duration }} hours</p>
+          <p class="text-gray-700 font-bold">Status:</p>
+          <p class="text-gray-700">{{ getStatusText(formationInfo.status) }}</p>
+        </div>
+        <!-- Buttons -->
+        <div class="flex justify-start gap-4 mt-4">
+          <button
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            (click)="goToFormationDetails(formationInfo.id)">
+            View Formation Details
+          </button>
+          <button
+            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            (click)="leaveFormation()">
+            Leave Formation
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STARTING SOON FORMATIONS -->
+<div class="mx-auto max-w-screen-lg mt-8">
   <h2 class="text-2xl font-bold mb-4 mx-auto text-center">
-    Formations awaiting to start
+    STARTING SOON FORMATIONS
   </h2>
-  <div
-    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center"
-  >
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center">
     <ng-container *ngFor="let formation of formations">
-      <div class="bg-white overflow-hidden shadow-md rounded-lg">
+      <div *ngIf="formation.status === 'Awaiting Start'" class="bg-white overflow-hidden shadow-md rounded-lg">
         <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2">{{ formation.organizationName }}</div>
           <div class="font-bold text-xl mb-2">{{ formation.name }}</div>
           <div class="grid grid-cols-2 gap-2">
-            <p class="text-gray-700">Description:</p>
-            <p class="text-gray-700">{{ formation.description }}</p>
-            <p class="text-gray-700">Number of Lessons:</p>
+            <!-- Formation details -->
+            <p class="text-gray-700 font-bold">Description:</p>
+            <p class="text-gray-700 col-span-2">{{ formation.description }}</p>
+            <p class="text-gray-700 font-bold">Number of Lessons:</p>
             <p class="text-gray-700">{{ formation.numberOfLessons }}</p>
-            <p class="text-gray-700">Start Date:</p>
+            <p class="text-gray-700 font-bold">Start Date:</p>
             <p class="text-gray-700">{{ formation.startDate }}</p>
-            <p class="text-gray-700">Duration:</p>
-            <p class="text-gray-700">{{ formation.duration }}</p>
-            <p class="text-gray-700">Status:</p>
-            <p class="text-gray-700">{{ formation.status }}</p>
+            <p class="text-gray-700 font-bold">Duration:</p>
+            <p class="text-gray-700">{{ formation.duration }} hours</p>
+            <p class="text-gray-700 font-bold">Status:</p>
+            <p class="text-gray-700">{{ getStatusText(formation.status) }}</p>
           </div>
+          <!-- Button -->
           <button
-            (click)="applyToFormation(formation.id)"
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4"
-          >
-            Apply
+            (click)="applyToFormation(formation.id)">
+            Register
           </button>
-          <p *ngIf="applicationMessage">{{ applicationMessage }}</p>
         </div>
       </div>
     </ng-container>
   </div>
 </div>
-<div class="mx-auto max-w-screen-lg mt-8">
-  <div *ngIf="formationInfo">
-    <h2 class="text-2xl font-bold mb-4 mx-auto text-center">
-      Current Formation
-    </h2>
 
-    <div class="bg-white overflow-hidden shadow-md rounded-lg">
-      <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">{{ formationInfo.name }}</div>
-        <div class="grid grid-cols-2 gap-2">
-          <p class="text-gray-700">Description:</p>
-          <p class="text-gray-700">{{ formationInfo.description }}</p>
-          <p class="text-gray-700">Number of Lessons:</p>
-          <p class="text-gray-700">{{ formationInfo.numberOfLessons }}</p>
-          <p class="text-gray-700">Start Date:</p>
-          <p class="text-gray-700">{{ formationInfo.startDate }}</p>
-          <p class="text-gray-700">Duration:</p>
-          <p class="text-gray-700">{{ formationInfo.duration }}</p>
-          <p class="text-gray-700">Status:</p>
-          <p class="text-gray-700">{{ getStatusText(formationInfo.status) }}</p>
-          <!-- Button appears after displaying the status -->
-          <button
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            (click)="goToFormationDetails(formationInfo.id)"
-          >
-            View Formation Details
-          </button>
+<!-- FORMATIONS GOING ON -->
+<div class="mx-auto max-w-screen-lg mt-8">
+  <h2 class="text-2xl font-bold mb-4 mx-auto text-center">
+    ALREADY STARTED FORMATIONS
+  </h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center">
+    <ng-container *ngFor="let formation of formations">
+      <div *ngIf="formation.status === 'ONGOING'" class="bg-white overflow-hidden shadow-md rounded-lg">
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2">{{ formation.organizationName }}</div>
+          <div class="font-bold text-xl mb-2">{{ formation.name }}</div>
+          <div class="grid grid-cols-2 gap-2">
+            <!-- Formation details -->
+            <p class="text-gray-700 font-bold">Description:</p>
+            <p class="text-gray-700 col-span-2">{{ formation.description }}</p>
+            <p class="text-gray-700 font-bold">Number of Lessons:</p>
+            <p class="text-gray-700">{{ formation.numberOfLessons }}</p>
+            <p class="text-gray-700 font-bold">Start Date:</p>
+            <p class="text-gray-700">{{ formation.startDate }}</p>
+            <p class="text-gray-700 font-bold">Duration:</p>
+            <p class="text-gray-700">{{ formation.duration }} hours</p>
+            <p class="text-gray-700 font-bold">Status:</p>
+            <p class="text-gray-700">{{ getStatusText(formation.status) }}</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div *ngIf="!formationInfo">
-      <p>No current formation available.</p>
+    </ng-container>
     </div>
   </div>
-</div>
+
+  <!-- FORMATIONS COMPLeTED -->
+<div class="mx-auto max-w-screen-lg mt-8">
+  <h2 class="text-2xl font-bold mb-4 mx-auto text-center">
+    ALREADY FINISHED FORMATIONS
+  </h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center">
+    <ng-container *ngFor="let formation of formations">
+      <div *ngIf="formation.status === 'COMPLETED'" class="bg-white overflow-hidden shadow-md rounded-lg">
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2">{{ formation.organizationName }}</div>
+          <div class="font-bold text-xl mb-2">{{ formation.name }}</div>
+          <div class="grid grid-cols-2 gap-2">
+            <!-- Formation details -->
+            <p class="text-gray-700 font-bold">Description:</p>
+            <p class="text-gray-700 col-span-2">{{ formation.description }}</p>
+            <p class="text-gray-700 font-bold">Number of Lessons:</p>
+            <p class="text-gray-700">{{ formation.numberOfLessons }}</p>
+            <p class="text-gray-700 font-bold">Start Date:</p>
+            <p class="text-gray-700">{{ formation.startDate }}</p>
+            <p class="text-gray-700 font-bold">Duration:</p>
+            <p class="text-gray-700">{{ formation.duration }} hours</p>
+            <p class="text-gray-700 font-bold">Status:</p>
+            <p class="text-gray-700">{{ getStatusText(formation.status) }}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    </div>
+  </div>
+  <ng-container *ngIf="applicationMessage">
+    <div class="popup">
+      <span class="close" (click)="closePopup()">&times;</span>
+      <p>{{ applicationMessage }}</p>
+    </div>
+  </ng-container>

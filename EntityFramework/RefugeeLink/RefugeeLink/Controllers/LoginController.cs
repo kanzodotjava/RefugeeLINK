@@ -3,37 +3,33 @@ using RefugeeLink.Models;
 
 namespace RefugeeLink.Controllers
 {
+
+    /* 
+    The LoginController class is part of the RefugeeLink.Controllers namespace.
+    It uses HttpClient to make HTTP requests.
+    */
     [ApiController]
     public class LoginController : ControllerBase
     {
+        // Private field to hold the instance of HttpClient.
         private readonly HttpClient _httpClient;
 
+
+        /* 
+        The constructor for the LoginController class.
+        It initializes the HttpClient object.
+        */
         public LoginController()
         {
             _httpClient = new HttpClient();
         }
 
-        //[HttpPost("login")]
-        //public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
-        //{
-
-        //    var jpaApiUrl = "http://localhost:8080/mentor/login";
-
-        //    var response = await _httpClient.PostAsJsonAsync(jpaApiUrl, loginRequest);
-
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        var loginSuccess = await System.Text.Json.JsonSerializer.DeserializeAsync<bool>(await response.Content.ReadAsStreamAsync());
-        //        if (loginSuccess)
-        //        {
-        //            return Ok(new { UserType = "Mentor" } ); // Login success
-        //        }
-        //    }
-
-        //    return Unauthorized(); // Login failed
-        //}
 
 
+        /* 
+        Method to login a user.
+        It uses the Post method and expects a LoginRequest object in the request body.
+        */
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
         {
@@ -65,19 +61,7 @@ namespace RefugeeLink.Controllers
                 }
             }
 
-            //// If REfugee login fails, try Organization login
-            //var organizationApiUrl = "http://localhost:8080/organization/login";
-            //var organizationResponse = await _httpClient.PostAsJsonAsync(organizationApiUrl, loginRequest);
-
-            //if (organizationResponse.IsSuccessStatusCode)
-            //{
-            //    var organizationLoginSuccess = await System.Text.Json.JsonSerializer.DeserializeAsync<bool>(await organizationResponse.Content.ReadAsStreamAsync());
-            //    if (organizationLoginSuccess)
-            //    {
-
-            //        return Ok(new { UserType = "Organization" });
-            //    }
-            //}
+      
 
             // If both logins fail
             return Unauthorized(); // Login failed

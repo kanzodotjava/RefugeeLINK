@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +10,7 @@ export class ApiService {
   private loginUrl = 'https://localhost:7165/login';
   private baseUrlEntity = 'https://localhost:7165';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   sendFormData(data: any): Observable<any> {
     const endpointUrl = 'http://localhost:8080/refugee';
@@ -80,7 +80,7 @@ export class ApiService {
     return this.http.get<any>(url);
   }
 
-  sendFormDataOrganization(data: any): Observable<any> {
+  createOrganization(data: any): Observable<any> {
     const endpointUrl = `${this.baseUrlEntity}/organization`;
     return this.http.post(endpointUrl, data);
   }
@@ -123,6 +123,11 @@ export class ApiService {
     return this.http.get<any[]>(`${this.baseUrl}/formation/status/${status}`);
   }
 
+  getOrganizationNameById(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrlEntity}/name/${id}`, { responseType: 'text' });
+  }
+
+
   applyToFormation(refugeeId: number, formationId: number): Observable<string> {
     const url = `${this.baseUrl}/formation/refugees/${refugeeId}/formations/${formationId}/register`;
     return this.http.post<string>(url, null, {
@@ -152,8 +157,40 @@ export class ApiService {
     return this.http.get<any[]>(`http://localhost:8080/RefugeeFormation/refugees-by-formation/${formationId}`);
   }
 
+  getStatusByUsername(username: string): Observable<string> {
+    return this.http.get(`http://localhost:8080/mentor/status/${username}`, { responseType: 'text' });
+  }
   approveRefugee(refugeeId: number, formationId: number): Observable<any> {
-    return this.http.put(`http://localhost:8080/RefugeeFormation/approve/${refugeeId}/${formationId}`, {});
+    return this.http.put(`http://localhost:8080/RefugeeFormation/toggleApproval/${refugeeId}/${formationId}`, {});
   }
 
+  getRefugeeApprovalStatus(refugeeId: number, formationId: number): Observable<any> {
+    return this.http.get(`http://localhost:8080/RefugeeFormation/isApproved/${refugeeId}/${formationId}`);
+  }
+
+  expelRefugeeFromFormation(refugeeId: number, formationId: number): Observable<any> {
+    return this.http.delete(`http://localhost:8080/RefugeeFormation/expel/${refugeeId}/${formationId}`);
+  }
+
+  getRefugeeIdByUsername(username: string): Observable<number> {
+    return this.http.get(`http://localhost:8080/refugee/id/${username}`, { responseType: 'text' })
+      .pipe(
+        map((response: string) => parseInt(response, 10)) // Parse response string to number
+      );
+  }
+
+  changeFormationStatus(formationId: number, newStatus: string): Observable<any> {
+    return this.http.put(`http://localhost:8080/formation/${formationId}/status`, `"${newStatus}"`, {
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+
+
+  updateFormation(formationId: number, formationData: any): Observable<any> {
+return this.http.put(`http://localhost:8080/formation/${formationId}`, formationData);
 }
+  removeMentorFromRefugee(refugeeId: number): Observable<any> {
+    return this.http.delete(`http://localhost:8080/refugee/${refugeeId}/mentor`,  { responseType: 'text' });
+}
+  }
+

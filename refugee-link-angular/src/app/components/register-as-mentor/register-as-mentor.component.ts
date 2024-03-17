@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AbstractControl, ValidatorFn } from '@angular/forms';
+import { Router } from '@angular/router';
 
 enum Country {
   USA = 'UNITED_STATES_OF_AMERICA',
@@ -401,9 +402,11 @@ export class RegisterAsMentorComponent {
   mentorForm: FormGroup;
   errorMessage: string | null = null;
 
+
   constructor(
     private httpClient: HttpClient,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
     this.mentorForm = this.formBuilder.group({
       id: [0],
@@ -451,6 +454,7 @@ export class RegisterAsMentorComponent {
             console.log('Mentor registration successful:', response);
             // Set registrationSuccess to true to display success message
             this.registrationSuccess = true;
+            this.router.navigate(['']);
             // Optionally, redirect the user or show a success message
           },
           (error) => {
