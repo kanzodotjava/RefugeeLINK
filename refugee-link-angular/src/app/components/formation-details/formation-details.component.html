@@ -13,6 +13,12 @@
         <p class="text-gray-700">{{ formationDetails.duration }} hours</p>
         <p class="text-gray-700">Status:</p>
         <p class="text-gray-700">{{ formationDetails.status }}</p>
+
+
+        <p class="text-gray-700">Approval status:</p>
+        <p *ngIf="isApproved === true" class="bg-green-500 text-white-700 font-bold p-2 rounded">Approved</p>
+        <p *ngIf="isApproved === false" class="bg-red-500 text-white-700 font-bold p-2 rounded">Not Approved</p>
+
       </div>
     </div>
   </div>
