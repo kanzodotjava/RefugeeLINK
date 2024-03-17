@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../services/ApiService/api.service';
+import { Router } from '@angular/router';
 
 enum Language {
   MANDARIN = 'MANDARIN',
@@ -239,7 +240,7 @@ export class RegisterAsRefugeeComponent implements OnInit {
   refugeeForm!: FormGroup;
   isRefugeeNumberValid: boolean = true;
 
-  constructor(private fb: FormBuilder, private apiService: ApiService) {}
+  constructor(private fb: FormBuilder, private apiService: ApiService, private router: Router) {}
 
   ngOnInit() {
     this.refugeeForm = this.fb.group({
@@ -291,6 +292,7 @@ export class RegisterAsRefugeeComponent implements OnInit {
                 console.log('Form submission successful', response);
                 this.submissionStatus = 'success'; // Update submission status
                 // Handle successful form submission here
+                this.router.navigate(['']);
               },
               (error) => {
                 console.error('Form submission error', error);
