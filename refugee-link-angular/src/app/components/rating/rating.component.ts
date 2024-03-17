@@ -68,9 +68,7 @@ export class RatingComponent{
       rating: doubleRating,
     };
 
-    // Log the JSON object before sending the request
-    console.log('JSON to be sent:', body);
-
+  
     this.http.post(url, body).subscribe({
       next: (response) => {
         console.log('Rating submitted successfully', response);

@@ -9,8 +9,8 @@ import { AuthService } from '../../services/auth/auth.service';
 })
 export class ChatComponent implements OnInit {
   messages: any[] = [];
-  currentUser!: string | null; // Now allows null
-  receiver: string | null = null; // Initialized as null
+  currentUser!: string | null; 
+  receiver: string | null = null; 
 
   constructor(private messageService: MessageService, private authService: AuthService) { }
 
@@ -28,7 +28,7 @@ export class ChatComponent implements OnInit {
     if (this.currentUser) {
       this.messageService.getMentorForRefugee(this.currentUser)
         .subscribe(mentor => {
-          this.receiver = mentor.username; // Handle this with proper checks
+          this.receiver = mentor.username; 
           this.fetchConversation();
         }, error => {
           console.error("Failed to fetch mentor", error);

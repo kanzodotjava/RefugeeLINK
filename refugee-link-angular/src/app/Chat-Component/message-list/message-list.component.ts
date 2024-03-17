@@ -32,9 +32,8 @@ export class MessageListComponent implements OnInit, AfterViewChecked{
     const refugeeUsername = this.authService.getUsername();
     if (refugeeUsername) {
       this.messageService.getMentorForRefugee(refugeeUsername).subscribe(data => {
-        // Assuming 'data' contains the mentor's username directly
-        // If it's wrapped inside an object, you might need something like data.username
-        this.selectedMentorUsername = data.username; // Adjust according to your API response structure
+        
+        this.selectedMentorUsername = data.username;
   
         // Once the mentor's username is set, fetch the messages
         this.messageService.getMessagesBetweenMentorAndRefugee(this.selectedMentorUsername, refugeeUsername).subscribe(messages => {
@@ -59,7 +58,6 @@ export class MessageListComponent implements OnInit, AfterViewChecked{
     if (refugeeUsername && this.selectedMentorUsername) {
       this.messageService.sendMessage(refugeeUsername, this.selectedMentorUsername, content)
         .subscribe(() => {
-          // Optionally, refresh the conversation list after sending a message
           this.onSelectMentor(this.selectedMentorUsername);
         }, error => {
           console.error("Failed to send message", error);
@@ -99,7 +97,7 @@ export class MessageListComponent implements OnInit, AfterViewChecked{
   }
 
   goToMentorSelect(): void {
-    this.router.navigate(['/mentor-select']); // Adjust the route as per your application's routing
+    this.router.navigate(['/mentor-select']);
   }
 
   ngOnDestroy() {

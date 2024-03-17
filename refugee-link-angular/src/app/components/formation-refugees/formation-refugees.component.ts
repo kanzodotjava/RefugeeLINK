@@ -48,7 +48,6 @@ export class FormationRefugeesComponent implements OnInit {
     this.apiService.approveRefugee(refugeeId, formationId).subscribe({
       next: (response) => {
         console.log('Refugee approved', response);
-        // Optionally, refresh the list or show a success message
       },
       error: (error) => console.error('Failed to approve refugee', error),
     });

@@ -35,7 +35,7 @@ export class OrganizationDashboardComponent implements OnInit {
   }
 
   fetchOrganizationId(): void {
-    const username = this.authService.getUsername(); // Assuming you have a getUsername method in your auth service
+    const username = this.authService.getUsername(); // Retrieve the username from local storage
     if (username) {
       this.apiService.getOrganizationIdByUsername(username).subscribe(
         (response) => {
@@ -61,8 +61,6 @@ export class OrganizationDashboardComponent implements OnInit {
 
       // Format the date to 'YYYY-MM-DD' format
       formData.startDate = startDate.toISOString().split('T')[0];
-
-      console.log('Form Data:', formData); // Log form data before sending the request
 
       // Call your API service method to create the formation
       this.apiService.createFormation(this.organizationId, formData).subscribe(

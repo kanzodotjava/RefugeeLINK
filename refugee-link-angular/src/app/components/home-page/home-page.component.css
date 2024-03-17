@@ -1,4 +1,3 @@
-/* home.component.css */
 body,
 html {
   margin: 0;
@@ -9,7 +8,6 @@ html {
   align-items: center;
 }
 
-/* Default styles */
 .hero {
   display: flex;
   align-items: center;
@@ -63,7 +61,7 @@ html {
   font-style: normal;
   font-weight: 400;
   font-size: 17px;
-  line-height: 30px; /* or 188% */
+  line-height: 30px; 
   color: #5e6282;
 }
 
@@ -73,7 +71,7 @@ html {
   background-color: #72c6e8; /* Blue background */
   color: white; /* White text */
   border: none; /* Remove button border */
-  border-radius: 10px; /* Optional: Add border-radius for rounded corners */
+  border-radius: 10px; 
 }
 
 .hero-image img {

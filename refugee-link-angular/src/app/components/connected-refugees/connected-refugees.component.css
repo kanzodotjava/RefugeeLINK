@@ -9,7 +9,7 @@
   
   .profile-picture {
     max-width: 100%; /* Ensures the image does not exceed its container */
-    max-height: 100%; /* Optional: if you want to ensure that the image height does not exceed the container's height */
+    max-height: 100%; 
     object-fit: cover;
     margin-top: 30px;
     margin-bottom: 50px;
@@ -48,12 +48,12 @@
 }
 
   .no-refugee-prompt .thank-you-image {
-    position: absolute; /* Position absolutely within .no-refugee-prompt */
-    top: -275px; /* Adjust as necessary to move the image above the container */
+    position: absolute; 
+    top: -275px; 
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Offset by half the image's width */
     max-width: 250px; /* Control the size of the image */
     height: auto;
-    border-radius: 50%; /* Optional: creates a circular image */
+    border-radius: 50%; /*Creates a circular image */
   }
 

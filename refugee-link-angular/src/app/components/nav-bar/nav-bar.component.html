@@ -26,7 +26,6 @@
         <ng-container *ngIf="getUserType() === 'Refugee'">
           <a routerLink="/mentor-select">Mentor Select</a>
           <a routerLink="/refugee-formations">Formations</a>
-          <!-- Add this line -->
         </ng-container>
         <ng-container *ngIf="getUserType() === 'Mentor'">
           <a routerLink="/connected-refugees">Connected Refugees</a>
@@ -58,6 +57,5 @@
       alt="English Flag"
       style="width: 20px; height: 15px; margin-left: 5px"
     />
-    <!-- English flag icon -->
   </div>
 </nav>

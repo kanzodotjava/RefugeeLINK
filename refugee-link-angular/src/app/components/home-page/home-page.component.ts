@@ -21,6 +21,6 @@ export class HomePageComponent {
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     // Check window width to determine whether to show or hide the nav toggle button
-    this.showNavToggle = window.innerWidth <= 768; // Adjust the breakpoint as needed
+    this.showNavToggle = window.innerWidth <= 768; 
   }
 }

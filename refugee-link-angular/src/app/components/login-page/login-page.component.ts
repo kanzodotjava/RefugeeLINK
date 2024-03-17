@@ -20,7 +20,7 @@ export class LoginPageComponent implements OnInit {
     private formBuilder: FormBuilder,
     private apiService: ApiService,
     private authService: AuthService,
-    private router: Router // Inject Router
+    private router: Router 
   ) {}
 
   ngOnInit(): void {
@@ -44,7 +44,6 @@ export class LoginPageComponent implements OnInit {
           // Save the username to local storage
           if (username) {
             this.authService.setUsername(username);
-            console.log('Username:', username); // Log the username to the console
           }
           this.router.navigate(['/']); // Redirect to homepage
         },

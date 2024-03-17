@@ -3,7 +3,6 @@
 <div
   class="news-grid grid grid-cols-1 md:grid-cols-3 gap-4 px-4 md:px-8 lg:px-16"
 >
-  <!-- Use an anchor tag around the entire news item and bind the href to news.url -->
   <a
     *ngFor="let news of newsData"
     [href]="news.url"

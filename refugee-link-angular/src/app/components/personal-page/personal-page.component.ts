@@ -84,7 +84,7 @@ export class PersonalPageComponent implements OnInit {
   }
   
   removeMentor() {
-    const userId = this.userDetails.id; // Assuming `id` is the correct property
+    const userId = this.userDetails.id;
     if (!userId) {
       console.error('User ID is not available');
       return;

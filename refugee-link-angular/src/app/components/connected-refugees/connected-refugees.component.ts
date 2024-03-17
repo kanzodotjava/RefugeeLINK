@@ -38,6 +38,6 @@ export class ConnectedRefugeesComponent implements OnInit {
   }
 
   goToChat(): void {
-    this.router.navigate(['/messages']); // Adjust the route as per your application's routing
+    this.router.navigate(['/messages']);
   }
 }

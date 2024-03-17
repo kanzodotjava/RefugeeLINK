@@ -7,7 +7,7 @@ import { NewsService } from '../../services/newsApi/news.service';
   styleUrls: ['./news.component.css'],
 })
 export class NewsComponent {
-  newsData: any[] = []; // Initialize with an empty array
+  newsData: any[] = []; 
 
   constructor(private newsApiService: NewsService) {}
 
@@ -17,7 +17,6 @@ export class NewsComponent {
 
   fetchNews() {
     this.newsApiService.getNews().subscribe((data: any) => {
-      // Assuming API returns an array of articles
       this.newsData = data.articles.slice(0, 6); // Get the first 6 articles
     });
   }

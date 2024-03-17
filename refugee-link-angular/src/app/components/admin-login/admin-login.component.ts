@@ -42,7 +42,7 @@ export class AdminLoginComponent implements OnInit {
             // Save user type in local storage
             this.authService.setUserType('admin');
             // Redirect to admin dashboard
-            window.location.href = '/admin-dashboard'; // You may want to use Angular Router for better navigation
+            window.location.href = '/admin-dashboard';
           } else {
             // If no message property found, display a generic success message
             this.message = 'Login successful';
