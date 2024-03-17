@@ -1,0 +1,6 @@
+version: '3.8'
+services:
+  jpa-app:
+    build: ./JPA/RefugeeLINK
+    ports:
+      - "8080:8080"
